@@ -1,0 +1,168 @@
+{% load static findUserPhone %}
+          <form id="subscription-form" method="POST"  class="needs-validation" novalidate >
+            <img src="{% static 'payments.png' %}" alt="Available Payments">
+            {% csrf_token %}
+            <div class="row mt-3">  
+              <div class="col-md-6">
+             <label> First Name: </label>
+             <input class="form-control" type="text"  id="first_name" value="{{ request.user.first_name }}" required="">
+             <div class="invalid-feedback text-dark font-weight-bolder">
+              Please provide a valild first name.
+            </div>
+            </div> 
+             <div class="col-md-6">
+          <label> Last Name: </label>
+          <input type="text" class="form-control"  id="last_name" value="{{ request.user.last_name }}" required="">
+          <div class="invalid-feedback text-dark font-weight-bolder">
+            Please provide a valid last name.
+          </div>
+        </div></div>
+        <div class="row"> 
+          <div class="col-md-6"> 
+            <label>Email:</label> <input type="email"  class="form-control" id="emailid" value="{{ request.user.email }}" required="">
+            <div class="invalid-feedback text-dark font-weight-bolder">
+              Please provide a valid email.
+            </div>
+          </div>
+          <div class="col-md-6"> 
+            <label>Phone Number:</label> <input type="text"  class="form-control" id="Phone_number" max="12" value="{{ profile.contactNumber }}" required="">
+            <div class="invalid-feedback text-dark font-weight-bolder">
+              Please provide a valid phone number.
+            </div>
+          </div>
+        </div> 
+        
+        <div class="row"> 
+        
+          <div class="col-md-6">
+          <label> City: </label><input type="text" class="form-control"  id="City" value="{{ profile.city }}" required="">
+          <div class="invalid-feedback text-dark font-weight-bolder">
+            Please provide a valid city.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label>State:</label>
+          <select id="State"  name="state" required="">
+                    <option {% if not profile %} selected="" {% endif %} hidden value="None">Select State</option>
+                    <option value="AL" {% if profile.state %} == "AL" selected="" {% endif %}>AL</option>
+                    <option value="AK"  {% if profile.state %} == "AK" selected="" {% endif %}>AK</option>
+                    <option value="AR" {% if profile.state %} == "AR" selected="" {% endif %}>AR</option>
+                    <option value="AZ" {% if profile.state %} == "AZ" selected="" {% endif %}>AZ</option>
+                    <option value="CA" {% if profile.state %} == "CA" selected="" {% endif %}>CA</option>
+                    <option value="CO" {% if profile.state %} == "CO" selected="" {% endif %}>CO</option>
+                    <option value="CT" {% if profile.state %} == "CT" selected="" {% endif %}>CT</option>
+                    <option value="DC" {% if profile.state %} == "DC" selected="" {% endif %}>DC</option>
+                    <option value="DE" {% if profile.state %} == "DE" selected="" {% endif %}>DE</option>
+                    <option value="FL" {% if profile.state %} == "FL" selected="" {% endif %}>FL</option>
+                    <option value="GA" {% if profile.state %} == "GA" selected="" {% endif %}>GA</option>
+                    <option value="HI" {% if profile.state %} == "HI" selected="" {% endif %}>HI</option>
+                    <option value="IA" {% if profile.state %} == "IA" selected="" {% endif %}>IA</option>
+                    <option value="ID"  {% if profile.state %} == "ID" selected="" {% endif %}>ID</option>
+                    <option value="IL" {% if profile.state %} == "IL" selected="" {% endif %}>IL</option>
+                    <option value="IN"  {% if profile.state %} == "IN" selected="" {% endif %}>IN</option>
+                    <option value="KS" {% if profile.state %} == "KS" selected="" {% endif %}>KS</option>
+                    <option value="KY"  {% if profile.state %} == "KY" selected="" {% endif %}>KY</option>
+                    <option value="LA" {% if profile.state %} == "LA" selected="" {% endif %}>LA</option>
+                    <option value="MA"  {% if profile.state %} == "MA" selected="" {% endif %}>MA</option>
+                    <option value="MD" {% if profile.state %} == "MD" selected="" {% endif %}>MD</option>
+                    <option value="ME"  {% if profile.state %} == "ME" selected="" {% endif %}>ME</option>
+                    <option value="MI" {% if profile.state %} == "MI" selected="" {% endif %}>MI</option>
+                    <option value="MN"  {% if profile.state %} == "MN" selected="" {% endif %}>MN</option>
+                    <option value="MO" {% if profile.state %} == "MO" selected="" {% endif %}>MO</option>
+                    <option value="MS"  {% if profile.state %} == "MS" selected="" {% endif %}>MS</option>
+                    <option value="MT" {% if profile.state %} == "MT" selected="" {% endif %}>MT</option>
+                    <option value="NC"  {% if profile.state %} == "NC" selected="" {% endif %}>NC</option>
+                    <option value="NE" {% if profile.state %} == "NE" selected="" {% endif %}>NE</option>
+                    <option value="NH" {% if profile.state %} == "NH" selected="" {% endif %} >NH</option>
+                    <option value="NJ" {% if profile.state %} == "NJ" selected="" {% endif %}>NJ</option>
+                    <option value="NM" {% if profile.state %} == "NM" selected="" {% endif %} >NM</option>
+                    <option value="NV" {% if profile.state %} == "NV" selected="" {% endif %}>NV</option>
+                    <option value="NY" {% if profile.state %} == "NY" selected="" {% endif %} >NY</option>
+                    <option value="ND" {% if profile.state %} == "ND" selected="" {% endif %}>ND</option>
+                    <option value="OH"  {% if profile.state %} == "OH" selected="" {% endif %}>OH</option>
+                    <option value="OK" {% if profile.state %} == "OK" selected="" {% endif %}>OK</option>
+                    <option value="OR" {% if profile.state %} == "OR" selected="" {% endif %}>OR</option>
+                    <option value="PA" {% if profile.state %} == "PA" selected="" {% endif %}>PA</option>
+                    <option value="RI" {% if profile.state %} == "RI" selected="" {% endif %}>RI</option>
+                    <option value="SC" {% if profile.state %} == "SC" selected="" {% endif %}>SC</option>
+                    <option value="SD" {% if profile.state %} == "SD" selected="" {% endif %}>SD</option>
+                    <option value="TN" {% if profile.state %} == "TN" selected="" {% endif %}>TN</option>
+                    <option value="TX" {% if profile.state %} == "TX" selected="" {% endif %}>TX</option>
+                    <option value="UT" {% if profile.state %} == "UT" selected="" {% endif %}>UT</option>
+                    <option value="VT" {% if profile.state %} == "VT" selected="" {% endif %}>VT</option>
+                    <option value="VA" {% if profile.state %} == "VA" selected="" {% endif %}>VA</option>
+                    <option value="WA" {% if profile.state %} == "WA" selected="" {% endif %}>WA</option>
+                    <option value="WI" {% if profile.state %} == "WI" selected="" {% endif %}>WI</option>
+                    <option value="WV" {% if profile.state %} == "WV" selected="" {% endif %}>WV</option>
+                    <option value="WY" {% if profile.state %} == "WY" selected="" {% endif %}>WY</option>
+        </select>
+        <div class="invalid-feedback text-dark font-weight-bolder" id="selectTagError">
+          Please provide a valid state.
+        </div>
+        </div> 
+        </div> 
+          
+         
+          
+          <input id="Country" name="country" type="text" class="form-control col-12 col-md-12 col-lg-12 col-xl-12 " placeholder="Ex: United States" required value="us" readonly hidden>
+         
+        <label>Card Details</label>
+        
+        
+          <div id="card-element" class="form-control" >
+          </div>
+            <div id="card-errors" role="alert"></div><br>
+            <button type="submit" class="btn btn-success " id="paymeny_update_done">Save</button>
+          </form>
+        
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="{% static 'music/update.js' %}"></script>
+
+<script>
+  $(document).ready(function()
+  {
+    $("#State").on("change", function(){
+      if($("#State :selected").val() != "None")
+      {
+        $("#selectTagError").hide(); 
+      }
+      else{
+        $("#selectTagError").show(); 
+      }
+    });
+  
+    var $input = $("#Phone_number");
+  $input.on("keyup", function (event) {
+      // 1
+      var $this = $(this);
+      var input = $this.val();
+
+      // 2
+      var input = input.replace(/[\D\s\._\-]+/g, "");
+
+      // 3
+      var split = 3;
+      var chunk = [];
+
+      for (var i = 0, len = input.length; i < len; i += split) {
+        split = i >= 4 && i <= 10 ? 4 : 3;
+        chunk.push(input.substr(i, split));
+      }
+
+      // 4
+      $this.val(function () {
+        return chunk.join("-").toUpperCase();
+      });
+    });
+
+  });  
+</script>
+
+
+
+
+
+
+    
+  

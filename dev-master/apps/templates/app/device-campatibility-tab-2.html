@@ -1,0 +1,481 @@
+<div
+  class="tab-pane fade"
+  id="profile"
+  role="tabpanel"
+  aria-labelledby="profile-tab"
+>
+  <div class="card mt-3 justify-content-center">
+    {% autoescape off %}
+
+    <div class="card-body pb-0 pb-md-0 pb-lg-0 pb-xl-0">
+      <p class="card-text">
+        {% if plan.category.Name == "T-Mobile" %}
+        Our services require you to bring your own device. Please check with this carrier to see if your phone is compatible.
+        {% else %}
+        Our services require you to bring your own device.
+        {% endif %}
+      </p>
+      <div class="container">
+        <!-- Progress Bar -->
+        <div class="row">
+          <ul id="progressbar">
+            <li id="tab-2-line-1" class="font-size-xs text-wrap">
+              Requirements
+            </li>
+            <li  id="tab-2-line-2" class="font-size-xs text-nowrap pl-3 pl-md-0">
+              Review/Payment
+            </li>
+          </ul>
+        </div>
+
+
+
+        <div class="row justify-content-end mt-lg-2 mt-xl-5">
+          <button
+            type="button"
+            class="btn bg-Puerto-Rico text-white "
+            id="showHomeTab_Exisiting"
+          >
+            Start
+          </button>
+        </div>
+      </div>
+
+      <div class="card-body pl-0 pr-0" id="beginshowHomeTab_Exisiting">
+        <div class="form-group" id="first_question_existing">
+          <label class="line-height-1-3 h5 mb-2 mb-md-0 mb-lg-0 mb-xl-0">Was your line active for at least 30 days?</label>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label  id="first_question_existing_label_yes"
+              class="btn btn-outline-Puerto-Rico  w-280 pt-10px pb-36px"
+              style="border-radius: 0.375rem !important;"
+            >
+              <input id="first_question_existing_option_1"
+                type="radio"
+                name="options"
+                id="option1"
+                autocomplete="off"
+              />
+              Yes
+            </label>
+            <label id="first_question_existing_label_no"
+              class="btn btn-outline-Puerto-Rico ml-5  w-280 pt-10px pb-36px"
+              style="border-radius: 0.375rem !important;"
+            >
+              <input id="first_question_existing_option_2"
+                type="radio"
+                name="options"
+                id="option2"
+                autocomplete="off"
+                
+              />
+              No
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group"
+          {% if plan.category.Name != "T-Mobile"  %} 
+            id="second_question_existing"
+          {% else %}
+            id="second_question_existing_extra"
+          {% endif %}
+            >
+          <label class="line-height-1-3 h5 mb-2 mb-md-0 mb-lg-0 mb-xl-0">
+            {% if plan.category.Name == "T-Mobile"  %}
+              Are you the primary account holder?
+            {% else %}
+              Are you the owner of your current account?
+            {% endif %}
+          </label>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label  
+            {% if plan.category.Name != "T-Mobile"  %}
+              id="second_question_existing_label_yes" 
+            {% else %}
+            id="second_question_existing_label_yes_extra" 
+            {% endif %}
+              class="btn btn-outline-Puerto-Rico  w-280 pt-10px pb-36px" style="border-radius: 0.375rem !important;"
+               >
+              <input 
+              {% if plan.category.Name != "T-Mobile"  %}
+                id="second_question_existing_option_1" 
+              {% else %}
+                id="second_question_existing_option_1_extra" 
+              {% endif %}
+              
+              type="radio" name="options" id="option1" autocomplete="off" /> Yes
+            </label>
+            <label 
+            id="second_question_existing_label_no" 
+            class="btn btn-outline-Puerto-Rico ml-5  w-280 pt-10px pb-36px" 
+            style="border-radius: 0.375rem !important;"
+            >
+            <input 
+              id="second_question_existing_option_2" 
+              type="radio" name="options" id="option2" autocomplete="off" />
+              No
+            </label>
+          </div>
+          <div class="form-group row pl-5 mt-5" id="second_question_existing_answer_no">
+            <p class="card-text text-danger">
+                You would need to be the account Owner to transition. Please contact Circledin Support for assistance.
+            </p>
+
+        </div>
+
+          <div class="col-12 col-md-12 col-lg-12 col-xl-12 mt-5 pr-0">
+            <div class="float-right">
+              <button type="button" class="btn bg-Puerto-Rico text-white " id="previous_show_first_question_existing"  >
+                Previous
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {% if  plan.category.Name == "T-Mobile" %}
+        <div class="form-group" id="third_question_extra">
+          <label class="line-height-1-3 h5 mb-6 mb-md-0 mb-lg-0 mb-xl-0">
+            Are you currently financing or leasing  any phones with T-Mobile?
+          </label>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons" >
+            <label id="third_question_extra_label_yes" class="btn btn-outline-Puerto-Rico  w-280 pt-10px pb-36px"  style="border-radius: 0.375rem !important;">
+              <input id="third_question_extra_yes"  type="radio" name="options" id="option1" autocomplete="off" /> Yes
+            </label>
+            <label id="third_question_extra_label_no" class="btn btn-outline-Puerto-Rico ml-5  w-280 pt-10px pb-36px" style="border-radius: 0.375rem !important;">
+              <input id="third_question_extra_no" type="radio" name="options" id="option2" autocomplete="off" />
+              No
+            </label>
+          </div>
+          <div class="form-group row pl-5 mt-2" id="third_question_extra_answer_yes">
+            <p class="card-text text-danger">
+              We cannot move your account until you pay off your phone. We recommend posting your line so others can join!
+            </p>
+          </div>
+          <div class="col-12 col-md-12 col-lg-12 col-xl-12 mt-5 pr-0">
+            <div class="float-right">
+              <button type="button" class="btn bg-Puerto-Rico text-white "   id="extra_third_question_btn">
+                Previous
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        {% endif %}
+
+
+      
+
+        <div class="form-group row pl-5" id="first_question_existing_answer_no">
+            <p class="card-text text-danger">
+                You will need to have you account active for at least 30 days. Please contact Circledin Support for assistance.
+            </p>
+        </div>
+
+        
+
+
+        <div class="row pl-5" id="extra_information_existing">
+          <div class="form-group min-width-200" >
+            <p class="h2 card-text"  >Transferring Billing Ownership</p>
+            
+
+            <div class="form-group mt-5 text-dark">
+              {% if plan.category.Name == "T-Mobile" %}
+              <p class="card-text h4">
+                Transferring your account to an Account Master can be done in 2 easy steps (~10 minutes)! Once you subscribe and the Account Master approves, we’ll send you step by step directions. 
+                Need additional help? Feel free to contact Circledin anytime!
+              </p>
+
+              {% elif  plan.category.Name == "Verizon" %}
+                <p class="card-text h4">
+                  Transferring your account to an Account Master can be done in 3 easy steps (~10 minutes)! Once you subscribe and the Account Master approves, we’ll send you step by step directions along with the Account Masters information to transfer to.  
+
+                  Need additional help? Feel free to contact Circledin anytime!
+
+                </p>
+
+              {% else %}
+              <p class="h3 card-text mb-0">Mobile Verizon App</p>
+              <ul >
+                <li >
+                  <span>
+                    Login into your Verizon Account
+                  </span>
+                  </li>
+                <li >
+                  <span>
+                    Plans & Devices
+                  </span>
+                  </li>
+                <li >
+                  <span>
+                    View Details on the Device you want to transer
+                  </span>
+                  </li>
+                <li >
+                  <span>
+                    Under Preference select Transfer Your Service to begin the
+                  process
+                  </span>
+                  
+                </li>
+                <li >
+                  <span>
+                    When requested please input the following Owner
+                  information:email_Owner,First_name_Owner, Lirst_name_Owner
+                  </span>
+                  
+                </li>
+              </ul>
+              {% endif %}
+            </div>
+          </div>
+          {% if plan.category.Name != "T-Mobile" and plan.category.Name != "Verizon" %}
+          <div class="form-group min-width-200" >
+            <div class="form-group mt-5 pl-5">
+              <p class="h3 card-text mb-0">Web</p>
+              <ul>
+                <li >
+                  <span>
+                    Login into your Verizon Account
+                  </span>
+                </li>
+                <li >
+                  <span>
+                    Select Account the Profile Settings
+                  </span>
+                  
+                </li>
+                <li >
+                  <span>
+                    Under Account Management on the Left panel select Transfer of
+                  Service
+                  </span>
+                  
+                </li>
+                <li >
+                  <span>
+                    Click Transfer Service
+                  </span>
+                  
+                </li>
+
+                <li >
+                  <span>
+                    Select the line you want to transfer and please input the
+                  following information:email_Owner,First_name_Owner,
+                  Lirst_name_Owner
+                  </span>
+                  
+                </li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+
+         
+          <div class="col-12 col-md-12 col-lg-12 col-xl-12 ">
+            <div class="float-right">
+              
+              <button
+            type="button"
+            class="btn bg-Puerto-Rico text-white  mt-2 mt-mb-0 mt-lg-0 mt-xl-0"
+            {% if plan.category.Name != "T-Mobile" %}
+              id="previous_show_second_question"
+            {% else %}
+            id="previous_show_extra_third_question"
+            {% endif %}
+          >
+            Previous
+          </button>
+              <button
+              type="button"
+              class="btn bg-Puerto-Rico text-white  mt-2 mt-mb-0 mt-lg-0 mt-xl-0"
+              id="paymentShow_Existing_next"
+            >
+            Proceed to Payment
+            </button>
+            
+            </div>
+            
+
+          </div>
+
+         
+        </div>
+
+      
+      </div>
+    </div>
+
+    {% endautoescape %}
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+
+
+    // //////////////////////////////////////////////////////////////////
+    // Tab 2 Manipulations
+    // //////////////////////////////////////////////////////////////////
+
+    // Hide Everything
+    $("#first_question_existing").hide();
+    $("#second_question_existing").hide();
+    $("#extra_information_existing").hide();
+    $("#first_question_existing_answer_no").hide();
+    $("#second_question_existing_answer_no").hide();
+    $("#second_question_existing_extra").hide();
+    $("#third_question_extra").hide();
+    $("#third_question_extra_answer_yes").hide();
+
+
+
+    $("#showHomeTab_Exisiting").on("click", function () {
+      $("#showHomeTab_Exisiting").hide();
+      $("#beginshowHomeTab_Exisiting").fadeIn(1000);
+      
+    //   First Question Indicator
+    // $("#question_2_stage_1").removeClass("badge-light");
+    // $("#question_2_stage_1").addClass("badge-success");
+    $("#tab-2-line-1").addClass("active");
+    $("#first_question_existing").fadeIn(1000);
+    });
+
+    // First Question Option 1
+    $("#first_question_existing_option_1").on("click" , function()
+    {
+        // Hide and clear things
+        $("#first_question_existing_answer_no").hide();
+        $("#first_question_existing").hide();
+        
+        
+        // Show Things
+        $("#second_question_existing").fadeIn(1000);
+        $("#second_question_existing_extra").show();
+
+        if($("#first_question_existing_option_1").prop("checked")){
+          $("#Existing_Customer_Review_Active_Days").html("Yes");
+        }
+        else{
+          $("#Existing_Customer_Review_Active_Days").html("No");
+        }
+
+
+        
+        
+    });
+
+    // First Question Option 2
+    $("#first_question_existing_option_2").on("click", function()
+    {
+        // console.log("askdnas");
+        $("#first_question_existing_answer_no").fadeIn(1000);
+    });
+
+
+    
+    // Second Question Option 1
+    $("#second_question_existing_option_1").on("click", function()
+    {
+        $("#second_question_existing").hide();
+        $("#second_question_existing_answer_no").hide();  
+        $("#extra_information_existing").fadeIn(1000);
+
+        if($("#second_question_existing_option_1").prop("checked")){
+          $("#Existing_Customer_Review_Account_Owner").html("Yes");
+        }
+        else{
+          $("#Existing_Customer_Review_Account_Owner").html("No");
+        }
+    }) ;
+
+    // Second Question Option 2
+    $("#second_question_existing_option_2").on("click", function()
+    {
+        $("#second_question_existing_answer_no").fadeIn("1000");
+        $("#third_question_extra").hide();
+    // $("#third_question_extra_answer_yes").hide();
+    });
+
+    // Next Button
+    // Requirements -> Payment
+    $("#paymentShow_Existing_next").on("click", function () {
+      $("#beginshowHomeTab_Exisiting").hide()
+      $("#paymentDiv").fadeIn(1000);
+      $("#tab-2-line-2").addClass("active");
+
+      // Hide Payment Submit Button
+      $("#submit_button").hide();
+
+      // Show Previous Button
+      $("#previous_question_question_2_stage_2").show();
+    });
+
+    // Show Previous Question
+    $("#previous_question_question_2_stage_2").on("click", function()
+    {
+      $("#paymentDiv").hide();
+      $("#extra_information_existing").show();
+      $("#beginshowHomeTab_Exisiting").fadeIn(1000);
+      $("#tab-2-line-2").removeClass("active");
+    });
+
+    // Show Previous Question 2
+    $("#previous_show_second_question").on("click", function()
+    {
+      $("#second_question_existing").fadeIn(1000);
+      $("#extra_information_existing").hide();
+    });
+
+    $("#previous_show_first_question_existing").on("click", function()
+    {
+      $("#first_question_existing").fadeIn(1000);
+      $("#second_question_existing").hide();
+      $("#second_question_existing_extra").hide();
+    });
+
+    $("#second_question_existing_label_yes_extra").on("click",function()
+    {
+      $("#third_question_extra").show();
+      $("#second_question_existing_extra").hide();
+      $("#second_question_existing_answer_no").hide();
+
+      if($("#second_question_existing_label_yes_extra").hasClass("active")){
+          $("#Existing_Customer_Review_Account_Owner").html("Yes");
+        }
+        else{
+          $("#Existing_Customer_Review_Account_Owner").html("No");
+        }
+    });
+
+    $("#third_question_extra_yes").on("click", function()
+    {
+        $("#third_question_extra_answer_yes").show();
+    });
+
+    $("#third_question_extra_label_no").on("click",function()
+    {
+      $("#third_question_extra").hide();
+      $("#third_question_extra_answer_yes").hide();
+      $("#extra_information_existing").show();
+    });
+
+    $("#extra_third_question_btn").on("click", function()
+    {
+      $("#third_question_extra").hide();
+      $("#second_question_existing_extra").show();
+      // $("#third_question_extra_answer_yes").hide();
+
+    });
+
+    $("#previous_show_extra_third_question").on("click",function()
+    {
+      $("#third_question_extra").show();
+      $("#extra_information_existing").hide();
+      // $("#third_question_extra_label_no").removeClass("active");
+    });
+
+  });
+</script>

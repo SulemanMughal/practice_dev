@@ -1,0 +1,349 @@
+
+{% autoescape off %}
+
+<script>
+  function resetDeviceCompatibilityModal() {
+    
+    // ********************************************************************************
+    // First Tab
+    // ********************************************************************************
+    
+    // Reset Indicators
+    $("#tab-1-line-1").removeClass("active");
+    $("#tab-1-line-2").removeClass("active");
+    $("#tab-1-line-3").removeClass("active");
+
+    // Remove IMEI Input
+    // $("#IMEI_1").val("");
+
+    // Hide IMEI ERROR CODE
+    $("#IMEI_1_error").hide();
+
+    // Hide Area Code Question
+    $("#home-tab-2-1").hide();
+
+
+    // Device Compatibility Option No 
+    $("#profile-2").removeClass("active");
+    $("#profile-2").removeClass("show");
+
+
+    // Device Compatibility Option Yes
+    $("#home-2").removeClass("active");
+    $("#home-2").removeClass("show");
+    $("#home-2").hide();
+
+    // ------------------------------------------------------------------------
+    // First Stage Form Reset
+    $("#showHomeTab").show();
+    $("#device_campatibility_question_1").hide();
+    $("#home-tab-2").removeClass("active");
+    $("#profile-tab-2").removeClass("active");
+    $("#myTab_2").hide();
+    // -----------------------------------------------------------------------------
+
+    // **************************************************************************
+    // Second Tab
+    // ***************************************************************************
+
+    // Reset Indicators
+    $("#tab-2-line-1").removeClass("active");
+    $("#tab-2-line-2").removeClass("active");
+    $("#tab-2-line-3").removeClass("active");
+
+    // Second Stage Form Reset
+    $("#id_Area_code").val("");
+    $("#id_area_code_error").hide();
+
+    // ***************************************************************
+    // Second Tab
+    // Show Begin Button
+    $("#showHomeTab_Exisiting").show();
+
+    // remove Indicators
+    // $("#question_2_stage_1").removeClass("badge-success");
+    // $("#question_2_stage_1").removeClass("badge-light");
+    // $("#question_2_stage_2").removeClass("badge-success");
+    // $("#question_2_stage_2").removeClass("badge-light");
+    // $("#question_2_stage_3").removeClass("badge-success");
+    // $("#question_2_stage_3").removeClass("badge-light");
+    $("#first_question_existing_label_yes").removeClass("active");
+    $("#first_question_existing_label_no").removeClass("active");
+    $("#second_question_existing_label_yes").removeClass("active");
+    $("#second_question_existing_label_no").removeClass("active");
+    $("#first_question_existing_answer_no").hide();
+    $("#second_question_existing_answer_no").hide();
+    $("#extra_information_existing").hide();
+    $("#second_question_existing").hide();
+
+    // **********************************************************************
+
+    // ************************************************************************
+    // Third tab
+    $("#tab-3-line-1").removeClass("active");
+    $("#tab-3-line-2").removeClass("active");
+    $("#tab-3-line-3").removeClass("active");
+
+    // $("#question_3_stage_1").addClass("badge-light");
+    // $("#question_3_stage_1").removeClass("badge-success");
+    // $("#question_3_stage_2").addClass("badge-light");
+    // $("#question_3_stage_2").removeClass("badge-success");
+    // $("#question_3_stage_3").addClass("badge-light");
+    // $("#question_3_stage_3").removeClass("badge-success");
+    $("#showHomeTab_Switching").show();
+    $("#beginshowHomeTab_Switching").hide();
+    $("#switch_1_error").hide();
+    $("#switch_2_error").hide();
+    $("#switch_3_error").hide();
+    // $("#showHomeTab_Switching").hide();
+    // $("#beginshowHomeTab_Switching").hide();
+    $("#home-3").hide();
+    // $("#myTab_3").show();
+    // $("#Tab_3_Question_1").show();
+
+    $("#myTab_3").hide();
+    $("#Tab_3_Question_1").hide();
+    $("#home-tab-3").removeClass("active");
+    $("#profile-tab-3").removeClass("active");
+    $("#switch_1").val("");
+    $("#switch_2").val("");
+    $("#switch_3").val("");
+
+    $("#tab_3_device_compabitibility_question").hide();
+    $("#tab_3_question_1_answer_yes").hide();
+
+    $("#tab_3_question_device_compatibility_yes_label").removeClass("active");
+
+    $("#tab_3_question_1_answer_no").hide();
+    $("#tab_3_question_device_compatibility_no_label").removeClass("active");
+    $("#Area_code_tab_3").val("");
+    // SwitchPaymentShowButton
+
+    // ************************************************************************
+
+    // $("#subscription-form").
+    $("#subscription-form").get(0).reset();
+
+    // Resolve Tab  Showing Issues
+    var y = document.getElementsByClassName("tab");
+    for (var i = 0; i < y.length; i++) {
+      // console.log(x[i]);
+      y[i].style.display = "none";
+    }
+    y[0].style.display = "block";
+
+    showTab(0);
+    currentTab = 0;
+
+    // Previous Button Issues
+    $("#previous_question_area_code").show();
+    document.getElementById("prevBtn").style.display = "none";
+    $("#submit_button").hide();
+    $("#nextBtn").show();
+
+    // hide payment form
+    $("#paymentDiv").hide();
+
+
+
+
+    $("#myTab_2Content_show_button").show();
+        if($("#myTab_2Content_show_button").attr("data-row") == "AT&T")
+        {
+          $("#device_campatibility_select_options_AT-T_div").show();
+          
+          
+    $("#device_campatibility_select_options_T_Mobiles_div").hide();
+    $("#device_campatibility_select_options_Verizon_div").hide();
+    $("#device_campatibility_select_options_Sprint_div").hide();
+
+
+        }
+        else if($("#myTab_2Content_show_button").attr("data-row") == "T-Mobiles")
+        {
+          $("#device_campatibility_select_options_T_Mobiles_div").show();
+          $("#device_campatibility_select_options_AT-T_div").hide();
+    
+    $("#device_campatibility_select_options_Verizon_div").hide();
+    $("#device_campatibility_select_options_Sprint_div").hide();
+
+   
+        }
+        else if($("#myTab_2Content_show_button").attr("data-row") == "Verizon")
+        {
+          $("#device_campatibility_select_options_Verizon_div").show();
+          $("#device_campatibility_select_options_AT-T_div").hide();
+    $("#device_campatibility_select_options_T_Mobiles_div").hide();
+    
+    $("#device_campatibility_select_options_Sprint_div").hide();
+
+   
+        }
+        else if($("#myTab_2Content_show_button").attr("data-row") == "Sprint")
+        {
+          $("#device_campatibility_select_options_Sprint_div").show();
+          $("#device_campatibility_select_options_AT-T_div").hide();
+    $("#device_campatibility_select_options_T_Mobiles_div").hide();
+    $("#device_campatibility_select_options_Verizon_div").hide();
+
+
+        }
+
+
+        $('#device_campatibility_select_options_AT-T').selectpicker('val','None');
+        $('#device_campatibility_select_options_T_Mobiles').selectpicker('val','None');
+        $('#device_campatibility_select_options_Verizon').selectpicker('val','None');
+        $('#device_campatibility_select_options_Sprint').selectpicker('val','None');
+      
+      
+
+
+
+
+
+
+
+
+
+// /////////////////////////////////////////
+
+$("#myTab_2Content_show_button_2").show();
+        if($("#myTab_2Content_show_button_2").attr("data-row") == "AT&T")
+        {
+          $("#device_campatibility_select_options_AT-T_div_2").show();
+          
+          
+    $("#device_campatibility_select_options_T_Mobiles_div_2").hide();
+    $("#device_campatibility_select_options_Verizon_div_2").hide();
+    $("#device_campatibility_select_options_Sprint_div_2").hide();
+
+
+        }
+        else if($("#myTab_2Content_show_button_2").attr("data-row") == "T-Mobiles")
+        {
+          $("#device_campatibility_select_options_T_Mobiles_div_2").show();
+          $("#device_campatibility_select_options_AT-T_div_2").hide();
+    
+    $("#device_campatibility_select_options_Verizon_div_2").hide();
+    $("#device_campatibility_select_options_Sprint_div_2").hide();
+
+   
+        }
+        else if($("#myTab_2Content_show_button_2").attr("data-row") == "Verizon")
+        {
+          $("#device_campatibility_select_options_Verizon_div_2").show();
+          $("#device_campatibility_select_options_AT-T_div_2").hide();
+    $("#device_campatibility_select_options_T_Mobiles_div_2").hide();
+    
+    $("#device_campatibility_select_options_Sprint_div_2").hide();
+
+   
+        }
+        else if($("#myTab_2Content_show_button").attr("data-row") == "Sprint")
+        {
+          $("#device_campatibility_select_options_Sprint_div_2").show();
+          $("#device_campatibility_select_options_AT-T_div_2").hide();
+    $("#device_campatibility_select_options_T_Mobiles_div_2").hide();
+    $("#device_campatibility_select_options_Verizon_div_2").hide();
+
+
+        }
+
+
+        $('#device_campatibility_select_options_AT_2').selectpicker('val','None');
+        $('#device_campatibility_select_options_T_Mobiles_2').selectpicker('val','None');
+        $('#device_campatibility_select_options_Verizon_2').selectpicker('val','None');
+        $('#device_campatibility_select_options_Sprint_2').selectpicker('val','None');
+
+
+
+        $("#tab_3_device_previous").show();
+        $("#myTab_2Content_show_button").hide();
+        $("#device_campatibility_select_options_div").hide();
+        $("#device_campatibility_select_options").selectpicker('val','None')
+
+        
+        
+        // $("#IMEI_2").val("");
+        $("#IMEI_2_error").hide();
+        // $("#device_campatibility_select_options_div").hide();
+        $("#device_campatibility_select_options_2").selectpicker('val','None')
+
+
+
+        // $("#device_campatibility_select_options_AT-T_2").val("None");
+          
+          
+          // $("#device_campatibility_select_options_T_Mobiles_2").val("None");
+          // $("#device_campatibility_select_options_Verizon_2").val("None");
+          // $("#device_campatibility_select_options_Sprint_2").val("None");
+
+// ////////////////////////////////////////
+
+        $("#device_campatibility_select_options_div_2").show();
+        $("#area_code_error_tabt_3").hide();
+
+
+        // ///////////////////////////////////////////////////////
+        // Tab-3
+        // //////////////////////////////////////////////////////
+        $("#tab_3_question_1_answer_yes_2").hide();
+
+
+        $("#IMEI_PAYMENT").val("");
+
+
+        $("#second_question_existing_extra").hide();
+    $("#third_question_extra").hide();
+    $("#third_question_extra_answer_yes").hide();
+    $("#second_question_existing_label_yes_extra").removeClass("active");
+    $("#second_question_existing_label_no_extra").removeClass("active");
+    $("#third_question_extra_label_yes").removeClass("active");
+    $("#third_question_extra_label_no").removeClass("active");
+    $("#previous_question_question_3_stage_2_extra").hide()
+
+    $("#switch_4").val("");
+
+    $("#IMEI_1").val("");
+
+    $("#first_question_existing_label_yes, #first_question_existing_label_no").removeClass("active");
+
+
+    // Clear values for tab 1 imei
+    $("#Get_New_Number_Review_IMEI").html("N/A");
+    for(var i = 0; i < $('[name="IMEI"]').length; i++ )
+    {
+      $($('[name="IMEI"]')[i]).val("") ;       
+    }
+
+    // Clear values for tab 1 area code
+    $("#Get_New_Number_Review_Area_Code").html("");
+    for(var i = 0; i < $('[name="AreaCode"]').length; i++ )
+    {
+      $($('[name="AreaCode"]')[i]).val("")     
+    }
+
+
+    // $('#dynamic_field_4 tr').remove();
+    // $("#dynamic_field_4").append('<tr><td class="p-0"><input type="text" class="form-control bg-light border border-dark col-12 col-md-6 col-lg-5 ml-7" id="switch_1" aria-describedby="emailHelp" placeholder="Enter Phone number #1" maxlength="12" name="switch_1"/></td></tr>');
+    // for(var j =2 ; j<$("#"))
+    // console.log($("#dynamic_field_4 tr"));
+    // for(var j = 1;j < $("#dynamic_field_4 tr").length; j++){
+    //   $($("#dynamic_field_4 tr")[j]).remove();
+    //   // console.log($("#dynamic_field_4 tr")[j]);
+    // }
+    // for(var j = 1; j < $("#exampleFormControlSelect1").val(); j++){
+    //       $('#dynamic_field_4').append('<tr id="row'+j+'"><td><input type="text" name="switch_1" id="switch_1" placeholder="Enter Phone number #' + (j+1) + ' (Optional)" class="form-control bg-light border border-dark col-12 col-md-6 col-lg-5 ml-2" maxlength="12" autocomplete="off" /></td></tr>'); 
+    //     }
+  }
+
+  $(document).ready(function () {
+    $("#Get_New_Number_Review, #Existing_Customer_Review, #Switching_Carrier_Review").hide();
+    $("#exampleModalDevice").on("hidden.bs.modal", function (e) {
+      resetDeviceCompatibilityModal();
+    });
+  });
+</script>
+
+
+{% endautoescape %}

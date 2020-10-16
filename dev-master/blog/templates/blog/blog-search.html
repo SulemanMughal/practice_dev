@@ -1,0 +1,105 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block title %}Search Results{% endblock %}
+{% block content %}
+<style>
+  img{
+    display: none !important;
+  }
+</style>
+    <section class="py-6">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <form class="rounded shadow" method="POST" action="{% url 'search_page' %}">
+              {% csrf_token %}
+              <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                  <span class="input-group-text border-0 pr-1">
+                    <i class="fe fe-search"></i>
+                  </span>
+                </div>  
+                <input type="text" class="form-control border-0 px-1" aria-label="Search our blog..." placeholder="Search our blog..." value="{{ search_string  }}" name="search">
+
+                <!-- Append -->
+                <div class="input-group-append">
+                  <span class="input-group-text border-0 py-0 pl-1 pr-3">
+
+                    <!-- Text -->
+                    <span class="h6 text-uppercase text-muted d-none d-md-block mb-0 mr-5">
+                      {{ records.count|default_if_none:0 }} results
+                    </span>
+
+                    <!-- Button -->
+                    <button type="submit" class="btn btn-sm btn-primary">
+                      Search
+                    </button>
+
+                  </span>
+                </div>
+
+              </div>
+            </form>
+
+          </div>
+        </div> <!-- / .row -->
+      </div>
+    </section>
+
+
+    <section>
+      <div class="container">
+        <div class="row">
+          {% for post in records %}
+          <div class="col-12 col-md-6 col-lg-4 d-flex">
+            
+            <!-- Card -->
+            <div class="card mb-6 shadow-light-lg lift lift-lg">
+
+              <!-- Body -->
+              <a class="card-body" href="{{ post.get_absolute_url }}">
+
+                <!-- Heading -->
+                <h3>
+                  {{ post.title }}
+                </h3>
+
+                <!-- Text -->
+                <p class="mb-0 text-muted">
+                  {{ post.body|safe|truncatechars_html:300 }}
+                </p>
+
+              </a>
+                
+              <!-- Meta -->
+              <a class="card-meta mt-auto" href="{{ post.get_absolute_url }}">
+
+                <!-- Divider -->
+                <hr class="card-meta-divider">
+
+                
+                <!-- Author -->
+                <h6 class="text-muted mr-2 mb-0">
+                  {{  post.user.username }}
+                </h6>
+                
+                <!-- Date -->
+                <p class="h6 text-uppercase text-muted mb-0 ml-auto">
+                  <time datetime="{{ post.timestamp }}">{{ post.timestamp }}</time>
+                </p>
+
+              </a>
+
+            </div>
+
+          </div>
+          {% endfor %}
+          
+        </div>
+      </div>
+    </section>
+
+
+
+    
+{% endblock %}

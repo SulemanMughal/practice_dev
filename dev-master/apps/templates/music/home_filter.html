@@ -1,0 +1,21 @@
+<section  class="bg-light-green-shade" >
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-10 col-md-6 col-lg-3 col-lg-5 pt-5 pb-5">
+          <div class="row align-items-center ">
+            <nav class="nav justify-content-center bg-light pt-2 pl-2 pr-2 br-all-10">    
+            {% for category in filters %}
+              {% if forloop.first %}
+              <a class="badge badge-pill badge-secondary-soft mr-1 mb-1 active" href="#" data-toggle="pill" data-filter="*" data-target="#portfolio" id="all" >
+                <span class="h4 " >All</span>
+              </a>
+              {% endif %}
+              <a class="badge badge-pill badge-secondary-soft mr-1 mb-1" href="#" data-toggle="pill" data-filter=".{{ category.slug }}" data-target="#portfolio" id="{{ category.slug }}">
+                <span class="h4 ">{{ category.Name }}</span>
+              </a>
+            {% endfor %}
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>

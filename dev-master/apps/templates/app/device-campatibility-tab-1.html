@@ -1,0 +1,521 @@
+{% load static %}
+<style>
+
+  
+@media(min-width:230px){
+  #progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	counter-reset: step;
+  width: 100% !important;
+}
+#progressbar li {
+	list-style-type: none;
+	color: black;
+	font-size: 10px;
+	width: 25%;
+	float: left;
+	position: relative;
+  font-weight: bolder;
+  text-align: center;
+  word-wrap: break-word;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+  width: 30px;
+	line-height: 30px;
+	display: block;
+	font-size: 10px;
+  font-weight: bolder;
+	color: #333;
+	background: #f9fbfd;
+  border-radius: 50%;
+	margin: 0 auto 5px auto;
+  text-align: center;
+  border: 1px solid #42ba96 !important;
+}
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 5px;
+	background: #f9fbfd;
+	position: absolute;
+	left: -50%;
+	top: 12px;
+	z-index: -1; 
+}
+#progressbar li:first-child:after {
+	content: none; 
+}
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #42ba96;
+	color: white; 
+  box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, 0.1) !important;
+}
+}
+
+@media(min-width:430px){
+  #progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	counter-reset: step;
+  width: 100% !important;
+}
+#progressbar li {
+	list-style-type: none;
+	color: black;
+	font-size: 14px;
+	width: 25%;
+	float: left;
+	position: relative;
+  font-weight: bolder;
+  text-align: center;
+  word-wrap: break-word;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+  width: 50px;
+	line-height: 50px;
+	display: block;
+	font-size: 20px;
+  font-weight: bolder;
+	color: #333;
+	background: #f9fbfd;
+  border-radius: 50%;
+	margin: 0 auto 5px auto;
+  text-align: center;
+  border: 1px solid #42ba96 !important;
+}
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 5px;
+	background: #f9fbfd;
+	position: absolute;
+	left: -50%;
+	top: 25px;
+	z-index: -1; 
+}
+#progressbar li:first-child:after {
+	content: none; 
+}
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #42ba96;
+	color: white; 
+  box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, 0.1) !important;
+}
+}
+
+  @media(min-width: 576px) {
+  #progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	counter-reset: step;
+  width: 100% !important;
+}
+#progressbar li {
+	list-style-type: none;
+	color: black;
+	font-size: 14px;
+	width: 25%;
+	float: left;
+	position: relative;
+  font-weight: bolder;
+  text-align: center;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+  width: 60px;
+	line-height: 60px;
+	display: block;
+	font-size: 20px;
+  font-weight: bolder;
+	color: #333;
+	background: #f9fbfd;
+  border-radius: 50%;
+	margin: 0 auto 5px auto;
+  text-align: center;
+  border: 1px solid #42ba96 !important;
+}
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 5px;
+	background: #f9fbfd;
+	position: absolute;
+	left: -50%;
+	top: 35px;
+	z-index: -1; 
+}
+#progressbar li:first-child:after {
+	content: none; 
+}
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #42ba96;
+	color: white; 
+  box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, 0.1) !important;
+}
+  }
+
+
+  @media(min-width: 768px){
+
+    #progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	counter-reset: step;
+  width: 100% !important;
+}
+#progressbar li {
+	list-style-type: none;
+	color: black;
+	font-size: 16px;
+	width: 25%;
+	float: left;
+	position: relative;
+  font-weight: bolder;
+  text-align: center;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+  width: 80px;
+	line-height: 80px;
+	display: block;
+	font-size: 20px;
+  font-weight: bolder;
+	color: #333;
+	background: #f9fbfd;
+  border-radius: 50%;
+	margin: 0 auto 5px auto;
+  text-align: center;
+  border: 1px solid #42ba96 !important;
+}
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 5px;
+	background: #f9fbfd;
+	position: absolute;
+	left: -50%;
+	top: 35px;
+	z-index: -1; 
+}
+#progressbar li:first-child:after {
+	content: none; 
+}
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #42ba96;
+	color: white; 
+  box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, 0.1) !important;
+}
+  }
+
+  @media(min-width: 992px){
+
+    #progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	counter-reset: step;
+  width: 100% !important;
+}
+#progressbar li {
+	list-style-type: none;
+	color: black;
+	font-size: 16px;
+	width: 25%;
+	float: left;
+	position: relative;
+  font-weight: bolder;
+  text-align: center;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+  width: 80px;
+	line-height: 80px;
+	display: block;
+	font-size: 20px;
+  font-weight: bolder;
+	color: #333;
+	background: #f9fbfd;
+  border-radius: 50%;
+	margin: 0 auto 5px auto;
+  text-align: center;
+  border: 1px solid #42ba96 !important;
+}
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 5px;
+	background: #f9fbfd;
+	position: absolute;
+	left: -50%;
+	top: 35px;
+	z-index: -1; 
+}
+#progressbar li:first-child:after {
+	content: none; 
+}
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #42ba96;
+	color: white; 
+  box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, 0.1) !important;
+}
+  }
+
+  @media (min-width: 1200px){
+
+    #progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	counter-reset: step;
+  width: 100% !important;
+}
+#progressbar li {
+	list-style-type: none;
+	color: black;
+	font-size: 16px;
+	width: 25%;
+	float: left;
+	position: relative;
+  font-weight: bolder;
+  text-align: center;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+  width: 80px;
+	line-height: 80px;
+	display: block;
+	font-size: 20px;
+  font-weight: bolder;
+	color: #333;
+	background: #f9fbfd;
+  border-radius: 50%;
+	margin: 0 auto 5px auto;
+  text-align: center;
+  border: 1px solid #42ba96 !important;
+}
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 5px;
+	background: #f9fbfd;
+	position: absolute;
+	left: -50%;
+	top: 35px;
+	z-index: -1; 
+}
+#progressbar li:first-child:after {
+	content: none; 
+}
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #42ba96;
+	color: white; 
+  box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, 0.1) !important;
+}
+  }
+
+
+
+</style>
+
+
+
+{% autoescape off %}
+<div class="tab-pane fade show " id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="card-body mt-3 justify-content-center pl-5 pl-md-5 pl-lg-5 pl-xl-5 pb-0 ">
+      <p class="card-text">
+        Our services require you to bring your own device.
+      </p>
+      <div class="container">
+        <div class="row">
+          <ul id="progressbar">
+            <li id="tab-1-line-1" class="font-size-xs text-wrap">
+              Device Compatibility
+            </li>
+            <li  id="tab-1-line-2" class="font-size-xs">
+              Area Code
+            </li>
+            <li id="tab-1-line-3" class="font-size-xs text-nowrap">
+              Review/Payment
+            </li>
+          </ul>
+        </div>
+        <div class="row justify-content-end mt-lg-2 mt-xl-5" >
+          <button type="button" class="btn bg-Puerto-Rico text-white   " id="showHomeTab">
+            Start
+          </button>
+        </div>
+      </div>
+      <div class="card-body justify-content-center pt-0 mt-0 pl-0 pb-0" id="beginHomeTab">
+        <div class="tab-content" id="myTab_2Content">
+          <div class="tab-pane fade" id="home-2" role="tabpanel" aria-labelledby="home-tab-2">
+            <div class="card p-0 mt-1">
+
+              <div class="container pl-lg-0 pl-xl-0">
+                {% autoescape off %}
+                <div class="row justify-content-left" id="home-tab-2-1">
+                  
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="h3 font-weight-bolder mb-2 line-height-3-4">Area Code</label>
+                      <span >
+                        Please  enter in a valid Area Code you would like your new number to be in
+                        <button type="button" class="btn pl-1 mr-0 pr-0 pt-0 pb-0" data-toggle="popover" title="Area Code" data-content="Please note we will provide a number with this area code."><i class="fa fa-info-circle"></i></button>
+                      </span>
+                      <table class="table table-borderless mb-0" id="dynamic_field_3"> 
+                        <tr>
+                          <td class="pl-0">
+                              <input type="number" class="form-control border border-dark    bg-light col-12" id="id_Area_code"
+                              placeholder="Area Code" name="AreaCode" required>
+                          </td>
+                          <td>
+
+                          </td>
+                        </tr>
+                      
+                      </table>
+                      <span class="text-danger mt-1 font-weight-bolder" id="id_area_code_error">Please enter a valid area code</span>
+                      <div class="col-12 pr-0 mt-1">
+                        <button type="button"  class="btn btn-light float-right font-weight-bolder"   title="Check More Area Code" name="add_3" id="add_3">
+                          Check another Area Code
+                        </button>
+                      </div>
+                    </div>
+                        
+                    </div>
+                    <div class="col-12  ml-5 ml-md-0 ml-lg-0 ml-xl-0">
+                      <div class="float-right">
+                        <button type="button" class="btn bg-Puerto-Rico text-white    float-right btn-w-200" id="area_code_tab_1_next_2">
+                          Proceed to Payment
+                        </button>
+                        <button type="button" class="btn bg-Puerto-Rico text-white    float-right mr-0 mr-md-0 mr-lg-2 mr-xl-2 mt-2 mt-md-2 mt-lg-0 mt-xl-0 btn-w-200" id="area_code_tab_1_previous_2">
+                          Previous
+                        </button>
+                      </div>
+                    </div>
+                    
+                  
+                </div>
+                <div class="row justify-content-left" id="home-tab-2-2">
+                  <div class="col-12 pl-0 pl-md-5 pl-lg-5 pl-xl-5">
+                    <p class="card-text font-weight-bolder h2 mb-0 text-left">
+                      Will my phone work on this network? 
+                    </p>
+                    <div class="container">
+                      <div class="row">
+                        <span class="col-12 col-form-label p-0">We recommend checking with the specific carrier to see if your device is compatible on their network. Optionally, type in your IMEI and we’ll be happy to check for you.
+                         
+                        </span>
+                      </div>
+                      <div class="row mb-2 mt-5">
+                        
+                        <table class="table table-borderless" id="dynamic_field">  
+                          <tr  class="pl-0">  
+                               <td><input type="text" class="form-control border col-12 border-dark    bg-light " 
+                                placeholder="IMEI" name="IMEI" id="IMEI_1" required maxlength="17" /></td>  
+                               <td></td> 
+                          </tr>  
+                        </table> 
+                        <div class="col-12 pr-0 mt-1">
+                          <button type="button"  class="btn btn-light float-right font-weight-bolder"   title="Check More Device's IMEI" name="add" id="add">
+                            Check another phone
+                          </button>
+                        </div>
+                        
+                       
+                      </div>
+                         
+                        <p id="IMEI_1_error" class="mt-2 text-danger card-text">  
+                          Please enter a valid 15-digit IMEI
+                        </p>
+
+                      <div class="row mt-2 mb-2 ">
+                        <div class="card shadow-lg p-2 text-muted card-w-250">
+                          <p class="card-text text-primary">
+                            Not sure how to get your IMEI? Follow one of the steps below
+                          </p>
+                          <ol class="font-size-sm">
+                          <li>Enter <span class='font-weight-bolder'>*#06#</span> on your phone's dial pad.</li>
+                          <li>Check in the settings:
+                            <div><span class='font-weight-bolder'>Android</span>: Go to Settings > About device > Status</div>
+                            <div><span class='font-weight-bolder'>iPhone</span>: Go to Settings > General > About</div>
+                            <div><span class='font-weight-bolder'>Windows Phone</span>: Go to Settings > About > More info</div>
+                          </li>
+                        </ol>
+                        </div>
+                      </div>
+                    </div>
+                   
+                      
+                      <div class="float-right">
+                
+                        <button type="button" class="btn bg-Puerto-Rico text-white    float-right "
+                          id="next_question_area_code_device_compatibility">
+                          Next
+                        </button>
+    
+                        
+    
+                    </div>
+                  </div>
+                  
+                </div>
+
+                {% endautoescape %}
+              
+              </div>
+
+            </div>
+          </div>
+          <div class="tab-pane fade " id="profile-2" role="tabpanel" aria-labelledby="profile-tab-2">
+            <div class="card p-3 mt-1">
+              <p class="card-text font-weight-normal" id="device_error_parent">
+                
+              </p>
+
+              <form method="POST" action="{% url 'DeviceCompatibilityIssue_URL' plan.category.id plan.id %}" id="device_error_form">
+                {% csrf_token %}
+                <div class="form-group row">
+                  <div class="col-12">
+                    <p class="card-text mb-3 font-weight-bolder"> 
+                      Type in your Email and IMEI below. CircledIn representative will confirm and get back to you. <button type="button" class="btn pl-1 mr-0 pr-0 pt-0 pt-7px" data-toggle="popover" title="IMEI Number" data-content="IMEI number—15 digits that tells you the make, model, and if it’s ready to use on a specific network"
+                  "><i class="fa fa-info-circle"></i></button>
+
+                    </p>
+
+                  </div>
+                  <div class="col-4">
+                    <input type="text" placeholder="IMEI" id="id_IMEI" class="form-control bg-light    border border-dark"  required maxlength="15" name="IMEI_element">
+                   
+                  </div>
+                  <div class="col-4">
+                    <input type="email" name="contact_email" placeholder="Email" class="form-control bg-light    border border-dark" required value="{{ request.user.email }}" >
+                  </div>
+                  <div class="col-4">
+                    <button type="submit" class="btn btn-success   ">Submit</button>
+                  </div>
+                </div>
+               
+              </form>
+
+            </div>
+            <div class="float-right">
+              <button class="btn btn-danger   " id="Device_None_Previous_Button">
+                Previous
+              </button>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include 'app/tab-1-script.html' %}
+{% endautoescape %}

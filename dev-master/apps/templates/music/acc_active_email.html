@@ -1,0 +1,14 @@
+{% autoescape off %}
+<p>
+Greetings {{ user.first_name }},
+</p>
+<p>
+Welcome to Circledin! To help protect your privacy and ensure that the email belongs to you, click the link below. 
+</p>
+<p>
+<a href="{{ build_link }}" style="font-size: 18px !important;">Verify Email Address</a>
+</p>
+<p>
+Thank you for joining Circledin
+</p>
+{% endautoescape %}

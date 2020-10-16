@@ -1,0 +1,45 @@
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="end_payment_exampleModal" tabindex="-1" role="dialog" aria-labelledby="end_payment_exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header ">
+
+          <h2 class="modal-title mx-auto font-weight-bold" id="end_payment_exampleModalLabel">Thank You for Joining CircledIn!</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <p class="card-text">
+              Your order has been placed and will be processed as soon as possible.
+          </p>
+          <p class="card-text">
+            {% autoescape off %}
+            Make sure you make note off your order number, which is <span class="font-weight-bold">
+              {% if plan.category.Name == "Verizon" %}
+                CI-VZ{{ objects|add:1 }}
+              {% elif plan.category.Name == "T-Mobile" %}
+                CI-TM{{ objects|add:1 }}
+              {% elif plan.category.Name == "Sprint" %}
+                CI-SP{{ objects|add:1 }}
+              {% elif plan.category.Name == "AT&T" %}
+                CI-ATT{{ objects|add:1 }}
+              {% elif plan.category.Name == "Cricket" %}
+                CI-CR{{ objects|add:1 }}
+              {% endif %}
+            {% endautoescape %}
+            </span>
+        </p>
+        <p class="card-text">
+            You will be receiving an email shortly with confirmation of your order.
+        </p>
+        </div>
+        <div class="modal-footer justify-content-center border-0">
+          <a type="button" class="btn btn-secondary" href="{% url 'home' %}" >Back to Homepage</a>
+          <a type="button" class="btn btn-danger" href="{% url 'edit_profile' %}">My Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>

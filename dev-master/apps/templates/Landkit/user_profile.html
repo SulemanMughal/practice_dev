@@ -1,0 +1,76 @@
+{% extends 'Landkit/Account_Header.html' %}
+{% load static %} 
+{% block middle_content %}
+<div class="card card-bleed shadow-light-lg mb-6">
+<div class="card-header">
+  <!-- Heading -->
+  <h2 class="mb-0">
+    {{ request.user.first_name }}'s Profile
+  </h2>
+</div>
+<div class="card-body">
+       
+        {% include "Landkit/user_profile_info.html" %}
+</div>
+</div>
+<div class="card card-bleed shadow-light-lg mb-6">
+  <div class="card-header">
+    <!-- Heading -->
+    <h2 class="mb-0">
+      My Circles  <button type="button" class="btn pl-0 pr-3 mt-1" data-toggle="popover"    data-content="Mobile plans that you are currently subscribe too." 
+            data-html="true" ><i class="fa fa-info-circle"></i></button>
+    </h2>
+  </div>
+  <div class="card-body">
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-12 pl-0 pr-0">
+          {% include 'Landkit/dashboard_dashboard.html' with objS=objS %}
+        </div>
+      </div>
+    </div>
+  </div >
+</div>
+<div class="card card-bleed shadow-light-lg mb-6">
+  <div class="card-header">
+    <!-- Heading -->
+    <h2 class="mb-0">
+      My Owned Circles
+            <button type="button" class="btn pl-0 pr-3 mt-1" data-toggle="popover" title="My Owned Circles"   data-content="Circles that you created and made available for other users to join. " 
+            data-html="true" ><i class="fa fa-info-circle"></i></button>
+    </h2>
+  </div>
+  <div class="card-body">
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-12 pl-0 pr-0">
+          {% include "Landkit/plans_profile.html" %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="{% static 'music/js/contactNumberFormat_script.js' %}"></script>
+{% include "Landkit/user_profile_info_script_work.html" %}
+{% if messages %}
+  {% for message in messages %}
+    {% if message.tags == "success" %}
+        <script>
+          $(document).ready(function()
+          {
+            $("#exampleModal_success_ful_add_plan").modal("show");
+          })
+        </script>
+    {% elif message.tags == "warning" %}
+        <script>
+          $(document).ready(function()
+          {
+            $(document).ready(function () {
+    $("#exampleModalsuccessfull").modal("show");
+  });
+          });
+        </script>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% autoescape off %}
+Greetings {{ user.first_name }},
+
+Congrats on joining  {{ carrier_name }} - {{ plan_name }} - {{ family_name }}
+
+Confirmation Code : #{{ order_number }}
+
+Next steps:
+1) Circledin will approve your subscription within 24 hours.
+2) For user who are getting a new number or switching carriers, expect a Sim card within 1-3 business day else use your current SIM card.  
+3) Circledin will activate your account and verify with you once it's ready.
+
+Account name : {{ user.email }}
+
+Check Status: {{ build_link }}
+
+{% endautoescape %}

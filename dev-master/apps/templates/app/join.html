@@ -1,0 +1,620 @@
+{% extends 'Base.html' %}
+{% load static humanize FindSubUser findNextMonth findNextYear findFindSubID findSubStatus FindSubObject findPaymentCurrentDay  findSubSlots findSubCancelStatus FindCategoryPlanInfo mathfilters FindPlanFixedPrice  %}
+
+{% include "Landkit/META_TAG.html" %}
+
+
+{% block title %} Join a Plan {% endblock %}
+
+
+{% block content %}
+
+
+<style>
+  .inner 
+  {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    
+  }
+ 
+@media (min-width:200px ) and (max-width:  700px){
+  .vh-15{
+    height: 15vh;
+  }
+}
+
+
+</style>
+
+
+
+{% autoescape off %}
+
+
+{% include 'modals/FeedbackForms.html' with edit=False subs=request.user|FindSubObject:plan.id   %}
+{% include "modals/finishing_payment_modal.html" %}
+{% include "modals/payment_processing_waiting_modal.html" %}
+{% include "modals/payment_error.html" %}
+{% with x=plan.familySize y=plan.currentFamilySize %}
+<section  class=" pt-5 pt-md-5 pt-lg-7 pt-xl-7 pb-10 pb-md-10 pb-lg-12 pb-xl-12  bg-dark-black"
+  style="background-image: url({% static 'Landkit/images/pattern-1.svg' %});">
+
+  <div class="container">
+    <div class="row justify-content-center ">
+      <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+        <h1 class="display-6 font-weight-bold text-white mb-6  px-lg-11 ml-lg-3 mt-10 mt-md-10 mt-lg-3 mt-xl-3">
+          {{ plan.category }} - {{ plan.plan_name }}
+        </h1>
+      </div>
+
+
+
+    </div>
+
+    <div class="row justify-content-center mt-5 ml-1 mr-1">
+      <div class="col-12 col-md-4 col-lg-3 col-xl-3 text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25 vh-xl-25 {% if plan.category.Name == 'Verizon'%} bg-Venetian-Red {% else %} bg-fresh-color {% endif %} ml-md-1 ml-lg-1 ml-xl-1 mr-md-1 mr-lg-1 mr-xl-1" style="{% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;   {% endif %} "  >
+        <div class="center position-xl-relative position-relative">
+          <span class="h4 text-white font-weight-bold p-md-0 p-lg-0 p-xl-0">{{ plan.id|FindCategoryPlanInfo:"1" }}</span>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-3 col-xl-3 {% if plan.category.Name == 'Verizon'%} bg-Venetian-Red {% else %} bg-fresh-color {% endif %} vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25 text-center  mt-1 mt-md-0 mt-lg-0 mt-xl-0 mr-md-1 mr-lg-1 mr-xl-1" style=" {% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;  {% endif %}" >
+        <div class="center position-xl-relative position-relative">
+          <span class="h4  text-white font-weight-bold " >{{ plan.id|FindCategoryPlanInfo:"3" }}</span>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-3 col-xl-3  text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25 {% if plan.category.Name == 'Verizon'%} bg-Venetian-Red {% else %} bg-fresh-color {% endif %}   mt-md-1 mr-md-1 mt-1 mt-md-0 mt-lg-0 mt-xl-0 " style=" {% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;  {% endif %} " >
+        <div class="center position-xl-relative position-relative">
+          <span class="h4  text-white font-weight-bold ">{{ plan.id|FindCategoryPlanInfo:"5" }}</span>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-3 col-xl-3  text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25  {% if plan.category.Name == 'Verizon'%} bg-Venetian-Red {% else %} bg-fresh-color {% endif %}   mr-md-0 mr-lg-1 mr-xl-1 mt-1 mt-md-1 mt-lg-1 mt-xl-1 " style=" {% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;  {% endif %} " >
+        <div class="center position-xl-relative position-relative">
+          <span class="h4 text-white font-weight-bold">{{ plan.id|FindCategoryPlanInfo:"2" }}</span>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-3 col-xl-3  text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25  {% if plan.category.Name == 'Verizon'%} bg-Venetian-Red {% else %} bg-fresh-color {% endif %} mr-md-1 ml-md-0  mr-lg-1 mr-xl-1 mt-1 mt-md-1  mt-lg-1 mt-xl-1" style=" {% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;  {% endif %} " >
+        <div class="center position-xl-relative position-relative">
+          <span class="h4 text-white font-weight-bold">{{ plan.id|FindCategoryPlanInfo:"4" }}</span>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-3 col-xl-3   {% if plan.category.Name == 'Verizon'%} bg-Venetian-Red {% else %} bg-fresh-color {% endif %} text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25  mt-1 mt-md-1 mt-lg-1 mt-xl-1 " style=" {% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;  {% endif %} " >
+        <div class="center position-xl-relative position-relative">
+          <span class="h4 text-white font-weight-bold ">+{{ plan.total_slots }} Spots Left </span>
+        </div>
+      </div>
+
+
+      </div>
+
+
+  </div>
+
+</section>
+
+<section class="bg-light p-2 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-7 col-xl-7">
+        <div class="d-flex">
+          <span class="h3 align-self-end pt-3 mt-1 text-dark font-weight-bold">{{ plan.family_name }}</span>
+        </div>
+        <div class="d-flex">
+          <span class="h3 align-self-end pt-3 mt-1 text-dark font-weight-bold">Member Since {{ plan.created|date:"Y" }}</span>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+              <div class="d-flex">
+                <span class="h3 align-self-end pt-3 mt-1 text-dark font-weight-bold">Family Rules</span>
+              </div>
+              <div class="d-flex">
+                <ul class="list-group pl-5">
+                  {% for i in familyRules %}
+                  <li >{{ i.explanation }}</li>
+                  {% empty %}
+                  <li >No Family Rules has been decided yet.</li>
+                {% endfor %}
+                </ul>
+
+              </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+              <div class="d-flex">
+                <span class="h3 align-self-end pt-3 mt-1 text-dark font-weight-bold">Cancellation Policy</span>
+              </div>
+              <div class="d-flex">
+                <ul class="list-group pl-5">
+                  {% for i in CncellationPolicy %}
+                  <li >{{ i.explanation }}</li>
+                  {% empty %}
+                  <li >No Cancellation Policy has been decided yet.</li>
+                {% endfor %}
+                </ul>
+
+              </div>
+              <div class="d-flex">
+                <span class="card-text  pt-3 mt-1 text-dark font-weight-bold text-nowrap">Payment Date</span>
+                <span class="card-text  pt-3 mt-1 text-dark font-weight-bold text-nowrap">&nbsp;{{ plan.monthly_payment_date|findPaymentCurrentDay|ordinal }} of each month</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <hr class="text-dark border border-secondary" >
+        <div class="container d-none">
+          <div class="row">
+            <div class="col-12 col-md-12 col-lg-8 col-xl-8">
+              <div class="d-flex">
+                <span class="h5 align-self-end pt-3 mt-1 text-dark font-weight-bold">If you run into an issues with your phone bill, need a new SIM or anything of that nature, please feel free to contact me and I'wll make sure you get what you need.</span>
+              </div>
+
+            </div>
+            <div class="col-12 col-md-12 col-lg-4 col-xl-4">
+              <div class="form-group">
+                <button class="btn text-white bg-fresh-color p-2 w-100" type="button" >Contact  Me</button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-12 col-lg-8 col-xl-8">
+              <div class="d-flex">
+                <span class="h5   mt-1 text-dark font-weight-bold">Contact Circledin Support if you have any questions regarding your order.</span>
+              </div>
+
+            </div>
+            <div class="col-12 col-md-12 col-lg-4 col-xl-4 mt-3" >
+              <div class="form-group">
+                <a class="btn text-white bg-fresh-color   p-2 w-100" type="button" href="{% url 'contact' %}" >Support</a>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <hr class="text-dark border border-secondary" >
+
+        <div class="container pl-0 pr-0">
+          <div class="d-flex">
+            <span class="h1 align-self-end pt-3 mt-1 text-dark font-weight-bold">Process</span>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-12 col-lg-12 col-xl-12 mb-2">
+              <div class="card bg-transparent">
+                <div class="card-body bg-fresh-color"  style="border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-top-left-radius: 50px;border-bottom-left-radius: 50px;">
+                    <div class="container pl-3 pr-1">
+                      <div class="row ">
+                        <div class="col-12 col-md-12 col-lg-3 col-xl-3">
+                          <div class="row d-none d-md-block d-lg-block d-xl-block">
+                            <span class="badge badge-lg badge-primary badge-rounded-circle pt-5  pl-5 pr-5 pb-8">
+                              <span style="font-size: 200%;">1</span>
+                            </span>
+                          </div>
+
+                          <div class="row">
+                            <div class="d-flex">
+                              <span class="h3 align-self-end pt-3 mt-1 text-white font-weight-bold   text-left"><strong style="font-size: 14px !important;">Join Plan</strong></span>
+                            </div>
+                          </div>
+
+                          <div class="row pr-2">
+                            <div class="d-flex">
+                              <span class="h5 align-self-end text-white font-weight-normal text-left" style="font-size: 12px !important;">Select how many slots you would like and join the circle.</span>
+                            </div>
+                          </div>
+
+
+                        </div>
+
+                        <div class="col-12 col-md-12 col-lg-3 col-xl-3  ">
+                          <div class="row d-none d-md-block d-lg-block d-xl-block">
+                            <span class="badge badge-lg badge-primary badge-rounded-circle pt-5  pl-5 pr-5 pb-8">
+                              <span style="font-size: 200%;">2</span>
+                            </span>
+                          </div>
+
+                          <div class="row">
+                            <div class="d-flex">
+                              <span class="h3 align-self-end pt-3 mt-1 text-white font-weight-bold text-left"><strong style="font-size: 14px !important;">Owner Approval</strong></span>
+                            </div>
+                          </div>
+
+                          <div class="row pr-2">
+                            <div class="d-flex">
+                              <span class="h5 align-self-end text-white font-weight-normal text-left" style="font-size: 12px !important;">The owner of the plan will be notified and will begin adding in your line to the family.</span>
+                            </div>
+                          </div>
+
+
+                        </div>
+
+                        <div class="col-12 col-md-12 col-lg-3 col-xl-3  ">
+                          <div class="row d-none d-md-block d-lg-block d-xl-block">
+                            <span class="badge badge-lg badge-primary badge-rounded-circle pt-5  pl-5 pr-5 pb-8">
+                              <span style="font-size: 200%;">3</span>
+                            </span>
+                          </div>
+
+                          <div class="row">
+                            <div class="d-flex">
+                              <span class="h3 align-self-end pt-3 mt-1 text-white font-weight-bold  text-left"><strong style="font-size: 14px !important;">Approved</strong></span>
+                            </div>
+                          </div>
+
+                          <div class="row pr-2">
+                            <div class="d-flex">
+                              <span class="h5 align-self-end text-white font-weight-normal text-left" style="font-size: 12px !important;">Once approved we'll send you a new sim card or transfer your account depending on your scenario.</span>
+                            </div>
+                          </div>
+
+
+                        </div>
+
+                        <div class="col-12 col-md-12 col-lg-3 col-xl-3">
+                          <div class="row d-none d-md-block d-lg-block d-xl-block">
+                            <span class="badge badge-lg badge-primary badge-rounded-circle pt-5  pl-5 pr-5 pb-8">
+                              <span style="font-size: 200%;">4</span>
+                            </span>
+                          </div>
+
+                          <div class="row">
+                            <div class="d-flex">
+                              <span class="h3 align-self-end pt-3 mt-1 text-white font-weight-bold   text-left"><strong style="font-size: 14px !important;">Ready to use</strong></span>
+                            </div>
+                          </div>
+
+                          <div class="row pr-2">
+                            <div class="d-flex">
+                              <span class="h5 align-self-end text-white font-weight-normal text-left" style="font-size: 12px !important;">Enjoy the premium data plan with the low cost!</span>
+                            </div>
+                          </div>
+
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-12 col-md-12 col-lg-5 col-xl-5 mt-2 mt-md-2 mt-lg-0 mt-xl-0 ">
+        <div class="card border border-dark shadow-lg" style="border-radius: 25px 25px;">
+          
+
+          <div class="card-body">
+            <!-- Badge -->
+          <div class="position-relative text-right mt-n8 mr-n4 mb-5 ">
+            <span class="badge badge-pill badge-danger shadow-lg"  >
+               <span class="h5 text-uppercase">${{ plan.id|FindPlanFixedPrice|intcomma }}/MO</span>
+             </span>
+           </div>
+            <form action="." method="POST">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Number of Guests</label>
+
+                <select class="form-control selectpicker border border-dark" style="border-radius: 2.375rem !important ;" id="exampleFormControlSelect1" {% if not plan.total_slots != 0 %}
+                  disabled {% endif %} {% if request.user|FindSubUser:plan.id %} disabled {% endif %}>
+                  {% for i in slots %}
+                  <option value="{{ i }}"
+                    {% if request.user.is_authenticated %}{% if request.user|FindSubUser:plan.id %}{% if request.user|findSubSlots:plan.id %}
+                    {% if request.user|findSubSlots:plan.id == i %} selected {% endif %} {% endif %} {% endif %}
+                    {% endif %}>
+                    {{ i }}</option>
+                  {% endfor %}
+                  {% if not plan.total_slots != 0 %}
+                  {% if request.user.is_authenticated %}{% if request.user|FindSubUser:plan.id %}{% if request.user|findSubSlots:plan.id %}
+                  <option value="{{ request.user|findSubSlots:plan.id }}" >{{ request.user|findSubSlots:plan.id }}
+                  </option>
+                  {% endif %}
+                  {% endif %}
+                  {% endif %}
+                  {% endif %}
+                </select>
+
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col">
+                    <label for="exampleForm" class="text-nowrap">Subscription Fees 
+                      <button type="button" class="btn pl-1 mr-0 pr-0 pt-0 pb-0" data-toggle="popover"  data-content="This helps us keep the lights on."><i class="fa fa-info-circle"></i></button>
+                    </label>
+
+                  </div>
+                  <div class="col text-right mr-3">
+                    <p class="card-title font-weight-bold mt-2" >$<span id="subs_Section">5</span> /month
+                  </p>
+                  </div>
+
+                </div>
+                
+
+
+              </div>
+              <div class="form-group ">
+                <div class="row">
+                  <div class="col">
+                    <label for="exampleForm">Mobile Cost <button type="button" class="btn pl-1 mr-0 pr-0 pt-0 pb-0" data-toggle="popover"  data-content="Excluding taxes and fees from your carrier."><i class="fa fa-info-circle"></i></button></label>
+
+                  </div>
+                  <div class="col text-right mr-3">
+                    <p class="card-title font-weight-bold"  id="payment" data="{{ plan.id|FindPlanFixedPrice }}" >$<span id="paymentSub">{{ plan.id|FindPlanFixedPrice|intcomma }}</span> /month
+                  </p>
+                  </div>
+
+                </div>
+
+
+
+              </div>
+              <div class="form-group border border-dark pt-2 pl-2 border-bottom-0 border-left-0 border-right-0">
+                <div class="row">
+                  <div class="col">
+                    <label for="exampleForm">Total</label>
+
+                  </div>
+                  <div class="col text-right mr-3">
+                    <p class="card-title font-weight-bold mt-2" style="font-size: 20px;" id="total"
+                    data="{{ plan.currently_monthly_payment_per_line }}">${{ plan.id|FindPlanFixedPrice|add:5 }} /month
+                  </p>
+                  </div>
+
+                </div>
+
+
+
+              </div>
+
+
+
+
+
+
+              {% if plan.status == "Active" %}
+
+              {% if plan.total_slots != 0 %}
+              {% if request.user.is_authenticated %}
+              {% if plan.user != request.user %}
+              {% if request.user|FindSubUser:plan.id %}
+                
+              <div class="form-group text-right">
+                {% if request.user|findSubCancelStatus:plan.id != "7" %}
+                  <a href="{% url 'EditSubscription' plan.id request.user|findFindSubID:plan.id %}" class="btn text-white bg-fresh-color   p-2 w-100"
+                    type="button">Edit Subscription</a>
+                {% else %}
+                  <button  class="btn text-white bg-fresh-color   p-2 w-100"
+                  type="button">Subscription Cancellation Confirm</button>
+                {% endif %}
+
+              </div>
+              {% else %}
+              <div class="form-group text-right">
+                <button class="btn text-white bg-fresh-color   p-2 w-100" type="button" data-toggle="modal" data-target="#exampleModalDevice">Join</button>
+              </div>
+              {% endif %}
+              {% endif %}
+              {% else %}
+              <div class="form-group text-right">
+                <a href="#" class="btn text-white bg-fresh-color   p-2 w-100" type="button" data-toggle="modal" data-target="#modalSigninHorizontal">Join</a>
+              </div>
+              {% endif %}
+              {% elif request.user|FindSubUser:plan.id %}
+              <div class="form-group text-right">
+                {% if request.user|findSubCancelStatus:plan.id != "7" %}
+                <a href="{% url 'EditSubscription' plan.id request.user|findFindSubID:plan.id %}" class="btn text-white bg-fresh-color   p-2 w-100"
+                  type="button">Edit Subscription</a>
+              {% else %}
+                <button  class="btn text-white bg-fresh-color   p-2 w-100"
+                type="button">Subscription Cancellation Confirm</button>
+              {% endif %}
+
+              </div>
+              {% else %}
+              <div class="form-group text-right">
+                <a  href="{% url 'home' %}" class="btn text-white bg-danger   p-2 w-100"
+                  type="button">Family Full! Try any other plan</a>
+              </div>
+              {% endif %}
+              {% endif %}
+
+
+
+
+
+
+
+
+
+              <input id="plan_id_join" hidden value="{{ plan.id }}">
+              <input id="category_id_join" hidden value="{{ plan.category.id }}">
+              <input id="slots" hidden value="1">
+              <input id="joiningCondition" hidden value="">
+              <input type="hidden" name="g-recaptcha-response" id='recaptcha_join'>
+
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    </div>
+
+  </div>
+</section>
+
+{% include "Landkit/footer.html" %}
+
+{% include "app/device-campatibility.html" with plan=plan %}
+
+
+
+
+
+{% endwith %}
+{% endautoescape %}
+
+
+
+<script>
+  $(document).ready(function()
+{
+      $('#end_payment_exampleModal').on('hidden.bs.modal', function (e) {
+        window.location.replace('.');
+});
+
+
+
+
+$('#end_payment_exampleModal').on('shown.bs.modal', function (e) {
+  $("#exampleModalpayment_processing_waiting_modal").modal("hide");
+});
+
+
+
+  });
+</script>
+
+
+<script>
+  $(document).ready(function()
+  {
+      // ? Functionality for the number of guests selected from the join-detail plan page 
+      $("#exampleFormControlSelect1").on("change", function(){
+          
+       
+        $("#dynamic_field_4 input").remove();
+        
+        for(var j = 1; j < $("#exampleFormControlSelect1").val(); j++){
+          $('#dynamic_field_4').append('<input type="text" name="switch_1"  placeholder="Enter Phone number #' + (j+1) + ' (Optional)" class="form-control bg-light border border-dark col-12 col-md-6 col-lg-5 ml-7 mt-2" maxlength="12" autocomplete="off" />'); 
+        }
+          
+          // TODO: Change the value of selected number of slots
+          $("#slots").val($("#exampleFormControlSelect1").val());
+
+          // TODO: Change the text display on the pay button of the payment form
+          $('[data-tid="elements_examples.form.pay_button"]').text("Pay $" + $("#exampleFormControlSelect1").val()*5 + "");
+
+          // TODO : Change the value of the 'number of slots' on payment
+          $('[name="number_of_slots"]').val($("#exampleFormControlSelect1 :selected").val());
+
+          var elem_1 = $(this).children("option:selected").val();
+          var elem_2 = $("#payment").attr("data");
+          $("#total").html("$" +  ((elem_1 * elem_2) + 5 * elem_1 ) + " /month");
+          $("#paymentSub").html((elem_1 * elem_2));
+          $("#subs_Section").html(5 * elem_1 );
+
+          // TODO:  Display IMEI and Area code inputs based on the selected number of guests
+          if($("#slots").val() >=2){
+            //  For Tab 1 IMEI
+            $("#add").show();
+            $("#dynamic_field tr").show();
+     
+            // For Tab 3 IMEI
+            $("#add_2").show();
+            $("#dynamic_field_2 tr").show();
+    
+            // For Area Code Tab 1 
+            $("#add_3").show();
+            $("#dynamic_field_3 tr").show();
+          }
+          else{
+            // For Tab 1  IMEI
+            $("#add").hide();
+            $("#dynamic_field tr").hide();
+            $("#dynamic_field tr:first").show();        
+            
+            // For Tab 3  IMEI
+            $("#add_2").hide();
+            $("#dynamic_field_2 tr").hide();
+            $("#dynamic_field_2 tr:first").show();
+    
+            // For Tab 1 AREA CODE
+            $("#add_3").hide();
+            $("#dynamic_field_3 tr").hide();
+            $("#dynamic_field_3 tr:first").show();
+          }
+
+      });
+
+
+$("#dynamic_field_4 input").remove();
+      for(var j = 1; j < $("#exampleFormControlSelect1").val(); j++){
+          $('#dynamic_field_4').append('<input type="text" name="switch_1"  placeholder="Enter Phone number #' + (j+1) + ' (Optional)" class="form-control bg-light border border-dark col-12 col-md-6 col-lg-5 ml-2" maxlength="12" autocomplete="off" />'); 
+        }
+
+        var elem_1 = $("#exampleFormControlSelect1").children("option:selected").val();
+        var elem_2 = $("#payment").attr("data");
+        $("#total").html("$" +  ((elem_1 * elem_2) + 5 * elem_1) + " /month");
+        $("#paymentSub").html((elem_1 * elem_2));
+        $("#subs_Section").html(5 * elem_1);
+        
+        if ($("#total").html() == "$NaN")
+        {
+          $("#total").html("$" + "0" + " /month");
+        }
+    
+        $("#slots").val($("#exampleFormControlSelect1").val());
+        $('[data-tid="elements_examples.form.pay_button"]').text("Pay $" + $("#exampleFormControlSelect1").val()*5 + "")
+    
+        if($("#slots").val() >=2){
+          // For Tab 1  IMEI
+          $("#add").show();
+          $("#dynamic_field tr").show();
+
+          // For Tab 3 IMEI
+          $("#add_2").show();
+          $("#dynamic_field_2 tr").show();
+
+          // For Tab 1 Area Code
+          $("#add_3").show();
+          $("#dynamic_field_3 tr").show();
+        }
+        else{
+          // For Tab 1 IMEI
+          $("#add").hide();
+          $("#dynamic_field tr").hide();
+          $("#dynamic_field tr:first").show();
+
+          // For Tab 3  IMEI
+          $("#add_2").hide();
+          $("#dynamic_field_2 tr").hide();
+          $("#dynamic_field_2 tr:first").show();
+
+          // For TAB 1 AREA CODE
+          $("#add_3").hide();
+          $("#dynamic_field_3 tr").hide();
+          $("#dynamic_field_3 tr:first").show();
+        }
+
+        
+        $('[name="number_of_slots"]').val($("#exampleFormControlSelect1 :selected").val());
+  });
+</script>
+
+
+{% endblock %}
+
+<!-- TODO: See number_of_slots_script.js to see the manipulations of total  amount in the card -->

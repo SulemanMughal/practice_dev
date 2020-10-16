@@ -1,0 +1,211 @@
+{% load static %}
+
+{% autoescape off %}
+
+<script src="{% static 'Landkit/js/countrySelect.js' %}"></script>
+
+<script>
+  $(document).ready(function()
+  {
+
+
+        // Join Page Modal Tabs Manipulation 
+  $('button[data-toggle="tab"]').on("shown.bs.tab", function (e) {
+ 
+ e.target; 
+ e.relatedTarget; 
+
+ if (
+   $(this).attr("id") == "home-tab-2" ||
+   ($(this).attr("id") == "home-tab-2" && $(this).hasClass("active"))
+ ) {
+
+   $("#myTab_2").hide();
+   $("#device_campatibility_question_1").hide();
+   $("#paymentDiv").hide();
+
+  // console.log("sadjkaksdjkasdhkjasd");
+
+ } else if (
+   $(this).attr("id") == "profile-tab" ||
+   ($(this).attr("id") == "profile-tab" && $(this).hasClass("active"))
+ ) {
+   resetDeviceCompatibilityModal();
+   $("#showHomeTab_Exisiting").show();
+   $("#beginshowHomeTab_Exisiting").hide();
+   $("#paymentDiv").hide();
+   // ----------------------------------------------------------------------------------------
+   // Added By Later
+   $("#previous_question_area_code").hide();
+   $("#nextBtn").show();
+   document.getElementById("nextBtn").innerHTML = "Next";
+   $("#previous_question_question_2_stage_2").show();
+   // ------------------------------------------------------------------------------------------
+ } else if (
+   $(this).attr("id") == "home-tab-3" || ($(this).attr("id") == "home-tab-3" && $(this).hasClass("active")) ) {
+   $("#paymentDiv").hide();
+   $("#Switching_Carrier_Review_Port_Option").html("Yes");
+ } else if ($(this).attr("id") == "home-tab") {
+   resetDeviceCompatibilityModal();
+   if ($("#home-tab-2").hasClass("active")) {
+     $("#paymentDiv").show();
+   } else {
+     $("#paymentDiv").hide();
+   }
+ } else if ($(this).attr("id") == "contact-tab") {
+   resetDeviceCompatibilityModal();
+   // ----------------------------------------------------------------------------------------
+   // Added By Later
+   $("#previous_question_area_code").hide();
+   $("#nextBtn").show();
+   document.getElementById("nextBtn").innerHTML = "Next";
+   // $("#previous_question_question_2_stage_2").hide();
+   // ------------------------------------------------------------------------------------------
+   if ($("#home-tab-3").hasClass("active")) {
+     $("#paymentDiv").show();
+
+     
+   } else {
+     $("#paymentDiv").hide();
+   }
+ } else {
+   $("#paymentDiv").hide();
+ }
+});
+});
+</script>
+
+
+
+
+<script>
+  $(document).ready(function () {
+   
+    $("#Device_None_Previous_Button").on("click", function()
+    {
+      $("#myTab_2Content_show_button").show();
+      $("#device_campatibility_select_options_div").show();
+      $("#showHomeTab").hide();
+      $("#beginHomeTab").fadeIn(1000);
+      $("#tab-1-line-1").addClass("active");
+      $("#device_campatibility_question_1").show();
+      $("#myTab_2").show();
+      $("#profile-2").removeClass("active");
+      $("#profile-2").removeClass("show");
+      $("#profile-2").hide();
+      $("#tab-1-line-2").removeClass("active");
+    });
+
+    // Second Stage
+    $("#home-tab-2").on("click", function () {
+      // $("#question_1_stage_2").removeClass("badge-light");
+      // $("#question_1_stage_2").addClass("badge-success");
+      $("#tab-1-line-2").addClass("active");
+      // $("#home-2").toggleClass("active");
+      // $("#home-2").toggleClass("show");
+      $("#home-2").show();
+      $("#device_campatibility_question_1").hide();
+      $("#myTab_2").hide();
+      $("#profile-2").removeClass("show");
+      $("#profile-2").removeClass("active");
+    });
+
+
+
+    
+
+
+    $("#switch_1_error").hide();
+    $("#switch_2_error").hide();
+    $("#switch_3_error").hide();
+    $("#id_area_code_error").hide();
+    $("#beginHomeTab").hide();
+    $("#beginshowHomeTab_Exisiting").hide();
+
+    $("#beginshowHomeTab_Switching").hide();
+    // $("#exampleModalDevice").modal("show");
+    // $("#end_payment_exampleModal").modal("show");
+    $("#exampleModalDevice").on("hidden.bs.modal", function (e) {
+      // First Tab
+      $("#home-tab").removeClass("active");
+      $("#home").removeClass("active");
+      $("#home").removeClass("show");
+      $("#home-tab-2").removeClass("active");
+      $("#profile-tab-2").removeClass("active");
+      $("#home-2").removeClass("active");
+      $("#home-2").removeClass("show");
+      $("#profile-2").removeClass("active");
+      $("#profile-2").removeClass("show");
+
+      // Second Tab
+      $("#profile-tab").removeClass("active");
+      $("#profile").removeClass("active");
+      $("#profile").removeClass("show");
+
+      // Third Tab
+      $("#contact-tab").removeClass("active");
+      $("#contact").removeClass("active");
+      $("#contact").removeClass("show");
+      $("#home-tab-3").removeClass("active");
+      $("#home-3").removeClass("active");
+      $("#home-3").removeClass("show");
+      $("#profile-tab-3").removeClass("active");
+      $("#profile-3").removeClass("active");
+      $("#profile-3").removeClass("show");
+
+      $("#beginHomeTab").hide();
+      $("#showHomeTab").show();
+      // $("#showHomeTab").show();
+      // fadeIn
+
+      $("#showHomeTab_Exisiting").show();
+      $("#beginshowHomeTab_Exisiting").hide();
+
+      $("#showHomeTab_Switching").show();
+      $("#beginshowHomeTab_Switching").hide();
+      // Payment Div
+      $("#paymentDiv").hide();
+    });
+
+    
+   
+
+    $("#id_Area_code").on("keyup", function () {
+      var reg = new RegExp("^[0-9]+$");
+
+      if (reg.test($("#id_Area_code").val())) {
+        $("#id_area_code_error").hide();
+      } else {
+        $("#id_area_code_error").show();
+      }
+    });
+
+
+    // Get a new number Tab
+    $("#home-tab").on("click", function(){
+      $("#joiningCondition").val("New Number");
+      $("#Get_New_Number_Review").show();
+      $("#Existing_Customer_Review, #Switching_Carrier_Review").hide();
+    });
+
+    $("#profile-tab").on("click", function(){
+      $("#joiningCondition").val("Existing Customer");
+      $("#Existing_Customer_Review").show();
+      $("#Switching_Carrier_Review, #Get_New_Number_Review").hide();
+    });
+
+    $("#contact-tab").on("click", function(){
+      $("#joiningCondition").val("Switch Carrier");
+      $("#Switching_Carrier_Review").show();
+      $("#Existing_Customer_Review, #Get_New_Number_Review").hide();
+    });
+
+
+
+  });
+</script>
+
+{% include 'app/reset_device_modal_function.html' %}
+
+
+{% endautoescape %}

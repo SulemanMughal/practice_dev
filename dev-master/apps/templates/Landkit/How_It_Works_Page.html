@@ -1,0 +1,16 @@
+{% extends "Base.html" %}
+{% load static %}
+
+
+{% block title %}How It Works{% endblock %}
+
+{% block content %}
+
+  {% include 'music/home_middle_section.html' %}
+  <section class="pt-2 pb-8 pb-md-14">
+    {% include "Landkit/How_It_Works_Page_Post_Account.html" %}
+    {% include "Landkit/How_It_Works_Page_Existing.html" %}
+  </section>
+  
+  {% include "Landkit/footer.html" %}
+{% endblock %}

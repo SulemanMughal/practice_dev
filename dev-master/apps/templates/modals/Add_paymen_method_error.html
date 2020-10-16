@@ -1,0 +1,30 @@
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalAdd_paymen_method_error" tabindex="-1" role="dialog" aria-labelledby="exampleModalAdd_paymen_method_errorLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalAdd_paymen_method_errorLabel">Credit Card Errors</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="exampleModalAdd_paymen_method_errorLabelBody">
+          
+        </div>
+    
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      $(document).ready(function()
+      {
+        $('#exampleModalAdd_paymen_method_error').on('hidden.bs.modal', function (e) {
+                $("#exampleModalAdd_paymen_method_errorLabelBody").html("");
+})
+        
+      });
+  </script>

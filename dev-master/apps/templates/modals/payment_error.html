@@ -1,0 +1,23 @@
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalpayment_error" tabindex="-1" aria-labelledby="exampleModalpayment_errorLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalpayment_errorLabel">Payment Error</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" >
+          <form id="exampleModalpayment_error_form" action="{% url 'send_issue_regarding_subscription_url' %}">
+            {% csrf_token %}
+            <textarea  id="exampleModalpayment_error_body" name="Problem_Details"class="form-control border-0 bg-transparent box-shadow-none" value="" readonly rows="3" cols="10"></textarea>
+            <button type="submit" class="btn btn-primary mt-2 w-100">Send issue to Circledin Support</button>
+          </form>  
+        </div>
+        
+      </div>
+    </div>
+  </div>

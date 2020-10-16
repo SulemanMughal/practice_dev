@@ -1,0 +1,197 @@
+
+{% load static humanize findNextMonth findNextYear social_share %}
+
+<style>
+    ul.list-group-horizontal{
+        padding-left: 0px !important;
+    }
+    li.section{
+        font-size: 10px !important;
+    }
+</style>
+
+              {%  if  objS %}
+          
+              <div class="container">
+
+              
+              {% for i in objS  %}
+              <p class="card-text font-weight-bold"> {{ i.plan.category }} - {{ i.plan.plan_name }} - {{ i.plan.family_name }} </p>
+              <div class="row mb-3">
+               
+                <div class="col-12 col-md-12 col-lg-9 col-xl-9 pr-0 order-first order-md-first order-lg-second order-xl-second">
+                    {% if i.status != "Approved" %}
+                    
+                    <div class="progress-bar-wrapper" id="blogs_{{ i.plan.id }}{{ i.plan.plan_name }}"></div>
+                    {% else %}
+                    
+                    <div class="progress-bar-wrapper" id="blogs_{{ i.plan.id }}{{ i.plan.plan_name }}"></div>
+                            
+                                
+                    {% endif %}
+
+                </div>
+                <div class="col-12 col-md-12 col-lg-3 col-xl-3 pr-0 order-second order-md-second order-lg-first order-xl-first">
+                    {% if i.status != "Approved" %}
+                        <p>
+                            <a type="button" class="btn btn-success col-12  pl-0 pr-0 mt-1 mt-md-0 font-size-sm p-2 mb-1" href="{% url 'schedule_call' %}">Book an Appointment</a>
+                            <a href="#!" type="button" class="btn btn-success col-12  pl-0 pr-0 mt-1 mt-md-0 font-size-sm p-2" data-toggle="modal" data-target="#exampleModal_contact_support">
+                                Contact Support
+                            </a>
+                            <a href="#!" type="button" class="btn btn-success col-12 pl-0 pr-0 mt-1 font-size-sm p-2" data-toggle="modal" data-target="#exampleModal_subscribed_plan_details_{{ i.id }}"> 
+                                Details
+                            </a>
+                            {% if i.leaveRequest is not True %}
+                                <a 
+                                    href="#!" 
+                                    type="button" 
+                                    class="btn btn-success col-12 pl-0 pr-0 mt-1 font-size-sm p-2" 
+                                    data-toggle="modal" 
+                                    data-target="#exampleModalFeedback_{{ i.plan.id }}{{ i.id }}" 
+                                    >
+                                    Request to leave 
+                                </a>
+                            {% else %}
+                                <button class="btn btn-success col-12 pl-0 pr-0 mt-1 font-size-sm p-2" disabled>
+                                    Request to Cancel
+                                </button>
+                            {% endif %}
+                        </p>
+                    {% else %}
+                        <p>
+                            <a href="#!" type="button" class="btn btn-success col-12 pl-0 pr-0 mt-1 font-size-sm p-2" data-toggle="modal" data-target="#exampleModal_contact_support">
+                                Contact Support
+                            </a>        
+                            <a href="#!" type="button" class="btn btn-success col-12 pl-0 pr-0 mt-1 font-size-sm p-2" data-toggle="modal" data-target="#exampleModal_subscribed_plan_details_{{ i.id }}">
+                                Details 
+                            </a>        
+                            {% if i.leaveRequest is not True %}
+                                <a 
+                                    href="#!" 
+                                    type="button" 
+                                    class="btn btn-success col-12 pl-0 pr-0 mt-1 font-size-sm p-2" 
+                                    data-toggle="modal" 
+                                    data-target="#exampleModalFeedback_{{ i.plan.id }}{{ i.id }}" 
+                                    >
+                                        Request to leave 
+                                </a>
+                            {% else %}
+                                <button class="btn btn-success  col-12 pl-0 pr-0 mt-1 font-size-sm p-2" disabled>
+                                    Request to Cancel
+                                </button>
+                            {% endif %}
+                        </p>
+                    {% endif %}
+                </div>
+                
+                </div>
+                  {% endfor %}
+                </div>
+                {% else %}
+                <div class="container">
+                    <div class="row">
+                      <div class="col-12">
+                        <p>
+                          No Subscription has been yet.
+                        </p>
+                        
+                      </div>
+              
+                    </div>
+              
+                  </div>
+                {% endif %}
+          
+
+
+
+<script src="{% static 'music/js/jquery-2.2.4.min.js' %}"></script>
+{%  if objS %}
+    <script src="{% static 'music/js/progress-bar.js' %}"></script>
+    {% for i in objS %}
+        {% if i.leaveRequest is not True %}
+        {% if i.joining_condition == "Existing Customer" %}
+            <script>
+                ProgressBar.singleStepAnimation = 0;
+                ProgressBar.init(
+                    [ 'Join Plan',
+                    'Pending Admin Approval',
+                    'Approved',
+                    'Change of Responsibility',
+                    'Owner Accept Change of Responsibility',
+                    'Activated'
+                    ],
+                    {% if i.status == "Inactive" %}
+                        'Join Plan',
+                    {% elif i.status == "Pending" %}
+                        'Pending Admin Approval',
+                    {% elif i.status == "Active" %}
+                        "Approved",
+                    {% elif i.status == "8" %}
+                        "Change of Responsibility",
+                    {% elif i.status == "9" %}
+                        "Owner Accept Change of Responsibility",
+                    {% elif i.status == "Approved" %}
+                        "Activated",
+                    {% endif %}
+                    'blogs_{{ i.plan.id }}{{ i.plan.plan_name }}'
+                );
+            </script>
+        {% else %}
+        <script>
+                ProgressBar.singleStepAnimation = 0;
+                ProgressBar.init(
+                    [ 'Join Plan',
+                    'Pending Admin Approval',
+                    'Approved',
+                    'Shipment Sent',
+                    'Activated'
+                    ],
+                    {% if i.status == "Inactive" %}
+                        'Join Plan',
+                    {% elif i.status == "Pending" %}
+                        'Pending Admin Approval',
+                    {% elif i.status == "Active" %}
+                        "Approved",
+                    {% elif i.status == "Ship" %}
+                        "Shipment Sent",
+                    {% elif i.status == "Approved" %}
+                        "Activated",
+                    {% endif %}
+                    'blogs_{{ i.plan.id }}{{ i.plan.plan_name }}'
+                );
+        </script>
+        {% endif %}
+        {% else %}
+            {% if i.status != "7" %}
+                <script>
+                    ProgressBar.singleStepAnimation = 0;
+                        ProgressBar.init(
+                            [ 
+                                'Cancel Subscription',
+                                'Cancellation Confirm'
+                            ],
+                        
+                            'Cancel Subscription',
+                            'blogs_{{ i.plan.id }}{{ i.plan.plan_name }}'
+                        );
+                </script>
+            {% else %}
+                <script>
+                    ProgressBar.singleStepAnimation = 0;
+                        ProgressBar.init(
+                            [ 
+                                'Cancel Subscription',
+                                'Cancellation Confirm'
+                            ],
+                        
+                            'Cancellation Confirm',
+                            'blogs_{{ i.plan.id }}{{ i.plan.plan_name }}'
+                        );
+                </script>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+    

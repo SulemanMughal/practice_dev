@@ -1,0 +1,13 @@
+{% autoescape off %}
+Greetings {{ user.first_name }},
+
+Your simcard is shipped. Please allow for 2-3 days for arrival. 
+
+You will onboard onto {{ carrie_name }} - {{ plan_name }} - {{ family_name }}.
+
+Account name : {{ user.email }}
+
+Check Status:
+    {{ build_link }}
+
+{% endautoescape %}

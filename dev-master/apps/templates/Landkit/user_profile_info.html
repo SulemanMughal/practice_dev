@@ -1,0 +1,383 @@
+{% load static %}
+<style>
+  select#State{
+    overflow: hidden;
+  }
+
+  div.inner.show{
+    overflow: hidden;
+    overflow-x: hidden;
+  }
+
+  input#id_shipping_address_2, input#id_first_name, input#id_contactNumber, input#id_shipping_address, input#id_email{
+    box-shadow: none  !important;
+  }
+</style>
+<link rel="stylesheet" href="{% static 'music/css/countrySelect.css' %}">
+        <div class="container">
+            <div class="row">
+              <div class="col-6 col-md-6 col-lg-10 col-xl-10 text-left">
+                <p class="card-text font-weight-bolder mb-0 pb-0">
+                  Legal Name
+                </p>
+              </div>
+              <div class="col-6 col-md-6 col-lg-2 col-xl-2 text-right">
+                <p class="card-text">
+                  <button
+                    type="button"
+                    class="border-0 bg-transparent text-primary"
+                    id="Editfirst_name"
+                  >
+                    Edit
+                  </button>
+                  <button
+                  type="button"
+                  class="border-0 bg-transparent text-danger"
+                  id="Editfirst_nameCancel"
+                >
+                  Cancel
+                </button>
+                </p>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-12 col-md-12 col-lg-12 col-xl-12 text-left">
+                <form id="firstFormEdit" method="POST">
+                  {% csrf_token %}
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-12 pl-0">
+                        <label id="first_name_label">First Name</label>
+                        <input
+                        type="text"
+                        name="first_name"
+                        value="{{ request.user.first_name }} {{ request.user.last_name }}"
+                        maxlength="150"
+                        readonly
+                        placeholder="First Name"
+                        id="id_first_name"
+                        class="form-control bg-transparent pl-0 border-0 cursor-default  col-12  pt-0 pb-0"
+                      />
+                      </div>
+  
+                      <div class="col-12 mt-2 pl-0">
+                        <label id="last_name_label">Last Name</label>
+                        <input
+                        type="text"
+                        name="last_name"
+                        value="{{ request.user.first_name }} {{ request.user.last_name }}"
+                        maxlength="150"
+                        placeholder="Last Name"
+                        id="id_last_name"
+                        class="form-control bg-transparent border-0 pl-0 cursor-default  col-12 col-md-12 col-lg-6 col-xl-6"
+                      />
+                      </div>
+  
+                    </div>
+  
+                  </div>
+                 
+                  <input
+                    type="hidden"
+                    name="password"
+                    value="{{ request.user.password }}"
+                    id="id_password"
+                    readonly
+                  />
+                  <input
+                    type="hidden"
+                    name="username"
+                    value="{{ request.user.username }}"
+                    id="id_username"
+                    readonly
+                  />
+                  <button
+                    type="submit"
+                    class="btn bg-fresh-color text-white p-2 pl-5 pr-5 mt-2 ml-0 "
+                    id="Editfirst_nameSubmit"
+                  >
+                    Save
+                  </button>
+                 
+                </form>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Divider -->
+          <hr class="border-gray-800 my-1" />
+  
+          <div class="container">
+            <div class="row mt-3">
+              <div class="col-6 col-md-6 col-lg-6 col-lg-6 text-left">
+                <p class="card-text font-weight-bolder">
+                  Contact Number
+                </p>
+              </div>
+  
+              <div class="col-6 col-md-6 col-lg-6 col-lg-6 text-right">
+                <p class="card-text">
+                  <button
+                    type="button"
+                    class="border-0 bg-transparent text-primary"
+                    id="EditContactNumber"
+                  >
+                    Edit
+                  </button>
+                  <button
+                  type="button"
+                  class="border-0 bg-transparent text-danger"
+                  id="EditContactNumberCancel"
+                >
+                  Cancel
+                </button>
+                </p>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-12 col-md-12 col-lg-12 col-xl-12 text-left">
+                <form id="contactFormEdit">
+                  {% csrf_token %}
+  
+                  <input
+                    type="text"
+                    name="contactNumber"
+                    value="{{ profile.contactNumber }}"
+                    maxlength="12"
+                    id="id_contactNumber"
+                    class="form-control bg-transparent border-0 pl-0 cursor-default col-12 col-md-12 col-lg-4 col-xl-4  pt-0 pb-0"
+                    readonly
+                  />
+  
+                  <button
+                    type="submit"
+                    class="btn bg-fresh-color text-white p-2 pl-5 pr-5 mt-2 ml-0 "
+                    id="EditContactNumberSubmit"
+                  >
+                    Save
+                  </button>
+              
+                </form>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Divider -->
+          <hr class="border-gray-800 my-1" />
+  
+          <div class="container">
+            <div class="row mt-3">
+              <div class="col-6 col-md-6 col-lg-6 col-lg-6 text-left">
+                <p class="card-text font-weight-bolder pb-0 mb-0">
+                  Shipping Address
+                </p>
+                
+                
+              </div>
+  
+              <div class="col-6 col-md-6 col-lg-6 col-lg-6 text-right">
+                <p class="card-text">
+                  <button id="EditShippingAddress"
+                    type="button"
+                    class="border-0 bg-transparent text-primary"
+                  >
+                    Edit
+                  </button>
+                  <button
+                  type="button"
+                  class="border-0 bg-transparent text-danger"
+                  id="Editshipping_addressCancel"
+                >
+                  Cancel
+                </button>
+                </p>
+              </div>
+            </div>
+  
+            <div class="row">
+              
+              <div class="col-12 col-md-12 col-lg-12 col-xl-12 text-left">
+                <form id="id_shipping_addressEdit">
+  
+                {% csrf_token %}
+                <input
+                  type="text"
+                  name="shipping_address"
+                  value="{{ profile.street_address }}{% if profile.apartment %} {{ profile.apartment }}{% endif %}"
+                  maxlength="100"
+                  id="id_shipping_address" 
+                  class="form-control bg-transparent border-0 pl-0 cursor-default col-12 col-md-12 col-lg-12 col-xl-12  mb-0 pb-0 pt-0"
+                  readonly
+                />
+
+                <input
+                  type="text"
+                  name="shipping_address_2"
+                  value="{{ profile.city }} {{ profile.state }} {{ profile.zip_code }} {{ profile.country }}"
+                  maxlength="100"
+                  id="id_shipping_address_2" 
+                  class="form-control bg-transparent border-0 pl-0 cursor-default col-12 col-md-12 col-lg-12 col-xl-12  pt-0 pb-0 mt-0 mt-n5"
+                  readonly
+                />
+                
+                <div class="pl-7 mt-2" id="address_div">
+                    <div class="form-group">
+                        <label>Country/Region</label>
+                        <br>
+                  <input id="country_selector" name="country" type="text" class="form-control col-12 col-md-12 col-lg-12 col-xl-12 " placeholder="Ex: United States" required value="United States" readonly />
+                      </div>
+
+
+                      <div class="form-group">
+                        <label>Street Address</label>
+                  <input id="id_street_address" name="street_address" type="text" class="form-control col-12 col-md-12 col-lg-4 col-xl-4 " placeholder="Ex: 123 Main St." autocomplete="off"  required style="z-index: 1 !important;">
+                      </div>
+
+                      <div class="form-group">
+                        <label>Apt, suite. (Optional)</label>
+                  <input id="id_apartment" name="apartment" type="text" class="form-control col-12 col-md-12 col-lg-4 col-xl-4 " placeholder="Ex: Apt #7">
+                      </div>
+
+
+                      <div class="row">
+                        <div class="form-group  col-12 col-md-6 col-lg-4 col-xl-4">
+                            <label>City</label>
+                      <input id="id_city" name="city" type="text" class="form-control" placeholder="Ex: San Francisco" required>
+                          </div>
+    
+    
+                          <div class="form-group col-12 col-md-6 col-lg-4 col-xl-4">
+                            <label>State</label>
+                      <p id="state_Error_empty" class="text-danger">Please select a valid state</p>
+                      <select id="State"  name="state">
+                        <option {% if not profile.state %} selected="" value="None" {% endif %}>Select State</option>
+                    <option value="AL" {% if profile.state == "AL" %}  selected="" {% endif %}>AL</option>
+                    <option value="AK" {% if profile.state == "AK" %}  selected="" {% endif %}>AK</option>
+                    <option value="AR" {% if profile.state == "AR" %}  selected="" {% endif %}>AR</option>
+                    <option value="AZ" {% if profile.state == "AZ" %}  selected="" {% endif %}>AZ</option>
+                    <option value="CA" {% if profile.state == "CA" %}  selected="" {% endif %}>CA</option>
+                    <option value="CO" {% if profile.state == "CO" %}  selected="" {% endif %}>CO</option>
+                    <option value="CT" {% if profile.state == "CT" %}  selected="" {% endif %}>CT</option>
+                    <option value="DC" {% if profile.state == "DC" %}  selected="" {% endif %}>DC</option>
+                    <option value="DE" {% if profile.state == "DE" %}  selected="" {% endif %}>DE</option>
+                    <option value="FL" {% if profile.state == "FL" %}  selected="" {% endif %}>FL</option>
+                    <option value="GA" {% if profile.state == "GA" %}  selected="" {% endif %}>GA</option>
+                    <option value="HI" {% if profile.state == "HI" %}  selected="" {% endif %}>HI</option>
+                    <option value="IA" {% if profile.state == "IA" %}  selected="" {% endif %}>IA</option>
+                    <option value="ID" {% if profile.state == "ID" %}  selected="" {% endif %}>ID</option>
+                    <option value="IL" {% if profile.state == "IL" %}  selected="" {% endif %}>IL</option>
+                    <option value="IN" {% if profile.state == "IN" %}  selected="" {% endif %}>IN</option>
+                    <option value="KS" {% if profile.state == "KS" %}  selected="" {% endif %}>KS</option>
+                    <option value="KY" {% if profile.state == "KY" %}  selected="" {% endif %}>KY</option>
+                    <option value="LA" {% if profile.state == "LA" %}  selected="" {% endif %}>LA</option>
+                    <option value="MA" {% if profile.state == "MA" %}  selected="" {% endif %}>MA</option>
+                    <option value="MD" {% if profile.state == "MD" %}  selected="" {% endif %}>MD</option>
+                    <option value="ME" {% if profile.state == "ME" %}  selected="" {% endif %}>ME</option>
+                    <option value="MI" {% if profile.state == "MI" %}  selected="" {% endif %}>MI</option>
+                    <option value="MN" {% if profile.state == "MN" %}  selected="" {% endif %}>MN</option>
+                    <option value="MO" {% if profile.state == "MO" %}  selected="" {% endif %}>MO</option>
+                    <option value="MS" {% if profile.state == "MS" %}  selected="" {% endif %}>MS</option>
+                    <option value="MT" {% if profile.state == "MT" %}  selected="" {% endif %}>MT</option>
+                    <option value="NC" {% if profile.state == "NC" %}  selected="" {% endif %}>NC</option>
+                    <option value="NE" {% if profile.state == "NE" %}  selected="" {% endif %}>NE</option>
+                    <option value="NH" {% if profile.state == "NH" %}  selected="" {% endif %} >NH</option>
+                    <option value="NJ" {% if profile.state == "NJ" %}  selected="" {% endif %}>NJ</option>
+                    <option value="NM" {% if profile.state == "NM" %}  selected="" {% endif %} >NM</option>
+                    <option value="NV" {% if profile.state == "NV" %}  selected="" {% endif %}>NV</option>
+                    <option value="NY" {% if profile.state == "NY" %}  selected="" {% endif %} >NY</option>
+                    <option value="ND" {% if profile.state == "ND" %}  selected="" {% endif %}>ND</option>
+                    <option value="OH" {% if profile.state == "OH" %}  selected="" {% endif %}>OH</option>
+                    <option value="OK" {% if profile.state == "OK" %}  selected="" {% endif %}>OK</option>
+                    <option value="OR" {% if profile.state == "OR" %}  selected="" {% endif %}>OR</option>
+                    <option value="PA" {% if profile.state == "PA" %}  selected="" {% endif %}>PA</option>
+                    <option value="RI" {% if profile.state == "RI" %}  selected="" {% endif %}>RI</option>
+                    <option value="SC" {% if profile.state == "SC" %}  selected="" {% endif %}>SC</option>
+                    <option value="SD" {% if profile.state == "SD" %}  selected="" {% endif %}>SD</option>
+                    <option value="TN" {% if profile.state == "TN" %}  selected="" {% endif %}>TN</option>
+                    <option value="TX" {% if profile.state == "TX" %}  selected="" {% endif %}>TX</option>
+                    <option value="UT" {% if profile.state == "UT" %}  selected="" {% endif %}>UT</option>
+                    <option value="VT" {% if profile.state == "VT" %}  selected="" {% endif %}>VT</option>
+                    <option value="VA" {% if profile.state == "VA" %}  selected="" {% endif %}>VA</option>
+                    <option value="WA" {% if profile.state == "WA" %}  selected="" {% endif %}>WA</option>
+                    <option value="WI" {% if profile.state == "WI" %}  selected="" {% endif %}>WI</option>
+                    <option value="WV" {% if profile.state == "WV" %}  selected="" {% endif %}>WV</option>
+                    <option value="WY" {% if profile.state == "WY" %}  selected="" {% endif %}>WY</option>
+                    </select>
+                          </div>
+    
+                      </div>
+
+                      <div class="form-group">
+                        <label>Zip Code</label>
+                  <input id="id_zip_code" maxlength="5" name="zip_code" type="number" class="form-control col-12 col-md-12 col-lg-4 col-xl-4 " placeholder="Ex: 94103" required>
+                      </div>
+                     
+
+                    
+                  
+                </div>
+             
+                
+                
+  
+                <button
+                type="submit"
+                class="btn  bg-fresh-color text-white p-2 pl-5 pr-5  mt-2 ml-7"
+                id="Editshipping_addressSubmit"
+              >
+                Save
+              </button>
+             
+            </form>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Divider -->
+          <hr class="border-gray-800 my-1" />
+  
+          <div class="container">
+            <div class="row mt-3">
+              <div class="col-12 col-md-12 col-lg-12 col-xl-12 text-left">
+                <p class="card-text font-weight-bolder mb-0">
+                  Email Address
+                </p>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-12 col-md-12 col-lg-12 col-xl-12 text-left">
+                <input
+                  type="text"
+                  name="email"
+                  value="{{ request.user.email }}"
+                  maxlength="12"
+                  id="id_email"
+                  class="form-control bg-transparent border-0 pl-0 cursor-default pt-0 pb-0 mt-n3"
+                  readonly
+                />
+              </div>
+            </div>
+          </div>
+  
+          <!-- Divider -->
+          <hr class="border-gray-800 my-1" />
+          <span id="first_name_hide" hidden>{{ request.user.first_name }}</span>
+          <span id="last_name_hide" hidden>{{ request.user.last_name }}</span>
+          <span id="contact_hide" hidden>{{ profile.contactNumber }}</span>
+          <span id="country_hide" hidden>United States</span>
+          <span id="street_address_hide" hidden>{{ profile.street_address }}</span>
+          <span id="apartment_hide" hidden>{{ profile.apartment }}</span>
+          <span id="city_hide" hidden>{{ profile.city }}</span>
+          <span id="state_hide" hidden>{{ profile.state }}</span>
+          <span id="zip_hide" hidden>{{ profile.zip_code }}</span>
+
+<script src="{% static 'music/js/countrySelect.js' %}"></script>
+<script>
+  $("#country_selector").countrySelect({
+  defaultCountry: "us",
+  responsiveDropdown:true,
+  });
+</script>

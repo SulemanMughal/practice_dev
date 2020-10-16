@@ -1,0 +1,19 @@
+
+
+<div class="list-group-item list-group-item-action ">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1 text-success">{{ comment.user.email }}</h4>
+      <small>{{ comment.timestamp }}</small>
+    </div>
+    <p class="mb-1">{{ comment.body }}</p>
+    <p class="mb-1 text-left ml-5 reply" data-id="{{ comment.id }}" 
+        onclick="$('#commentreply_' + $(this).attr('data-id') + '').removeClass('d-none');$('#commentreply_' + $(this).attr('data-id') + ' input[name=' + 'reply' + ']').focus();"        
+        >Reply <i class="fas fa-reply"></i></p>
+  </div>
+
+
+<form  id="commentreply_{{ comment.id }}" class="w-100 d-none" method="POST" 
+    action="{% url  'comment_reply_url' post.slug comment.id %}" >
+    {% csrf_token %}
+    <input type="text" class="form-control border-0 px-1 ml-6" placeholder="Relpy to a comment" name="reply"> 
+</form>

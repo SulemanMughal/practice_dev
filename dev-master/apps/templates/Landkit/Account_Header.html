@@ -1,0 +1,338 @@
+{% extends 'Base.html' %} 
+{% block title %}  {{ request.user.first_name }}  {% endblock %} 
+{% block content %}
+
+
+
+<!-- ! Profile Page -->
+{% if edit_profile %}
+    
+  {% autoescape off %}
+      {% block javascript %}
+        <script>
+          function update_line_payment(x)
+            {
+              var v = $("#id_currently_monthly_payment_per_line_"  + x + "" ).val().trim();
+              if (v.length == 0)
+              {
+                $("#currentLinePayment_" + x + "").hide();
+              }
+              else{
+                $("#currentLinePayment_" + x + "").show();
+              }
+              var c =  $("#id_category_" + x + " :selected").text();
+              var j  = 0
+              if (c == "Verizon")
+              {
+                j = ( v-30 )*12;
+              }
+              else if(c == "T-Mobile")
+              {
+                j = ( v-28 )*12;
+              }
+              else if(c == "AT&T")
+              {
+                j = ( v-35 )*12;
+              }
+              if (j<0)
+              {
+                $("#currentLinePayment_" + x + "").show();
+                var r  ="Great! We can save you about $" +  0 + " per line a year."
+              }
+              else{
+                var r  ="Great! We can save you about $" +  j + " per line a year."
+                $("#currentLinePayment_" + x + "").show();
+              }
+                $("#currentLinePayment_" + x + "").html(r);
+            }
+
+          function update_line_payment_from_profile(x, y)
+          {
+            $("#" +  x.attr("id") +  ' option').each(function() {
+              $("#id_plan_name_" + $(this).val() + "_" + y + "" ).hide();
+            });
+            $("#id_plan_name_" + $("#" +  x.attr("id") + " :selected").val() + "_" + y + "").show();
+            var i = $('[data-target="plan_name"]');
+            for (var j = 0; j < i.length; j++) {
+              $(i[j]).removeAttr("name", "plan_name"); 
+            };
+            $("#id_plan_name_" + $("#" +  x.attr("id") + " :selected").val() + "_" + y + "").attr("name", "plan_name");
+            update_line_payment(y);
+          }
+          
+        </script>
+      {% endblock %}
+    {% endautoescape %}
+    {%  if  objS %}
+      {% include 'modals/modal_contact_support.html' %}
+      {% include "modals/FeedbackForms.html" with subs=objS edit=True %}
+      {% include "modals/subsribed_plan_details.html" with plans=objS %}
+    {% endif %}
+    {% if obj %}
+      {% for plan in obj %}
+        {% include "app/delete_confirmation_for_plan.html" with plan=plan %}
+        {% include "modals/user_plans_page_edit_plan_form_modal.html" with object=plan %}
+        <script>
+        $(document).ready(function()
+        {
+        update_line_payment('{{ plan.id }}');
+        $('#exampleModalEditPlan_{{ plan.id }}_{{ plan.plan_name|slugify }}').on('hidden.bs.modal', function (e) {
+          $("#{{ plan.id }}_{{ plan.plan_name|slugify }}_form").get(0).reset();  
+        });
+        });
+        </script>
+      {% endfor %}
+    {% endif %}
+    {% include 'Landkit/plans_profile_script_work.html' %}
+
+
+<!-- ! Payment Page -->
+{% elif payment_tab %}
+
+<style>
+  .scroll::-webkit-scrollbar
+  {
+    width: 12px;  /* for vertical scrollbars */
+    height: 12px; /* for horizontal scrollbars */
+    
+  }
+  
+  .scroll::-webkit-scrollbar-track
+  {
+    background: rgba(0, 0, 0, 0.1);
+    
+  }
+  
+  .scroll::-webkit-scrollbar-thumb
+  {
+    height: 30px;
+    background: rgba(0, 0, 0, 0.5);
+   
+  }
+  
+  
+</style>
+  
+  {% include "modals/Add_paymen_method_error.html" %}
+  {% include "modals/add_payment_method_waiting.html" %}
+  {% include "modals/add_method_modal.html" %}
+{% endif %}
+
+
+
+<nav class="bg-dark d-md-none mt-9">
+    <div class="container-md">
+      <div class="row align-items-center">
+        <div class="col">
+
+          <!-- Breadcrumb -->
+          <ol class="breadcrumb">
+            {% if edit_profile %}
+              <li class="breadcrumb-item">
+                <span class="text-white">
+                  Account
+                </span>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <span class="text-white">
+                  My Profile
+                </span>
+              </li>
+           
+            {% elif change_password_section %}
+            <li class="breadcrumb-item">
+              <span class="text-white">
+                Account
+              </span>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              <span class="text-white">
+               Change Password
+              </span>
+            </li>
+            {% elif payment_tab %}
+            <li class="breadcrumb-item">
+              <span class="text-white">
+                Billing
+              </span>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              <span class="text-white">
+               Payment
+              </span>
+            </li>
+            {% endif %}
+          </ol>
+
+        </div>
+        <div class="col-auto">
+
+          <!-- Toggler -->
+          <div class="navbar-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenavCollapse" aria-controls="sidenavCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+
+        </div>
+      </div> <!-- / .row -->
+    </div> <!-- / .container -->
+  </nav>
+
+
+
+<header class="bg-dark pt-9 pb-11 d-none d-md-block">
+    <div class="container-md">
+      <div class="row align-items-center">
+        <div class="col">
+
+          <!-- Heading -->
+          <h1 class="font-weight-bold text-white mb-2">
+            Account Settings
+          </h1>
+
+          <!-- Text -->
+          <p class="font-size-lg text-white-75 mb-0">
+            Settings for <a class="text-reset" href="mailto:{{ request.user.email }}">{{ request.user.email }}</a>
+          </p>
+
+        </div>
+        
+      </div> <!-- / .row -->
+    </div> <!-- / .container -->
+  </header>
+
+
+
+
+<main class="pb-8 pb-md-11 mt-md-n6">
+    <div class="container-md">
+        <div class="row">
+            <div class="col-12 col-md-3">
+                <div class="card card-bleed border-bottom border-bottom-md-0 shadow-light-lg">
+                    <div class="collapse d-md-block" id="sidenavCollapse">
+                        <div class="card-body">
+        
+                          <!-- Heading -->
+                          <h6 class="font-weight-bold text-uppercase mb-3">
+                            Account
+                          </h6>
+        
+                          <!-- List -->
+                          <ul class="card-list list text-gray-700 mb-6">
+                            <li class="list-item {% if edit_profile %} active {% endif %}">
+                              <a class="list-link text-reset" href="{% url 'edit_profile' %}">
+                                My Profile
+                              </a>
+                            </li>
+                            <li class="list-item {% if schedule_call %} active {% endif %}">
+                              <a class="list-link text-reset" href="{% url 'schedule_call' %}">
+                                Book An Appointment
+                              </a>
+                            </li>
+                            <li class="list-item {% if change_password_section %} active {% endif %}">
+                              <a class="list-link text-reset" href="{% url 'change_password' %}">
+                                Change Password
+                              </a>
+                            </li>
+                            
+                          </ul>
+        
+                          <!-- Heading -->
+                          <h6 class="font-weight-bold text-uppercase mb-3">
+                            Billing
+                          </h6>
+        
+                          <!-- List -->
+                          <ul class="card-list list text-gray-700 mb-0">
+                            <li class="list-item {% if payment_tab %} active {% endif %}">
+                              <a class="list-link text-reset" href="{% url 'misc' %}">
+                                Payment
+                              </a>
+                            </li>
+                            
+                          </ul>
+        
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-9">
+                <!-- Card -->
+                
+                    {% block middle_content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+  {% include 'Landkit/footer.html' %}
+  
+  <!-- ! Script File for Payment Tab -->
+    {% if payment_tab %}
+        <script>
+            $(document).ready(function(){
+            // ******************************************************************************************
+            // * Scrolling Functionality
+            // if($(".scroll").height() > 360)
+            // {
+            //   $(".scroll").addClass("vh-50 vh-md-50 vh-lg-50 vh-xl-50");
+            // }
+            // else{
+            //   $(".scroll").removeClass("vh-50 vh-md-50 vh-lg-50 vh-xl-50");
+            // }
+            // ********************************************************************************************
+
+            // ? Functionality to expand all upcomings invoices
+            $("#expand_all_next_bills").on("click", function(){
+                $("#next_bills div.list-group-item").removeClass("d-none");
+                $("#expand_all_next_bills").hide();
+                $("#collapse_all_next_bills").removeClass("d-none");
+                $("#collapse_all_next_bills").show();
+
+            });
+
+            // ? Functionality to collapse all upcomings invoices
+            $("#collapse_all_next_bills").on("click", function(){
+                $("#collapse_all_next_bills").addClass("d-none");
+                $("#collapse_all_next_bills").hide();
+                $("#expand_all_next_bills").show();
+                for(var i = 5 ; i < $("#next_bills div.list-group-item").length;  i++)
+                {
+                    
+                    $($("#next_bills div.list-group-item")[i]).addClass("d-none");
+                }
+            });
+
+            // ? Functionality to expand all past invoices
+            $("#expand_all_past_bills").on("click", function(){
+                $("#past_bills div.list-group-item").removeClass("d-none");
+                $("#expand_all_past_bills").hide();
+                $("#collapse_all_past_bills").removeClass("d-none");
+                $("#collapse_all_past_bills").show();
+
+            });
+            
+            // ? Functionality to collapse all past invoices...
+            $("#collapse_all_past_bills").on("click", function()
+            {
+                $("#collapse_all_past_bills").addClass("d-none");
+                $("#collapse_all_past_bills").hide();
+                $("#expand_all_past_bills").show();
+                for(var i = 5 ; i < $("#past_bills div.list-group-item").length;  i++)
+                {
+                    
+                    $($("#past_bills div.list-group-item")[i]).addClass("d-none");
+                }
+            });
+
+            });
+        </script>
+    {% endif %}
+
+{% endblock %}

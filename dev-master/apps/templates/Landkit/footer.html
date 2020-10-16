@@ -1,0 +1,100 @@
+{% load static %}
+<footer class="py-8 py-md-11 bg-black">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4 col-lg-3">
+        <img
+          src="{% static 'Landkit/images/Footer Logo.png' %}"
+          alt="circledin"
+          class="footer-brand img-fluid mb-2"
+          loading="lazy"
+        />
+        <p class="text-gray-700 mb-2">
+          Group together and start saving on your mobile bill.
+        </p>
+      </div>
+      <div class="col-12 col-md-4 col-lg-3">
+        <p class="text-gray-700 mb-2">
+          Social Links
+        </p>
+
+        <!-- Social -->
+        <ul class="list-unstyled list-inline list-social mb-6 mb-md-0">
+          <li class="list-inline-item list-social-item mr-3">
+            <a href="https://www.instagram.com/joincircledin/" class="text-decoration-none">
+              <img src="{% static 'Landkit/images/icons/social/instagram.svg' %}" class="list-social-icon" alt="Circledin-Instagram">
+            </a>
+          </li>
+          <li class="list-inline-item list-social-item mr-3">
+            <a href="https://www.facebook.com/Circledin-102790251611887" class="text-decoration-none">
+              <img src="{% static 'Landkit/images/icons/social/facebook.svg' %}" class="list-social-icon" alt="Circledin-Facebook">
+            </a>
+          </li>
+          <li class="list-inline-item list-social-item mr-3">
+            <a href="https://twitter.com/joincircledin" class="text-decoration-none">
+              <img src="{% static 'Landkit/images/icons/social/twitter.svg' %}" class="list-social-icon" alt="Circledin-Twitter">
+            </a>
+          </li>
+          <li class="list-inline-item list-social-item">
+            <a href="https://www.youtube.com/channel/UCJBTqwhi3OUAjApStiXb-2Q" class="text-decoration-none">
+              <img src="{% static 'Landkit/images/icons/social/Youtube.svg' %}" class="list-social-icon" alt="Circledin-Youtube">
+            </a>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <h6 class="font-weight-bold text-uppercase text-gray-700">About Us</h6>
+        <ul class="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
+          <li class="mb-3">
+            <a href="{% url 'About' %}" class="text-reset" target="_blank"
+              >About Us</a
+            >
+          </li>
+          <li class="mb-3">
+            <a
+              href="{% url 'how-it-works-url' %}"
+              class="text-reset"
+              target="_blank"
+              >How it Works</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-4 offset-md-4 col-lg-2 offset-lg-0">
+        <h6 class="font-weight-bold text-uppercase text-gray-700">Support</h6>
+        <ul class="list-unstyled text-muted mb-0">
+          <li class="mb-3">
+            <a href="{% url 'contact' %}" class="text-reset" target="_blank"
+              >Contact Us</a
+            >
+          </li>
+          <li class="mb-3">
+            <a href="{% url 'FAQ' %}" class="text-reset" target="_blank">FAQ</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <h6 class="font-weight-bold text-uppercase text-gray-700">Legal</h6>
+        <ul class="list-unstyled text-muted mb-0">
+          <li class="mb-3">
+            <a
+              href="{% url 'TermsConditions' %}"
+              class="text-reset"
+              target="_blank"
+              >Terms of Service</a
+            >
+          </li>
+          <li class="mb-3">
+            <a
+              href="{% url 'PrivacyPolicy' %}"
+              class="text-reset"
+              target="_blank"
+              >Privacy Policy</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

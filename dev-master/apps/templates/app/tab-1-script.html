@@ -1,0 +1,236 @@
+
+<script>
+
+    $(document).ready(function()
+    {
+        // Hide Necessary things to start over again
+        $("#home-tab-2-1").hide();
+        $("#home-tab-2-2").hide();
+        $("#IMEI_1_error").hide();
+      
+       // **********************************************************************
+      // First Tab
+      // **********************************************************************
+      $("#showHomeTab").on("click", function () {
+        
+        // Starting Button to begin questions On Tab-1
+        $("#showHomeTab").hide();
+  
+        // Show Question-1
+        $("#home-tab-2-2").show();
+
+        // Show Grand-Parent Element Container
+        $("#beginHomeTab").fadeIn(1000);
+
+        // Active First Indicator
+        $("#tab-1-line-1").addClass("active");
+
+        // Show Parent Element Container
+        $("#home-2").show();
+        $("#home-2").addClass("active");
+        $("#home-2").addClass("show");
+  
+  
+        $("#myTab_2Content_show_button").show();
+        $("#myTab_2").show();
+      });
+
+
+    //   Next Button
+    // IMEI ->  Area  Code
+      $("#next_question_area_code_device_compatibility").on("click", function () { 
+          $("#tab-1-line-2").addClass("active");
+          $("#home-tab-2-1").show();
+          $("#home-tab-2-2").hide();
+          $("#IMEI_1_error").hide();
+
+          $("#Get_New_Number_Review_IMEI").html("");
+          for(var i = 0; i < $('[name="IMEI"]').length; i++ )
+          {
+            if($($('[name="IMEI"]')[i]).val().trim()){
+              $("#Get_New_Number_Review_IMEI").html($("#Get_New_Number_Review_IMEI").html() + $($('[name="IMEI"]')[i]).val() + ", ");
+            }            
+          }
+          
+          
+      });
+
+    //   IMEI Input Format
+    var $input2 = $("#IMEI_1");
+      $input2.on("keyup", function (event) {
+        var $this = $(this);
+        var input = $this.val();
+        var input = input.replace(/[\D\s\._\-]+/g, "");
+        var split = 1;
+        var chunk = [];
+        for (var i = 0, len = input.length; i < len; i += split) {
+          split = 17;
+          chunk.push(input.substr(i, split));
+        }
+        $this.val(function () {
+          return chunk.join("-").toUpperCase();
+        });
+      });
+     
+  
+  
+    //   Previous Button
+    // Area Code -> IMEI
+    $("#area_code_tab_1_previous_2").on("click", function()
+    {
+        $("#home-tab-2-1").hide();
+        $("#home-tab-2-2").show();
+        $("#tab-1-line-2").removeClass("active");
+    });
+
+    // Next Question  
+    // Area Code -> Payment Section
+    $("#area_code_tab_1_next_2").on("click", function()
+      {
+        if (!$("#id_Area_code").val().trim()) 
+        {
+          $("#id_area_code_error").show();
+        } 
+        else 
+        {
+          $("#home-2").hide();
+          $("#tab-1-line-3").addClass("active");
+          $("#paymentDiv").fadeIn(1000);
+          $("#home-tab-2-1").hide();
+          $("#home-tab-2-2").hide();
+          $("#id_area_code_error").hide();
+
+          // Hide Payment Submit Button
+          $("#submit_button").hide();
+          // $("#Get_New_Number_Review_Area_Code").html($("#id_Area_code").val());
+          $("#Get_New_Number_Review_Area_Code").html("");
+          for(var i = 0; i < $('[name="AreaCode"]').length; i++ )
+          {
+            
+            if($($('[name="AreaCode"]')[i]).val().trim()){
+              $("#Get_New_Number_Review_Area_Code").html($("#Get_New_Number_Review_Area_Code").html() + $($('[name="AreaCode"]')[i]).val() + ", ");
+            }
+
+            
+          }
+        }
+      });
+      
+
+  // /////////////////////////////////////////////////////////////
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    });
+  
+    $("#myTab_2Content_show_button").on("click", function()
+    {
+      
+      $("#myTab_2Content_show_button").hide();
+      var d = $("#myTab_2Content_show_button").attr("data-row");
+     
+      var $input1 = $("#id_IMEI");
+      
+      $input1.on("keyup", function (event) {
+        // 1
+        var $this = $(this);
+        var input = $this.val();
+  
+        // 2
+        var input = input.replace(/[\D\s\._\-]+/g, "");
+  
+        // 3
+        var split = 1;
+        var chunk = [];
+  
+        for (var i = 0, len = input.length; i < len; i += split) {
+          split = 15;
+          chunk.push(input.substr(i, split));
+        }
+  
+        // 4
+        $this.val(function () {
+          return chunk.join("-").toUpperCase();
+        });
+      });
+  
+
+
+      // Third Stage
+    
+     
+  });
+  </script>
+  
+
+
+  <!-- !  Add IMEI Functionality  -->
+  
+<script>
+  $(document).ready(function(){  
+      var i=1;  
+      $('#add').click(function(){  
+          if(i < $("#slots").val()){
+          i++;  
+          $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="IMEI" placeholder="IMEI" class="form-control border col-12 border-dark  bg-light" maxlength="17" /></td><td><button type="button" name="remove" id="'+i+'" class="btn bg-Puerto-Rico text-white btn_remove">X</button></td></tr>');  
+          if(i ==  $("#slots").val()){
+            $("#add").hide();
+          }
+          }
+          else if(i ==  $("#slots").val()){
+            $("#add").hide();
+          }
+      });  
+      $(document).on("click", ".btn_remove", function()
+      { 
+            i--;  
+           var button_id = $(this).attr("id");   
+           $('#row'+button_id+'').remove();  
+           $("#add").show();
+      });
+      
+      
+     
+ }); 
+</script>
+
+
+
+<!-- ! Check More Area Code -->
+
+<script>
+  $(document).ready(function(){  
+      var j=1;  
+      $('#add_3').click(function(){  
+          if(j < $("#slots").val()){
+          j++;  
+          $('#dynamic_field_3').append('<tr id="row'+j+'"><td class="pl-0"><input type="text" name="AreaCode" placeholder="Area Code" class="form-control border border-dark  bg-light col-12" maxlength="17"  /></td><td><button type="button" name="remove" id="'+j+'" class="btn bg-Puerto-Rico text-white btn_remove">X</button></td></tr>');  
+          if(j ==  $("#slots").val()){
+            $("#add_3").hide();
+          }
+          }
+          else if(i ==  $("#slots").val()){
+            $("#add_3").hide();
+          }
+      });  
+      $(document).on("click", ".btn_remove", function()
+      { 
+            j--;  
+           var button_id = $(this).attr("id");   
+           $('#row'+button_id+'').remove();  
+           $("#add_3").show();
+      });
+      
+      
+     
+ }); 
+</script>
+
+

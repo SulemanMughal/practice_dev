@@ -1,0 +1,17 @@
+{% autoescape off %}
+Greetings {{ user.first_name }},
+
+Great news! A user has subscribe to your {{ carrier_name }} - {{ plan_name }}. The member would like to{% if joining_condition == "New Number" %} get a number.{% elif joining_condition == "Existing Customer" %} transfer their account over.{% elif joining_condition == "Switch Carrier" %} switch carriers. {% endif %}
+
+Sit back and relax while we handle the rest.
+
+Check Status: {{ build_link }}
+
+
+Please feel free to reply if you have any questions and we'll be happy to assit you.
+
+Thanks, 
+Circledin.
+
+
+{% endautoescape %}

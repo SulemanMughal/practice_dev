@@ -1,0 +1,694 @@
+
+{% autoescape off %}
+
+
+<div
+  class="tab-pane fade"
+  id="contact"
+  role="tabpanel"
+  aria-labelledby="contact-tab"
+>
+  <div 
+    class="card-body mt-3 justify-content-center">
+    <p class="card-text">
+      Our services require you to bring your own device.
+    </p>
+      <div 
+        class="container p-0">
+
+        <!-- Progress Bar -->
+        <div 
+          class="row">
+            <ul 
+              id="progressbar">
+                <li 
+                  id="tab-3-line-1" class="font-size-xs text-wrap">
+                    Device Compatibility
+                </li>
+                <li  
+                  id="tab-3-line-2" class="font-size-xs text-nowrap pl-3 pl-md-0  ">
+                  Review/Payment
+                </li>
+            </ul>
+
+        </div>
+
+      <!-- Starting Point of the Questions -->
+      <div class="row justify-content-end mt-5">
+        <button
+          type="button"
+          class="btn bg-Puerto-Rico text-white "
+          id="showHomeTab_Switching"
+        >
+          Start
+        </button>
+      </div>
+      </div>
+
+
+      <div class="card mt-3">
+        
+        
+        <div class="form-group" id="tab_3_question_1_answer_yes_2">
+          <div class="container">
+            <div class="row">
+              <p class="card-text font-weight-bolder h2 mb-">
+                Will my phone work on this network? 
+              </p>
+              
+            </div>
+          
+            <div class="row mb-2">
+              <span>We recommend checking with the specific carrier to see if your device is compatible on their network. Optionally, type in your IMEI and we’ll be happy to check for you.</span>
+            </div>
+            
+
+           
+
+            <div class="row mt-5">
+              <table class="table table-borderless" id="dynamic_field_2">
+                <tr>
+                  <td>
+                    <input type="text" class="form-control col-12 border border-dark  bg-light"  placeholder="IMEI"  id="IMEI_2" name="IMEI" required maxlength="17">
+                  </td>
+                  <td></td>
+                </tr>
+              </table>
+              <div class="col-12 pr-0 mt-1">
+                <button type="button"  class="btn btn-light float-right font-weight-bolder"   title="Check More Device's IMEI" name="add_2" id="add_2">
+                  Check another phone
+                </button>
+              </div>
+         
+            </div>
+
+            <div class="row mt-2">
+              <p id="IMEI_2_error" class="mt-2 text-danger card-text">  
+                Please enter a valid 15-digit IMEI Number
+              </p>
+            </div>
+
+            <div class="row mt-2 mb-2">
+              <div class="card shadow-lg p-2 text-muted">
+                <p class="card-text text-primary">
+                  Not sure how to get your IMEI? Follow one of the steps below
+                </p>
+                <ol class="font-size-sm">
+                <li>Enter <span class='font-weight-bolder'>*#06#</span> on your phone's dial pad.</li>
+                <li>Check in the settings:
+                  <div><span class='font-weight-bolder'>Android</span>: Go to Settings > About device > Status</div>
+                  <div><span class='font-weight-bolder'>iPhone</span>: Go to Settings > General > About</div>
+                  <div><span class='font-weight-bolder'>Windows Phone</span>: Go to Settings > About > More info</div>
+                </li>
+              </ol></div>
+            </div>
+
+          </div>
+         
+    
+
+          
+
+
+          <div class="row justify-content-end mt-2">
+            
+              <button class="btn bg-Puerto-Rico text-white " id="tab_3_device_compatibility_yes_area_code_2">
+                Next
+              </button>
+
+            
+
+          </div>
+          
+        </div>
+        <div class="form-group" id="tab_3_question_1_answer_yes">
+          <p class="card-text line-height-1-3 mb-0">
+            Please  enter in a valid Area Code you would like your new number to be in
+            <button type="button" class="btn pl-1 mr-0 pr-0 pt-0 pb-0" data-toggle="popover" title="Area Code" data-content="Please note we will provide a number with this area code."><i class="fa fa-info-circle"></i></button>
+          </p>
+          <div class="row">
+            <label for="inputEmail3" class="col-12 col-md-4 col-lg-4 col-xl-4 col-form-label "
+            >Area Code</label
+          > 
+          <div class="col-12 col-md-8 col-lg-4 col-xl-4">
+            <input
+            type="number"
+            class="form-control border border-dark "
+            
+            placeholder="Area Code"
+            name="AreaCode"
+            id="Area_code_tab_3"
+          />
+          <p class="card-text text-danger" id="area_code_error_tabt_3">
+            Please enter a valid area code
+          </p>
+          </div>
+
+          
+
+          </div>
+
+
+          
+
+
+          <div class="row justify-content-end mt-2">
+            
+            <button class="btn bg-Puerto-Rico text-white  mr-2" id="tab_3_device_compatibility_yes_area_code_previous">
+              Previous
+            </button>
+              <button class="btn bg-Puerto-Rico text-white " id="tab_3_device_compatibility_yes_area_code">
+                Next
+              </button>
+
+            
+
+          </div>
+          
+        </div>
+      </div>
+
+
+
+
+
+    <!-- First Question -->
+    <div 
+      class="card-body pl-0 pt-0" 
+      id="beginshowHomeTab_Switching">
+        <p 
+          class="card-title line-height-1-3" 
+          id="Tab_3_Question_1">
+            Would you like to port over your number?
+        </p>
+      <ul
+        class="nav nav-tabs border-0 justify-content-start"
+        id="myTab_3"
+        role="tablist"
+      >
+        <li class="nav-item mr-2 mr-md-0 pr-5" >
+          <button
+            class="btn btn-outline-Puerto-Rico w-100"
+            id="home-tab-3"
+            data-toggle="tab"
+            href="#home-3"
+            role="tab"
+            aria-controls="home-3"
+            aria-selected="false"
+            
+          >
+            Yes
+          </button>
+        </li>
+        <li class="nav-item" >
+          <button
+            class="btn btn-outline-Puerto-Rico w-100"
+            id="profile-tab-3"
+            data-toggle="tab"
+            href="#profile-3"
+            role="tab"
+            aria-controls="profile-3"
+            aria-selected="false"
+            
+          >
+            No
+          </button>
+        </li>
+      </ul>
+      <div class="row justify-content-end mt-2">
+       
+        <button type="button" class="btn bg-Puerto-Rico text-white " id="beginshowHomeTab_Switching_previous">
+          Previous
+        </button>
+       
+
+      </div>
+      <div class="tab-content" id="myTab_3Content">
+        <div
+          class="tab-pane fade show justify-content-left"
+          id="home-3"
+          role="tabpanel"
+          aria-labelledby="home-tab-3"
+        >
+          <div class="form-group">
+            <label for="exampleInputEmail1" class="line-height-1-3 mb-6 mb-md-2 mb-lg-0 mb-xl-0"
+              >What's the phone number you would like to port over?</label
+            >
+            <input
+                      type="text"
+                      class="form-control bg-light border border-dark col-12 col-md-6 col-lg-5 ml-7"
+                      id="switch_1"
+                      aria-describedby="emailHelp"
+                      placeholder="Enter Phone number #1"
+                      maxlength="12"
+                      name="switch_1"
+                  />
+            <div  id="dynamic_field_4"> 
+              
+              
+            </div>
+            <div class="text-danger pl-lg-7 pl-xl-7" id="switch_1_error">
+              Please Enter a valid input.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1" class="line-height-1-3 mb-9 mb-md-2 mb-lg-0 mb-xl-0"
+              >What's your account number on your existing carrier? 
+              <button type="button" class="btn p-0 pl-3 mb-10px" data-toggle="popover" title="Account Number Information"   data-content="We use this information to transition you from your existing carrier to the new carrier so that you don’t need to deal with the logistics. This helps ensure a seamless process." 
+                data-html="true"><i class="fa fa-info-circle"></i></button></label>
+            
+            <input
+              type="number"
+              class="form-control bg-light borderr border-dark  col-12 col-md-6 col-lg-4 col-xl-4 ml-7 ml-md-7 ml-lg-7 ml-xl-7"
+              id="switch_2"
+              aria-describedby="emailHelp"
+              placeholder="Input Here"
+            />
+            <div class="text-danger pl-lg-7 pl-xl-7" id="switch_2_error">
+              Please Enter a valid input.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1"  class="line-height-1-3 mb-9 mb-md-2 mb-lg-0 mb-xl-0">
+              What's your pin on your existing carrier? 
+              <button 
+                type="button" 
+                class="btn p-0 pl-3 mb-10px" 
+                data-toggle="popover" 
+                title="Pin Information"   
+                data-content="We use this information to transition you from your existing carrier to the new carrier so that you don’t need to deal with the logistics. This helps ensure a seamless process." 
+                data-html="true" >
+                <i 
+                  class="fa fa-info-circle">
+                </i>
+              </button>
+            </label>
+            <input
+              type="number"
+              class="form-control bg-light borderr border-dark  col-12 col-md-6 col-lg-4 col-xl-4 ml-7 ml-md-7 ml-lg-7 ml-xl-7"
+              id="switch_3"
+              aria-describedby="emailHelp"
+              placeholder="Input Here"
+            />
+            <div 
+              class="text-danger pl-lg-7 pl-xl-7" 
+              id="switch_3_error">
+                Please Enter a valid input.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1"  class="line-height-1-3 mb-9 mb-md-2 mb-lg-0 mb-xl-0">Which carrier are you coming from?</label>
+            <input
+              type="text"
+              class="form-control bg-light borderr border-dark  col-12 col-md-6 col-lg-4 col-xl-4 ml-7 ml-md-7 ml-lg-7 ml-xl-7"
+              id="switch_4"
+              aria-describedby="emailHelp"
+              placeholder="Input Here"
+            />
+            <div 
+              class="text-danger pl-lg-7 pl-xl-7" 
+              id="switch_4_error">
+                Please Enter a valid input.
+            </div>
+
+          </div >
+
+          <div class="row justify-content-end mt-5">
+            <button
+              type="button"
+              class="btn bg-Puerto-Rico text-white  mr-0 mr-md-2 mr-lg-2 mr-xl-2"
+              id="previous_show_tab_3_question_1"
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              class="btn bg-Puerto-Rico text-white  mt-2 mt-md-0 mt-lg-0 mt-xl-0"
+              id="SwitchPaymentShowButton"
+            >
+              Proceed to Payment
+            </button>
+          </div>
+        </div>
+        <div
+          class="tab-pane fade "
+          id="profile-3"
+          role="tabpanel"
+          aria-labelledby="profile-tab-3"
+        >
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    
+
+    // ? TODO: Initilize select tag..
+
+    $("#tab_3_question_1_answer_yes_2").hide();
+    $("#IMEI_2_error").hide();
+  
+
+    $("#previous_question_question_3_stage_2_extra").hide()
+    $("#previous_question_question_3_stage_2").hide();
+    $("#tab_3_question_1_answer_no").hide();
+    $("#tab_3_question_1_answer_yes").hide();
+    $("#area_code_error_tabt_3").hide();
+    $("#switch_4_error").hide();
+    
+    $("#previous_question_question_3_stage_2_extra").on("click", function()
+    {
+      // console.log("asjkdnksajdnkajsdnkjas");
+      $("#previous_question_question_3_stage_2_extra").hide();
+      $("#paymentDiv").hide();
+      $("#myTab_3").hide();
+      $("#Tab_3_Question_1").hide();
+      $("#tab_3_device_compabitibility_question").hide();
+      $("#device_campatibility_select_options_div_2").hide();
+      $("#beginshowHomeTab_Switching_previous").hide();
+      $("#tab_3_question_1_answer_yes").show();
+
+    });
+    
+    $("#showHomeTab_Switching").on("click", function () {
+      $("#tab-3-line-1").addClass("active");
+      $("#showHomeTab_Switching").hide();
+      $("#paymentDiv").hide();
+      $("#myTab_3").show();
+      $("#Tab_3_Question_1").show();
+      $("#home-tab-3").removeClass("active");
+      $("#profile-tab-3").removeClass("active");
+      $("#beginshowHomeTab_Switching").hide();
+      $("#tab_3_device_compabitibility_question").show();
+      $("#tab_3_question_1_answer_yes_2").show();
+    });
+
+
+
+    // Device Compatibility Question
+    $("#home-tab-3").on("click", function()
+    {
+      $("#myTab_3").hide();
+      $("#Tab_3_Question_1").hide();
+      $("#home-3").show();
+      $("#SwitchPaymentShowButton").show();
+      $("#beginshowHomeTab_Switching_previous").hide();
+    });
+
+
+    // Show Previous Tab 3 Question 1
+    $("#previous_show_tab_3_question_1").on("click", function()
+    {
+      $("#home-3").hide();
+      $("#myTab_3").show();
+      $("#Tab_3_Question_1").show();
+      $("#beginshowHomeTab_Switching_previous").show();
+      
+    });
+
+    //   Previous Question
+    $("#previous_question_question_3_stage_2").on("click", function () {
+      // console.log("askdkjaskjdaskjdnas");
+      $("#tab-3-line-2").removeClass("active");
+      $("#SwitchPaymentShowButton").show();
+      $("#paymentDiv").hide();
+      $("#previous_question_question_3_stage_2_extra").hide()
+      // $("#question_3_stage_2").removeClass("badge-success");
+      // $("#question_3_stage_2").addClass("badge-light");
+      // $("#showHomeTab_Switching").hide();
+      $("#beginshowHomeTab_Switching").show();
+      // $("#beginshowHomeTab_Switching_previous").show();
+      if($("#profile-tab-3").hasClass("active"))
+      {
+        $("#tab_3_question_1_answer_yes").show();
+      }
+      
+      // $("#myTab_3").show();
+    });
+
+
+
+// Tab 3 First Question Anser No
+$("#profile-tab-3").on("click", function()
+{
+  $("#myTab_3").hide();
+  $("#Tab_3_Question_1").hide();
+  $("#tab_3_device_compabitibility_question").hide();
+  $("#device_campatibility_select_options_div_2").hide();
+  $("#beginshowHomeTab_Switching_previous").hide();
+  $("#tab_3_question_1_answer_yes").show();
+});
+
+    $("#tab_3_question_device_compatibility_yes").on("click", function()
+    {
+      $("#tab_3_device_compabitibility_question").hide();
+      $("#tab_3_question_1_answer_yes").show();
+      $("#tab_3_question_1_answer_no").hide();
+    });
+
+    $("#tab_3_device_compatibility_yes_area_code").on("click", function()
+    {
+      var reg = new RegExp('^[0-9]+$');
+      if(reg.test($("#Area_code_tab_3").val()))
+      {
+        $("#area_code_error_tabt_3").hide();  
+        $("#tab-3-line-2").addClass("active");
+        $("#SwitchPaymentShowButton").hide();
+        $("#beginshowHomeTab_Switching").hide();
+        $("#paymentDiv").fadeIn(1000);
+        $("#tab_3_question_1_answer_yes").hide();
+        $("#previous_question_question_3_stage_2_extra").show();
+      }
+      else
+      {
+        $("#area_code_error_tabt_3").show();
+      }
+     
+    });
+
+
+    $("#Area_code_tab_3").on("keyup", function(){
+  
+  var reg = new RegExp('^[0-9]+$');
+  
+  if(reg.test($("#Area_code_tab_3").val())){
+  $("#area_code_error_tabt_3").hide();
+  }
+  else{
+    $("#area_code_error_tabt_3").show();
+  }
+});
+
+
+$("#tab_3_question_device_compatibility_no").on("click", function()
+{
+  $("#tab_3_question_1_answer_no").show();
+});
+
+
+
+
+
+$("#tab_3_device_compatibility_yes_area_code_previous").on("click", function()
+{
+  $("#tab_3_question_1_answer_yes").hide();
+  $("#tab_3_question_1_answer_yes_2").hide();
+  $("#tab_3_device_compabitibility_question").hide();
+  
+  $("#myTab_3").show()
+  $("#beginshowHomeTab_Switching_previous").show();
+  
+  // Show Port Number
+  $("#beginshowHomeTab_Switching").show();
+
+  // Show Port Number Question
+  $("#Tab_3_Question_1").show();
+
+
+});
+
+    // Show Shipping Details
+    $("#SwitchPaymentShowButton").on("click", function () {
+      if (
+        !$("#switch_1").val().trim() ||
+        !$("#switch_2").val().trim() ||
+        !$("#switch_3").val().trim() ||
+        !$("#switch_4").val().trim()
+      ) {
+        if(!$("#switch_1").val().trim()){
+            $("#switch_1_error").show();
+        }
+        else{
+          $("#switch_1_error").hide();
+        }
+        if(!$("#switch_2").val().trim()){
+            $("#switch_2_error").show();
+        }
+        else{
+          $("#switch_2_error").hide();
+        }
+        if(!$("#switch_3").val().trim())
+        {
+            $("#switch_3_error").show();
+        }
+        else{
+          $("#switch_3_error").hide();
+        }
+        if(!$("#switch_4").val().trim())
+        {
+            $("#switch_4_error").show();
+        }
+        else{
+          $("#switch_4_error").hide();
+        }
+        
+        // for(var j = 1; j < $("input[name='switch_1']").length; j++){
+        //   console.log(j);
+        //   // if(!$($("input[name='switch_1']")[j]).val().trim()){
+        //   //   $("#switch_1_error").show();
+        //   // }
+        //   // else{
+        //   //   $("#switch_1_error").show();
+        //   // }
+        // }
+        
+      }
+          
+        
+        
+      
+      else 
+      {
+        $("#tab-3-line-2").addClass("active");
+        $("#beginshowHomeTab_Switching").hide();
+        $("#paymentDiv").fadeIn(1000);
+
+        // Show Payment Previous Button
+        $("#previous_question_question_3_stage_2").show();
+        $("#switch_1_error").hide();
+        $("#switch_2_error").hide();
+        $("#switch_3_error").hide();
+        $("#switch_4_error").hide();
+
+        $("#Switching_Carrier_Review_Port_Numer").html($("#switch_1").val());
+        $("#Switching_Carrier_Review_Account_Number").html($("#switch_2").val());
+        $("#Switching_Carrier_Review_Pin").html($("#switch_3").val());
+        $("#Switching_Carrier_Review_Current_Carrier").html($("#switch_4").val());
+      }
+    });
+
+
+
+
+
+
+    
+    var $input = $("#switch_1");
+    $input.on("keyup", function (event) {
+      // 1
+      var $this = $(this);
+      var input = $this.val();
+
+      // 2
+      var input = input.replace(/[\D\s\._\-]+/g, "");
+
+      // 3
+      var split = 3;
+      var chunk = [];
+
+      for (var i = 0, len = input.length; i < len; i += split) {
+        split = i >= 4 && i <= 10 ? 4 : 3;
+        chunk.push(input.substr(i, split));
+      }
+
+      // 4
+      $this.val(function () {
+        return chunk.join("-").toUpperCase();
+      });
+    });
+  
+    // Next Question
+    // IMEI -> Port Number
+    $("#tab_3_device_compatibility_yes_area_code_2").on("click", function()
+    {
+      $("#tab_3_question_1_answer_yes_2").hide();
+      $("#beginshowHomeTab_Switching").show();
+      $("#Switching_Carrier_Review_IMEI").html("");
+          for(var i = 0; i < $('[name="IMEI"]').length; i++ )
+          {
+            if($($('[name="IMEI"]')[i]).val().trim()){
+              $("#Switching_Carrier_Review_IMEI").html($("#Switching_Carrier_Review_IMEI").html() + $($('[name="IMEI"]')[i]).val() + ", ");
+            }            
+          }
+    });
+
+
+     //   IMEI Input Format
+     var $input2 = $("#IMEI_2");
+      $input2.on("keyup", function (event) {
+        var $this = $(this);
+        var input = $this.val();
+        var input = input.replace(/[\D\s\._\-]+/g, "");
+        var split = 1;
+        var chunk = [];
+        for (var i = 0, len = input.length; i < len; i += split) {
+          split = 17;
+          chunk.push(input.substr(i, split));
+        }
+        $this.val(function () {
+          return chunk.join("-").toUpperCase();
+        });
+      });
+     
+      // Previous Question
+      // Port Number -> IMEI Number
+      $("#beginshowHomeTab_Switching_previous").on("click", function()
+      {
+        // Show IMEI Number Form
+        $("#tab_3_question_1_answer_yes_2").show();
+
+        // Hide Port Number
+        $("#beginshowHomeTab_Switching").hide();
+      });
+
+  });
+</script>
+
+
+  <!-- !  Add IMEI_2 Functionality  -->
+  
+<script>
+  $(document).ready(function(){  
+      var i=1;  
+      $('#add_2').click(function(){  
+          if(i < $("#slots").val()){
+          i++;  
+          $('#dynamic_field_2').append('<tr id="row'+i+'"><td><input type="text" name="IMEI" placeholder="IMEI" class="form-control border col-12 border-dark  bg-light" maxlength="17" /></td><td><button type="button" name="remove" id="'+i+'" class="btn bg-Puerto-Rico text-white btn_remove">X</button></td></tr>');  
+          if(i ==  $("#slots").val()){
+            $("#add_2").hide();
+          }
+          }
+          else if(i ==  $("#slots").val()){
+            $("#add_2").hide();
+          }
+      });  
+      $(document).on("click", ".btn_remove", function()
+      { 
+            i--;  
+           var button_id = $(this).attr("id");   
+           $('#row'+button_id+'').remove();  
+           $("#add_2").show();
+      });
+      
+      
+     
+ }); 
+</script>
+
+{% endautoescape %}

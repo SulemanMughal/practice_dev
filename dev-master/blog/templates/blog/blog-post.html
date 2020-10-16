@@ -1,0 +1,128 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+<script src="https://use.fontawesome.com/5466fade14.js"></script>
+<style>
+  .marker{
+    background-color: yellow;
+  }
+</style>
+    <section data-jarallax data-speed=".8" class="py-12 py-md-15 bg-cover jarallax" style="background-image: url({% static 'Landkit/images/covers/cover-8.jpg' %});">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-7 text-center">
+            <h1 class="display-2 font-weight-bold text-white">
+              {{ post.title }}
+            </h1>
+          </div>
+        </div>
+        
+      </div>
+      
+    </section>
+    <section class="pt-8 pt-md-11">
+      
+      <div class="container">
+        
+        
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-9 col-xl-8">
+            <p class="lead mb-7 text-center text-muted">
+              {{ post.body|safe }}
+            </p>
+            <div class="row align-items-center py-5 border-top border-bottom">
+              <div class="col ml-n5">
+                <h6 class=" mb-0">
+                  {{ post.user.username }}
+                </h6>
+                <time class="font-size-sm text-muted" datetime="{{ post.timestamp }}">
+                  Published on {{ post.timestamp }}
+                </time>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div> 
+    </section>
+    <section class="pt-4">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-9 col-xl-8">
+              <div class="card mb-6 shadow-light-lg ">
+                <div class="card-header">
+                  <h3 class="card-title mb-0 text-uppercase">Comments</h3>
+                </div>
+                  <div class="card-body">
+                    <ul class="list-group list-group-flush" id="comments_list">
+                      <form  id="post_comment" class="w-100" >
+                        {% csrf_token %}
+                        <input type="text" class="form-control border-0 px-1" placeholder="Write a comment" name="comment"> 
+                      </form>
+                      {% for comment in post.get_published_comments %}
+                          <div class="list-group-item list-group-item-action ">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h4 class="mb-1 text-success">{{ comment.user.email }}</h4>
+                              <small>{{ comment.timestamp }}</small>
+                            </div>
+                            <p class="mb-1">{{ comment.body }}</p>
+                            <p class="mb-1 text-left ml-5 reply" data-id="{{ comment.id }}">Reply <i class="fas fa-reply"></i></p>
+                          </div>
+                          {% if comment.get_published_reply %}
+                          <ul class="list-group list-group-flush ml-6 mt-5" id="ReplyList">
+                            {% for reply in comment.get_published_reply %}
+                            <div class="list-group-item list-group-item-action ">
+                              <div class="d-flex w-100 justify-content-between">
+                                <h4 class="mb-1 text-success">{{ reply.user.email }}</h4>
+                                <small>{{ reply.timestamp }}</small>
+                              </div>
+                              <p class="mb-1">{{ reply.body }}</p>
+                            </div>
+                          {% endfor %}
+                          </ul>
+                            {% endif %}
+                            <form  id="commentreply_{{ comment.id }}" class="w-100 d-none" method="POST" action="{% url  'comment_reply_url' post.slug comment.id %}">
+                              {% csrf_token %}
+                              <input type="text" class="form-control border-0 px-1 ml-6" placeholder="Relpy to a comment" name="reply"> 
+                            </form>
+                      {% endfor %}
+                    </ul>
+                  </div>
+              </div>  
+            </div>
+            </div>
+        </div>
+    </section>
+    <script>
+      $(document).ready(function(){
+        // $("img").addClass(" figure-img img-fluid rounded lift lift-lg");
+        
+        
+        // Reply to a comment 
+        $(".reply").on("click", function(){
+            $("#commentreply_" + $(this).attr("data-id") + "").removeClass("d-none");
+            $("#commentreply_" + $(this).attr("data-id") + " input[name='reply']").focus();
+        });
+        // Comment to a post
+        $("#post_comment").on("submit", function(e)
+        {
+          e.preventDefault();
+          e.stopPropagation();
+          $.ajax({
+          type  : "POST",
+          url   : "{% url 'post_comment_url' post.slug %}",
+          data  : $("#post_comment").serialize(),
+          error:function(response){
+              if(response["responseJSON"]["error"] == "You need to login"){
+                $("#signInModalForm_errors").html("You need to Sign-In/Sign-Up before proceed to comment or reply.");
+                $("#modalSigninHorizontal").modal("show");
+              }
+            }
+          }).done(function(html){
+            $("#post_comment").after(html);
+            $('#post_comment')[0].reset();
+          });
+          });
+      });
+    </script>
+    {% endblock %}

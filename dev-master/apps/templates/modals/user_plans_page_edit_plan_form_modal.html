@@ -1,0 +1,186 @@
+{% load static %}
+<div class="modal fade" id="exampleModalEditPlan_{{ plan.id }}_{{ plan.plan_name|slugify }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalEditPlan_{{ plan.id }}_{{ plan.plan_name|slugify }}Label" aria-hidden="true" >
+    <div class="modal-dialog" role="document" style="max-width: 800px !important;" >
+      <div class="modal-content"  >
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalEditPlan_{{ plan.id }}_{{ plan.plan_name|slugify }}Label">Edit Plan Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form method="POST" action="{% url 'planeditform' object.id %}" id="{{ plan.id }}_{{ plan.plan_name|slugify }}_form" class="needs-validation" novalidate>
+                {% csrf_token %}
+                <div class="card mt-5 mb-5 border-0" style=" width:45rem; margin-top: 0px !important; margin-bottom: 0px !important; box-shadow: none !important; ">
+                    <div class="card-body">
+                        {% if form.errors %}
+                        {% for field in form %}
+                        {% for error in field.errors %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <h5 class="alert-heading">{{ field.label }}</h5>
+                            <hr>
+                            <p class="mb-0">{{ error|escape }}</p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        {% endfor %}
+                        {% endfor %}
+                        {% endif %}
+
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label>Mobile Carrier</label>
+                                    
+                                    {% if categories %}
+                                    <select name="category" required="" id="id_category_{{ plan.id }}" class="form-control"  value="{{ object.category.id }}"   required="" onclick="update_line_payment_from_profile($(this), '{{ plan.id }}' );">
+                                      {% for category in categories %}
+                                      <option data-slug = "{{ category.slug }}" value="{{ category.id }}"  {% if category.id == object.category.id %} selected {% endif %}  >{{ category|capfirst   }}</option>
+                                      {% endfor %}
+                                    </select>
+                                  </div>
+                                  <div class="form-group" id="selectContains">
+                                    <label>Plan Name</label>
+                                    <select class="form-control"  id="id_plan_name_default" data-target="plan_name" style="display: none;">
+                                        <option hidden>Select Category First</option>
+                                    </select>
+                                  {% for category in categories %}
+                                  <select class="form-control" id="id_plan_name_{{ category.id }}_{{ plan.id }}" 
+                                    data-target="plan_name" {% if object.category.id  != category.id %} style="display: none;" {% endif %} name="plan_name"   >
+                                      {% for j in category.categoryplanname_set.all %}
+                                        <option value="{{ j.name }}"  >{{ j.name }}</option>
+                                      {% endfor %}
+                                    </select>
+                                  {% endfor %}
+                                  {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    <label>Family Name</label>
+                                    <button type="button" class="btn pl-1 mr-0 pr-0" data-toggle="popover" title="Family Name" data-content="Give you family plan a name"><i class="fa fa-info-circle"></i></button>
+                                    <input type="text" name="family_name" value="{{object.family_name}}"
+                                        maxlength="150" class="form-control" required="">
+
+                                        <div class="invalid-feedback">
+                                          Please fill put this field.
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-5">
+
+                                <div class="form-group">
+                                    <label>Total Available Slots</label>
+                                    <button type="button" class="btn pl-1 mr-0 pr-0" data-toggle="popover" title="Total Available Slots" data-content="How many mobile lines are you willing to rent out."><i class="fa fa-info-circle"></i></button>
+                                    <select id="#total_slots" name="total_slots" required="" >
+                                            {% with ''|center:10 as range %}
+                                            {% for _ in range %}
+                                                
+                                                <option value="{{ forloop.counter }}" {% if object.total_slots == forloop.counter %} selected {% endif %}>{{ forloop.counter }}</option>
+                                            {% endfor %}
+                                            {% endwith %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Next Recurring Bill Date</label>
+
+                                    <div class="input-group date" data-provide="datepicker" data-date-format="mm/dd/yyyy">
+                                        <input type="text" name="monthly_payment_date" required=""
+                                            value="{{object.monthly_payment_date}}" maxlength="150"
+                                            class="form-control">
+                                            <div class="invalid-feedback">
+                                              Please fill put this field.
+                                            </div>
+
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-th"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>How much are you currently paying per line?</label>
+                                    <div class="input-group mb-2">
+                                      <div class="input-group-prepend">
+                                        <div class="input-group-text text-dark">$</div>
+                                      </div>
+                                    <input type="number" name="currently_monthly_payment_per_line" id="id_currently_monthly_payment_per_line_{{ plan.id }}" required=""
+                                        value="{{object.currently_monthly_payment_per_line}}" maxlength="5"
+                                        class="form-control" onkeyup="update_line_payment('{{ plan.id }}');" >
+                                        <div class="invalid-feedback">
+                                          Please fill put this field.
+                                        </div>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="text-danger card-text" id="currentLinePayment_{{ plan.id }}"
+                                        style="display: none;"></label>
+                                </div>
+                                <div class="form-group">
+                                    <label>Current Family Size</label>
+                                    
+                                    <select class="form-control" id="exampleFormControlSelect1familySize" name="familySize"   required="" >
+                                      {% with ''|center:19 as range %}
+                                      {% for _ in range %}
+                      
+                                      <option value="{{ forloop.counter }}" {% if object.familySize == forloop.counter %} selected {% endif %}>{{ forloop.counter }}</option>
+                                      {% endfor %}
+                                      {% endwith %}
+                      
+                    </select>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-success font-weight-bold float-right mr-2 button-loader button-loader">Save Changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  
+
+<script>
+  $(document).ready(function()
+  {
+    $("#id_plan_name_{{ object.category.id }}_{{ object.id }}").val("{{ object.plan_name }}");
+    $('#exampleModalEditPlan_{{ plan.id }}_{{ plan.plan_name|slugify }}').on('shown.bs.modal', function (e) {
+      $("#id_category_{{ plan.id }}").val("{{ plan.category.id }}");
+      $("#id_plan_name_{{ object.category.id }}_{{ object.id }}").val("{{ object.plan_name }}");
+      update_line_payment_from_profile($("#id_category_{{ plan.id }}"), "{{ object.id }}")
+      // $("#id_category_{{ plan.id }}").prop('disabled', true);
+      // $("#id_plan_name_{{ object.category.id }}_{{ object.id }}").prop('disabled', true)
+      $("#id_category_{{ plan.id }} option:not(:selected), #id_plan_name_{{ object.category.id }}_{{ object.id }} option:not(:selected)").hide();
+      $("#id_category_{{ plan.id }}, #id_plan_name_{{ object.category.id }}_{{ object.id }}").attr("readonly", true);
+    });
+
+
+    $('#id_category').on("change", function () {
+      if ($("#id_category :selected").text() == "VERIZON") {
+
+        $("#id_plan_name_verizon").show();
+        $("#id_plan_name_default, #id_plan_name_t-mobiles, #id_plan_name_AT-T").hide();
+
+      }
+      else if ($("#id_category :selected").text() == "T-MOBILES") {
+        $("#id_plan_name_t-mobiles").show();
+        $("#id_plan_name_verizon, #id_plan_name_default, #id_plan_name_AT-T").hide();
+      }
+      else if ($("#id_category :selected").text() == "AT-T") {
+        $("#id_plan_name_AT-T").show();
+        $("#id_plan_name_verizon, #id_plan_name_default, #id_plan_name_t-mobiles").hide();
+      }
+
+    });
+  
+    
+   
+  });
+</script>

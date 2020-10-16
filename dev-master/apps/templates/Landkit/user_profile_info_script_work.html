@@ -1,0 +1,172 @@
+<script>
+    $(document).ready(function () {
+
+      $("#EditContactNumberSubmit, #EditContactNumberCancel, #Editfirst_nameSubmit, #Editfirst_nameCancel, #id_last_name, #Editshipping_addressSubmit, #Editshipping_addressCancel, #first_name_label, #last_name_label, #state_Error_empty, #address_div").hide();
+      // -------------------------------------------------------------------------------
+      // Edit First Name
+      $("#Editfirst_name").on("click", function () {
+        $(this).hide();
+        var data = "{{ request.user.first_name }}";
+        $("#Editfirst_nameSubmit, #Editfirst_nameCancel, #first_name_label, #last_name_label").show();
+        $("#id_first_name").removeAttr("readonly").focus().val("").val(data).addClass("col-6");
+        $("#id_last_name").show().val("{{ request.user.last_name }}");
+        $("#id_first_name,  #id_last_name").removeClass("border-0 pl-0 col-12");
+      });
+  
+      // Cancel First Name Editing
+      $("#Editfirst_nameCancel").on("click", function () {
+        $("#Editfirst_nameSubmit, #Editfirst_nameCancel, #first_name_label, #last_name_label").hide();
+        $("#Editfirst_name").show();
+        $("#id_first_name").val($("#first_name_hide").html() + " " + $("#last_name_hide")).attr("readonly", "on");
+        $("#id_last_name").hide().val("{{ request.user.last_name }}");
+        $("#id_first_name, #id_last_name").addClass("border-0 pl-0 col-12").removeClass("col-6");
+        $("#firstFormEdit").get(0).reset();
+      });
+  
+      $("#firstFormEdit").submit(function (e) {
+        e.preventDefault();
+        var serializedData = $(this).serialize();
+        // make POST ajax call
+        $.ajax({
+          type: "POST",
+          url: "{% url 'edit_bio_info' %}",
+          data: serializedData,
+          success: function (response) {
+            window.location.href = "{% url 'edit_profile' %}";
+          },
+          error: function (response) {
+            console.log("error");
+          },
+        });
+      });
+  
+      // -------------------------------------------------------------------------------
+  
+      // Edit Contact Number
+      $("#EditContactNumber").on("click", function () {
+        var data = $("#id_contactNumber").val();
+        $("#EditContactNumber").hide();
+        $("#EditContactNumberSubmit, #EditContactNumberCancel").show();
+        $("#id_contactNumber").removeAttr("readonly");
+        $("#id_contactNumber").focus().val("").val(data);
+        $("#id_contactNumber").removeClass("border-0 pl-0");
+      });
+  
+      // Edit Cancel button
+      $("#EditContactNumberCancel").on("click", function () {
+        $("#EditContactNumberSubmit, #EditContactNumberCancel").hide();
+        $("#EditContactNumber").show();
+        $("#id_contactNumber").attr("readonly", "on");
+        $("#id_contactNumber").addClass("border-0 pl-0");
+        $("#contactFormEdit").get(0).reset();
+        $("#id_contactNumber").val($("#contact_hide").html());
+      });
+      $("#contactFormEdit").submit(function (e) {
+        // preventing from page reload and default actions
+        e.preventDefault();
+        // serialize the data for sending the form data.
+        var serializedData = $(this).serialize();
+        // console.log(serializedData);
+        // make POST ajax call
+        $.ajax({
+          type: "POST",
+          url: "{% url 'edit_profile_contact_number' %}",
+          data: serializedData,
+          success: function (response) {
+            $("#EditContactNumberSubmit, #EditContactNumberCancel").hide();
+            $("#EditContactNumber").show();
+            $("#id_contactNumber").addClass("border-0 pl-0").attr("readonly", "on");
+            $("#contact_hide").html(response["contact"]);
+          },
+          error: function (response) {
+            console.log("error");
+          },
+        });
+      });
+  
+  
+      // Edit Shipping Address Row
+      $("#EditShippingAddress").on("click", function()
+      {
+        var data = $("#id_shipping_address").val();
+        $(this).hide();
+        $("#id_shipping_address_2").hide();
+        $("#id_shipping_address").removeAttr("readonly").focus().val("").val(data).removeClass("border-0 pl-0").hide();
+        $("#Editshipping_addressSubmit, #Editshipping_addressCancel, #address_div").show();
+        $("#country_selector").val($("#country_hide").html());
+        $("#id_street_address").val($("#street_address_hide").html());
+        $("#id_apartment").val($("#apartment_hide").html());
+        $("#id_city").val($("#city_hide").html());
+        $("#id_state").val($("#state_hide").html());
+        $("#id_zip_code").val($("#zip_hide").html());
+      });
+  
+      // Cancel Editing Shipping Address
+      $("#Editshipping_addressCancel").on("click", function()
+      {
+        $("#id_shipping_address").val("{{ profile.shipping_address }}").attr("readonly", "on");
+        $("#EditShippingAddress, #id_shipping_address_2").show();
+        $("#Editshipping_addressSubmit, #Editshipping_addressCancel, #address_div").hide();
+        $("#id_shipping_address").addClass("border-0 pl-0").show();
+        $("#id_shipping_addressEdit").get(0).reset();
+      }); 
+      
+      $("#id_shipping_addressEdit").submit(function (e) {
+        // preventing from page reload and default actions
+        e.preventDefault();
+        if($("#State :selected").val() == "Select")
+        {
+          $("#state_Error_empty").show();
+        }
+        else{
+           // serialize the data for sending the form data.
+        var serializedData = $(this).serialize();
+        // console.log(serializedData);
+        // make POST ajax call
+        $.ajax({
+          type: "POST",
+          url: "{% url 'edit_profile_shipping_address' %}",
+          data: serializedData,
+          success: function (response) {
+            // console.log("success");
+            $("#Editshipping_addressSubmit").hide();
+            $("#EditShippingAddress").show();
+            $("#Editshipping_addressCancel").hide();
+            // $("#id_contactNumber").val("{{ profile.contactNumber }}");
+            $("#id_shipping_address").attr("readonly", "on");
+            $("#id_shipping_address").addClass("border-0");
+        $("#id_shipping_address").addClass("pl-0");
+
+        $("#address_div").hide();
+        $("#id_shipping_addressEdit").get(0).reset();
+
+        $("#id_shipping_address , #id_shipping_address_2").show();
+        // console.log(response);
+            // $("").attr("data-value",  )
+$("#country_hide").html(response["country"]);
+$("#street_address_hide").html(response["street_address"]);
+$("#apartment_hide").html(response["apartment"]);
+$("#city_hide").html(response['city']);
+$("#state_hide").html(response["state"]);
+$("#zip_hide").html(response["zip_code"]);
+
+$("#id_shipping_address").val(response["street_address"] + " " + response["apartment"] );
+$("#id_shipping_address_2").val(response['city'] + " " + response["state"] + " " + response["zip_code"] + " " + response["country"])
+
+$("#state_Error_empty").hide();
+
+// $("#State").val("Select");
+// $("#id_shipping_addressEdit").get(0).reset();
+          },
+          error: function (response) {
+            console.log("error");
+          },
+        });
+        }
+       
+      });
+  
+      
+    });
+  </script>
+  

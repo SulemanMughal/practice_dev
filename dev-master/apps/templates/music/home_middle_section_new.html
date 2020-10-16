@@ -1,0 +1,40 @@
+{% load static %}
+<section>
+    <div class="container-fluid ml-5 mt-2 mb-2">
+       <div class="row">
+           <div class="col-12 col-md-6 pl-8 order-second order-md-first order-lg-first order-xl-first" >
+                <h1 class="mb-4">
+                Group together, save together!
+                </h1>
+                <div class="container pl-8 pr-8">
+                    <div class="row mb-2">
+                        <h2>
+                            List your account
+                        </h2>
+                        <p class="card-text">
+                            Have a few extra slots on your account? Post your account for others to join and enjoy the savings per line. We’ll handle the rest!
+                        </p>
+                    </div>
+                    <div class="row">
+                        <h2 class="mt-3">
+                            Join an existing account
+                        </h2>
+                        <p class="card-text">
+                            Looking to save? Find a family that best suits your needs and join that account to enjoy savings per line. We’ll handle the rest!
+                        </p>
+                        <a class="btn text-white bg-fresh-color  p-2 w-100 col-6 btn-lift"  href="{% url 'how-it-works-url' %}" title="circledin" target="_blank">
+                            Learn More
+                        </a>
+                        <p class="card-text text-Puerto-Rico mt-2">
+                            We guarantee timely payments each month so that there are no disruptions to your mobile services.
+                        </p>
+                    </div>                    
+                </div>
+           </div>
+           <div class="col-8 col-md-6 col-lg-4 mt-2 mb-2 order-first order-md-second order-lg-second order-xl-second offset-2 offset-md-0 offset-lg-1 offset-xl-1 pl-md-0">
+                <img class="img-fluid" data-toggle="tooltip"
+                src="{% static 'Landkit/images/illustrations/illustration-9.png' %}" alt="circledin">
+           </div>
+       </div>
+    </div>
+</section>

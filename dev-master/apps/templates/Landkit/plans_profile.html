@@ -1,0 +1,130 @@
+{% load static humanize findNextMonth social_share findNextYear %}
+<style>
+  div.facebook-this a {
+    color: white;
+    font-weight: bold;
+  }
+</style>
+{%  if  C %}
+  <div class="container pl-0">
+    {% for key, values in C.items %}
+      <div class="row">
+        {% for j in values %}
+          {% if j %}
+            <div class="col-12">
+              <p class="font-weight-bold card-text"> {{ key }} - {{ j.plan_name }} - {{ j.family_name }} </p>
+            </div>
+            {% if  j.leaveRequest %}
+            <div class="col-12 mb-2">
+              <p class="text-right text-danger font-weight-bolder">
+                Leaving. Need Admin Approval
+              </p>
+            </div>
+            {% else %}
+            {% if j.status == "Pending" %}
+            <div class="col-12  mb-2">
+              <p class="text-right text-danger font-weight-bolder">
+                Pending Approval From CI
+              </p>
+            </div>
+            {% elif j.status == "Inactive" %}
+            <div class="col-12  mb-2">
+              <p class="text-right text-danger font-weight-bolder">
+                Just Created Plan
+              </p>
+            </div>
+            {% elif j.status == "Active" %}
+            <div class="col-12 mb-4 mt-0">
+              <button class="btn bg-Puerto-Rico text-white font-weight-bold float-right  mt-2 col-12 col-md-12 col-lg-3 font-size-sm p-2" type="button" 
+              data-toggle="modal"
+                  data-target="#exampleModalPlanDelete_{{ j.id }}_{{ j.plan_name|slugify }}">
+               Remove Circles
+              </button>
+                
+                <a href="{% url 'Join' j.category.id j.id %}" type="button" class="btn bg-Puerto-Rico font-weight-bold float-right  card-link mr-0 mr-md-0 mr-lg-1 mt-2 col-12 col-md-12 col-lg-2 text-white font-size-sm p-2">
+                  See Details
+                </a>
+                <a href="{% url 'planeditform' j.id %}" class="btn bg-Puerto-Rico font-weight-bold float-right   mr-0 mr-md-0 mr-lg-1 mt-2 col-12 col-md-12 col-lg-1 text-white font-size-sm p-2" data-toggle="modal" type="button"
+                  data-target="#exampleModalEditPlan_{{ j.id }}_{{ j.plan_name|slugify }}" >Edit</a>
+            </div>
+            {% endif %}
+            {% endif %}
+            {% if j.get_subscription_objects %}
+
+            <div class="container mt-0 mb-5">
+              {% for k  in j.get_subscription_objects %}
+              {% if k.status != "Inactive" %}
+                <div class="row mb-4 pl-5">
+                    <div class="col-12 col-md-4 col-lg-4 col-xl-4">
+                      <a href="{% url 'Details' j.id k.id %}" title="See Subscription Details" class="text-nowrap">
+                        {{ k.user.email }}</a>
+                    </div>
+                    {% if k.leaveRequest %}
+                      {% if k.status == "CancelSubscription" %}
+                    <div class="col-12 col-md-8 col-lg-8 col-xl-8 ">
+                      <a type="button" class="card-link float-right text-danger font-weight-bolder"
+                      href="{% url 'Delete' j.id k.id %}">Leaving, Need Approval</a>
+                    </div>  
+                    {% elif k.status == "7" %}
+                    <div class="col-12 col-md-8 col-lg-8 col-xl-8 ">
+                      <span  class=" float-right text-danger font-weight-bolder"
+                      >Cancellation has been confirmed.</span>
+                    </div>
+                    {% endif %}                
+                    {% else %}
+                    <div class="col-12 col-md-8 col-lg-8 col-xl-8 ">
+                      {% if k.status == "Pending" %}
+                      <a href="{% url 'Disapprove' k.user.id j.id k.id %}"
+                          class="card-link float-right mr-4 ml-0 ">Disapprove</a>
+                        <a href="{% url 'Approve' k.user.id j.id k.id %}" 
+                          class="card-link float-right mr-4" >Approve</a>
+                      
+                      {% endif %}
+
+                      {% if k.leaveRequest is False %}
+                      {% if k.status == "Active"   %}
+                      
+                        <span  class="h3 float-right font-weight-bolder">Active</span>
+                        <a  class="h3 float-right font-weight-bolder card-link mr-2"   
+                        href="{% url 'shipSubs' k.user.id k.plan.id k.id %}">Change to Shipment Status</a>
+                        {% elif k.status == "Ship"   %}
+                        <span  class="h3 float-right font-weight-bolder">Active</span>
+                        <span  class="h3 text-muted float-right mr-2">Shipment has been added</span>
+                      {% elif k.status == "Inactive" %}
+                      <span  class="h3 float-right font-weight-bolder">Inactive</span>
+
+                      {% elif k.status == "Approved" %}
+                        <span  class="h3 float-right font-weight-bolder">Active</span>
+
+                      {% endif %}
+                      {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+            {% endif %}
+            {% endif %}
+            {% empty %}
+            <div class="row mb-2">
+              <div class="col-12 col-md-12 col-g-12 col-xl-12">
+                <span class="h3 font-weight-bolder">No plan for this category yet.</span>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <p>
+            No Plan has been created yet. 
+          </p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+

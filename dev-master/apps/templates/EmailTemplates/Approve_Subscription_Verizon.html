@@ -1,0 +1,23 @@
+{% autoescape off %}
+Hi {{ s_first_name }},
+
+Great news! You’ve been added to {{ Mobile_Carrier }}-{{ Plan_Name }}. Just a few more steps and you can start saving big bucks!
+
+Next steps:
+    1.  Login to https://www.verizonwireless.com/?intcmp=vzwdom
+        a.  Select Account
+        b.  Settings Overview
+        c.  Transfer of Service
+            i.  Select Transfer Service 
+        
+    2.  Enter the Account owners information below to initiate the transfer
+        a.  {{ Plan_Owner_First_Name }} and {{ Plan_Owner_Last_Name }}
+        b.  {{ Plan_Owner_Email_Address }}
+      
+That’s it! Circledin will confirm the transfer shortly. 
+
+Have any questions? Feel free to contact us and we’ll be more than happy to assist.
+
+Cheers!
+Circledin
+{% endautoescape %}

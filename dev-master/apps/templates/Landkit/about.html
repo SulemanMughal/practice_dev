@@ -1,0 +1,120 @@
+{% extends "Base.html" %}
+{% load static %}
+{% include "Landkit/META_TAG.html" %}
+
+
+{% block title %}About Us{% endblock %}
+{% block content %}
+<section class="pt-6 pt-md-8 pb-8 mb-md-8 mt-8">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="row mb-6 mb-md-8">
+          <div class="col-auto">
+            <div class="icon-circle bg-success text-white">
+              <i class="fe fe-users"></i>
+            </div>
+          </div>
+          <div class="col ml-n4">
+            <h2 class="font-weight-bold mb-0  mt-3 mt-md-3 mt-lg-3 mt-xl-3">
+              Group together, save together
+            </h2>
+          </div>
+        </div> 
+        <div class="card shadow-light-lg accordion mb-5 mb-md-6" id="helpAccordionOne">
+          <div class="list-group">
+            <div class="list-group-item">
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpOne" role="button" aria-expanded="false" aria-controls="helpOne">
+                <span class="mr-4 font-size-lg text-bluish-black font-weight-bolder">
+                  Our Mission!
+                </span>
+                <div class="text-muted ml-auto">
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a>
+              <div class="collapse show" id="helpOne" >
+                <div class="py-2">
+                  <p class="font-size-lg text-dark">
+                    It's simple. To put money back into your pockets so that you’re not overpaying for a service ever again.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpTwo" role="button" aria-expanded="false" aria-controls="helpTwo">
+                <span class="mr-4 font-size-lg text-bluish-black font-weight-bolder">
+                  Why?
+                </span>
+                <div class="text-muted ml-auto">
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> 
+              <div class="collapse show" id="helpTwo" >
+                <div class="py-2">
+                  <p class="font-size-lg text-dark">
+                    With a global pandemic impacting our world economy, US unemployment claims reaching north of 47 million, and a projected 100,000 small businesses expected to close permanently, we built this platform to provide you access to a premium mobile line without the premium prices!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpThree" role="button" aria-expanded="false" aria-controls="helpThree">
+                <span class="mr-4 font-size-lg text-bluish-black font-weight-bolder">
+                  How?
+                </span>
+                <div class="text-muted ml-auto">
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> 
+              <div class="collapse show" id="helpThree" >
+                <div class="py-2">
+                  <p class="font-size-lg ">
+                    We connect individual subscribers to a family plan to maximize savings. We are like the Uber Pool for mobile plans. Circle into a family and start putting an average of $550/yr back into your accounts!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpFour" role="button" aria-expanded="false" aria-controls="helpFour">
+                <span class="mr-4 font-size-lg text-bluish-black font-weight-bolder">
+                  Our Promise!
+                </span>
+                <div class="text-muted ml-auto">
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> 
+              <div class="collapse show" id="helpFour" >
+                <div class="py-2">
+                  <p class="font-size-lg text-dark">
+                   <ul>
+                     <li class="text-dark">
+                      1% of our profits to a charitable foundation
+                     </li>
+                     <li class="text-dark">
+                      1% of our time to volunteering for a cause
+                     </li>
+                     <li class="text-dark">
+                      To provide a white glove experience for our users to ensure you’re completely satisfied and happy with our services.
+                     </li>
+                   </ul>
+                  </p>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div> 
+</section>
+{% include "Landkit/footer.html" %}
+{% endblock %}

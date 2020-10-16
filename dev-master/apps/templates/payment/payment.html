@@ -1,0 +1,447 @@
+{% load static humanize FindSubUser findNextMonth findNextYear findFindSubID findSubStatus FindSubObject findPaymentCurrentDay  findSubSlots findSubCancelStatus FindCategoryPlanInfo mathfilters findUserPhone FindPlanFixedPrice %}
+
+{% include "payment/payment_style.html" %}
+<link rel="stylesheet" type="text/css" href="{% static 'music/css/example_4.css' %}" data-rel-css="" />
+<style>
+  .input{
+    color: #fff !important;
+  }
+</style>
+
+<form id="subscription-form"  method="POST" class="needs-validation" novalidate >
+  {% csrf_token %}
+ 
+  <div class="tab">
+    <div class="container">
+      <div class="row shadow-md">
+      <h2 class="card-title font-weight-bold mb-0 p-3 pl-4">
+        Review
+      </h5>
+    </div>
+      <div class="row mb-4 ">
+        
+        <div  class="col-12 col-md-12 col-lg-6 pr-0 mr-3">
+          <div  class="card border-0" style="border-radius: 25px 25px;" id="Get_New_Number_Review">
+            
+            <div  class="card-body p-4">
+              <div class="row mb-2">
+                <div class="col pr-0">
+                  <p class="h4">Plan </p>
+                </div>
+                <div class="col pl-0 pr-0">
+                  <span   class="text-left">{{ plan.category }} - {{ plan.plan_name }}</span>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col pr-0">
+                  <p class="h4">IMEI </p>
+                </div>
+                <div class="col pl-0 pr-0">
+                  <span  class="text-left" id="Get_New_Number_Review_IMEI">N/A</span>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col pr-0">
+                  <p class="h4">Area Code </p>
+                </div>
+                <div class="col pl-0 pr-0">
+                  <span  class="text-left" id="Get_New_Number_Review_Area_Code">N/A</span>
+                </div>
+              </div>
+              
+            </div >
+          </div >
+          <div  class="card border-0" style="border-radius: 25px 25px;"  id="Existing_Customer_Review">
+            <div  class="card-body p-4">
+              <div class="row mb-2">
+                <div class="col pr-0">
+                  <p class="h4">Plan </p>
+                </div>
+                <div class="col pl-0 pr-0">
+                  <span   class="text-left">{{ plan.category }} - {{ plan.plan_name }}</span>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col pr-0">
+                  <p class="h4">Active in last 30 days? </p>
+                </div>
+                <div class="col pl-0 pr-0">
+                  <span  class="text-left" id="Existing_Customer_Review_Active_Days">Yes</span>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col pr-0">
+                  <p class="h4">Account Owner </p>
+                </div>
+                <div class="col pl-0 pr-0">
+                  <span  class="text-left" id="Existing_Customer_Review_Account_Owner">No</span>
+                </div>
+              </div>
+            </div>
+          </div >
+          <div class="card border-0" style="border-radius: 25px 25px;" id="Switching_Carrier_Review" >
+            <div  class="card-body p-4">
+              <div class="row mb-2">
+                <div class="col pr-0">
+                  <p class="h4">Plan </p>
+                </div>
+                <div class="col pl-0 pr-0">
+                  <span   class="text-left">{{ plan.category }} - {{ plan.plan_name }}</span>
+                </div>
+              </div>
+
+              <div class="row mb-2">
+                <div class="col pr-0">
+                  <p class="h4">Port </p>
+                </div>
+                <div class="col pl-0 pr-0">
+                  <span   class="text-left" id="Switching_Carrier_Review_Port_Option">No</span>
+                </div>
+              </div>
+
+              <div class="row mb-2">
+                <div class="col pr-0">
+                  <p class="h4">Port Number</p>
+                </div>
+                <div class="col pl-0 pr-0">
+                  <span   class="text-left" id="Switching_Carrier_Review_Port_Numer">N/A</span>
+                </div>
+              </div>
+
+              <div class="row mb-2">
+                <div class="col pr-0">
+                  <p class="h4">Account Number</p>
+                </div>
+                <div class="col pl-0 pr-0">
+                  <span   class="text-left" id="Switching_Carrier_Review_Account_Number">N/A</span>
+                </div>
+              </div>
+
+              <div class="row mb-2">
+                <div class="col pr-0">
+                  <p class="h4">Pin</p>
+                </div>
+                <div class="col pl-0 pr-0">
+                  <span   class="text-left" id="Switching_Carrier_Review_Pin">N/A</span>
+                </div>
+              </div>
+
+              <div class="row mb-2">
+                <div class="col pr-0">
+                  <p class="h4">Current Carrier</p>
+                </div>
+                <div class="col pl-0 pr-0">
+                  <span   class="text-left" id="Switching_Carrier_Review_Current_Carrier">N/A</span>
+                </div>
+              </div>
+
+              <div class="row mb-2">
+                <div class="col pr-0">
+                  <p class="h4">IMEI</p>
+                </div>
+                <div class="col pl-0 pr-0">
+                  <span   class="text-left" id="Switching_Carrier_Review_IMEI">N/A</span>
+                </div>
+              </div>
+
+            </div >
+          </div>
+        </div >  
+        <div class="col-12 col-md-12 col-lg-5 pl-md-0 mt-5 mt-md-0">
+          <div class="card border border-dark shadow-lg" style="border-radius: 25px 25px;">
+            
+            <div class="card-body pt-0 pb-2" >
+              
+
+                  <div class="row">
+                    <div class="col">
+                      <label for="exampleFormControlSelect1" class="pt-2 text-nowrap">Number of Guests</label>
+                    </div>
+                    <div class="col">
+                      <input type="number" value="1" class="form-control bg-transparent border-0 text-right pt-0 pb-0 box-shadow-none" readonly id="review_number_of_guests">
+
+                    </div>
+
+                  </div>
+                <div class="form-group mb-0">
+                  <div class="row">
+                    <div class="col">
+                      <label for="exampleForm" class="text-nowrap">Subscription Fees</label>
+                    </div>
+                    <div class="col text-right mr-3 mt-2 ">
+                      <p class="card-title font-weight-bold" >$<span id="review_subs_Section">5</span> /month
+                    </p>
+                    </div>
+  
+                  </div>
+                </div>
+                <div class="form-group mb-0">
+                  <div class="row">
+                    <div class="col">
+                      <label for="exampleForm" class="text-nowrap">Mobile Cost</label>
+                    </div>
+                    <div class="col text-right mr-3">
+                      <p class="card-title font-weight-bold"  id="review_payment" >$<span  id="review_paymentSub">{{ plan.currently_monthly_payment_per_line|intcomma }}</span> /month
+                    </p>
+                    </div>
+  
+                  </div>
+                </div>
+                <div class="form-group border border-dark pt-2 border-bottom-0 border-left-0 border-right-0 mb-0">
+                  <div class="row">
+                    <div class="col">
+                      <label for="exampleForm">Total</label>
+                    </div>
+                    <div class="col text-right mr-3">
+                      <p class="card-title font-weight-bold"  id="review_total"
+                      >${{ plan.currently_monthly_payment_per_line|intcomma }}
+                    </p>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                </div>
+          
+        </div>
+      </div>
+      <div id="next_Steps_info" >
+        <div class="row mt-8">
+          <p class="h2 font-weight-bold">Next Steps</p>
+        </div>
+  
+        <div class="row">
+          <p class="h4 pl-5">
+            We'll begin processing your order and you should expect to recieve
+            your new Sim Card and number within 2 business days. You'll recieve an
+            email confirmation shortly.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row shadow-md mt-3 mb-4">
+        <h2 class="card-title font-weight-bold mb-0 p-3 pl-4">
+          Confirm and Pay
+        </h5>
+    </div>
+    <div class="cell example example5 shadow-lg" id="example-5">
+      
+      
+        <div id="example5-paymentRequest">
+        </div>
+        <fieldset>
+          <legend class="card-only  p-3 font-weight-bolder text-white" data-tid="elements_examples.form.pay_with_card" >Pay with card</legend>
+          <legend class="payment-request-available" data-tid="elements_examples.form.enter_card_manually">Or enter card details</legend>
+          <div class="row">
+            <div class="field">
+              <label for="example5-name" data-tid="elements_examples.form.name_label">Name</label>
+              <input id="example5-name" data-tid="elements_examples.form.name_placeholder" class="input" type="text"  required="" autocomplete="name" value="{{ request.user.first_name }}">
+              <div class="invalid-feedback text-white font-weight-bolder">
+                Please provide a valid name.
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="example5-email" data-tid="elements_examples.form.email_label">Email</label>
+              <input id="example5-email" data-tid="elements_examples.form.email_placeholder" class="input" type="text"    required="" autocomplete="email" value="{{ request.user.email }}">
+              <div class="invalid-feedback text-white font-weight-bolder">
+                Please provide a valid email.
+              </div>
+            </div>
+            <div class="field">
+              <label for="example5-phone" data-tid="elements_examples.form.phone_label">Phone</label>
+              <input id="example5-phone" data-tid="elements_examples.form.phone_placeholder" class="input" type="text"   required="" autocomplete="tel" value="{{ request.user.id|findUserPhone }}">
+              <div class="invalid-feedback text-white font-weight-bolder">
+                Please provide a valid phone number.
+              </div>
+            </div>
+          </div>
+          <div data-locale-reversible>
+            <div class="row">
+              <div class="field">
+                <label for="example5-address" data-tid="elements_examples.form.address_label">Address</label>
+                <input id="example5-address" data-tid="elements_examples.form.address_placeholder" class="input" type="text"  required="" autocomplete="address-line1" >
+                <div class="invalid-feedback text-white font-weight-bolder">
+                  Please provide a valid address.
+                </div>
+              </div>
+            </div>
+            <div class="row" data-locale-reversible>
+              <div class="field">
+                <label for="example5-city" data-tid="elements_examples.form.city_label">City</label>
+                <input id="example5-city" data-tid="elements_examples.form.city_placeholder" class="input" type="text"  required="" autocomplete="address-level2" >
+                <div class="invalid-feedback text-white font-weight-bolder">
+                  Please provide a valid city.
+                </div>
+              </div>
+              <div class="field">
+                <label for="example5-state" data-tid="elements_examples.form.state_label">State</label>
+                
+                <select id="example5-state" required data-tid="elements_examples.form.state_placeholder" class="input empty" autocomplete="address-level1" >
+                  
+                  <option  selected="" value="None" >Select State</option>
+                  <option value="AL" >AL</option>
+                  <option value="AK" >AK</option>
+                  <option value="AR" >AR</option>
+                  <option value="AZ" >AZ</option>
+                  <option value="CA" >CA</option>
+                  <option value="CO" >CO</option>
+                  <option value="CT" >CT</option>
+                  <option value="DC" >DC</option>
+                  <option value="DE" >DE</option>
+                  <option value="FL" >FL</option>
+                  <option value="GA" >GA</option>
+                  <option value="HI" >HI</option>
+                  <option value="IA" >IA</option>
+                  <option value="ID" >ID</option>
+                  <option value="IL" >IL</option>
+                  <option value="IN" >IN</option>
+                  <option value="KS" >KS</option>
+                  <option value="KY" >KY</option>
+                  <option value="LA" >LA</option>
+                  <option value="MA" >MA</option>
+                  <option value="MD" >MD</option>
+                  <option value="ME" >ME</option>
+                  <option value="MI" >MI</option>
+                  <option value="MN" >MN</option>
+                  <option value="MO" >MO</option>
+                  <option value="MS" >MS</option>
+                  <option value="MT" >MT</option>
+                  <option value="NC" >NC</option>
+                  <option value="NE" >NE</option>
+                  <option value="NH" >NH</option>
+                  <option value="NJ" >NJ</option>
+                  <option value="NM" >NM</option>
+                  <option value="NV" >NV</option>
+                  <option value="NY" >NY</option>
+                  <option value="ND" >ND</option>
+                  <option value="OH" >OH</option>
+                  <option value="OK" >OK</option>
+                  <option value="OR" >OR</option>
+                  <option value="PA" >PA</option>
+                  <option value="RI" >RI</option>
+                  <option value="SC" >SC</option>
+                  <option value="SD" >SD</option>
+                  <option value="TN" >TN</option>
+                  <option value="TX" >TX</option>
+                  <option value="UT" >UT</option>
+                  <option value="VT" >VT</option>
+                  <option value="VA" >VA</option>
+                  <option value="WA" >WA</option>
+                  <option value="WI" >WI</option>
+                  <option value="WV" >WV</option>
+                  <option value="WY" >WY</option>
+              </select>
+              <div class="invalid-feedback text-white font-weight-bolder" id="selectTagError">
+                Please provide a valid state.
+              </div>
+              </div>
+              <div class="field">
+                <label for="example5-zip" data-tid="elements_examples.form.postal_code_label">ZIP</label>
+                <input id="example5-zip" data-tid="elements_examples.form.postal_code_placeholder" class="input empty" type="text" required="" autocomplete="postal-code" >
+                <div class="invalid-feedback text-white font-weight-bolder">
+                  Please provide a valid zip code.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="example5-card" data-tid="elements_examples.form.card_label">Card</label>
+              <div id="example5-card" class="input"></div>
+            </div>
+          </div>
+          <button type="submit" data-tid="elements_examples.form.pay_button" class="font-weight-bold h2 text-dark button-loader">Pay $25</button>
+          
+        </fieldset>
+      
+       
+    
+      
+    
+    </div>
+    <div id="card-errors" role="alert"></div>
+  </div>
+  <input  hidden  name="number_of_slots" value="1">
+  <div class="mt-2" style="overflow: auto;">
+    <div style="float: right;">
+      <button
+        type="button"
+        id="previous_question_area_code"
+        class="btn bg-Puerto-Rico text-white "
+      >
+        Previous
+      </button>
+      <button
+      type="button"
+      id="previous_question_question_2_stage_2"
+      class="btn bg-Puerto-Rico text-white "
+    >
+    Previous
+      </button>
+      <button
+      type="button"
+      id="previous_question_question_3_stage_2"
+      class="btn bg-Puerto-Rico text-white "
+    >
+      Previous
+    </button>
+    <button
+    type="button"
+    id="previous_question_question_3_stage_2_extra"
+    class="btn bg-Puerto-Rico text-white "
+  >
+    Previous
+  </button>
+      <button
+        type="button"
+        id="prevBtn"
+        onclick="nextPrev(-1)"
+        class="btn bg-Puerto-Rico text-white "
+      >
+        Previous
+      </button>
+     
+      <input
+        type="submit"
+        value="Place Order"
+        id="submit_button"
+        class="btn bg-Puerto-Rico text-white "
+      />
+    </div>
+  </div>
+  <!-- * Circles which indicates the steps of the form: -->
+  <div style="text-align: center;">
+    <span class="step text-white"></span>
+    <span class="step text-white"></span>
+  </div>
+</form>
+
+{% include "payment/payment_script_work.html" %}
+<script src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript" src="{% static 'music/client.js' %}"></script>
+
+<!-- * Payment Model State Select Styling Changes -->
+<script>
+  $(document).ready(function()
+  {
+    $('[role="combobox"]').removeClass("btn-light");
+    $("#example5-state").on("change", function(){
+      if($("#example5-state :selected").val() != "None")
+      {
+        $("#selectTagError").hide(); 
+      }
+      else{
+        $("#selectTagError").show(); 
+      }
+    })
+  });
+</script>
+
+<!-- ! See elements_examples.form.pay_button Values  changes in device compatibility script work -->
+<!-- ! See payment button click events  -->
+<!-- ! IN this file -->
+<!-- ! In client.js  -->

@@ -1,0 +1,127 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% include "Landkit/META_TAG.html" %}
+{% block title %} Contact Us {% endblock %}
+{%  block content %}
+
+<div class="modal fade" id="exampleModalContact" tabindex="-1" role="dialog" aria-labelledby="exampleModalContactLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalContactLabel">Thank You</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <!-- Image -->
+            <div class="text-center">
+              <img src="{% static 'Landkit/images/illustrations/illustration-1.png' %}" alt="circledin" class="img-fluid mb-3" style="width: 200px;">
+            </div>
+              <!-- Heading -->
+              <h4 class="font-weight-bold text-center mb-1" id="modalExampleTitle">
+              We will respond within 24 hours. Thank you.
+              </h4>
+              <button type="button" class="btn btn-success-soft btn-lgfont-size-lg font-weight-bold btn-block" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% if form.errors %}
+{% for field in form %}
+  {%  for error in field.errors %}
+    <div class="alert alert-danger alert-dismissible texxt-white">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong class="font-size-sm">{{ error }}</strong>
+    </div>
+    {% endfor %}
+{% endfor %}
+{% endif %}
+    <section class="py-10 py-md-14 overlay overlay-black overlay-60 bg-cover" style="background-image: url({% static 'Landkit\images\covers\cover-5.jpg' %});">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-8 text-center">
+            <!-- Heading -->
+            <h1 class="display-2 font-weight-bold text-white">
+              We’re Here to Help.
+            </h1>
+            <!-- Text -->
+            <p class="lead text-white-75 mb-0">
+              Leave a feedback and let us know how we can best assist you. Not seeing a service on our platform? Let us know below!
+            </p>
+          </div>
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </section>
+    <!-- INFO
+    ================================================== -->
+    <section class="py-7 py-md-9 border-bottom border-gray-300" id="info">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <!-- Button -->
+            <a href="#info" class="btn btn-white btn-rounded-circle shadow mt-n11 mt-md-n13" data-toggle="smooth-scroll">
+              <i class="fe fe-arrow-down"></i>
+            </a>
+          </div>
+        </div> <!-- / .row -->
+        <div class="row">
+          <div class="col-12 col-md-6 text-center border-right border-gray-300">
+            <!-- Heading -->
+            <h6 class="text-uppercase text-gray-700 mb-1">
+             Hours
+            </h6>
+            <!-- Link -->
+            <div class="mb-5 mb-md-0" style="color: #335eea; font-size: 1.1875rem;font-weight: 400;">
+                8am PDT to 5pm PDT
+            </div>
+          </div>
+          <div class="col-12 col-md-6 text-center">
+            <!-- Heading -->
+            <h6 class="text-uppercase text-gray-700 mb-1">
+              Email us
+            </h6>
+            <!-- Link -->
+            <a href="mailto:support@circledin.io" class="h4">
+              support@circledin.io
+            </a>
+          </div>
+        </div> <!-- / .row -->
+      </div>
+    </section>
+    <section class="pt-8 pt-md-11 pb-8 pb-md-14">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-8 text-center">
+            <!-- Heading -->
+            <h2 class="font-weight-bold">
+              Let us hear from you directly!
+            </h2>
+            <!-- Text -->
+            <p class="font-size-lg text-muted mb-7 mb-md-9">
+              Leave a feedback and let us know how we can best assist you. Not seeing a service on our platform? Let us know below!
+            </p>
+          </div>
+        </div> <!-- / .row -->
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-12 col-lg-10">
+            <!-- Form -->
+            
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
+    <script>
+      hbspt.forms.create({
+      portalId: "8273202",
+      formId: "43afb830-2c55-461e-a3eb-c2343a9ce1cc"
+    });
+    $(document).ready(function()
+    {
+      $('data-reactid=".hbspt-forms-0.6"').remove();
+    });
+    </script>
+          </div>
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </section>
+    
+
+{% endblock %}

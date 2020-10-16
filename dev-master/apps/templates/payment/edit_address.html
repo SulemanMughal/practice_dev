@@ -1,0 +1,83 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <form  method="POST">
+    {% csrf_token %}
+
+<label>Card Details</label><br>
+<img src="{% static 'payments.png' %}" alt="Availabe payments"><br><br>
+
+<!-- ******************** BILLING DETAILS    ******************************* -->
+    <h5>Billing Details</h5>
+    <div class="row"> 
+
+      <div class="col-md-6">
+      <label> Address line 1: </label><input type="text" class="form-control"  value="{{object.B_address_line1 }}" name="B_address_line1">
+    </div>
+    <div class="col-md-6">
+      <label>Address line 2:</label><input type="text" class="form-control"  value="{{object.B_address_line2 }}"  name="B_address_line2">
+    </div> 
+    </div> 
+    <div class="row"> 
+
+      <div class="col-md-6">
+      <label> city: </label><input type="text" class="form-control" value="{{object.B_City }}"   name="B_City">
+    </div>
+    <div class="col-md-6">
+      <label>State:</label><input type="text" class="form-control" value="{{object.B_State }}"   name="B_State">
+    </div> 
+    </div> 
+      <div class="row"> 
+     
+      <div class="col-md-6">
+      <label>Postal Code:</label><input type="text" class="form-control" value="{{object.B_Postal_code}}"  name="B_Postal_code">
+    </div>
+    <div class="col-md-6">
+      <label>Country:</label><input type="text" class="form-control" value="{{object.B_Country }}"  name="B_Country">
+    </div>
+  </div> 
+<!-- ******************** Shipping DETAILS    ******************************* -->
+
+<h5>Shipping Details</h5>
+<div class="row"> 
+
+  <div class="col-md-6">
+  <label> Address line 1: </label><input type="text" class="form-control" value="{{object.C_address_line1 }}"   name="C_address_line1">
+</div>
+<div class="col-md-6">
+  <label>Address line 2:</label><input type="text" class="form-control" value="{{object.C_address_line2 }}"   name="C_address_line2">
+</div> 
+</div> 
+<div class="row"> 
+
+  <div class="col-md-6">
+  <label> city: </label><input type="text" class="form-control" value="{{object.C_City }}"   name="C_City">
+</div>
+<div class="col-md-6">
+  <label>State:</label><input type="text" class="form-control" value="{{object.C_State }}"   name="C_State">
+</div> 
+</div> 
+  <div class="row"> 
+ 
+  <div class="col-md-6">
+  <label>Postal Code:</label><input type="text" class="form-control" value="{{object.C_Postal_code}}"  name="C_Postal_code">
+</div>
+<div class="col-md-6">
+  <label>Country:</label><input type="text" class="form-control" value="{{object.C_Country }}"  name="C_Country">
+</div>
+</div> 
+
+
+<!-- ******************** *****************   ******************************* -->
+<br>
+    <button type="submit" class="btn btn-primary">Edit</button>
+  </form>
+
+</div>
+
+{% endblock %}
+
+
+

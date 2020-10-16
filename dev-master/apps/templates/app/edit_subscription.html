@@ -1,0 +1,150 @@
+{% extends 'Base.html' %}
+{% load humanize FindSubUser findNextMonth findNextYear findFindSubID static findPaymentCurrentDay %}
+
+{% block title %} Edit A Subscription {% endblock %}
+
+
+{% block content %}
+
+
+{% include 'app/Edit_Subscription_popup.html' %}
+
+{% include 'modals/modal_contact_support.html'  %}
+
+
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="card mt-5 mb-5 wr-60 shadow-lg" >
+        <div class="card-body">
+            <h5 class="card-title alert-warning p-3">Subscription : {{ subs.plan.plan_name }}</h5>
+            <p class="card-text font-weight-normal">Family Live Since : {{ subs.created_at }}</p>
+            <p class="card-title font-weight-bold font-size-20px" id="payment"  data="{{ plan.currently_monthly_payment_per_line }}">${{ plan.currently_monthly_payment_per_line|intcomma }}</p>
+            {% if subs.plan.linkWeb %}
+                <p class="card-text">Please visit : <a target="_blank" href="{{ subs.plan.linkWeb }}">{{ subs.plan.linkWeb }}</a> for full details</p>
+            {% endif %}
+            {% if messages %}
+                {% for message in messages %}
+                {% if message.tags == "error" %}
+            <script src="{% static 'music/js/jquery-2.2.4.min.js' %}"></script>
+            <script>
+              $(document).ready(function()
+              {
+                  $('#exampleModalsuccessfull').modal('show')
+              })
+              
+          </script>
+            {% else %}
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Info</h4>
+                        <hr>
+                        <p class="mb-0">{{ message }}</p>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+       
+
+        <div class="col mb-2 pl-0 pr-0">
+            <div class="row mb-2">
+                <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                    <button type="button" class="btn btn-outline-secondary w-100">Current Family Size : {{ subs.plan.currentFamilySize }}</button>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6 col-xl-6 mt-3 mt-md-0 mt-lg-0 mt-xl-0">
+                    <button type="button" class="btn btn-outline-secondary w-100">Open Slots: {{ subs.plan.total_slots }} </button>
+                </div>
+            </div>
+            
+            
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                    <button type="button" class="btn btn-outline-secondary w-100">Payment Date: {{ request.user|findNextMonth }} {{  subs.plan.monthly_payment_date|findPaymentCurrentDay }}, {{ request.user|findNextYear  }}</button>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6 col-xl-6 mt-3 mt-md-0 mt-lg-0 mt-xl-0">
+                  <a type="button" class="btn btn-outline-secondary w-100" href="{% url  'contact' %}" data-toggle="modal" data-target="#exampleModalContact">Contact Support</a>
+              </div>
+            </div>
+            
+            
+        </div>
+
+            <form action="." method="POST" id="SubmitEditSubscriptionForm">
+
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Number of Slots</label>
+
+                    <select class="form-control" id="exampleFormControlSelect1" name="number_of_slots" >
+                      {% for i in slots %}
+                        <option value="{{ i }}" {% if subs.number_of_slots == i %} selected {% endif %}>{{ i }}</option>
+                      {% endfor %}
+                    </select>
+                    <small id="emailHelp" class="form-text text-muted">This estimate does not include any fees and taxes that you may incure with the carrier.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleForm">Monthly Estimation</label>
+                    <p class="card-title font-weight-bold">${{ plan.currently_monthly_payment_per_line|intcomma }}pp/month</p>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleForm">Service Fees</label>
+                    <p class="card-title font-weight-bold">This fees allow us to keep the lights on so that we can continue  providing you the savings.</p>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleForm">Total</label>
+                    <p class="card-title font-weight-bold font-size-20px"  id="total"  data="{{ plan.currently_monthly_payment_per_line }}">${{ plan.currently_monthly_payment_per_line|intcomma }}</p>
+                    <small id="emailHelp" class="form-text text-muted">You'll be biled this amount each month.</small>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="exampleForm" class="font-weight-bold">Ratings</label>
+                    <p class="card-text">
+                        Rating  :   Family Rating 5/5. No Issues. One Time Payment
+                    </p>
+                    
+                  </div>
+
+                    {% if subs.plan.notes %}
+                  <div class="form-group">
+                    <label for="exampleForm" class="font-weight-bold">Additionnal Notes</label>
+                    <p class="card-text">
+                        {{ subs.plan.notes }}
+                    </p>
+                    
+                  </div>
+                  {% endif %}
+
+
+                  {% if subs.plan.get_contact %}
+                  <div class="form-group">
+                    <label for="exampleForm" class="font-weight-bold">Contact Information</label>
+                    {% if subs.status == "Active" or subs.status == "Ship"  or subs.status == "Approved" %}
+                    <p class="card-text">
+                        {{ subs.plan.get_contact }}
+                    </p>
+                    {% else %}
+                        <p class="card-text">
+                            Revealed after Account Owner Approved your Subscription.
+                        </p>
+                    {% endif %}
+                  </div>
+                  {% endif %}
+
+
+                  <div class="form-group float-right mt-2">
+                    <a  href="{% url 'Join' subs.plan.category.id subs.plan.id %}" class="btn btn-danger font-weight-bold w-200px" type="button" >Cancel</a>
+                    <button  data-toggle="modal" data-target="#exampleModalConfirm" class="btn btn-success font-weight-bold w-200px" type="button" >Edit</button>
+                    
+                  </div>
+                  
+                  
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}
+

@@ -1,0 +1,59 @@
+{% load static %}
+
+		<link rel="stylesheet" href="{% static 'Landkit/css/countrySelect.css' %}" type="text/css">
+
+{% include 'modals/payment_error_modal.html' %}
+
+<div class="modal fade" id="exampleModalDevice" tabindex="-1" role="dialog" aria-labelledby="exampleModalDeviceLabel"
+  aria-hidden="true" > 
+  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalDeviceLabel">{{ plan.category.Name }}-{{ plan.plan_name }}</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <ul class="nav nav-tabs border-0 justify-content-center" id="myTab" role="tablist">
+          <li class="nav-item col-md-4" >
+            <button class="btn btn-outline-success w-100 " id="home-tab" data-toggle="tab" href="#home" role="tab"
+              aria-controls="home" aria-selected="false" > Get a new number</button>
+
+          </li>
+          <li class="nav-item col-md-4 mt-1 mt-md-0 mt-lg-0 mt-xl-0" >
+            <button class="btn btn-outline-success w-100 " id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+              aria-controls="profile" aria-selected="false" data-plan="{{ plan.category.Name }}">Existing {{ plan.category.Name }} customer</button>
+
+          </li>
+          <li class="nav-item col-md-4 mt-1 mt-md-0 mt-lg-0 mt-xl-0" >
+            <button class="btn btn-outline-success w-100 " id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+              aria-controls="contact" aria-selected="false" > Switching carrier</button>
+
+          </li>
+
+          
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          
+          {% include 'app/device-campatibility-tab-1.html' %}
+          
+         {% include 'app/device-campatibility-tab-2.html' %}
+
+         {% include 'app/device-campatibility-tab-3.html' %}
+         
+        </div>
+        <div class="card p-2 font-weight-normal justify justify-content-center px-lg-12 px-xl-12" id="paymentDiv">
+          {% include "payment/payment.html" %}
+        </div>
+
+      </div> 
+    </div>
+  </div>
+</div>
+
+
+
+
+{% include "app/device_compatibility_script_work.html" %}

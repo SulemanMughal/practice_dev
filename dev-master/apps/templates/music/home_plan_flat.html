@@ -1,0 +1,70 @@
+{% load static humanize FindSubUser findNextYear findNextMonth findPaymentCurrentDay FindCategoryPlanInfo separate_plan_paranthese mathfilters FindPlanFixedPrice %}
+{% with x=j.familySize y=j.currentFamilySize %}
+<div class="col-12 col-md-6 col-lg-4 col-xl-3  {{ j.category.slug }} ">
+<div class="card p-2 shadow-light my-7 bg-white position-relative h-100  ">
+<div class="card-header align-items-center {% if j.total_slots != 0 %} bg-success {% else %} bg-danger {% endif %} position-relative pt-2 pl-2" style="min-height: 140px !important;" >
+{% if j.total_slots != 0 %}
+    <div class="justify-content-left"  >
+        <span class="h5 align-self-end mb-1 text-white font-weight-bold">
+            {{ j.category.Name }} - {{ j.id|FindCategoryPlanInfo }} 
+        </span>
+    </div>
+{% endif %}
+<div class=" justify-content-center text-white pl-8 "  {%  if j.total_slots == 0   %} style="margin-top:30x !important ;" {% endif %}>
+{%  if j.total_slots != 0   %}
+<span class="h6 mb-0 mt-4 font-weight-bold"  style="font-size: 1.55rem !important;"> <i class="fas fa-plus"></i></span>
+{% endif %}                
+<span class="price display-4 mb-0 font-weight-bold " data-annual="0" data-monthly="0">
+{%  if j.total_slots != 0   %}{{ j.total_slots }}{% else %} FULL {% endif %}
+</span>
+{%  if j.total_slots != 0   %}
+<span class="h6 align-self-start mt-1">Spots Left</span>
+{% endif %}
+</div>
+</div>
+<div class="card-body text-left mb-7">
+<div class="position-relative text-right mt-n8 mr-n4 mb-3">
+<span class="badge badge-pill badge-danger {% if  j.total_slots == 0 %} bg-Puerto-Rico {% endif %}">
+<span class="h5 text-uppercase">${{ j.id|FindPlanFixedPrice|intcomma }}/MO</span>
+</span>
+</div>
+<div class=" justify-content-left text-left mt-7 media position-relative align-items-center">
+<img src="{% static 'Landkit/images/Plan/1.png' %}" style="width:30px;" class="mr-3" loading="lazy"  alt="plan image">
+<div class="media-body"><span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"1" }}</span></div>
+</div>
+<div class="justify-content-left text-left mt-1 media position-relative align-items-center">
+<img src="{% static 'Landkit/images/Plan/2.png' %}" style="width:30px;" class="mr-3" loading="lazy"  alt="plan image">
+<div class="media">
+<span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"2" }}</span>
+</div>
+</div>
+<div class="justify-content-left text-left mt-1 media position-relative align-items-center">
+<img src="{% static 'Landkit/images/Plan/3.png' %}" style="width:30px;" class="mr-3" loading="lazy"  alt="plan image">
+<div class="media-body">
+<span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"3" }}</span>
+</div> 
+</div>
+<div class="justify-content-left text-left mt-1 media position-relative align-items-center">
+<img src="{% static 'Landkit/images/Plan/4.png' %}" style="width:30px;" class="mr-3" loading="lazy"  alt="plan image">
+<div class="media-body">
+<span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"4" }}</span>
+</div>
+</div>
+<div class=" justify-content-left text-left mt-1     media position-relative align-items-center">
+<img src="{% static 'Landkit/images/Plan/5.png' %}" style="width:30px;"  class="mr-3" loading="lazy"  alt="plan image">
+<div class="media-body">
+<span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"5" }}</span>
+</div>  
+</div>
+</div>
+<div class="card-footer m-0 text-left pt-0" style="position: absolute; bottom: 0px; ">
+{%  if j.total_slots != 0   %}<a class="btn-link " href="{% url 'Join' i.id j.id %}" target="_blank">More Details </a>
+{% else %} 
+<a  href="#!">  
+FULL
+</a>
+{% endif %}
+</div>
+</div>
+</div>
+{% endwith %}

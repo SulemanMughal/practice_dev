@@ -1,0 +1,54 @@
+<form  action="{% url 'contact' %}" method="post" id="contactForm" class="needs-validation" novalidate >
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="form-group mb-5">
+          <!-- Label -->
+          <label for="contactName">
+            First name
+          </label>
+           <!-- Input -->
+      <input type="text" name="userName" placeholder="First Name" required="" id="id_userName" class="form-control" {% if request.user.is_authenticated %} value="{{ request.user.first_name }}" {% endif %}  >
+      <div class="invalid-feedback">
+        Please provide a valid first name.
+      </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="form-group mb-5">
+          <!-- Label -->
+          <label for="contactEmail">
+            Email
+          </label>
+           <!-- Input -->
+      <input type="email" name="email" placeholder="Email" required="" id="id_email" class="form-control" {% if request.user.is_authenticated %} value="{{ request.user.email }}" {% endif %}>
+      <div class="invalid-feedback">
+        Please provide a valid email address.
+      </div>
+        </div>
+      </div>
+    </div> <!-- / .row -->
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group mb-7 mb-md-9">
+          <!-- Label -->
+          <label for="contactMessage">
+            What can we help you with?
+          </label>
+          <!-- Input -->
+      <textarea class="form-control" id="contactMessage" rows="5" name="body" placeholder="Tell us what we can help you with!" required=""></textarea>
+      <div class="invalid-feedback">
+        Please provide a valid message.
+      </div>
+      <input type="hidden" name="g-recaptcha-response" id='recaptcha_contact'>
+        </div>
+      </div>
+    </div> <!-- / .row -->
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <button type="submit" id="contact_submit" class="btn btn-block text-white font-weight-bold font-size-lg lift bg-fresh-color button-loader">
+          Send Email
+        </button>
+      </div>
+    </div> <!-- / .row -->
+  </form>

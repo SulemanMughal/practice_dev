@@ -1,0 +1,453 @@
+{% extends "Base.html" %}
+{% load static %}
+{% include "Landkit/META_TAG.html" %}
+{% block title %}Frequently Asked Questions {% endblock %}
+{% block content %}
+<section class="pt-6 pt-md-8 pb-8 mb-md-8 mt-8">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="row mb-6 mb-md-8">
+          <div class="col-auto">
+            <div class="icon-circle bg-primary text-white">
+              <img src="{% static 'Landkit/images/CI FAQ.png' %}"  alt="FAQ" >
+            </div>
+          </div>
+          <div class="col ml-n4">
+            <h2 class="font-weight-bold mb-0 mt-3 mt-md-3 mt-lg-3 mt-xl-3">
+              Frequently Asked Question
+            </h2>
+          </div>
+        </div> 
+        <div class="card shadow-light-lg accordion mb-5 mb-md-6" id="helpAccordionOne">
+          <div class="list-group">
+            <div class="list-group-item">
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpOne" role="button" aria-expanded="false" aria-controls="helpOne">
+                <span class="mr-4 text-dark font-weight-bolder">
+                  What is CircledIn?
+                </span>
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a>
+              <!-- Collapse -->
+              <div class="collapse show" id="helpOne" >
+                <div class="py-5 ">
+                  <!-- Text -->
+                  <p class="text-dark">
+                    CircledIn is a community of users with a common interest in saving on your monthly expenses. We developed this platform to help individuals save on their monthly expenses so that you can put more money back into your pockets! We also donate 1% of our time to volunteer at a charitable cause and 1% of our profits to a charitable foundation. Read more on our <a class="card-link" href="{% url 'About' %}" target="_blank">About Us </a> page.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <!-- Toggle -->
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpTwo" role="button" aria-expanded="false" aria-controls="helpTwo">
+                <!-- Title -->
+                <span class="mr-4 tex-dark font-weight-bolder">
+                  How does it work?
+                </span>
+                <!-- Metadata -->
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> <!-- / .row -->
+              <!-- Collapse -->
+              <div class="collapse show" id="helpTwo" >
+                <div class="py-5">
+                  <p class="text-dark">
+                    We connect individual subscribers to a family plan to maximize savings. We are like the Uber Pool for mobile plans. Circle into a family and start benefiting the savings with each other.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <!-- Toggle -->
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpThree" role="button" aria-expanded="false" aria-controls="helpThree">
+                <!-- Title -->
+                <span class="mr-4 tex-dark font-weight-bolder">
+                  How is the price set?
+                </span>
+                <!-- Metadata -->
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> <!-- / .row -->
+              <!-- Collapse -->
+              <div class="collapse show" id="helpThree" >
+                <div class="py-5">
+                  <!-- Text -->
+                  <p class="text-dark">
+                    We maximize family sizes to give you the cheapest rate available that is offered from any of the premium carriers in the United States, guaranteed.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <!-- Toggle -->
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpFour" role="button" aria-expanded="false" aria-controls="helpFour">
+                <!-- Title -->
+                <span class="mr-4 tex-dark font-weight-bolder">
+                  Will I lose my current mobile number?
+                </span>
+                <!-- Metadata -->
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> <!-- / .row -->
+              <!-- Collapse -->
+              <div class="collapse show" id="helpFour" >
+                <div class="py-5">
+                  <!-- Text -->
+                  <p class="text-dark">
+                    No, according to the <a href="https://www.fcc.gov/general/wireless-local-number-portability-wlnp" target="_blank" class="">FCC </a>, Wireless LNP is a wireless consumer's ability to change service providers within the same local area and still keep the same phone number. 
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <!-- Toggle -->
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpFourOne" role="button" aria-expanded="false" aria-controls="helpFourOne">
+                <!-- Title -->
+                <span class="mr-4 tex-dark font-weight-bolder">
+                  What happens when an Account Owner cancels their plan?
+                </span>
+                <!-- Metadata -->
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> <!-- / .row -->
+              <!-- Collapse -->
+              <div class="collapse show" id="helpFourOne" >
+                <div class="py-5">
+                  <!-- Text -->
+                  <p class="text-dark">
+                    Currently CircledIn is the Account Owner for each plan to provide a trusted seamless experience. In the future, we will verify all of our Account Owners and users will agree to go through a transition of service in the event that they cancel their plan. Additionally, Account Owners will need to make CircledIn an Account Manager. In doing so, CircledIn will take steps to lock the users phone number from being canceled or ported out without the users consent.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <!-- Toggle -->
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpTwintyOne" role="button" aria-expanded="false" aria-controls="helpTwintyOne">
+                <!-- Title -->
+                <span class="mr-4 tex-dark font-weight-bolder">
+                  Is CircledIn a mobile carrier or MVNO (Mobile Virtual Network Operator)?
+                </span>
+                <!-- Metadata -->
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> <!-- / .row -->
+              <!-- Collapse -->
+              <div class="collapse show" id="helpTwintyOne" >
+                <div class="py-5">
+                  <!-- Text -->
+                  <p class="text-dark">
+                    No, we simply connect subscribers to a family plan, handle payment, and provide one of the best customer experiences there is. 
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <!-- Toggle -->
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpFive" role="button" aria-expanded="false" aria-controls="helpFive">
+                <!-- Title -->
+                <span class="mr-4 tex-dark font-weight-bolder">
+                  Can I get a new mobile number?
+                </span>
+                <!-- Metadata -->
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> <!-- / .row -->
+              <!-- Collapse -->
+              <div class="collapse show" id="helpFive" >
+                <div class="py-5">
+                  <!-- Text -->
+                  <p class="text-dark">
+                    Absolutely. After you join a family you will be guided through our questionnaire to ensure you have everything you need.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <!-- Toggle -->
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpSix" role="button" aria-expanded="false" aria-controls="helpSix">
+                <!-- Title -->
+                <span class="mr-4 tex-dark font-weight-bolder">
+                  Will my phone be compatible with the carrier?
+                </span>
+                <!-- Metadata -->
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> <!-- / .row -->
+              <!-- Collapse -->
+              <div class="collapse show" id="helpSix" >
+                <div class="py-5">
+                  <!-- Text -->
+                  <p class="text-dark">
+                    We highly recommend visiting the mobile carriers website to see if your current phone is compatible with their network. Feel free to reach out to CircledIn support to get assistance.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <!-- Toggle -->
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpSeven" role="button" aria-expanded="false" aria-controls="helpSeven">
+                <!-- Title -->
+                <span class="mr-4 tex-dark font-weight-bolder">
+                  How are payments handled?
+                </span>
+                <!-- Metadata -->
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> <!-- / .row -->
+              <!-- Collapse -->
+              <div class="collapse show" id="helpSeven" >
+                <div class="py-5">
+                  <!-- Text -->
+                  <p class="text-dark">
+                    CircledIn makes payment automatic and seamless. When you are ready to join a circle, you’ll input your payment information on our secure website. CircledIn uses a payment system that is a PCI Service Provider Level 1 which is the highest grade of payment processing security. Each month you’ll be billed for your cell phone line automatically.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <!-- Toggle -->
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpTwintySeven" role="button" aria-expanded="false" aria-controls="helpTwintySeven">
+                <!-- Title -->
+                <span class="mr-4 tex-dark font-weight-bolder">
+                  What if someone in the circle doesn’t pay?
+                </span>
+                <!-- Metadata -->
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> <!-- / .row -->
+              <!-- Collapse -->
+              <div class="collapse show" id="helpTwintySeven" >
+                <div class="py-5">
+                  <!-- Text -->
+                  <p class="text-dark">
+                    <span class="font-weight-bold">CircledIn, guarantees full payment</span> to the Account Owner each month so that your services are not disrupted when someone forgets to pay. 
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <!-- Toggle -->
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpEight" role="button" aria-expanded="false" aria-controls="helpEight">
+                <!-- Title -->
+                <span class="mr-4 tex-dark font-weight-bolder">
+                  Why is there a $5 subscription fee?
+                </span>
+                <!-- Metadata -->
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> <!-- / .row -->
+              <!-- Collapse -->
+              <div class="collapse show" id="helpEight" >
+                <div class="py-5">
+                  <!-- Text -->
+                  <p class="text-dark">
+                    We kept the subscription fee as low as possible to enable more savings back into your pocket. This subscription fee allows us to keep the lights on and provide you support.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <!-- Toggle -->
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpNine" role="button" aria-expanded="false" aria-controls="helpNine">
+                <!-- Title -->
+                <span class="mr-4 tex-dark font-weight-bolder">
+                  What’s the refund policy?
+                </span>
+                <!-- Metadata -->
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> <!-- / .row -->
+              <!-- Collapse -->
+              <div class="collapse show" id="helpNine" >
+                <div class="py-5">
+                  <!-- Text -->
+                  <p class="text-dark">
+                    If you’re not satisfied with our service, we will refund your subscription fee for the month. However, you are responsible for any mobile balances associated with your phone number.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <!-- Toggle -->
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpNintyOne" role="button" aria-expanded="false" aria-controls="helpNintyOne">
+                <!-- Title -->
+                <span class="mr-4 tex-dark font-weight-bolder">
+                  Are there any taxes?
+                </span>
+                <!-- Metadata -->
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> <!-- / .row -->
+              <!-- Collapse -->
+              <div class="collapse show" id="helpNintyOne" >
+                <div class="py-5">
+                  <!-- Text -->
+                  <p class="text-dark">
+                    Yes, each carrier has taxes and service fees associated with their plan. For T-Mobile Magenta and Magenta Plus plan, the taxes are already included in the price. For Verizon, you should expect about ~$5 for taxes and service fees. 
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <!-- Toggle -->
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpNintyTwo" role="button" aria-expanded="false" aria-controls="helpNintyTwo">
+                <!-- Title -->
+                <span class="mr-4 tex-dark font-weight-bolder">
+                  Do you accept eSIM?
+                </span>
+                <!-- Metadata -->
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> <!-- / .row -->
+              <!-- Collapse -->
+              <div class="collapse show" id="helpNintyTwo" >
+                <div class="py-5">
+                  <!-- Text -->
+                  <p class="text-dark">
+                    Yes, our plans are directly from the carrier themselves. If your phone supports eSIM then they’ll accept it!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <!-- Toggle -->
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpNintyTwoBill" role="button" aria-expanded="false" aria-controls="helpNintyTwoBill">
+                <!-- Title -->
+                <span class="mr-4 tex-dark font-weight-bolder">
+                  First months Bill
+                </span>
+                <!-- Metadata -->
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> <!-- / .row -->
+              <!-- Collapse -->
+              <div class="collapse show" id="helpNintyTwoBill" >
+                <div class="py-5">
+                  <!-- Text -->
+                  <p class="text-dark">
+                    All of our plans are Postpaid. Your first month's bill will include the prorated amount for the month before the Bill Due Date as well as the Nexts Month mobile bill.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <!-- Toggle -->
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpNintyTwofamily" role="button" aria-expanded="false" aria-controls="helpNintyTwofamily">
+                <!-- Title -->
+                <span class="mr-4 tex-dark font-weight-bolder">
+                  Is the data shared amongst family members?
+                </span>
+                <!-- Metadata -->
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> <!-- / .row -->
+              <!-- Collapse -->
+              <div class="collapse show" id="helpNintyTwofamily" >
+                <div class="py-5">
+                  <!-- Text -->
+                  <p class="text-dark">
+                    Absolutely not. Each line usage is separate from what your entire family uses. Your line, your data.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <!-- Toggle -->
+              <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpNintyThree" role="button" aria-expanded="false" aria-controls="helpNintyThree">
+                <!-- Title -->
+                <span class="mr-4 tex-dark font-weight-bolder">
+                  How do we partner with CircledIn?
+                </span>
+                <!-- Metadata -->
+                <div class="text-muted ml-auto">
+                  <!-- Chevron -->
+                  <span class="collapse-chevron text-muted">
+                    <i class="fe fe-lg fe-chevron-up"></i>
+                  </span>
+                </div>
+              </a> <!-- / .row -->
+              <!-- Collapse -->
+              <div class="collapse show" id="helpNintyThree" >
+                <div class="py-5">
+                  <!-- Text -->
+                  <p class="text-dark">
+                    Looking to have your mobile plans listed on our website? Reach out to us at 
+                    <a href="mailto:support@circledin.io">support@circledin.io</a>!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</section>
+{% include "Landkit/footer.html" %}
+{% endblock %}

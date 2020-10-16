@@ -1,0 +1,132 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+<style>
+  .marker{
+    background-color: yellow;
+  }
+
+</style>
+    <section data-jarallax data-speed=".8" class="py-10 py-md-14 overlay overlay-black overlay-60 bg-cover jarallax" style="background-image: url({% static 'Landkit/images/covers/cover-13.jpg' %});">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-7 text-center">
+            <!-- Heading -->
+            <h1 class="display-2 font-weight-bold text-white">
+              Blogs
+            </h1>
+            <p class="lead mb-0 text-white-75">
+              Keep up to date with what we're working on! Landkit is an ever evolving theme with regular updates. 
+            </p>
+          </div>
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </section>
+    <!-- SHAPE
+    ================================================== -->
+    <div class="position-relative">
+      <div class="shape shape-bottom shape-fluid-x svg-shim text-light">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"/></svg>
+      </div>
+    </div>
+    <!-- SEARCH
+    ================================================== -->
+    <section class="mt-n6">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <!-- Form -->
+            <form class="rounded shadow mb-4" action="{% url 'search_page' %}" method="POST">
+              {% csrf_token %}
+              <div class="input-group input-group-lg">
+                <!-- Prepend -->
+                <div class="input-group-prepend">
+                  <span class="input-group-text border-0 pr-1">
+                    <i class="fe fe-search"></i>
+                  </span>
+                </div>
+                <!-- Input -->
+                <input type="text" class="form-control border-0 px-1" aria-label="Search our blog..." placeholder="Search our blog..." name="search">
+                <!-- Append -->
+                <div class="input-group-append">
+                  <span class="input-group-text border-0 py-0 pl-1 pr-3">
+                    <button class="btn btn-sm btn-primary" type="submit">
+                      Search
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </form>
+            
+          </div>
+        </div> <!-- / .row -->
+      </div>
+    </section>
+    <!-- ARTICLES
+    ================================================== -->
+
+    <section class="pt-7 pt-md-10">
+      <div class="container">
+        {% for post in posts %}
+          <div class="row">
+            <div class="col-12">
+              <!-- Card -->
+              <div class="card card-row shadow-light-lg mb-6 lift lift-lg">
+                <div class="row no-gutters">
+                  <div class="col-12">
+                    <!-- Body -->
+                    <a class="card-body" href="{{ post.get_absolute_url }}" target="_blank">
+                      <!-- Heading -->
+                      <h3>
+                        {{ post.title }}
+                      </h3>
+                      <!-- Text -->
+                      <p class="mb-0 text-muted">
+                        {{ post.body|safe|truncatechars_html:300 }}
+                      </p>
+                    </a>
+                    <!-- Meta -->
+                    <a class="card-meta" href="{{ post.get_absolute_url }}" target="_blank">
+                      <!-- Divider -->
+                      <hr class="card-meta-divider">
+                      <!-- Avatar -->
+
+                      <!-- Author -->
+                      <h6 class="text-muted mr-2 mb-0">
+                        {{ post.user.username }}
+                      </h6>
+                      <!-- Date -->
+                      <p class="h6 text-uppercase text-muted mb-0 ml-auto">
+                        <time datetime="{{ post.timestamp }}">{{ post.timestamp }}</time>
+                      </p>
+                    </a>
+                  </div>
+                </div> <!-- / .row -->
+              </div>
+            </div>
+          </div> 
+        {% empty %}
+        <div class="row">
+          <div class="col-12">
+            <!-- Card -->
+            <div class="card card-row shadow-light-lg mb-6 lift lift-lg">
+              <div class="row no-gutters">
+                <div class="col-12">
+                  <!-- Body -->
+                  <a class="card-body" href="#!">
+                    <h3>
+                      No Blog post has been published right now.
+                    </h3>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+        {% endfor %}
+      </div> 
+    </section>
+
+      {% include 'Landkit/footer.html' %}
+{% endblock %}

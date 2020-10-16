@@ -1,0 +1,240 @@
+{% load static humanize FindSubUser findNextYear findNextMonth %}
+<style>
+  .form-control, input[type="number"], .input-group-text{border: 1px solid #acadad;box-shadow: 0 0.05rem 0.05rem rgba(175, 176, 179, 0.5);}.input-group-text{border-right: none;}.input-group-text:focus,.input-group-text:active,.input-group-text:visited{border-color: #335eea !important;}input[name="currently_monthly_payment_per_line"]{border-left: none;}
+</style>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2
+          class="mb-0 font-weight-bold text-center"
+          id="modalSignupHorizontalTitle"
+        >
+          List your plan
+        </h2>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="{% url 'home' %}" id="new_plan_form" class="needs-validation" novalidate>
+          {% csrf_token %} {{ form.media }}
+          <div class="card-body">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label>Mobile Carrier</label>
+                  {% if categories %}
+                  <select
+                    name="category"
+                    required=""
+                    id="id_category"
+                    class="form-control"
+                    onchange="updateLine();"
+                    tabindex="1"
+                  >
+                    <option value="None" disabled hidden selected=""
+                      >Select</option>
+                    {% for category in categories %}
+                    <option value="{{ category.id}}" data-slug = "{{ category.slug }}"
+                      >{{ category|capfirst }}</option
+                    >
+                    {% endfor %}
+                  </select>
+                  <div class="invalid-feedback" id="id_category_invalid-feedback">
+                    Please fill out this field
+                  </div> 
+                </div>
+                <div class="form-group" id="selectContains">
+                  <label>Plan Name</label>
+                  <select
+                    class="form-control"
+                    tabindex="2"
+                    data-target="plan_name"
+                    id="id_plan_name_default"
+                  >
+                  <option  value="---">---</option>
+                  </select>
+                  {% for category in categories %}
+                  <select
+                    class="form-control"
+                    tabindex="2"
+                    id="id_plan_name_{{ category.slug }}"
+                    data-target="plan_name"
+                    style="display: none;"
+                  >
+                    {% for j in category.categoryplanname_set.all %}
+                    <option value="{{ j.name }}">{{ j.name }}</option>
+                    {% endfor %}
+                  </select>
+                  {% endfor %} 
+                  {% endif %}
+                </div>
+                <div class="form-group">
+                  <label>Family Name</label>
+                  <button
+                    type="button"
+                    class="btn pl-1 mr-0 pr-0"
+                    data-toggle="popover"
+                    title="Family Name"
+                    data-content="Give you family plan a name"
+                  >
+                    <i class="fa fa-info-circle"></i>
+                  </button>
+                  <input
+                    tabindex="3"
+                    type="text"
+                    name="family_name"
+                    maxlength="150"
+                    class="form-control"
+                    required=""
+                    {% if form.family_name.value %} value="{{ form.family_name.value}}" {% endif %}
+                  />
+                  <div class="invalid-feedback">
+                    Please fill out this field
+                  </div> 
+                </div>
+                <div class="form-group">
+                  <label>Current Family Size</label>
+                  <select
+                  tabindex="7"
+                    class="form-control"
+                    id="exampleFormControlSelect1familySize"
+                    name="familySize" 
+                    required=""
+                  >
+                    {% with ''|center:19 as range %} 
+                      {% for _ in range %} 
+                         <option value="{{ forloop.counter }}">{{ forloop.counter }}</option>
+                      {% endfor %} 
+                    {% endwith %}
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label>Total Available Slots <button
+                    type="button"
+                    class="btn pl-1 mr-0 pr-0 pb-0 pt-0"
+                    data-toggle="popover"
+                    title="Total Available Slots"
+                    data-content="How many mobile lines are you willing to rent out."
+                  >
+                    <i class="fa fa-info-circle"></i>
+                  </button></label>
+                  <select name="total_slots" id="id_total_slots" tabindex="4" class="form-control">
+                    <option value="1" selected="">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Next Recurring Bill Date</label>
+                  <div
+                    class="input-group date"
+                    data-provide="datepicker"
+                    data-date-format="mm/dd/yyyy"
+                    data-date-start-date="+1d"
+                    date-date-today-highlight="true"
+                  >
+                    <input
+                    tabindex="5"
+                      type="text"
+                      class="form-control"
+                      name="monthly_payment_date"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Please fill out this field
+                    </div> 
+                    <div class="input-group-addon">
+                      <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>How much are you currently paying per line?</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text text-dark">$</div>
+                    </div>
+                    <input
+                    tabindex="6"
+                      type="number"
+                      name="currently_monthly_payment_per_line"
+                      maxlength="150"
+                      id="id_currently_monthly_payment_per_line"
+                      {% if form.currently_monthly_payment_per_line.value %}
+                      value="{{ form.currently_monthly_payment_per_line.value}}"
+                      {% endif %}
+                      class="form-control"
+                      required=""
+                      onkeyup="updateLine()"
+                    />
+                    <div class="invalid-feedback">
+                      Please fill out this field
+                    </div> 
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label
+                    class="text-danger card-text"
+                    id="currentLinePayment"
+                  ></label>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row justify-content-right">
+                <div class="col-12">
+                  <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1" tabindex="9" required>
+                      <label class="custom-control-label" for="customCheck1">I agree to the Terms of Service and to make Circledin an Account Manager to manage my account. </label>
+                      <div  id="invalidcustomCheck1" class="text-danger" >
+                        To ensure a seamless experience for our customers please add Circledin as an account manager on your account. We need this in order to add/remove users and to handle payment.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <input
+                  tabindex="8"
+                    type="submit"
+                    class="btn btn-block bg-Puerto-Rico text-white button-loader"
+                    value="Submit"
+                    id="save_add_plan"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function() {'use strict';window.addEventListener('load', function() {var forms = document.getElementsByClassName('needs-validation');var validation = Array.prototype.filter.call(forms, function(form) {form.addEventListener('submit', function(event) {if (form.checkValidity() === false) {event.preventDefault();event.stopPropagation();}form.classList.add('was-validated');}, false);});}, false);})();$(document).ready(function () {$("#id_total_slots").attr("tabindex", "4");$("#invalidcustomCheck1").hide();$("#exampleModal").on("hidden.bs.modal", function (e) {$("#new_plan_form").get(0).reset();$("#id_category_invalid-feedback").hide();$("#id_category").removeClass("border border-danger");$("#new_plan_form").removeClass("was-validated");$("#invalidcustomCheck1").hide();$("#id_currently_monthly_payment_per_line").val("");$("#id_plan_name_default").show();var i = $('[data-target="plan_name"]');for (var j = 0; j < i.length; j++) {if ($(i[j]).attr("id") == "id_plan_name_default") {continue;} else {$("#" + $(i[j]).attr("id") + "").hide();}}});$("#customCheck1").on("click", function(){if($("#customCheck1").prop("checked")){$("#invalidcustomCheck1").hide();}else{$("#invalidcustomCheck1").show();}});$("#new_plan_form").submit(function(e) {e.preventDefault();if($("#id_category :selected").val() == "None"){$("#id_category").addClass("border border-danger");$("#id_category_invalid-feedback").show();}else{$("#id_category").removeClass("border border-danger");$("#id_category_invalid-feedback").hide();}if($("#customCheck1").prop('checked') && $("#id_category :selected").val() != "None"){if($("#new_plan_form")[0].checkValidity()){$("#invalidcustomCheck1").hide();$('.button-loader').button('loading');$.ajax({type: "POST",url: $("#new_plan_form").attr("action"),data: $("#new_plan_form").serialize(),success: function (response) {$("#exampleModal_success_ful_add_plan").modal("show");$("#exampleModal").modal("hide");$("#new_plan_form").get(0).reset();$("#id_currently_monthly_payment_per_line").val("");$("#new_plan_form").removeClass("was-validated");$('.button-loader').button('reset');},error: function (response) {$("#exampleModal_success_ful_add_plan").modal("hide");$('.button-loader').button('reset');}});}}else{if($("#customCheck1").prop('checked')){$("#invalidcustomCheck1").hide();}else{$("#invalidcustomCheck1").show();}}});});
+</script>
