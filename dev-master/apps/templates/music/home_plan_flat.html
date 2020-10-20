@@ -1,7 +1,7 @@
 {% load static humanize FindSubUser findNextYear findNextMonth findPaymentCurrentDay FindCategoryPlanInfo separate_plan_paranthese mathfilters FindPlanFixedPrice %}
 {% with x=j.familySize y=j.currentFamilySize %}
-<div class="col-12 col-md-6 col-lg-4 col-xl-3  {{ j.category.slug }} ">
-<div class="card p-2 shadow-light my-7 bg-white position-relative h-100  ">
+<div class="col-12 col-md-6 col-lg-4 col-xl-3 {{ j.category.slug }} " style="min-width: 21rem !important; max-width: 21rem  !important;">
+<div class="card p-2 shadow-light my-7 bg-white position-relative h-100 mx-auto">
 <div class="card-header align-items-center {% if j.total_slots != 0 %} bg-success {% else %} bg-danger {% endif %} position-relative pt-2 pl-2" style="min-height: 140px !important;" >
 {% if j.total_slots != 0 %}
     <div class="justify-content-left"  >

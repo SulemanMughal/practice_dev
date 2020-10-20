@@ -1,6 +1,7 @@
 {% extends 'Base.html' %}
 {% load static humanize FindSubUser findNextYear findNextMonth FindCategoryPlanInfo %}
 {% block content %}
+
 {% if request.user.is_authenticated %}
   {% include 'modals/user_profile_successful_add_planprompt_modal.html' %}
   {% autoescape on %}
@@ -24,7 +25,7 @@
           {% for j in i.get_plans_not_on_leave %}
             {% include "music/home_plan_flat.html" with j=j %}
             {% if forloop.last %}
-              <div class=" col-12 col-md-6 col-lg-4 col-xl-3 bg-transparent plan_name mb-8 pb-8 {{ j.category.slug }} d-none"
+              <div class="col-12 col-md-6 col-lg-4 bg-transparent plan_name mb-8 pb-8 {{ j.category.slug }} d-none"
                 id="btn_{{ j.category.slug }}">
                 <div class="card bg-transparent mt-3 h-100 box-shadow-none bg-none" >
                   <div class="card-body text-left mb-0 pb-0 text-center bg-transparent">
