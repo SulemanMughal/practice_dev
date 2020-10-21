@@ -1,6 +1,53 @@
 {% extends 'Base.html' %}
 {% load static humanize FindSubUser findNextYear findNextMonth FindCategoryPlanInfo %}
 {% block content %}
+<style>
+
+  /* For Extra Small Device */
+  @media (min-width: 200px) and (max-width: 300px){
+    .min-width-xs{
+      min-width: 12rem !important;
+    }
+
+    .max-width-xs{
+      max-width: 12rem !important;
+    }
+  }
+
+
+
+  @media (max-width: 360px){
+    .min-width-google{
+      min-width: 100% !important;
+    }
+
+    .max-width-google{
+      max-width: 100% !important;
+    }
+  }
+
+  @media (max-width: 370px){
+    .min-width-sm{
+      min-width: 12rem !important;
+    }
+
+    .max-width-sm{
+      max-width: 12rem !important;
+    }
+  }
+
+  @media (min-width:1200px){
+    .min-width-lg{
+    min-width: 21rem !important; 
+  }
+
+  .max-width-lg{
+    max-width: 21rem  !important;
+  }
+  }
+  
+</style>
+
 
 {% if request.user.is_authenticated %}
   {% include 'modals/user_profile_successful_add_planprompt_modal.html' %}
