@@ -1,0 +1,115 @@
+{% load static  %}  
+<script src="{% static 'music/js/calculator_slider.js' %}" type="text/javascript" defer async></script>
+<style>
+
+    #btn-group > #btn-group:not(:last-child) > .btn, #btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 50rem !important;
+    border-bottom-right-radius: 50rem !important;
+}
+#btn-group > #btn-group:not(:first-child) > .btn, #btn-group > .btn:not(:first-child) {
+    border-top-left-radius: 50rem !important;
+    border-bottom-left-radius: 50rem !important;
+}
+
+.w-150{
+        width: 150px !important;
+    }
+
+    .border-radius-6{
+        border-radius: 6px !important;
+    }
+
+    .border-radius-none{
+        border-radius: 0px !important;
+        border-bottom-left-radius: 0px !important;
+    }
+</style>
+<section >
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-9">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="card-title text-uppercase text-left font-weight-bold px-0 px-lg-14 mx-0 mx-lg-11">
+                            Savings based on unlimited data, unlimited talk & unlimited text
+                        </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <img class="img-fluid mx-auto border border-success rounded-circle" data-toggle="tooltip"
+                src="{% static 'Landkit/images/illustrations/illustration-1.png' %}" alt="circledin">
+
+                    </div>
+                    <div class="col-9 px-0 px-lg-11">
+                        <p class="card-text">
+                            Who is your current carrier?
+                        </p>
+                        <div class="row px-0 px-lg-5">
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-outline-dark w-150 border-radius-6 mr-3">
+                                  <input type="radio" name="options" id="option1" value="1" data-url="3210" onchange="updateSlider();"> Verizon
+                                </label>
+                                <label class="btn btn-outline-dark w-150 border-radius-6 mr-3">
+                                  <input type="radio" name="options" id="option2" value="2" data-url="321"
+                                  onchange="updateSlider();"> T-Mobile
+                                </label>
+                                <label class="btn btn-outline-dark w-150 border-radius-6 mr-3">
+                                  <input type="radio" name="options" id="option3" value="3" data-url="231" onchange="updateSlider();"> AT&T
+                                </label>
+                                <label class="btn btn-outline-dark w-150 border-radius-6 mr-3 active">
+                                    <input type="radio" name="options" id="option4" value="4" data-url="2319" onchange="updateSlider();" checked > Other
+                                  </label>
+                              </div>
+                        </div>
+                        <p class="card-text mt-2" >
+                            How many people are on your plan?
+                        </p>
+                        <div class="row px-0 px-lg-5">
+                            <div class="btn-group btn-group-toggle bg-dark btn-pill p-2 mt-2 mx-width-400px w-350px" data-toggle="buttons" id="btn-group" >
+                                <label class="btn btn-outline-light text-center btn-sm active btn-rounded-circle mr-6 ml-2 pr-3 pl-3 pb-2 bottom-0 w-37px h-42_5px" >
+                                  <input type="radio" name="options_accounts" id="options_accounts1" value="1" data-url="3210"  onchange="updateSlider();" checked>
+                                  1
+                                </label>
+                                <hr class="text-white ml-8 position-absolute w-52px border-width-3px mt-1_3rem " >
+                               <button class="btn btn-lg btn-rounded-circle  btn-light bg-transparent mr-3 pt-0 pb-0 mb-0"> 
+                                <label class="btn btn-outline-light btn-lg  btn-rounded-circle btn-sm  shadow p-3 pr-5 pl-4 pb-0 mb-0" >
+                                  <input type="radio" name="options_accounts" id="options_accounts2" value="2" data-url="321"
+                                  onchange="updateSlider();">
+                                    2
+                                </label>
+                              </button>
+                               <hr class="text-white ml-8 position-absolute w-52px border-width-3px mt-1_3rem left-101px" >
+                               <button class="btn btn-lg btn-rounded-circle btn-light bg-transparent  mr-3 pt-0 pb-0 mb-0">
+                                <label class="btn btn-outline-light  btn-lg btn-rounded-circle btn-sm  shadow p-3 pr-5 pl-4 pb-0 mb-0">
+                                  <input type="radio" name="options_accounts" id="options_accounts3" value="3" data-url="231" onchange="updateSlider();" >
+                                  3
+                                </label>
+                              </button>
+                              <hr class="text-white ml-8 position-absolute w-53px border-width-3px mt-1_3rem left-193px"  >
+                               <button class="btn btn-lg btn-rounded-circle btn-light bg-transparent pt-0 pb-0 mb-0 pr-0">
+                                <label class="btn btn-outline-light btn-lg  btn-rounded-circle btn-sm shadow p-3 pr-5 pl-4 pb-0 mb-0">
+                                  <input type="radio" name="options_accounts" id="options_accounts4" value="4" data-url="2319" onchange="updateSlider();" >
+                                  4+
+                                </label>
+                              </button>
+                             </div>
+                        </div>
+                        <p class="card-text mt-2">
+                            How much do you pay for your current plan together?
+                        </p>
+                        <div class="row px-0 px-lg-5">
+                            <input type="text"  placeholder="Input..." class="form-control bg-light text-dark border border-dark w-50 w-sm-50 w-md-50 w-lg-50 w-xl-50  " name="totalcostAmount" onkeyup="updateSlider();" value="80" maxlength="6">
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <img class="img-fluid mx-auto border border-success rounded-circle" data-toggle="tooltip"
+                src="{% static 'Landkit/images/illustrations/illustration-1.png' %}" alt="circledin">
+            </div>
+        </div>
+
+    </div>
+</section>
