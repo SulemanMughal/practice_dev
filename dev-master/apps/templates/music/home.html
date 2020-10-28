@@ -1,54 +1,7 @@
 {% extends 'Base.html' %}
 {% load static humanize FindSubUser findNextYear findNextMonth FindCategoryPlanInfo %}
 {% block content %}
-<style>
-
-  /* For Extra Small Device */
-  @media (min-width: 200px) and (max-width: 300px){
-    .min-width-xs{
-      min-width: 12rem !important;
-    }
-
-    .max-width-xs{
-      max-width: 12rem !important;
-    }
-  }
-
-
-
-  @media (max-width:  360px) {
-    .min-width-google{
-      min-width: 22.5rem !important;
-    }
-
-    .max-width-google{
-      max-width: 22.5rem !important;
-    }
-  }
-
-  @media (max-width: 370px){
-    .min-width-sm{
-      min-width: 22.5rem !important;
-    }
-
-    .max-width-sm{
-      max-width: 22.5rem !important;
-    }
-  }
-
-  @media (min-width:1200px){
-    .min-width-lg{
-    min-width: 21rem !important; 
-  }
-
-  .max-width-lg{
-    max-width: 21rem  !important;
-  }
-  }
-  
-</style>
-
-
+{% include 'music/home_stylesheet.html' %}
 {% if request.user.is_authenticated %}
   {% include 'modals/user_profile_successful_add_planprompt_modal.html' %}
   {% autoescape on %}
@@ -57,75 +10,12 @@
   {% endautoescape %}
 {% endif  %}
 {% include "music/home_top_section.html" %}
+{% include 'music/home_plan_cards_section.html' %}
 {% include "music/calculator_section_v3.html" %}
 {% include "music/home_middle_v3.html" %}
-{% autoescape off %}
-    {% include 'music/home_filter.html' %}
-{% endautoescape %}
-{% autoescape off %}
-{% if categories %}
-<section class="p-0 bg-light-green-shade" >
-  <div class="container">
-    <div class="row" id="portfolio" data-isotope='{"layoutMode": "fitRows"}' style="height: auto;">
-      {% for i in categories  %}
-        {% if i.get_plans_not_on_leave %}
-          {% for j in i.get_plans_not_on_leave %}
-            {% include "music/home_plan_flat.html" with j=j %}
-            {% if forloop.last %}
-              <div class="col-12 col-md-6 col-lg-4 bg-transparent plan_name mb-8 pb-8 {{ j.category.slug }} d-none"
-                id="btn_{{ j.category.slug }}">
-                <div class="card bg-transparent mt-3 h-100 box-shadow-none bg-none" >
-                  <div class="card-body text-left mb-0 pb-0 text-center bg-transparent">
-                    <button class="btn btn-lg btn-rounded-circle btn-success  mt-10 font-size-4_5rem"
-                      {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"
-                      onclick="PlanCreationFunction('{{ i.slug }}', '{{ i.id }}');" {% else %} data-toggle="modal"
-                      data-target="#modalSigninHorizontal" {% endif %} >
-                      <i class="fas fa-plus"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            {% endif %}
-          {% endfor %}
-        {% else %}
-          <div class="col-12 col-md-6 col-lg-4 col-xl-3 bg-transparent plan_name mb-8 pb-8 {{ i.slug }} d-none"
-          id="btn_{{ i.slug }}">
-          <div class="card bg-transparent mt-3 h-100 box-shadow-none bg-none" >
-            <div class="card-body text-left mb-0 pb-0 text-center bg-transparent">
-              <button class="btn btn-lg btn-rounded-circle btn-success  mt-10 font-size-4_5rem"
-                {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"
-                onclick="PlanCreationFunction('{{ i.slug }}', '{{ i.id }}');" {% else %} data-toggle="modal"
-                data-target="#modalSigninHorizontal" {% endif %}>
-                <i class="fas fa-plus"></i>
-              </button>
-            </div>
-          </div>
-          </div>
-        {% endif %}
-        {% if forloop.last %}
-          <div class="col-12 col-md-6 col-lg-4 col-xl-3 bg-transparent plan_name mb-8 pb-8 ">
-            <div class="card bg-transparent  mt-3 h-100 box-shadow-none bg-none" >
-              <div class="card-body text-left mb-0 pb-0 text-center bg-transparent">
-                <button class="btn btn-lg btn-rounded-circle btn-success  mt-10 font-size-4_5rem"
-                  {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"
-                  onclick="PlanCreationFunction('None', 'None');" {% else %} data-toggle="modal"
-                  data-target="#modalSigninHorizontal" {% endif %} >
-                  <i class="fas fa-plus"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        {% endif %}
-      {% endfor %}
-      </div>
-    </div>
-  </div>
-</section>
-{% endif %}
-{% endautoescape %}
 {% include "Landkit/footer.html" %}
 {% block javascript %}
-  {% autoescape off %}
+{% autoescape off %}
 <script>
 $(document).ready(function () {var $grid = $('#portfolio').isotope({"layoutMode": "fitRows"});$('[data-target="#portfolio"]').on("click", function () {var i = $(this).attr("id");if (i == "all") {for (var j = 0; j < $(".plan_name").length; j++){$("#" + $($(".plan_name")[j]).attr("id") + "").addClass("d-none").hide().css("visibility", "none");}}else{  $("#btn_" + i + "").removeClass("d-none");$("#btn_" + i + "").show();}var filterValue = $(this).attr('data-filter');$grid.isotope({ filter: filterValue });});$('#id_category').on("change", function () {var i = $('[data-target="plan_name"]');for (var j = 0; j < i.length; j++) {$(i[j]).hide();$(i[j]).removeAttr("name", "plan_name"); }$("#id_plan_name_" + $("#id_category :selected").attr("data-slug") + "").show().attr("name", "plan_name");$("#id_category_invalid-feedback").hide();$("#id_category").removeClass("border border-danger");});});
 </script>

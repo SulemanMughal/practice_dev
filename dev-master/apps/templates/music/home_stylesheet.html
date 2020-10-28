@@ -1,0 +1,253 @@
+{% load static %}
+<style>
+
+    /* For Extra Small Device */
+    @media (min-width: 200px) and (max-width: 300px){
+      .min-width-xs{
+        min-width: 12rem !important;
+      }
+  
+      .max-width-xs{
+        max-width: 12rem !important;
+      }
+    }
+  
+  
+  
+    @media (max-width:  360px) {
+      .min-width-google{
+        min-width: 22.5rem !important;
+      }
+  
+      .max-width-google{
+        max-width: 22.5rem !important;
+      }
+    }
+  
+    @media (max-width: 370px){
+      .min-width-sm{
+        min-width: 22.5rem !important;
+      }
+  
+      .max-width-sm{
+        max-width: 22.5rem !important;
+      }
+    }
+  
+    @media (min-width:1200px){
+      .min-width-lg{
+      min-width: 21rem !important; 
+    }
+  
+    .max-width-lg{
+      max-width: 21rem  !important;
+    }
+    }
+  
+    .w-120px{
+      width: 120px !important;
+    }
+  
+    #comingSoon{
+          rotate: -15deg !important;
+          position: absolute;
+          left: 60% !important;
+          top: 25% !important;
+          color: #185240 !important;
+          bottom: 0px !important;
+      }
+     
+      .icon{
+          min-width: 90px !important;
+          max-width: 90px !important;
+      }
+  
+      
+      
+      /* Background Image for Calculator Section V3 */
+      .bg-image-colored{
+          background-image: url("{% static 'Landkit/images/v3/background.jpg' %}"); 
+          
+      }
+  
+      /* No Repet Background image */
+      .no-background-image{
+          background-repeat: no-repeat !important;
+      }
+  
+  
+      
+      .img-w-600{
+          max-width: 600px !important;
+          min-width: 600px !important;
+      } 
+
+      .img-w-750{
+          max-width: 750px !important;
+          min-width: 750px !important;
+      } 
+
+
+      .img-w-500{
+        max-width: 500px !important;
+        min-width: 500px !important;
+      }
+      .diverse{
+          position: relative;
+          top: -220px !important;
+          left: -78px !important;
+      }
+  
+  
+      .diverse-2{
+          position: relative;
+          left: 170px !important;
+          top: 20px !important;
+          min-width: 400px   !important;
+      }
+      #btn-group > #btn-group:not(:last-child) > .btn, #btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
+      border-top-right-radius: 50rem !important;
+      border-bottom-right-radius: 50rem !important;
+  }
+  #btn-group > #btn-group:not(:first-child) > .btn, #btn-group > .btn:not(:first-child) {
+      border-top-left-radius: 50rem !important;
+      border-bottom-left-radius: 50rem !important;
+  }
+  
+  
+  @media (max-width: 360px){
+      .w-150{
+          width: 75px !important;
+          font-size: 12px !important;
+      }   
+  }
+  
+  
+  @media (min-width : 370px) and (max-width: 500px){
+      .w-150{
+          width: 80px !important;
+          font-size: 12px !important;
+      }   
+  }
+  
+  
+  @media (min-width: 1200px){
+      .w-150{
+          width: 100px !important;
+      }
+  }
+  
+  
+      .border-radius-6{
+          border-radius: 6px !important;
+      }
+  
+      .border-radius-none{
+          border-radius: 0px !important;
+          border-bottom-left-radius: 0px !important;
+      }
+  
+      .bg-img-calc-v3{
+          background-image: url("{% static 'Landkit/images/v3/back_noppl.jpg' %}");
+      }
+  
+      .bg-img-calc-card-v3{
+          background-image: url("{% static 'Landkit/images/v3/white_banner.png' %}");
+          background-position-x: 300px !important;
+      }
+  
+      
+      .position-absolute-card-image{
+          position: absolute !important;
+          min-width: 820px !important;
+          right: 0px !important;
+          left: -150px !important;
+          top: -100px !important;
+          margin-left: -116px !important;
+          max-height: 800px !important;
+      }
+  
+      .z-index-0{
+          z-index: 0;
+      }
+
+      .position-relative{
+        position: relative !important;
+      }
+
+      .left-n140px{
+        left: -140px !important;
+      }
+
+      .top-n80px{
+        top: -80px !important;
+      }
+
+      
+    #btn-group > #btn-group:not(:last-child) > .btn, #btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 50rem !important;
+    border-bottom-right-radius: 50rem !important;
+}
+#btn-group > #btn-group:not(:first-child) > .btn, #btn-group > .btn:not(:first-child) {
+    border-top-left-radius: 50rem !important;
+    border-bottom-left-radius: 50rem !important;
+}
+
+
+@media (max-width: 360px){
+    .w-150{
+        width: 75px !important;
+        font-size: 12px !important;
+    }   
+}
+
+
+@media (min-width : 370px) and (max-width: 500px){
+    .w-150{
+        width: 80px !important;
+        font-size: 12px !important;
+    }   
+}
+
+
+@media (min-width: 1200px){
+    .w-150{
+        width: 120px !important;
+    }
+}
+
+
+    .border-radius-6{
+        border-radius: 6px !important;
+    }
+
+    .border-radius-none{
+        border-radius: 0px !important;
+        border-bottom-left-radius: 0px !important;
+    }
+
+    .bg-img-calc-v3{
+        background-image: url("{% static 'Landkit/images/v3/back_noppl.jpg' %}");
+    }
+
+    .bg-img-calc-card-v3{
+        background-image: url("{% static 'Landkit/images/v3/5.png' %}");
+        background-position-x: 300px !important;
+    }
+
+    
+    .position-absolute-card-image{
+        position: absolute !important;
+        min-width: 830px !important;
+        right: 0px !important;
+        left: -270px !important;
+        top: -100px !important;
+        margin-left: 0px !important;
+        max-height: 750px !important;
+    }
+
+    .z-index-0{
+        z-index: 0;
+    }
+
+  </style>
