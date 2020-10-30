@@ -3,66 +3,23 @@
 {% include "Landkit/META_TAG.html" %}
 {% block title %}Frequently Asked Questions {% endblock %}
 {% block content %}
-
-
-<style>
-    .bg-image-about-us-page-banner{
-        background-image: url('{% static "Landkit/images/v3/gradient_header.png" %}');
-        min-width: 100% !important;
-    }
-
-    .bg-image-about-us-page-line{
-        background-image: url('{% static "Landkit/images/v3/line.png" %}');
-    }
-    
-    .text-bluish{
-        color: #24475E !important;
-    }
-
-    .text-shadow-bluish{
-        text-shadow: 5px 5px rgba(22, 28, 45, 0.1) !important;
-    }
-
-    .people-img-faq{
-        max-width: 350px !important;
-        min-width: 100px !important;
-    
-    }
-
-    .no-background-image{
-          background-repeat: no-repeat !important;
-      }
-
-    .no-background-image-x{
-        background-repeat: repeat-y, no-repeat !important;
-    }
-
-    .bg-shade{
-        background-color: #D5EFEB !important;
-    }
-</style>
-
-
-
-<section class="bg-image-about-us-page-banner  py-lg-1 no-background-image mt-lg-n9">
-    <div class="container mt-lg-13">
+<section class="bg-image-about-us-page-banner no-background-image pt-lg-1 pb-lg-1 mt-0 mt-lg-n9">
+    <div class="container  mt-lg-13">
         <div class="row ">
-            <div class="col-12 col-lg-3 order-sm-2 order-lg-1" >
-                <img src="{% static 'Landkit/images/v3/faqs.png' %}" class="people-img-faq mt-lg-n11 ml-lg-10" alt="circledin">
+            <div class="col-12 col-md-3 col-lg-3 order-1 order-lg-1" >
+                <img src="{% static 'Landkit/images/v3/faqs.png' %}" class="people-img-faq mt-8 mt-lg-n11 ml-n6 ml-lg-10" alt="circledin">
             </div>
-            <div class="col-12 col-lg-7 order-sm-1 order-lg-2 mt-lg-n5 ml-lg-10">
-                <h1 class="text-uppercase text-left font-weight-bolder display-3 text-bluish text-shadow-bluish">
+            <div class="col-12 col-md-8 col-lg-8 order-2 order-lg-2">
+                <h1 class="text-uppercase text-left font-weight-bolder display-3 text-bluish text-shadow-bluish font-League-Spartan px-5 px-md-0 pt-md-3 pt-lg-0 pl-md-1 mt-n9 mt-md-12 mt-lg-n5 ml-7 ml-md-8 ml-lg-10 mx-0">
                     Frequently Asked Questions
                 </h1>
-                <p class="card-text h3 text-bluish ml-lg-2 mt-lg-n4 ">
+                <p class="h3 card-text text-center text-bluish font-Glacial-Indifference px-5 px-md-0 pl-lg-4  mt-n4 mt-lg-n4 ml-lg-n12 mx-7 mx-md-0">
                     Got a question? We have answers! Let's chat.
                 </p>
             </div>
         </div>
     </div>
 </section>
-
 {% include 'app/Circledin_FAQ.html' %}
-
 {% include "Landkit/footer.html" %}
 {% endblock %}

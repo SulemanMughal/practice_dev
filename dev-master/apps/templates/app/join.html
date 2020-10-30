@@ -1,15 +1,8 @@
 {% extends 'Base.html' %}
 {% load static humanize FindSubUser findNextMonth findNextYear findFindSubID findSubStatus FindSubObject findPaymentCurrentDay  findSubSlots findSubCancelStatus FindCategoryPlanInfo mathfilters FindPlanFixedPrice  %}
-
 {% include "Landkit/META_TAG.html" %}
-
-
 {% block title %} Join a Plan {% endblock %}
-
-
 {% block content %}
-
-
 <style>
   .inner 
   {
@@ -17,33 +10,39 @@
     overflow-x: hidden !important;
     
   }
+  .bg-redish-black-gradient{ 
+    /* background-image: url('{% static "Landkit/images/v3/verizon_header.png" %}'); */
+    background: rgb(121,9,9);
+background: linear-gradient(133deg, rgba(121,9,9,1) 39%, rgba(2,0,36,1) 100%, rgba(0,212,255,1) 100%); 
+  } 
+
+
+  .bg-card-join-image{
+    background-image: url('{% static "Landkit/images/v3/price_box.png" %}');
+    background-position: -229px -45px;
+    background-repeat: no-repeat;
+    background-size:842px 570px;
+  }
  
+
+  
 @media (min-width:200px ) and (max-width:  700px){
   .vh-15{
     height: 15vh;
   }
 }
-
-
 </style>
-
-
-
 {% autoescape off %}
-
-
 {% include 'modals/FeedbackForms.html' with edit=False subs=request.user|FindSubObject:plan.id   %}
 {% include "modals/finishing_payment_modal.html" %}
 {% include "modals/payment_processing_waiting_modal.html" %}
 {% include "modals/payment_error.html" %}
 {% with x=plan.familySize y=plan.currentFamilySize %}
-<section  class=" pt-5 pt-md-5 pt-lg-7 pt-xl-7 pb-10 pb-md-10 pb-lg-12 pb-xl-12  bg-dark-black"
-  style="background-image: url({% static 'Landkit/images/pattern-1.svg' %});">
-
+<section  class="pt-5 pt-md-5 pt-lg-7 pt-xl-7 pb-10 pb-md-10 pb-lg-12 pb-xl-12  bg-redish-black-gradient">
   <div class="container">
     <div class="row justify-content-center ">
       <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-        <h1 class="display-6 font-weight-bold text-white mb-6  px-lg-11 ml-lg-3 mt-10 mt-md-10 mt-lg-3 mt-xl-3">
+        <h1 class="display-1 font-weight-bolder  text-white text-center" >
           {{ plan.category }} - {{ plan.plan_name }}
         </h1>
       </div>
@@ -53,36 +52,36 @@
     </div>
 
     <div class="row justify-content-center mt-5 ml-1 mr-1">
-      <div class="col-12 col-md-4 col-lg-3 col-xl-3 text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25 vh-xl-25 {% if plan.category.Name == 'Verizon'%} bg-Venetian-Red {% else %} bg-fresh-color {% endif %} ml-md-1 ml-lg-1 ml-xl-1 mr-md-1 mr-lg-1 mr-xl-1" style="{% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;   {% endif %} "  >
+      <div class="col-12 col-md-4 col-lg-3 col-xl-3 text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25 vh-xl-25 {% if plan.category.Name == 'Verizon'%} bg-dark-black border border-white {% else %} bg-fresh-color {% endif %} ml-md-1 ml-lg-1 ml-xl-1 mr-md-1 mr-lg-1 mr-xl-1" style="{% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;   {% endif %} "  >
         <div class="center position-xl-relative position-relative">
           <span class="h4 text-white font-weight-bold p-md-0 p-lg-0 p-xl-0">{{ plan.id|FindCategoryPlanInfo:"1" }}</span>
         </div>
       </div>
 
-      <div class="col-12 col-md-4 col-lg-3 col-xl-3 {% if plan.category.Name == 'Verizon'%} bg-Venetian-Red {% else %} bg-fresh-color {% endif %} vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25 text-center  mt-1 mt-md-0 mt-lg-0 mt-xl-0 mr-md-1 mr-lg-1 mr-xl-1" style=" {% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;  {% endif %}" >
+      <div class="col-12 col-md-4 col-lg-3 col-xl-3 {% if plan.category.Name == 'Verizon'%} bg-dark-black border border-white {% else %} bg-fresh-color {% endif %} vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25 text-center  mt-1 mt-md-0 mt-lg-0 mt-xl-0 mr-md-1 mr-lg-1 mr-xl-1" style=" {% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;  {% endif %}" >
         <div class="center position-xl-relative position-relative">
           <span class="h4  text-white font-weight-bold " >{{ plan.id|FindCategoryPlanInfo:"3" }}</span>
         </div>
       </div>
-      <div class="col-12 col-md-4 col-lg-3 col-xl-3  text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25 {% if plan.category.Name == 'Verizon'%} bg-Venetian-Red {% else %} bg-fresh-color {% endif %}   mt-md-1 mr-md-1 mt-1 mt-md-0 mt-lg-0 mt-xl-0 " style=" {% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;  {% endif %} " >
+      <div class="col-12 col-md-4 col-lg-3 col-xl-3  text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25 {% if plan.category.Name == 'Verizon'%} bg-dark-black border border-white{% else %} bg-fresh-color {% endif %}   mt-md-1 mr-md-1 mt-1 mt-md-0 mt-lg-0 mt-xl-0 " style=" {% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;  {% endif %} " >
         <div class="center position-xl-relative position-relative">
           <span class="h4  text-white font-weight-bold ">{{ plan.id|FindCategoryPlanInfo:"5" }}</span>
         </div>
       </div>
 
-      <div class="col-12 col-md-4 col-lg-3 col-xl-3  text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25  {% if plan.category.Name == 'Verizon'%} bg-Venetian-Red {% else %} bg-fresh-color {% endif %}   mr-md-0 mr-lg-1 mr-xl-1 mt-1 mt-md-1 mt-lg-1 mt-xl-1 " style=" {% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;  {% endif %} " >
+      <div class="col-12 col-md-4 col-lg-3 col-xl-3  text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25  {% if plan.category.Name == 'Verizon'%} bg-dark-black border border-white{% else %} bg-fresh-color {% endif %}   mr-md-0 mr-lg-1 mr-xl-1 mt-1 mt-md-1 mt-lg-1 mt-xl-1 " style=" {% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;  {% endif %} " >
         <div class="center position-xl-relative position-relative">
           <span class="h4 text-white font-weight-bold">{{ plan.id|FindCategoryPlanInfo:"2" }}</span>
         </div>
       </div>
 
-      <div class="col-12 col-md-4 col-lg-3 col-xl-3  text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25  {% if plan.category.Name == 'Verizon'%} bg-Venetian-Red {% else %} bg-fresh-color {% endif %} mr-md-1 ml-md-0  mr-lg-1 mr-xl-1 mt-1 mt-md-1  mt-lg-1 mt-xl-1" style=" {% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;  {% endif %} " >
+      <div class="col-12 col-md-4 col-lg-3 col-xl-3  text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25  {% if plan.category.Name == 'Verizon'%} bg-dark-black border border-white{% else %} bg-fresh-color {% endif %} mr-md-1 ml-md-0  mr-lg-1 mr-xl-1 mt-1 mt-md-1  mt-lg-1 mt-xl-1" style=" {% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;  {% endif %} " >
         <div class="center position-xl-relative position-relative">
           <span class="h4 text-white font-weight-bold">{{ plan.id|FindCategoryPlanInfo:"4" }}</span>
         </div>
       </div>
 
-      <div class="col-12 col-md-4 col-lg-3 col-xl-3   {% if plan.category.Name == 'Verizon'%} bg-Venetian-Red {% else %} bg-fresh-color {% endif %} text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25  mt-1 mt-md-1 mt-lg-1 mt-xl-1 " style=" {% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;  {% endif %} " >
+      <div class="col-12 col-md-4 col-lg-3 col-xl-3   {% if plan.category.Name == 'Verizon'%} bg-dark-black border border-white{% else %} bg-fresh-color {% endif %} text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25  mt-1 mt-md-1 mt-lg-1 mt-xl-1 " style=" {% if plan.category.Name == 'T-Mobile' %} background-color: #E20074 !important;  {% endif %} " >
         <div class="center position-xl-relative position-relative">
           <span class="h4 text-white font-weight-bold ">+{{ plan.total_slots }} Spots Left </span>
         </div>
@@ -101,46 +100,50 @@
     <div class="row">
       <div class="col-12 col-md-12 col-lg-7 col-xl-7">
         <div class="d-flex">
-          <span class="h3 align-self-end pt-3 mt-1 text-dark font-weight-bold">{{ plan.family_name }}</span>
+          <span><i class="fas fa-chevron-right text-danger fa-3x font-weight-bolder mt-3"></i></span><span class="h3 display-4 align-self-end pl-3 pt-3 text-dark font-weight-bolder text-bluish">{{ plan.category.Name }}-{{ plan.id|FindCategoryPlanInfo }}</span>
         </div>
         <div class="d-flex">
-          <span class="h3 align-self-end pt-3 mt-1 text-dark font-weight-bold">Member Since {{ plan.created|date:"Y" }}</span>
+          <span class="card-text h4 text-bluish font-weight-normal pl-8">Family Name : {{ plan.user.username }} | {{ plan.total_slots }} spots left</span>
+        </div>
+        <div class="d-flex">
+          <span class="card-text h4 text-bluish font-weight-normal pl-8 font-italic">Community Member since {{ plan.created|date:"M" }} {{ plan.created|date:"Y" }}</span>
         </div>
         <div class="container">
           <div class="row">
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
               <div class="d-flex">
-                <span class="h3 align-self-end pt-3 mt-1 text-dark font-weight-bold">Family Rules</span>
+                <span class="h3 align-self-end pt-3 mt-1 text-bluish font-weight-bold">Family Rules</span>
               </div>
               <div class="d-flex">
                 <ul class="list-group pl-5">
                   {% for i in familyRules %}
-                  <li >{{ i.explanation }}</li>
+                  <li class="text-bluish">{{ i.explanation }}</li>
                   {% empty %}
-                  <li >No Family Rules has been decided yet.</li>
+                  <li class="text-bluish">No Family Rules has been decided yet.</li>
                 {% endfor %}
                 </ul>
 
+              </div>
+              <div class="d-flex">
+                <span class="card-text  pt-3 mt-1 text-bluish font-weight-bold text-nowrap">Payment Date</span>
+                <span class="card-text  pt-3 mt-1 text-bluish font-weight-bold text-nowrap">&nbsp;{{ plan.monthly_payment_date|findPaymentCurrentDay|ordinal }} of each month</span>
               </div>
             </div>
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
               <div class="d-flex">
-                <span class="h3 align-self-end pt-3 mt-1 text-dark font-weight-bold">Cancellation Policy</span>
+                <span class="h3 align-self-end pt-3 mt-1 text-bluish font-weight-bold">Cancellation Policy</span>
               </div>
               <div class="d-flex">
                 <ul class="list-group pl-5">
                   {% for i in CncellationPolicy %}
-                  <li >{{ i.explanation }}</li>
+                  <li class="text-bluish" >{{ i.explanation }}</li>
                   {% empty %}
-                  <li >No Cancellation Policy has been decided yet.</li>
+                  <li class="text-bluish">No Cancellation Policy has been decided yet.</li>
                 {% endfor %}
                 </ul>
 
               </div>
-              <div class="d-flex">
-                <span class="card-text  pt-3 mt-1 text-dark font-weight-bold text-nowrap">Payment Date</span>
-                <span class="card-text  pt-3 mt-1 text-dark font-weight-bold text-nowrap">&nbsp;{{ plan.monthly_payment_date|findPaymentCurrentDay|ordinal }} of each month</span>
-              </div>
+              
             </div>
 
           </div>
@@ -151,7 +154,7 @@
           <div class="row">
             <div class="col-12 col-md-12 col-lg-8 col-xl-8">
               <div class="d-flex">
-                <span class="h5 align-self-end pt-3 mt-1 text-dark font-weight-bold">If you run into an issues with your phone bill, need a new SIM or anything of that nature, please feel free to contact me and I'wll make sure you get what you need.</span>
+                <span class="h5 align-self-end pt-3 mt-1 text-bluish font-weight-bold">If you run into an issues with your phone bill, need a new SIM or anything of that nature, please feel free to contact me and I'wll make sure you get what you need.</span>
               </div>
 
             </div>
@@ -168,13 +171,13 @@
           <div class="row">
             <div class="col-12 col-md-12 col-lg-8 col-xl-8">
               <div class="d-flex">
-                <span class="h5   mt-1 text-dark font-weight-bold">Contact Circledin Support if you have any questions regarding your order.</span>
+                <span class="h5   mt-1 text-bluish font-weight-bold">Contact Circledin Support if you have any questions regarding your order.</span>
               </div>
 
             </div>
             <div class="col-12 col-md-12 col-lg-4 col-xl-4 mt-3" >
               <div class="form-group">
-                <a class="btn text-white bg-fresh-color   p-2 w-100" type="button" href="{% url 'contact' %}" >Support</a>
+                <a class="btn btn-atoll  p-0 pt-1 pb-1 w-100 text-uppercase font-size-sm" type="button" href="{% url 'contact' %}" >Ask a question</a>
               </div>
 
             </div>
@@ -298,7 +301,7 @@
 
       </div>
       <div class="col-12 col-md-12 col-lg-5 col-xl-5 mt-2 mt-md-2 mt-lg-0 mt-xl-0 ">
-        <div class="card border border-dark shadow-lg" style="border-radius: 25px 25px;">
+        <div class="card border border-dark bg-card-join-image" style="border-radius: 25px 25px;">
           
 
           <div class="card-body">
