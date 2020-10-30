@@ -701,7 +701,7 @@ def About(request):
 # FAQ
 # ****************************************************************
 def FAQ(request):
-    template_name = 'app/Circledin_FAQ.html'
+    template_name = 'app/FAQs_v3.html'
     context = {
     }
     return render(request, template_name, context)

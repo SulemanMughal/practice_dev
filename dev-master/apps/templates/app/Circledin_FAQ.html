@@ -1,40 +1,25 @@
-{% extends "Base.html" %}
 {% load static %}
-{% include "Landkit/META_TAG.html" %}
-{% block title %}Frequently Asked Questions {% endblock %}
-{% block content %}
 <section class="pt-6 pt-md-8 pb-8 mb-md-8 mt-8">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <div class="row mb-6 mb-md-8">
-          <div class="col-auto">
-            <div class="icon-circle bg-primary text-white">
-              <img src="{% static 'Landkit/images/CI FAQ.png' %}"  alt="FAQ" >
-            </div>
-          </div>
-          <div class="col ml-n4">
-            <h2 class="font-weight-bold mb-0 mt-3 mt-md-3 mt-lg-3 mt-xl-3">
-              Frequently Asked Question
-            </h2>
-          </div>
-        </div> 
+        
         <div class="card shadow-light-lg accordion mb-5 mb-md-6" id="helpAccordionOne">
           <div class="list-group">
-            <div class="list-group-item">
+            <div class="list-group-item bg-shade">
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpOne" role="button" aria-expanded="false" aria-controls="helpOne">
-                <span class="mr-4 text-dark font-weight-bolder">
+                <span class="mr-4 h3 text-dark font-weight-bolder">
                   What is CircledIn?
                 </span>
-                <div class="text-muted ml-auto">
+                <div class="text-muted ml-auto" >
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a>
               <!-- Collapse -->
-              <div class="collapse show" id="helpOne" >
+              <div class="collapse" id="helpOne" >
                 <div class="py-5 ">
                   <!-- Text -->
                   <p class="text-dark">
@@ -43,23 +28,23 @@
                 </div>
               </div>
             </div>
-            <div class="list-group-item">
+            <div class="list-group-item bg-shade mt-1">
               <!-- Toggle -->
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpTwo" role="button" aria-expanded="false" aria-controls="helpTwo">
                 <!-- Title -->
-                <span class="mr-4 tex-dark font-weight-bolder">
+                <span class="mr-4 h3 tex-dark font-weight-bolder">
                   How does it work?
                 </span>
                 <!-- Metadata -->
                 <div class="text-muted ml-auto">
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a> <!-- / .row -->
               <!-- Collapse -->
-              <div class="collapse show" id="helpTwo" >
+              <div class="collapse" id="helpTwo" >
                 <div class="py-5">
                   <p class="text-dark">
                     We connect individual subscribers to a family plan to maximize savings. We are like the Uber Pool for mobile plans. Circle into a family and start benefiting the savings with each other.
@@ -67,23 +52,23 @@
                 </div>
               </div>
             </div>
-            <div class="list-group-item">
+            <div class="list-group-item bg-shade mt-1">
               <!-- Toggle -->
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpThree" role="button" aria-expanded="false" aria-controls="helpThree">
                 <!-- Title -->
-                <span class="mr-4 tex-dark font-weight-bolder">
+                <span class="mr-4 h3 tex-dark font-weight-bolder">
                   How is the price set?
                 </span>
                 <!-- Metadata -->
                 <div class="text-muted ml-auto">
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a> <!-- / .row -->
               <!-- Collapse -->
-              <div class="collapse show" id="helpThree" >
+              <div class="collapse" id="helpThree" >
                 <div class="py-5">
                   <!-- Text -->
                   <p class="text-dark">
@@ -92,23 +77,23 @@
                 </div>
               </div>
             </div>
-            <div class="list-group-item">
+            <div class="list-group-item bg-shade mt-1">
               <!-- Toggle -->
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpFour" role="button" aria-expanded="false" aria-controls="helpFour">
                 <!-- Title -->
-                <span class="mr-4 tex-dark font-weight-bolder">
+                <span class="mr-4 h3 tex-dark font-weight-bolder">
                   Will I lose my current mobile number?
                 </span>
                 <!-- Metadata -->
                 <div class="text-muted ml-auto">
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a> <!-- / .row -->
               <!-- Collapse -->
-              <div class="collapse show" id="helpFour" >
+              <div class="collapse" id="helpFour" >
                 <div class="py-5">
                   <!-- Text -->
                   <p class="text-dark">
@@ -117,23 +102,23 @@
                 </div>
               </div>
             </div>
-            <div class="list-group-item">
+            <div class="list-group-item bg-shade mt-1">
               <!-- Toggle -->
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpFourOne" role="button" aria-expanded="false" aria-controls="helpFourOne">
                 <!-- Title -->
-                <span class="mr-4 tex-dark font-weight-bolder">
+                <span class="mr-4 h3 tex-dark font-weight-bolder">
                   What happens when an Account Owner cancels their plan?
                 </span>
                 <!-- Metadata -->
                 <div class="text-muted ml-auto">
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a> <!-- / .row -->
               <!-- Collapse -->
-              <div class="collapse show" id="helpFourOne" >
+              <div class="collapse" id="helpFourOne" >
                 <div class="py-5">
                   <!-- Text -->
                   <p class="text-dark">
@@ -142,23 +127,23 @@
                 </div>
               </div>
             </div>
-            <div class="list-group-item">
+            <div class="list-group-item bg-shade mt-1">
               <!-- Toggle -->
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpTwintyOne" role="button" aria-expanded="false" aria-controls="helpTwintyOne">
                 <!-- Title -->
-                <span class="mr-4 tex-dark font-weight-bolder">
+                <span class="mr-4 h3 tex-dark font-weight-bolder">
                   Is CircledIn a mobile carrier or MVNO (Mobile Virtual Network Operator)?
                 </span>
                 <!-- Metadata -->
                 <div class="text-muted ml-auto">
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a> <!-- / .row -->
               <!-- Collapse -->
-              <div class="collapse show" id="helpTwintyOne" >
+              <div class="collapse" id="helpTwintyOne" >
                 <div class="py-5">
                   <!-- Text -->
                   <p class="text-dark">
@@ -167,23 +152,23 @@
                 </div>
               </div>
             </div>
-            <div class="list-group-item">
+            <div class="list-group-item bg-shade mt-1">
               <!-- Toggle -->
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpFive" role="button" aria-expanded="false" aria-controls="helpFive">
                 <!-- Title -->
-                <span class="mr-4 tex-dark font-weight-bolder">
+                <span class="mr-4 h3 tex-dark font-weight-bolder">
                   Can I get a new mobile number?
                 </span>
                 <!-- Metadata -->
                 <div class="text-muted ml-auto">
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a> <!-- / .row -->
               <!-- Collapse -->
-              <div class="collapse show" id="helpFive" >
+              <div class="collapse" id="helpFive" >
                 <div class="py-5">
                   <!-- Text -->
                   <p class="text-dark">
@@ -192,23 +177,23 @@
                 </div>
               </div>
             </div>
-            <div class="list-group-item">
+            <div class="list-group-item bg-shade mt-1">
               <!-- Toggle -->
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpSix" role="button" aria-expanded="false" aria-controls="helpSix">
                 <!-- Title -->
-                <span class="mr-4 tex-dark font-weight-bolder">
+                <span class="mr-4 h3 tex-dark font-weight-bolder">
                   Will my phone be compatible with the carrier?
                 </span>
                 <!-- Metadata -->
                 <div class="text-muted ml-auto">
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a> <!-- / .row -->
               <!-- Collapse -->
-              <div class="collapse show" id="helpSix" >
+              <div class="collapse" id="helpSix" >
                 <div class="py-5">
                   <!-- Text -->
                   <p class="text-dark">
@@ -217,23 +202,23 @@
                 </div>
               </div>
             </div>
-            <div class="list-group-item">
+            <div class="list-group-item bg-shade mt-1">
               <!-- Toggle -->
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpSeven" role="button" aria-expanded="false" aria-controls="helpSeven">
                 <!-- Title -->
-                <span class="mr-4 tex-dark font-weight-bolder">
+                <span class="mr-4 h3 tex-dark font-weight-bolder">
                   How are payments handled?
                 </span>
                 <!-- Metadata -->
                 <div class="text-muted ml-auto">
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a> <!-- / .row -->
               <!-- Collapse -->
-              <div class="collapse show" id="helpSeven" >
+              <div class="collapse" id="helpSeven" >
                 <div class="py-5">
                   <!-- Text -->
                   <p class="text-dark">
@@ -242,23 +227,23 @@
                 </div>
               </div>
             </div>
-            <div class="list-group-item">
+            <div class="list-group-item bg-shade mt-1">
               <!-- Toggle -->
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpTwintySeven" role="button" aria-expanded="false" aria-controls="helpTwintySeven">
                 <!-- Title -->
-                <span class="mr-4 tex-dark font-weight-bolder">
+                <span class="mr-4 h3 tex-dark font-weight-bolder">
                   What if someone in the circle doesn’t pay?
                 </span>
                 <!-- Metadata -->
                 <div class="text-muted ml-auto">
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a> <!-- / .row -->
               <!-- Collapse -->
-              <div class="collapse show" id="helpTwintySeven" >
+              <div class="collapse" id="helpTwintySeven" >
                 <div class="py-5">
                   <!-- Text -->
                   <p class="text-dark">
@@ -267,23 +252,23 @@
                 </div>
               </div>
             </div>
-            <div class="list-group-item">
+            <div class="list-group-item bg-shade mt-1">
               <!-- Toggle -->
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpEight" role="button" aria-expanded="false" aria-controls="helpEight">
                 <!-- Title -->
-                <span class="mr-4 tex-dark font-weight-bolder">
+                <span class="mr-4 h3 tex-dark font-weight-bolder">
                   Why is there a $5 subscription fee?
                 </span>
                 <!-- Metadata -->
                 <div class="text-muted ml-auto">
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a> <!-- / .row -->
               <!-- Collapse -->
-              <div class="collapse show" id="helpEight" >
+              <div class="collapse" id="helpEight" >
                 <div class="py-5">
                   <!-- Text -->
                   <p class="text-dark">
@@ -292,23 +277,23 @@
                 </div>
               </div>
             </div>
-            <div class="list-group-item">
+            <div class="list-group-item  bg-shade mt-1">
               <!-- Toggle -->
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpNine" role="button" aria-expanded="false" aria-controls="helpNine">
                 <!-- Title -->
-                <span class="mr-4 tex-dark font-weight-bolder">
+                <span class="mr-4 h3 tex-dark font-weight-bolder">
                   What’s the refund policy?
                 </span>
                 <!-- Metadata -->
                 <div class="text-muted ml-auto">
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a> <!-- / .row -->
               <!-- Collapse -->
-              <div class="collapse show" id="helpNine" >
+              <div class="collapse" id="helpNine" >
                 <div class="py-5">
                   <!-- Text -->
                   <p class="text-dark">
@@ -317,23 +302,23 @@
                 </div>
               </div>
             </div>
-            <div class="list-group-item">
+            <div class="list-group-item bg-shade mt-1">
               <!-- Toggle -->
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpNintyOne" role="button" aria-expanded="false" aria-controls="helpNintyOne">
                 <!-- Title -->
-                <span class="mr-4 tex-dark font-weight-bolder">
+                <span class="mr-4 h3 tex-dark font-weight-bolder">
                   Are there any taxes?
                 </span>
                 <!-- Metadata -->
                 <div class="text-muted ml-auto">
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a> <!-- / .row -->
               <!-- Collapse -->
-              <div class="collapse show" id="helpNintyOne" >
+              <div class="collapse" id="helpNintyOne" >
                 <div class="py-5">
                   <!-- Text -->
                   <p class="text-dark">
@@ -342,23 +327,23 @@
                 </div>
               </div>
             </div>
-            <div class="list-group-item">
+            <div class="list-group-item bg-shade mt-1">
               <!-- Toggle -->
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpNintyTwo" role="button" aria-expanded="false" aria-controls="helpNintyTwo">
                 <!-- Title -->
-                <span class="mr-4 tex-dark font-weight-bolder">
+                <span class="mr-4 h3 tex-dark font-weight-bolder">
                   Do you accept eSIM?
                 </span>
                 <!-- Metadata -->
                 <div class="text-muted ml-auto">
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a> <!-- / .row -->
               <!-- Collapse -->
-              <div class="collapse show" id="helpNintyTwo" >
+              <div class="collapse" id="helpNintyTwo" >
                 <div class="py-5">
                   <!-- Text -->
                   <p class="text-dark">
@@ -367,23 +352,23 @@
                 </div>
               </div>
             </div>
-            <div class="list-group-item">
+            <div class="list-group-item bg-shade mt-1">
               <!-- Toggle -->
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpNintyTwoBill" role="button" aria-expanded="false" aria-controls="helpNintyTwoBill">
                 <!-- Title -->
-                <span class="mr-4 tex-dark font-weight-bolder">
+                <span class="mr-4 h3 tex-dark font-weight-bolder">
                   First months Bill
                 </span>
                 <!-- Metadata -->
                 <div class="text-muted ml-auto">
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a> <!-- / .row -->
               <!-- Collapse -->
-              <div class="collapse show" id="helpNintyTwoBill" >
+              <div class="collapse" id="helpNintyTwoBill" >
                 <div class="py-5">
                   <!-- Text -->
                   <p class="text-dark">
@@ -392,23 +377,23 @@
                 </div>
               </div>
             </div>
-            <div class="list-group-item">
+            <div class="list-group-item bg-shade mt-1">
               <!-- Toggle -->
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpNintyTwofamily" role="button" aria-expanded="false" aria-controls="helpNintyTwofamily">
                 <!-- Title -->
-                <span class="mr-4 tex-dark font-weight-bolder">
+                <span class="mr-4 h3 tex-dark font-weight-bolder">
                   Is the data shared amongst family members?
                 </span>
                 <!-- Metadata -->
                 <div class="text-muted ml-auto">
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a> <!-- / .row -->
               <!-- Collapse -->
-              <div class="collapse show" id="helpNintyTwofamily" >
+              <div class="collapse" id="helpNintyTwofamily" >
                 <div class="py-5">
                   <!-- Text -->
                   <p class="text-dark">
@@ -417,23 +402,23 @@
                 </div>
               </div>
             </div>
-            <div class="list-group-item">
+            <div class="list-group-item bg-shade mt-1">
               <!-- Toggle -->
               <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpNintyThree" role="button" aria-expanded="false" aria-controls="helpNintyThree">
                 <!-- Title -->
-                <span class="mr-4 tex-dark font-weight-bolder">
+                <span class="mr-4 h3 tex-dark font-weight-bolder">
                   How do we partner with CircledIn?
                 </span>
                 <!-- Metadata -->
                 <div class="text-muted ml-auto">
                   <!-- Chevron -->
-                  <span class="collapse-chevron text-muted">
-                    <i class="fe fe-lg fe-chevron-up"></i>
+                  <span class="collapse-chevron font-weight-normal text-dark">
+                    <i class="fas fa-chevron-down fa-2x"></i>
                   </span>
                 </div>
               </a> <!-- / .row -->
               <!-- Collapse -->
-              <div class="collapse show" id="helpNintyThree" >
+              <div class="collapse" id="helpNintyThree" >
                 <div class="py-5">
                   <!-- Text -->
                   <p class="text-dark">
@@ -449,5 +434,3 @@
     </div> <!-- / .row -->
   </div> <!-- / .container -->
 </section>
-{% include "Landkit/footer.html" %}
-{% endblock %}
