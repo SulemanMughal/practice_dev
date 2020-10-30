@@ -692,7 +692,7 @@ def Detail(request, plan_id, sub_id):
 # About Us
 # ****************************************************************
 def About(request):
-    template_name = 'Landkit/about.html'
+    template_name = 'Landkit/About_v3.html'
     context = {
     }
     return render(request, template_name, context)

@@ -1,0 +1,106 @@
+{% extends "Base.html" %}
+{% load static %}
+{% include "Landkit/META_TAG.html" %}
+
+
+{% block title %}About Us{% endblock %}
+{% block content %}
+<style>
+    .bg-image-about-us-page-banner{
+        background-image: url('{% static "Landkit/images/v3/gradient_header.png" %}');
+        min-width: 100% !important;
+    }
+
+    .bg-image-about-us-page-line{
+        background-image: url('{% static "Landkit/images/v3/line.png" %}');
+    }
+    
+    .text-bluish{
+        color: #24475E !important;
+    }
+
+    .text-shadow-bluish{
+        text-shadow: 5px 5px rgba(22, 28, 45, 0.1) !important;
+    }
+
+    .people-img-about{
+        max-width: 280px !important;
+        min-width: 100px !important;
+    
+    }
+
+    .no-background-image{
+          background-repeat: no-repeat !important;
+      }
+
+    .no-background-image-x{
+        background-repeat: repeat-y, no-repeat !important;
+    }
+</style>
+
+<section class="bg-image-about-us-page-banner  py-lg-1 no-background-image mt-lg-n9">
+    <div class="container mt-lg-13">
+        <div class="row ">
+            <div class="col-12 col-lg-3 order-sm-2 order-lg-1" >
+                <img src="{% static 'Landkit/images/v3/people.png' %}" class="people-img-about mt-lg-n8 ml-lg-11" alt="circledin">
+            </div>
+            <div class="col-12 col-lg-7 order-sm-1 order-lg-2 mt-lg-2">
+                <h1 class="text-uppercase text-center font-weight-bolder display-3 text-bluish text-shadow-bluish">
+                    Group Together, Save Together
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg-image-about-us-page-line no-background-image-x my-lg-8 py-lg-1">
+    <div class="container pl-lg-10">
+        <div class="row">
+            <h1 class="card-title display-3 text-bluish text-shadow-bluish text-uppercase font-weight-bolder">
+                Our Mission
+            </h1>
+            <p class="card-text h3 text-bluish">
+                It's simple. To money back into your pockets so that you're not overpaying for a service again.
+
+            </p>
+        </div>
+        <div class="row mt-lg-8">
+            <h1 class="card-title display-3 text-bluish text-shadow-bluish text-uppercase font-weight-bolder">
+                Why did we start circledin?
+            </h1>
+            <p class="card-text h3 text-bluish">
+                With a global pandemic impacting our world economy,US unemployment claims reaching north of 47 million, and a projected 100,000 small businesses expected to close permanently, we built this platform to provide you access to a premium mobile line without the premium prices!
+            </p>
+        </div>
+        <div class="row mt-lg-8">
+            <h1 class="card-title display-3 text-bluish text-shadow-bluish text-uppercase font-weight-bolder">
+                How?
+            </h1>
+            <p class="card-text h3 text-bluish">
+                We connect individual subscribers to a family plan to maximize savings. We are like the Uber Pool for mobile plans. Circle into a family and start putting an average of $550/yr back into your accounts.
+            </p>
+        </div>
+        <div class="row mt-lg-8">
+            <h1 class="card-title display-3 text-bluish text-shadow-bluish text-uppercase font-weight-bolder">
+                Our Promise
+            </h1>
+        </div>
+        <div class="row ml-lg-n7">
+            <p class="card-text h3 text-bluish">
+                <ul>
+                    <li class="card-text h4 text-bluish">
+                        1% of our profits to a charitable foundation
+                    </li>
+                    <li class="card-text h4 text-bluish">
+                        1% of our time volunteering for a cause
+                    </li>
+                    <li class="card-text h4 text-bluish">
+                        To provide a white glove experience for our users to ensure you're completely satisfied and happy with our services.
+                    </li>
+                </ul>
+
+            </p>
+        </div>
+    </div>
+</section>
+{% include "Landkit/footer.html" %}
+{% endblock %}
