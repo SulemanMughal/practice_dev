@@ -46,6 +46,11 @@
         background-color: #D5EFEB !important;
     }
 
+    .box-shadow-lighter-greenish{
+        -webkit-box-shadow: 7px 7px 5px 0px rgba(66, 128, 118, 0.75);
+-moz-box-shadow:    7px 7px 5px 0px rgba(66, 128, 118, 0.75);
+box-shadow:         7px 7px 5px 0px rgba(66, 128, 118, 0.75);
+    }
     /* ============================================================================== */
 
     /* ============================================================================== */
@@ -82,6 +87,7 @@
     }
 
 
+    
     .btn-greenish{
         color: white !important;
         background-color: #48B9A9 !important;
@@ -118,10 +124,21 @@
 
 
      /* Background Image for Calculator Section V3 */
-     .bg-image-colored{
-          background-image: url("{% static 'Landkit/images/v3/background.jpg' %}"); 
-          
-      }
+     
+    @media(min-width:700px){
+        .bg-image-colored-md{
+          /* background-image: url("{% static 'Landkit/images/v3/background.jpg' %}");    */
+          background-image: none ;
+          /* background-size: 120% 120% !important; */
+      }    
+    }
+
+     @media(min-width:1200px){
+        .bg-image-colored{
+          background-image: url("{% static 'Landkit/images/v3/background.jpg' %}");   
+      }    
+     }
+     
   
       /* No Repet Background image */
       .no-background-image{
@@ -139,24 +156,72 @@
           min-width: 600px !important;
       } 
 
-      .img-w-750{
+
+      @media(min-width:300px){
+        .img-w-750-sm{
+          max-width: 300px !important;
+          min-width: 300px !important;
+      }   
+      }
+      
+      @media(min-width:700px){
+        .img-w-750-md{
+          max-width: 400px !important;
+          min-width: 400px !important;
+      }   
+      }
+
+      @media(min-width: 1200px){
+        .img-w-750{
           max-width: 750px !important;
           min-width: 750px !important;
       } 
+      }
+      
+      
 
-      .icon{
+      
+      @media(min-width:300px){
+        .icon{
+          min-width: 100px !important;
+          max-width: 100px !important;
+      }  
+      }
+
+      @media(min-width:700px){
+        .icon{
           min-width: 90px !important;
           max-width: 90px !important;
       }
+      }
+      
   
       
       
      
+      
+      @media(min-width: 700px){
+        .img-w-400-md{
+        max-width: 400px !important;
+        min-width: 400px !important;
+      }     
+      .img-w-300-md{
+        max-width: 300px !important;
+        min-width: 300px !important;
+      }  
+      .img-w-350-md{
+        max-width: 350px !important;
+        min-width: 350px !important;
+      }     
+      }
 
-      .img-w-500{
+      @media(min-width: 1200px){
+        .img-w-500{
         max-width: 500px !important;
         min-width: 500px !important;
+      }    
       }
+      
 
 
       .border-radius-6{
@@ -186,13 +251,30 @@
         position: relative !important;
       }
 
-      .left-n140px{
+      @media(min-width:1200px){
+        .left-n140px{
         left: -140px !important;
       }
+      }
 
-      .top-n80px{
+      @media(min-width:700px){
+          .left-n140-md{
+            left: -105px !important;
+          }
+      }
+      
+      @media(min-width:1200px){
+        .top-n80px{
         top: -80px !important;
       }
+      }
+
+      @media(min-width:700px){
+        .top-n80px-md{
+        top: -60px !important;
+      }   
+      }
+      
 
 
       .bg-img-calc-v3{
@@ -267,6 +349,69 @@
         border-right: 0px !important;
         
     }
+
+
+    @media(min-width:700px){
+        .text-md-bluish{
+            color: #24475E !important;
+        }
+    }
+
+    @media(min-width:1200px){
+        .text-lg-white{
+            color: white !important;
+        }
+    }
+
+
+
+    @media(min-width:700px){
+        .w-120-md{
+            width: 200% !important;
+        }
+    }
+
+
+    @media(min-width:1200px){
+        .w-120-lg{
+            width: 150% !important;
+        }
+    }
+
+
+
+
+
+
+    @media(min-width:300px){
+    .home-page-top-section-image {    
+      display: inline-block;    
+      width: 145%;  
+    }
+  }
+
+  @media (min-width: 700px) {  
+    .home-page-top-section-image {    
+      display: inline-block;    
+      width: 190%;  
+    }
+  }
+
+
+
+
+
+
+
+
+@media (min-width: 1281px) {  
+    .home-page-top-section-image {    
+      display: inline-block;    
+      width: 220%;  
+    }
+  }
+
+
 
 
 

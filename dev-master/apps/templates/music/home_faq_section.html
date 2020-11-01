@@ -1,13 +1,13 @@
 {% load static %}
-<section>
+<section class="d-none d-md-block">
     <div class="container-fluid mx-lg-7">
         <div class="row">
-                <h1 class="card-title text-uppercase font-weight-bolder display-3 text-dark text-left">
+                <h1 class="card-title text-uppercase font-weight-bolder display-3 text-dark text-left px-6 px-lg-0">
                         Top 3 frequently asked questions
                 </h1>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 col-lg-7 ml-lg-0 pl-lg-2">
+            <div class="col-12 col-md-7 col-lg-7 ml-lg-0 pl-lg-2">
                 <ul class="ml-lg-0 pl-lg-0"  style="list-style-type:none !important"> 
                     <li>
                         <div>
@@ -35,17 +35,114 @@
                         </div>
                     </li>
                 </ul>
-                <a href="#!" class="btn btn-lighter-greenish pt-1 pb-1 w-50 mb-lg-2 ml-lg-5">
+                <a href="#!" class="btn btn-lighter-greenish pt-1 pb-1 w-50 mb-lg-2 ml-md-7 ml-lg-5">
                     More FAQ
                     
                 </a>
             </div>
             <div class="col-12 col-md-4 col-lg-5">
-                <img class="w-120 ml-lg-n10 mt-lg-n10" src="{% static 'Landkit/images/v3/8.png' %}" alt="Circledin">
+                <img class="w-120-md w-120-lg ml-md-n10 ml-lg-n10 mt-lg-n10" src="{% static 'Landkit/images/v3/8.png' %}" alt="Circledin">
                 
             </div>
             
         </div>
         <img class="w-100 ml-lg-n6 my-lg-n13" src="{%  static 'Landkit/images/v3/banner.png' %}" alt="Circledin">
+    </div>
+</section>
+
+
+
+<section class="d-block d-md-none">
+    <div class="container-fluid mx-lg-7">
+        <div class="row">
+                <h3 class="card-title text-uppercase font-weight-bolder display-3 text-bluish text-left px-4 px-lg-0">
+                        Top 3 frequently asked questions
+                </h3>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow-light-lg accordion mb-5 mb-md-6" id="helpAccordionOne">
+                    <div class="list-group">
+                      <div class="list-group-item bg-shade-lighter-greenish">
+                        <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpOne" role="button" aria-expanded="false" aria-controls="helpOne">
+                          <span class="mr-4 h3 text-dark font-weight-bolder font-Glacial-Indifference">
+                            What happens when someone in the family forgets to pay?
+                          </span>
+                          <div class="text-muted ml-auto" >
+                            <!-- Chevron -->
+                            <span class="collapse-chevron font-weight-normal text-dark">
+                              <i class="fas fa-chevron-down fa-2x"></i>
+                            </span>
+                          </div>
+                        </a>
+                        <!-- Collapse -->
+                        <div class="collapse" id="helpOne" >
+                          <div class="py-5 ">
+                            <!-- Text -->
+                            <p class="text-pure-black">
+                                Circledin guarantees timely payment each month so that there are no disruptions to your mobile services.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-group-item bg-shade-lighter-greenish mt-1">
+                        <!-- Toggle -->
+                        <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpTwo" role="button" aria-expanded="false" aria-controls="helpTwo">
+                          <!-- Title -->
+                          <span class="mr-4 h3 text-dark font-weight-bolder font-Glacial-Indifference">
+                            What type of data does the Account Owner see?
+                          </span>
+                          <!-- Metadata -->
+                          <div class="text-muted ml-auto">
+                            <!-- Chevron -->
+                            <span class="collapse-chevron font-weight-normal text-dark">
+                              <i class="fas fa-chevron-down fa-2x"></i>
+                            </span>
+                          </div>
+                        </a> <!-- / .row -->
+                        <!-- Collapse -->
+                        <div class="collapse" id="helpTwo" >
+                          <div class="py-5">
+                            <p class="text-pure-black">
+                                Each of our Account Owners are verified and a trusted Circledin community member.The Account Owner will only see high level usuage data such as phone numbers, but not actual text messages, images, etc.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-group-item bg-shade-lighter-greenish mt-1">
+                        <!-- Toggle -->
+                        <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpThree" role="button" aria-expanded="false" aria-controls="helpThree">
+                          <!-- Title -->
+                          <span class="mr-4 h3 text-dark font-weight-bolder font-Glacial-Indifference">
+                            Is the premium data per account or per line?
+                          </span>
+                          <!-- Metadata -->
+                          <div class="text-muted ml-auto">
+                            <!-- Chevron -->
+                            <span class="collapse-chevron font-weight-normal text-dark">
+                              <i class="fas fa-chevron-down fa-2x"></i>
+                            </span>
+                          </div>
+                        </a> <!-- / .row -->
+                        <!-- Collapse -->
+                        <div class="collapse" id="helpThree" >
+                          <div class="py-5">
+                            <!-- Text -->
+                            <p class="text-pure-black">
+                                The premium data is on a per line basis. In other words, you are not sharing data usuages across other members in the family.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                <a href="#!" class="btn btn-lighter-greenish pt-1 pb-1 w-50 ml-10 mb-lg-2 ml-md-7 ml-lg-5">
+                    More FAQ
+                    
+                </a>
+            </div>
+            <img class="w-100 ml-lg-n6 mx-5 my-lg-n13" src="{%  static 'Landkit/images/v3/banner.png' %}" alt="Circledin">
+        </div>
     </div>
 </section>
