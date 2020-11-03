@@ -1,53 +1,50 @@
 {% load static %}
-<section class="d-none d-md-block mt-lg-3 ">
+<section class="d-none d-md-block mt-md-3 mb-md-8 ">
+  
     <div class="container px-lg-10">
         <div class="row ">
-                <h1 class="card-title text-uppercase font-weight-bolder display-6 text-dark text-left px-6 px-lg-0">
+                <h1 class="card-title text-uppercase font-weight-bolder display-6 text-dark text-center px-6  pl-lg-11 my-5">
                         Top 3 frequently asked questions
                 </h1>
         </div>
         <div class="row">
-            <div class="col-12 col-md-7 col-lg-7 ml-lg-0 pl-lg-2">
-                <ul class="ml-lg-0 pl-lg-0"  style="list-style-type:none !important"> 
-                    <li>
-                        <div>
-                            <p class="h3  mb-0">1)  What happens when someone in the family forgets to pay?</p>
-                        <p class="ml-lg-5 font-size-md">
-                            Circledin guarantees timely payment each month so that there are no disruptions to your mobile services.
-                        </p>
-                        </div>
-                        
-                    </li>
-                    <li>
-                        <div>
-                            <p class="h3  mb-0">2)  What type of data does the Account Owner see?
-                        <p class="ml-lg-5 font-size-md">
-                            Each of our Account Owners are verified and a trusted Circledin community member.The Account Owner will only see high level usuage data such as phone numbers, but not actual text messages, images, etc.
-                        </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <p class="h3  mb-0">3)  Is the premium data per account or per line?
-                        <p class="ml-lg-5 font-size-md">
-                            The premium data is on a per line basis. In other words, you are not sharing data usuages across other members in the family.
-                        </p>
-                        </div>
-                    </li>
-                </ul>
-                <a href="{% url 'FAQ' %}" class="btn btn-lighter-greenish lift pt-1 pb-1 w-50 mb-lg-2 ml-md-7 ml-lg-5">
-                    More FAQs
-                    
-                </a>
-            </div>
-            <div class="col-12 col-md-4 col-lg-5">
-                <img class="w-120-md w-120-lg ml-md-n10 ml-lg-n10 mt-lg-n5 img-faq" src="{% static 'Landkit/images/v3/8.png' %}" alt="Circledin">
-                
-            </div>
-            
+          <div class="col-md-10 col-lg-4 bg-faq p-5" style="min-width: 18rem !important; max-width: 18rem !important;">
+            <h3 class=" font-weight-bolder text-bluish">
+              What happens when someone in the family forgets to pay?
+            </h3>
+            <p class="card-text text-bluish">
+              Circledin guarantees timely payment each month so that there are no disruptions to your mobile services.
+            </p>
+          </div>    
+          <div class="col-md-10 col-lg-4  bg-faq p-5 ml-5" style="min-width: 18rem !important; max-width: 18rem !important;">
+            <h3 class=" font-weight-bolder text-bluish">
+              What type of data does the Account Owner see?
+            </h3>
+            <p class="card-text text-bluish">
+              Each of our Account Owners are verified and a trusted Circledin community member.The Account Owner will only see high level usuage data such as phone numbers, but not actual text messages, images, etc.
+            </p>
+          </div>    
+          <div class="col-md-10 col-lg-4 bg-faq p-5 mt-md-2 mt-xl-0 ml-md-0 ml-xl-5" style="min-width: 18rem !important; max-width: 18rem !important;">
+            <h3 class="font-weight-bolder text-bluish">
+              Is the premium data per account or per line?
+            </h3>
+            <p class="card-text text-bluish">
+              The premium data is on a per line basis. In other words, you are not sharing data usuages across other members in the family.
+            </p>
+          </div>   
+
         </div>
+        <div class="row  float-right" >
+          <a href="{% url 'FAQ' %}" class="btn btn-atoll mt-lg-2 col-lg-12 ml-lg-n2 mr-lg-12 pt-1 pb-1">More FAQs</a>
+        </div>
+
     </div>
+
+
+    
 </section>
+<hr class="text-dark mt-10 font-size-lg" style="border-top: 6px solid #f1f4f8 !important;">
+
 
 <section class="d-block d-md-none">
     <div class="container mx-lg-7 pb-8">
