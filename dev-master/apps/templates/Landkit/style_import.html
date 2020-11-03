@@ -20,23 +20,18 @@
 <script src="{% static 'music/js/jquery-2.2.4.min.js' %}"></script>
 
 <style>
-
-
-    /* ============================================================================== */
-    /* Font Family */
-    
-    .font-League-Spartan{
+    h1, h2, h3, h4, h5, h6, .font-League-Spartan{
         font-family: 'League Spartan' !important;
     }
 
-    .font-Glacial-Indifference{
+    p, a, span, input, .font-Glacial-Indifference, .btn{
         font-family: 'Glacial Indifference' !important;
     }
-    /* ============================================================================== */
 
-    /* ============================================================================== */
-    /* Background Color Shades */
-    
+    .bg-bluish-shade{
+        background-color: #24475E !important;
+    }
+
     .bg-dark-blue{
         background-color: #161C2D !important;
     }
@@ -171,13 +166,52 @@ box-shadow:         7px 7px 5px 0px rgba(66, 128, 118, 0.75);
           max-width: 400px !important;
           min-width: 400px !important;
       }   
+      .font-size--calc{
+              font-size: 1.9rem !important;
+              
+          }
+          
+  .calc-card{
+        width: 18rem !important;
+      }
+
+      }
+
+
+      @media (min-width:1000px){
+          
+        
+        .font-size--calc{
+              font-size: 1.9rem !important;
+              
+          }
+          
+  .calc-card{
+        width: 16.5rem !important;
+      }
+
+          
+          
       }
 
       @media(min-width: 1200px){
         .img-w-750{
-          max-width: 750px !important;
-          min-width: 750px !important;
-      } 
+          max-width: 450px !important;
+          min-width: 450px !important;
+      }
+
+      
+
+        .font-size--calc{
+              font-size: 2.3125rem !important;
+          }
+          
+
+  .calc-card{
+        width: 18rem !important;
+      }
+      
+ 
       }
       
       
@@ -373,6 +407,12 @@ box-shadow:         7px 7px 5px 0px rgba(66, 128, 118, 0.75);
         }
     }
 
+    @media(min-width:1000px){
+        .w-120-md{
+            width: 180% !important;
+        }
+    }
+
 
     @media(min-width:1200px){
         .w-120-lg{
@@ -385,17 +425,85 @@ box-shadow:         7px 7px 5px 0px rgba(66, 128, 118, 0.75);
 
 
 
-    @media(min-width:300px){
+    @media (min-width:300px) and (max-width:400px){
     .home-page-top-section-image {    
       display: inline-block;    
       width: 145%;  
     }
   }
 
-  @media (min-width: 700px) {  
+  
+
+  @media (min-width:450px) {
+    .home-page-top-section-image {    
+      display: inline-block;    
+      width: 140%;  
+    }
+  }
+
+
+/* 
+  @media (min-width:710px) {
+    .home-page-top-section-image {    
+      display: inline-block;    
+      width: 140%;  
+    }
+  } */
+
+
+
+  @media (min-width:720px) {
+    .home-page-top-section-image {    
+      display: inline-block;    
+      width: 150%;  
+      padding-top: 8px !important;
+    }  
+  }
+
+
+  @media (min-width:770px) {
+    .home-page-top-section-image {    
+      display: inline-block;    
+      width: 180%;  
+      padding-top: 8px !important;
+    }  
+  }
+
+  @media (min-width: 770px)  {  
+    .home-page-top-section-image {    
+      display: inline-block;    
+      width: 180%;  
+      
+      padding-top: 8px !important;
+    }
+  }
+
+  @media (min-width: 860px) {  
     .home-page-top-section-image {    
       display: inline-block;    
       width: 190%;  
+    }
+  }
+
+  @media (min-width: 900px) {  
+    .home-page-top-section-image {    
+      display: inline-block;    
+      width: 190%;  
+    }
+
+    
+  }
+
+  @media (min-width: 990px){
+    .people-image-calculator{
+        left: 0% !important;
+    }
+  }
+
+  @media (min-width: 1200px) {  
+    .home-page-top-section-image {    
+      display: inline-block;    
+      margin-top: -10px !important; 
     }
   }
 
@@ -409,10 +517,10 @@ box-shadow:         7px 7px 5px 0px rgba(66, 128, 118, 0.75);
 @media (min-width: 1281px) {  
     .home-page-top-section-image {    
       display: inline-block;    
-      width: 220%;  
+      width: 200%;  
+      margin-top: -20px !important;     
     }
   }
-
 
 
 

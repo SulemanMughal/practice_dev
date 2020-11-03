@@ -1,6 +1,6 @@
 {% load static %}
-<section class="d-none d-md-block">
-    <div class="container-fluid mx-lg-7">
+<section class="d-none d-md-block mt-lg-3">
+    <div class="container">
         <div class="row">
                 <h1 class="card-title text-uppercase font-weight-bolder display-3 text-dark text-left px-6 px-lg-0">
                         Top 3 frequently asked questions
@@ -35,25 +35,22 @@
                         </div>
                     </li>
                 </ul>
-                <a href="#!" class="btn btn-lighter-greenish pt-1 pb-1 w-50 mb-lg-2 ml-md-7 ml-lg-5">
+                <a href="{% url 'FAQ' %}" class="btn btn-lighter-greenish lift pt-1 pb-1 w-50 mb-lg-2 ml-md-7 ml-lg-5">
                     More FAQ
                     
                 </a>
             </div>
             <div class="col-12 col-md-4 col-lg-5">
-                <img class="w-120-md w-120-lg ml-md-n10 ml-lg-n10 mt-lg-n10" src="{% static 'Landkit/images/v3/8.png' %}" alt="Circledin">
+                <img class="w-120-md w-120-lg ml-md-n10 ml-lg-n10 mt-lg-n10 img-faq" src="{% static 'Landkit/images/v3/8.png' %}" alt="Circledin">
                 
             </div>
             
         </div>
-        <img class="w-100 ml-lg-n6 my-lg-n13" src="{%  static 'Landkit/images/v3/banner.png' %}" alt="Circledin">
     </div>
 </section>
 
-
-
 <section class="d-block d-md-none">
-    <div class="container-fluid mx-lg-7">
+    <div class="container mx-lg-7 pb-8">
         <div class="row">
                 <h3 class="card-title text-uppercase font-weight-bolder display-3 text-bluish text-left px-4 px-lg-0">
                         Top 3 frequently asked questions
@@ -137,12 +134,11 @@
                       
                     </div>
                   </div>
-                <a href="#!" class="btn btn-lighter-greenish pt-1 pb-1 w-50 ml-10 mb-lg-2 ml-md-7 ml-lg-5">
+                <a href="{% url 'FAQ' %}" class="btn btn-lighter-greenish pt-1 pb-1 w-100  mb-lg-2 ml-md-7 ml-lg-5">
                     More FAQ
                     
                 </a>
             </div>
-            <img class="w-100 ml-lg-n6 mx-5 my-lg-n13" src="{%  static 'Landkit/images/v3/banner.png' %}" alt="Circledin">
         </div>
     </div>
 </section>

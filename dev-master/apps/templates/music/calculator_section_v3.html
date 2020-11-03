@@ -1,12 +1,12 @@
 {% load static  %}  
 <script src="{% static 'music/js/calculator_slider.js' %}" type="text/javascript" defer async></script>
-<section  class=" pb-lg-11 pt-lg-3 pl-0 pr-0 mb-10 mb-md-11 mb-lg-0" style="max-height: 630px !important;">
-    <div class="container-fluid mt-5">
+<section  class="pl-md-7 pb-lg-11 pt-lg-3 pl-0 pr-0 mb-10 mb-md-11 mb-lg-10" style="max-height: 630px !important;">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-12 col-lg-9">
                 <div class="row">
                     <div class="col">
-                        <h2 class="card-title text-uppercase text-left  font-weight-bolder text-bluish px-0 pl-md-4 pr-md-14 pl-lg-8 pr-lg-8 mx-0 mx-md-0 mx-lg-11 mt-lg-7 d-none d-md-block">
+                        <h2 class="card-title text-uppercase text-left  font-weight-bolder text-bluish px-0 pl-md-4 pr-md-14 pl-lg-0 pr-lg-0 mx-0 mx-md-0 ml-lg-0 mt-lg-7 d-none d-md-block">
                             Savings based on unlimited data, unlimited talk & unlimited text
                         </h2>
                         <h3 class="card-title text-uppercase text-left  font-weight-bolder text-bluish px-0 pl-md-4 pr-md-14 pl-lg-8 pr-lg-8 mx-0 mx-md-0 mx-lg-11 mt-lg-7 d-block d-md-none">
@@ -16,25 +16,25 @@
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-3 col-lg-3">
-                        <img class="img-w-750-md img-w-750  position-relative left-n140px left-n140-md top-n80px top-n80px-md d-none d-md-block" src="{% static 'Landkit/images/v3/4.png' %}" alt="">
+                        <img class="img-w-750-md img-w-750  position-relative left-n140px left-n140-md top-n80px top-n80px-md  ml-lg-n12 d-none d-md-block people-image-calculator" src="{% static 'Landkit/images/v3/4.png' %}" alt="">
                     </div>
-                    <div class="col-12 col-md-4 col-lg-9 px-4 px-lg-14">
+                    <div class="col-12 col-md-4 col-lg-9 px-4  pl-lg-12 pr-lg-14">
                         <p class="card-text  font-size-lg text-bluish mt-2 mt-md-0">
                             Who is your current carrier?
                         </p>
                         <div class="row px-4 px-lg-5">
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-150 border-radius-6 mr-3 border-0 shadow">
+                                <label class="btn btn-secondary w-100px w-150 border-radius-6 mr-3 border-0 shadow">
                                   <input type="radio" name="options" id="options1" value="1" data-url="3210" onchange="updateSlider();"> Verizon
                                 </label>
-                                <label class="btn btn-secondary w-150 border-radius-6 mr-3 border-0 shadow">
+                                <label class="btn btn-secondary w-100px w-150  border-radius-6 mr-3 border-0 shadow">
                                   <input type="radio" name="options" id="options2" value="2" data-url="321"
                                   onchange="updateSlider();"> T-Mobile
                                 </label>
-                                <label class="btn btn-secondary w-150 border-radius-6 mr-3 border-0 shadow">
+                                <label class="btn btn-secondary w-100px w-150 border-radius-6 mr-3 border-0 shadow">
                                   <input type="radio" name="options" id="options3" value="3" data-url="231" onchange="updateSlider();"> AT&T
                                 </label>
-                                <label class="btn btn-secondary w-150 border-radius-6 mr-3 border-0 shadow active">
+                                <label class="btn btn-secondary w-100px w-150 border-radius-6 mr-3 border-0 shadow active">
                                     <input type="radio" name="options" id="options4" value="4" data-url="2319" onchange="updateSlider();" checked > Other
                                   </label>
                               </div>
@@ -44,7 +44,7 @@
                         </p>
                         <div class="row px-4 px-lg-5">
                             <div class="btn-group btn-group-toggle  btn-pill p-2 mt-2 mx-width-400px w-350px" data-toggle="buttons" id="btn-group" >
-                                <label class="btn btn-secondary  text-center btn-sm active btn-rounded-circle mr-6 ml-2 pr-3 pl-3 pb-2 bottom-0 w-37px h-42_5px border-0" >
+                                <label class="btn btn-secondary  text-center btn-sm active btn-rounded-circle mr-6 ml-2 pr-3 pl-3 pb-0 bottom-0 w-37px h-42_5px border-0" style="height: 38.5px !important;" >
                                   <input type="radio" name="options_accounts" id="options_accounts1" value="1" data-url="3210"  onchange="updateSlider();" checked>
                                   1
                                 </label>
@@ -81,16 +81,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-12 col-lg-3 pl-0 mt-3 mt-md-3 mt-lg-0 ">
-                <div class="card mt-0 ml-7 ml-md-14 ml-lg-0 mt-lg-10 br-none d-none d-lg-block" style="width: 18rem !important;" >
-                    <img src="{% static 'Landkit/images/v3/5.png' %}" class=" card-img z-index-0 position-absolute-card-image" alt="Circledin">
+            <div class="col-12 col-md-12 col-lg-3 pl-0 mt-3 mt-md-3 mt-lg-0 pl-md-2">
+                <div class="card mt-0 ml-7 ml-md-14 ml-lg-0 mt-lg-10 br-none d-none d-lg-block calc-card" >
+                    <img src="{% static 'Landkit/images/v3/5.png' %}" class="card-img z-index-0 position-absolute-card-image" alt="Circledin">
                     <div class="card-body text-center">
-                        <h2 class="h1 card-text text-uppercase font-weight-bolder text-white ">
+                        <h2 class="h1 card-text text-uppercase font-weight-bolder text-white font-size--calc">
                             Estimated Savings
                         </h2>
-                        <span class="h1 mb-0 mt-2 font-weight-bold  text-white " id="dollar_results">$</span>
-                        <span class="h1 price mb-0 font-weight-bold text-white " data-annual="0" data-monthly="0" id="savings_amount">0</span>
-                        <span class="h1 align-self-end mb-1 font-weight-bold text-white " id="year_results">/YR</span>
+                        <span class="h1 mb-0 mt-2 font-weight-bold  text-white font-size--calc" id="dollar_results">$</span>
+                        <span class="h1 price mb-0 font-weight-bold text-white font-size--calc" data-annual="0" data-monthly="0" id="savings_amount">0</span>
+                        <span class="h1 align-self-end mb-1 font-weight-bold text-white font-size--calc" id="year_results">/YR</span>
                         <span class="h5 mb-0 d-none font-weight-bold text-left font-size-sm text-white" id="negative_results">Looks like you already have a great deal! You might want to compare what you’re getting on your plan compared to one of ours</span>
                     </div>
                 </div>
