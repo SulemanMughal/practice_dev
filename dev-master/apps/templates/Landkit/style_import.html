@@ -20,422 +20,339 @@
 <script src="{% static 'music/js/jquery-2.2.4.min.js' %}"></script>
 
 <style>
-    h1, h2, h3, h4, h5, h6, .font-League-Spartan{
-        /* font-family: 'League Spartan' !important; */
-        font-family: 'League Spartan Bold', arial;
-    }
+  h1, h2, h3, h4, h5, h6, .font-League-Spartan{
+    font-family: 'League Spartan Bold', arial;
+  }
 
-    p, a, span, input, .font-Glacial-Indifference, .btn{
-        font-family: 'Glacial Indifference' !important;
-    }
-
-    .bg-bluish-shade{
-        background-color: #24475E !important;
-    }
-
-    .bg-dark-blue{
-        background-color: #161C2D !important;
-    }
-
-    
-    .bg-shade-lighter-greenish{
-        background-color: #D5EFEB !important;
-    }
-
-    .box-shadow-lighter-greenish{
-        -webkit-box-shadow: 7px 7px 5px 0px rgba(66, 128, 118, 0.75);
--moz-box-shadow:    7px 7px 5px 0px rgba(66, 128, 118, 0.75);
-box-shadow:         7px 7px 5px 0px rgba(66, 128, 118, 0.75);
-    }
-
-    
-    .bg-atoll{
-        background-color: #267676 !important;
-    }
-    /* ============================================================================== */
-
-    /* ============================================================================== */
-    /* Text Color Shades */
-
-    .text-bluish{
-        color: #24475E !important;
-
-    }
-    .text-shadow-bluish{
-        text-shadow: 5px 5px rgba(22, 28, 45, 0.1) !important;
-    }
-
-    .text-pure-black{
-        color:  #000000 !important;
-    }
-    /* ============================================================================== */
-
-    .z-index-0{
-        z-index: 0;
-    }
+  p, a, span, input, .font-Glacial-Indifference, .btn{
+    font-family: 'Glacial Indifference' !important;
+  }
 
 
-    
 
-    
-
-    .btn-atoll{
-        color: #fff !important;
-        background-color: #267676  !important;
-    }
-
-
-    
-    .btn-greenish{
-        color: white !important;
-        background-color: #48B9A9 !important;
-    }
-
-
-    .btn-light-greenish{
-        color: white !important;
-        background-color: #9ED0C9 !important;
-    }
-
-    .btn-lighter-greenish{
-        color: white !important;
-        background-color: #287777 !important;
-    }
-
-    .bg-dark-blue{
-        background-color: #161C2D !important;
-    }
-
-
-    .btn-round {
-    border-radius: 50%;
-}
-
-.border-radius-6{
-        border-radius: 6px !important;
-    }
-
-    .border-radius-none{
-        border-radius: 0px !important;
-        border-bottom-left-radius: 0px !important;
-    }
-
-
-     /* Background Image for Calculator Section V3 */
-     
-    @media(min-width:700px){
-        .bg-image-colored-md{
-          /* background-image: url("{% static 'Landkit/images/v3/background.jpg' %}");    */
-          background-image: none ;
-          /* background-size: 120% 120% !important; */
-      }    
-    }
-
-     @media(min-width:1200px){
-        .bg-image-colored{
-          background-image: url("{% static 'Landkit/images/v3/background.jpg' %}");   
-      }    
-     }
-     
-  
-      /* No Repet Background image */
-      .no-background-image{
-          background-repeat: no-repeat !important;
-      }
-  
-  
-      .no-background-image-x{
-        background-repeat: repeat-y, no-repeat !important;
-        
-    }
-
-      
-      .img-w-600{
-          max-width: 600px !important;
-          min-width: 600px !important;
-      } 
-
-
-      @media(min-width:300px){
-        .img-w-750-sm{
-          max-width: 300px !important;
-          min-width: 300px !important;
-      }   
-      }
-      
-      @media(min-width:700px){
-        .img-w-750-md{
-          max-width: 400px !important;
-          min-width: 400px !important;
-      }   
-      .font-size--calc{
-              font-size: 1.9rem !important;
-              
-          }
-          
-  .calc-card{
-        width: 18rem !important;
-      }
-
-      }
-
-
-      @media (min-width:1000px){
-          
-        
-        .font-size--calc{
-              font-size: 1.9rem !important;
-              
-          }
-          
-  .calc-card{
-        width: 16.5rem !important;
-      }
-
-      .img-w-750{
-          max-width: 680px !important;
-          min-width: 680px !important;
-      }   
-          
-      }
-
-      @media(min-width: 1200px){
-        .img-w-750{
-          max-width: 780px !important;
-          min-width: 780px !important;
-      }
-
-      
-
-        .font-size--calc{
-              font-size: 2.0125rem !important;
-          }
-          
-
-  .calc-card{
-        width: 16rem !important;
-      }
-      
  
-      }
-      
-      
+  #btn-group > #btn-group:not(:last-child) > .btn, #btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
+      border-top-right-radius: 50rem !important;
+      border-bottom-right-radius: 50rem !important;
+  }
+  #btn-group > #btn-group:not(:first-child) > .btn, #btn-group > .btn:not(:first-child) {
+      border-top-left-radius: 50rem !important;
+      border-bottom-left-radius: 50rem !important;
+  }
 
-      
-      @media(min-width:300px){
-        .icon{
-          min-width: 100px !important;
-          max-width: 100px !important;
-      }  
-      }
 
-      @media(min-width:700px){
-        .icon{
-          min-width: 90px !important;
-          max-width: 90px !important;
-      }
-      }
-      
+  .bg-bluish-shade{
+    background-color: #24475E !important;
+  }
+
+  .bg-dark-blue{
+    background-color: #161C2D !important;
+  }
+
+  .bg-shade-lighter-greenish{
+    background-color: #D5EFEB !important;
+  }
+
+  .box-shadow-lighter-greenish{
+    -webkit-box-shadow: 7px 7px 5px 0px rgba(66, 128, 118, 0.75);
+    -moz-box-shadow:    7px 7px 5px 0px rgba(66, 128, 118, 0.75);
+    box-shadow:         7px 7px 5px 0px rgba(66, 128, 118, 0.75);
+  }
+
+  .bg-atoll{
+    background-color: #267676 !important;
+  }
+
+  .text-bluish{
+    color: #24475E !important;
+  }
+
+  .text-shadow-bluish{
+    text-shadow: 5px 5px rgba(22, 28, 45, 0.1) !important;
+  }
+
+  .text-pure-black{
+    color:  #000000 !important;
+  }
+
+  .z-index-0{
+    z-index: 0;
+  }
+
+  .btn-atoll{
+    color: #fff !important;
+    background-color: #267676  !important;
+  }
   
-      
-      
+  .btn-greenish{
+    color: white !important;
+    background-color: #48B9A9 !important;
+  }
+
+  .btn-light-greenish{
+    color: white !important;
+    background-color: #9ED0C9 !important;
+  }
+
+  .btn-lighter-greenish{
+    color: white !important;
+    background-color: #287777 !important;
+  }
+
+  .bg-dark-blue{
+    background-color: #161C2D !important;
+  }
+
+  .btn-round {
+    border-radius: 50%;
+  }
+
+  .border-radius-6{
+    border-radius: 6px !important;
+  }
+
+  .border-radius-none{
+    border-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+
+  .no-background-image{
+    background-repeat: no-repeat !important;
+  }
+
+  .no-background-image-x{
+    background-repeat: repeat-y, no-repeat !important;
+  }
+
+  .img-w-600{
+    max-width: 600px !important;
+    min-width: 600px !important;
+  }
+
+  .border-radius-6{
+    border-radius: 6px !important;
+  }
+
+  .border-radius-none{
+    border-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+
+  .bg-img-calc-v3{
+    background-image: url("{% static 'Landkit/images/v3/back_noppl.jpg' %}");
+  }
+
+  .bg-img-calc-card-v3{
+    background-image: url("{% static 'Landkit/images/v3/white_banner.png' %}");
+    background-position-x: 300px !important;
+  }
+
+  .position-relative{
+    position: relative !important;
+  }
+
+  .bg-img-calc-v3{
+    background-image: url("{% static 'Landkit/images/v3/back_noppl.jpg' %}");
+  }
+
+  .bg-img-calc-card-v3{
+    background-image: url("{% static 'Landkit/images/v3/5.png' %}");
+    background-position-x: 300px !important;
+  }
+
+
+  .bg-image-about-us-page-banner{
+    background-image: url('{% static "Landkit/images/v3/gradient_header.png" %}');
+    min-width: 100% !important;
+  }
+
+  .people-img-faq{
+    max-width: 350px !important;
+    min-width: 100px !important;
+  }
+
+  .bg-image-about-us-page-banner{
+    background-image: url('{% static "Landkit/images/v3/gradient_header.png" %}');
+    min-width: 100% !important;
+  }
+
+  .bg-image-about-us-page-line{
+    background-image: url('{% static "Landkit/images/v3/line.png" %}');
+  }
+
+  .people-img-about{
+    max-width: 280px !important;
+    min-width: 100px !important;
+  }
+
+  .border-bluish{
+    border: #24475E solid 4px !important;
+  }
+
+  .border-bluish-top-0{
+    border-top: 0px !important;
+  }
+
+  .border-bluish-bottom-0{
+    border-bottom: 0px !important;
+  }
+
+  .border-bluish-right-0{
+    border-right: 0px !important;
+  }
+
+
+  .w-120px{
+      width: 120px !important;
+    }
+  
+    #comingSoon{
+          rotate: -15deg !important;
+          position: absolute;
+          left: 60% !important;
+          top: 25% !important;
+          color: #185240 !important;
+          bottom: 0px !important;
+      }
      
-      
-      @media(min-width: 700px){
-        .img-w-400-md{
-        max-width: 400px !important;
-        min-width: 400px !important;
-      }     
-      .img-w-300-md{
-        max-width: 300px !important;
-        min-width: 300px !important;
-      }  
-      .img-w-350-md{
-        max-width: 350px !important;
-        min-width: 350px !important;
-      }     
-      }
-
-      @media(min-width: 1200px){
-        .img-w-500{
-        max-width: 500px !important;
-        min-width: 500px !important;
-      }    
-      }
-      
+    
 
 
-      .border-radius-6{
-          border-radius: 6px !important;
+
+
+/* For Extra Small Device */
+@media (min-width: 200px) and (max-width: 300px){
+      .min-width-xs{
+        min-width: 12rem !important;
       }
   
-      .border-radius-none{
-          border-radius: 0px !important;
-          border-bottom-left-radius: 0px !important;
-      }
-  
-      .bg-img-calc-v3{
-          background-image: url("{% static 'Landkit/images/v3/back_noppl.jpg' %}");
-      }
-  
-      .bg-img-calc-card-v3{
-          background-image: url("{% static 'Landkit/images/v3/white_banner.png' %}");
-          background-position-x: 300px !important;
-      }
-  
-
-      .z-index-0{
-          z-index: 0;
-      }
-
-      .position-relative{
-        position: relative !important;
-      }
-
-      @media(min-width:1200px){
-        .left-n140px{
-        left: -160px !important;
-      }
-      }
-
-      @media(min-width:700px){
-          .left-n140-md{
-            left: -105px !important;
-          }
+      .max-width-xs{
+        max-width: 12rem !important;
       }
       
-      @media(min-width:1200px){
-        .top-n80px{
-        top: -80px !important;
-      }
-      }
-
-      @media(min-width:700px){
-        .top-n80px-md{
-        top: -60px !important;
-      }   
-      }
-      
-
-
-      .bg-img-calc-v3{
-        background-image: url("{% static 'Landkit/images/v3/back_noppl.jpg' %}");
-    }
-
-    .bg-img-calc-card-v3{
-        background-image: url("{% static 'Landkit/images/v3/5.png' %}");
-        background-position-x: 300px !important;
-    }
-
-
-
-    /* FAQ Page Styling */
-    .bg-image-about-us-page-banner{
-        background-image: url('{% static "Landkit/images/v3/gradient_header.png" %}');
-        min-width: 100% !important;
-    }
-
-    /* @media(min-width:200px){
-        .bg-image-about-us-page-line{
-            background-image: url('{% static "Landkit/images/v3/line.png" %}');
-            
-            
+      .w-100px{
+      width: 80px !important;
+      font-size: 16px !important;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
     }
     }
 
-    @media(min-width:500px){
-        .bg-image-about-us-page-line{
-        background-image: url('{% static "Landkit/images/v3/line.png" %}');
-    }
-    } */
-    
-    
-    .people-img-faq{
-        max-width: 350px !important;
-        min-width: 100px !important;
-    
-    }
-
-    /* About Us Page Styling */
-    .bg-image-about-us-page-banner{
-        background-image: url('{% static "Landkit/images/v3/gradient_header.png" %}');
-        min-width: 100% !important;
-    }
-
-    .bg-image-about-us-page-line{
-        background-image: url('{% static "Landkit/images/v3/line.png" %}');
-    }
-    
-    .people-img-about{
-        max-width: 280px !important;
-        min-width: 100px !important;
-    
-    }
-
-    .border-bluish{
-        border: #24475E solid 4px !important;
-    }
-
-    .border-bluish-top-0{
-        border-top: 0px !important;
-        
-    }
-
-    .border-bluish-bottom-0{
-        border-bottom: 0px !important;
-        
-    }
-
-    .border-bluish-right-0{
-        border-right: 0px !important;
-        
-    }
-
-
-    @media(min-width:700px){
-        .text-md-bluish{
-            color: #24475E !important;
-        }
-    }
-
-    @media(min-width:1200px){
-        .text-lg-white{
-            color: white !important;
-        }
-    }
 
 
 
-    @media(min-width:700px){
-        .w-120-md{
-            width: 200% !important;
-        }
-    }
+  @media(min-width:300px){
+    .icon{
+      min-width: 100px !important;
+      max-width: 100px !important;
+    }  
 
-    @media(min-width:1000px){
-        .w-120-md{
-            width: 180% !important;
-        }
-    }
+    .img-w-750-sm{
+      max-width: 300px !important;
+      min-width: 300px !important;
+    }   
 
-
-    @media(min-width:1200px){
-        .w-120-lg{
-            width: 150% !important;
-        }
-    }
-
-
-
-
-
-
-    @media (min-width:300px) and (max-width:400px){
-    .home-page-top-section-image {    
-      display: inline-block;    
-      width: 145%;  
+    .w-100px{
+      width: 80px !important;
+      font-size: 16px !important;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
     }
   }
+
+
+  
+  
+  @media (max-width: 360px){
+      .w-150{
+          width: 75px !important;
+          font-size: 12px !important;
+      }   
+
+
+      .w-100px{
+      width: 80px !important;
+      font-size: 16px !important;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+  }
+  
+
+  
+  
+  @media (min-width : 370px) and (max-width: 500px){
+      .w-150{
+          width: 80px !important;
+          font-size: 12px !important;
+      }  
+      
+      .w-100px{
+      width: 80px !important;
+      font-size: 16px !important;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+  }
+  
+
+
+
+  
+
+
+  @media (min-width:300px) and (max-width:400px){
+  .home-page-top-section-image {    
+    display: inline-block;    
+    width: 145%;  
+  }
+
+  .w-100px{
+      width: 80px !important;
+      font-size: 16px !important;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+}
+
+
+@media (max-width:  360px) {
+      .min-width-google{
+        min-width: 22.5rem !important;
+      }
+  
+      .max-width-google{
+        max-width: 22.5rem !important;
+      }
+
+      .w-100px{
+      width: 80px !important;
+      font-size: 16px !important;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+    }
+  
+
+    
+    @media (max-width: 370px){
+      .min-width-sm{
+        min-width: 22.5rem !important;
+      }
+  
+      .max-width-sm{
+        max-width: 22.5rem !important;
+      }
+
+      .w-100px{
+      width: 80px !important;
+      font-size: 16px !important;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+    }
+
+
 
   @media (min-width:400px){
     .home-page-top-section-image {    
@@ -444,31 +361,105 @@ box-shadow:         7px 7px 5px 0px rgba(66, 128, 118, 0.75);
     }
   }
 
-  
-
   @media (min-width:450px) {
     .home-page-top-section-image {    
       display: inline-block;    
       width: 140%;  
     }
-  }
 
-
-/* 
-  @media (min-width:710px) {
-    .home-page-top-section-image {    
-      display: inline-block;    
-      width: 140%;  
+    .w-100px{
+      width: 80px !important;
+      font-size: 16px !important;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
     }
-  } */
+}
+
+@media(min-width:700px){
+    .w-120-md{
+        width: 200% !important;
+    }
+
+    .top-n80px-md{
+      top: -60px !important;
+    }   
+
+    .left-n140-md{
+      left: -105px !important;
+    }
+
+    .img-w-400-md{
+      max-width: 400px !important;
+      min-width: 400px !important;
+    }     
+  
+    .img-w-300-md{
+      max-width: 300px !important;
+      min-width: 300px !important;
+    }  
+    
+    .img-w-350-md{
+      max-width: 350px !important;
+      min-width: 350px !important;
+    }  
+
+    .icon{
+      min-width: 90px !important;
+      max-width: 90px !important;
+    }
+
+    .img-w-750-md{
+      max-width: 400px !important;
+      min-width: 400px !important;
+    }   
+
+    .img-w-550-md{
+      max-width: 550px !important;
+      min-width: 500px !important;
+    }   
+
+    .font-size--calc{
+      font-size: 1.9rem !important;      
+    }  
+    .calc-card{
+      width: 18rem !important;
+    }
+
+    .bg-image-colored-md{
+      background-image: none ;
+    }  
 
 
+    .diverse{
+          position: relative;
+          top: -180px !important;
+          left: -98px !important;
+      }
+
+
+
+      .diverse-2{
+          position: relative;
+          left: 55px !important;
+          top: -23px !important;
+            min-width:  270px   !important;
+            max-width:  270px !important;
+        }
+
+        .w-100px{
+      width: 80px !important;
+      font-size: 16px !important;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+
+  }
 
   @media (min-width:720px) {
     .home-page-top-section-image {    
       display: inline-block;    
       width: 150%;  
-      padding-top: 8px !important;
+      margin-top: -30px !important;
     }  
   }
 
@@ -477,18 +468,37 @@ box-shadow:         7px 7px 5px 0px rgba(66, 128, 118, 0.75);
     .home-page-top-section-image {    
       display: inline-block;    
       width: 180%;  
-      padding-top: 8px !important;
+      margin-top: -30px !important;
     }  
-  }
 
-  @media (min-width: 770px)  {  
-    .home-page-top-section-image {    
-      display: inline-block;    
-      width: 180%;  
-      
-      padding-top: 8px !important;
+    .text-md-bluish{
+        color: #24475E !important;
     }
   }
+
+
+  
+
+  @media(min-width:800px){
+        .diverse-2{
+          position: relative;
+          left: 58px !important;
+          top: -22px !important;
+            min-width:  270px   !important;
+            max-width:  270px !important;
+        }
+      }
+
+        
+      @media (min-width:850px){
+        .diverse-2{
+          position: relative;
+          left: 60px !important;
+          top: -25px !important;
+            min-width:  270px   !important;
+            max-width:  270px !important;
+        }
+      }
 
   @media (min-width: 860px) {  
     .home-page-top-section-image {    
@@ -503,16 +513,126 @@ box-shadow:         7px 7px 5px 0px rgba(66, 128, 118, 0.75);
       width: 190%;  
     }
 
-    
-  }
-
-  @media (min-width: 990px){
     .people-image-calculator{
         left: -50px !important;
         top: -80px !important;
-        
+    }
+
+
+    .diverse{
+          position: relative;
+          top: -180px !important;
+          left: -125px !important;
+      }
+      .diverse-2{
+          position: relative;
+          left:35px !important;
+          top: -20px !important;
+            min-width:  270px   !important;
+            max-width:  270px !important;
+        }
+  }
+ 
+ 
+  @media (min-width:950px){
+        .diverse-2{
+          position: relative;
+          left: 30px !important;
+          top: -20px !important;
+            min-width:  270px   !important;
+            max-width:  270px !important;
+        }
+
+        .img-w-650{
+          min-width:750px !important ;
+          max-width:750px !important ;
+          position: relative;
+          left: -95% !important;
+        }
+
+
+        .position-absolute-card-image{
+        position: absolute !important;
+        min-width: 750px !important;
+        max-width: 750px !important;
+        right: 0px !important;
+        left: -280px !important;
+        top: -120px !important;
+        margin-left: 0px !important;
+        max-height: 750px !important;
+    }
+      }
+
+      @media (min-width:990px){
+        .position-absolute-card-image{
+        position: absolute !important;
+        min-width: 750px !important;
+        max-width: 750px !important;
+        right: 0px !important;
+        left: -240px !important;
+        top: -120px !important;
+        margin-left: 0px !important;
+        min-height: 700px !important;
+        max-height: 700px !important;
+        padding-right: 0px !important;
+    }
+
+    .padding-980-left-0{
+      padding-left: 0px !important;
+    }
+
+    .left-980-width-21{
+      left: -21px !important;
+    }
+      }
+
+  
+  @media(min-width:1000px){
+    .position-absolute-card-image{
+      min-width: 700px !important;
+    }
+
+    .w-120-md{
+        width: 180% !important;
+    }
+
+    .font-size--calc{
+    font-size: 1.7rem !important; 
+  }   
+  
+    .calc-card{
+      width: 16.5rem !important;
+    }
+  
+    .img-w-750{
+        max-width: 680px !important;
+        min-width: 680px !important;
+    } 
+
+    .diverse-2{
+          position: relative;
+          left: 17% !important;
+          top: -20px !important;
+            min-width:  270px   !important;
+            max-width:  270px !important;
+        }
+
+
+        .position-absolute-card-image{
+        position: absolute !important;
+        min-width: 750px !important;
+        max-width: 750px !important;
+        right: 0px !important;
+        left: -245px !important;
+        top: -140px !important;
+        margin-left: 0px !important;
+        /* margin-right: 50px !important; */
+        min-height: 700px !important;
+        max-height: 700px !important;
+        padding-right: 20px !important;
     }
   }
+
 
   @media (min-width: 1200px) {  
     .home-page-top-section-image {    
@@ -520,35 +640,111 @@ box-shadow:         7px 7px 5px 0px rgba(66, 128, 118, 0.75);
       margin-top: -10px !important; 
     }
 
-
-
     .people-image-calculator{
-        left: -55% !important;
-        top: -19% !important;
-        
+      /* min-width: 850px !important;
+      max-width: 80px !important; */
+        left: -60% !important;
+        top: -25% !important;   
+    }
+
+    .w-120-lg{
+        width: 150% !important;
+    }
+
+    .text-lg-white{
+        color: white !important;
+    }
+
+    .top-n80px{
+      top: -80px !important;
+    }
+
+    .left-n140px{
+      left: -160px !important;
+    }
+
+    .img-w-500{
+        max-width: 500px !important;
+        min-width: 500px !important;
+    } 
+
+    .img-w-750{
+      max-width: 780px !important;
+      min-width: 780px !important;
+    }
+
+    .img-w-820{
+      max-width: 820px !important;
+      min-width: 820px !important;
+    }
+
+    .font-size--calc{
+      font-size: 2.0125rem !important;
+    }
+
+    .calc-card{
+        width: 16rem !important;
+    }
+
+    .bg-image-colored{
+      background-image: url("{% static 'Landkit/images/v3/background.jpg' %}");   
+    }   
+    
+    .min-width-lg{
+      min-width: 21rem !important; 
+    }
+  
+    .max-width-lg{
+      max-width: 21rem  !important;
     }
 
 
 
+    .diverse{
+          position: relative;
+          top: -285px !important;
+          left: -55% !important;
+      }
 
+        .diverse-2{
+          position: relative;
+          left: 100px !important;
+          top: -50px !important;
+            min-width: 400px   !important;
+            max-width: 400px !important;
+        }
+
+     
+
+        .position-absolute-card-image{
+        position: absolute !important;
+        min-width: 850px !important;
+        max-width: 850px !important;
+        right: 0px !important;
+        left: -300px !important;
+        top: -140px !important;
+        margin-left: 20px !important;
+        max-height: 750px !important;
+    }
+
+    .padding-980-left-0{
+      padding-left: 0px !important;
+    }
+
+    .left-980-width-21{
+      left: 15px !important;
+    }
+
+    
   }
 
 
-
-
-
-
-
-
-@media (min-width: 1281px) {  
+  @media (min-width: 1281px) {  
     .home-page-top-section-image {    
       display: inline-block;    
       width: 200%;  
       margin-top: -20px !important;     
     }
   }
-
-
-
 
 </style>

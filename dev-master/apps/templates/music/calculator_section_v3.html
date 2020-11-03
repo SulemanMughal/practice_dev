@@ -1,12 +1,12 @@
 {% load static  %}  
 <script src="{% static 'music/js/calculator_slider.js' %}" type="text/javascript" defer async></script>
-<section  class="pl-md-7 pb-lg-11 pt-lg-3 pl-lg-0 pr-lg-0  pr-0 mb-14 mb-md-15 mb-lg-12" style="max-height: 510px !important;">
+<section  class="pl-md-7 pb-lg-11 pt-lg-3 pl-lg-0 pr-lg-0  pr-0 mb-14 mb-md-12 mb-lg-12" style="max-height: 510px !important;">
     <div class="container mt-5">
         <div class="row">
             <div class="col-12 col-lg-9">
                 <div class="row">
                     <div class="col">
-                        <h2 class="card-title text-uppercase text-left  font-weight-bolder text-bluish px-0 pl-md-4 pr-md-14 pl-lg-6 pr-lg-0 mx-0 mx-md-0 ml-lg-8   mt-lg-7 d-none d-md-block" style="z-index: 999999 !important;">
+                        <h2 class="card-title text-uppercase text-left  font-weight-bolder text-bluish px-0 pl-md-12  pr-md-10 pl-lg-0 pr-lg-0 mx-0 mx-md-0 ml-lg-11  mb-lg-0 mt-lg-7 d-none d-md-block" style="z-index: 999999 !important;">
                             Savings based on unlimited data, unlimited talk & unlimited text
                         </h2>
                         <h3 class="card-title text-uppercase text-left  font-weight-bolder text-bluish px-0 pl-md-4 pr-md-14 pl-lg-8 pr-lg-8 mx-0 mx-md-0 mx-lg-11 mt-lg-7 d-block d-md-none">
@@ -15,26 +15,26 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-md-3 col-lg-3">
-                        <img class="img-w-750-md img-w-750  position-relative left-n140px left-n140-md top-n80px top-n80px-md  ml-lg-n13 mt-lg-n10  d-none d-md-block people-image-calculator z-index-0" src="{% static 'Landkit/images/v3/4.png' %}" alt="" style="z-index: -9999 !important;">
+                    <div class="col-12 col-md-3 col-lg-3 d-none d-lg-block">
+                        <img class="img-w-650 img-w-750-md img-w-820  position-relative left-n140px left-n140-md top-n80px top-n80px-md  ml-lg-n12 mt-lg-n10  d-none d-md-block people-image-calculator z-index-0 " src="{% static 'Landkit/images/v3/4.png' %}" alt="" style="z-index: -9999 !important;">
                     </div>
-                    <div class="col-12 col-md-4 col-lg-9 px-4  pl-lg-12 pr-lg-14">
+                    <div class="col-12 col-md-10 col-lg-9 px-4 pl-md-12 pl-lg-12 pr-lg-14">
                         <p class="card-text  font-size-lg text-bluish mt-2 mt-md-0">
                             Who is your current carrier?
                         </p>
-                        <div class="row px-4 px-lg-5">
+                        <div class="row px-5 px-lg-5">
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100px w-150 border-radius-6 mr-3 border-0 shadow">
+                                <label class="btn btn-secondary w-100px  border-radius-6 mr-3 border-0 shadow">
                                   <input type="radio" name="options" id="options1" value="1" data-url="3210" onchange="updateSlider();"> Verizon
                                 </label>
-                                <label class="btn btn-secondary w-100px w-150  border-radius-6 mr-3 border-0 shadow">
+                                <label class="btn btn-secondary w-100px  border-radius-6 mr-3 border-0 shadow">
                                   <input type="radio" name="options" id="options2" value="2" data-url="321"
                                   onchange="updateSlider();"> T-Mobile
                                 </label>
-                                <label class="btn btn-secondary w-100px w-150 border-radius-6 mr-3 border-0 shadow">
+                                <label class="btn btn-secondary w-100px  border-radius-6 mr-3 border-0 shadow">
                                   <input type="radio" name="options" id="options3" value="3" data-url="231" onchange="updateSlider();"> AT&T
                                 </label>
-                                <label class="btn btn-secondary w-100px w-150 border-radius-6 mr-3 border-0 shadow active">
+                                <label class="btn btn-secondary w-100px  border-radius-6 mr-3 border-0 shadow active">
                                     <input type="radio" name="options" id="options4" value="4" data-url="2319" onchange="updateSlider();" checked > Other
                                   </label>
                               </div>
@@ -84,7 +84,7 @@
             <div class="col-12 col-md-12 col-lg-3 pl-0 mt-3 mt-md-3 mt-lg-0 pl-md-2">
                 <div class="card mt-0 ml-7 ml-md-14 ml-lg-0 mt-lg-10 br-none d-none d-lg-block calc-card" >
                     <img src="{% static 'Landkit/images/v3/5.png' %}" class="card-img z-index-0 position-absolute-card-image" alt="Circledin">
-                    <div class="card-body text-center">
+                    <div class="card-body text-center pr-md-10 pr-lg-0 padding-980-left-0 left-980-width-21 ">
                         <h2 class="h1 card-text text-uppercase font-weight-bolder text-white font-size--calc">
                             Estimated Savings
                         </h2>
