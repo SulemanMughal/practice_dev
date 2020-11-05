@@ -1,7 +1,7 @@
 {% load static  %}  
 <script src="{% static 'music/js/calculator_slider.js' %}" type="text/javascript" defer async></script>
-<section  class="pl-md-7 pb-lg-11 pt-lg-3 pl-lg-0 pr-lg-0  pr-0 mb-14 mb-md-12 mb-lg-12" style="max-height: 510px !important;">
-    <div class="container mt-5">
+<section  class="pl-md-7 pb-10 pb-lg-n12 pt-5 pt-md-5 pt-lg-0 pl-lg-0 pr-lg-0  pr-0 mb-3 mb-md-0 mb-lg-n14 bg-faq">
+    <div class="container">
         <div class="row">
             <div class="col-12 col-lg-9">
                 <div class="row">
@@ -9,7 +9,7 @@
                         <h2 class="card-title text-uppercase text-left  font-weight-bolder text-bluish px-0 pl-md-12  pr-md-10 pl-lg-0 pr-lg-0 mx-0 mx-md-0 ml-lg-11  mb-lg-0 mt-lg-7 d-none d-md-block" style="z-index: 999999 !important;">
                             Savings based on unlimited data, unlimited talk & unlimited text
                         </h2>
-                        <h3 class="card-title text-uppercase text-left  font-weight-bolder text-bluish px-0 pl-md-4 pr-md-14 pl-lg-8 pr-lg-8 mx-0 mx-md-0 mx-lg-11 mt-lg-7 d-block d-md-none">
+                        <h3 class="card-title text-uppercase text-center  font-weight-bolder text-bluish px-0 pl-md-4 pr-md-14 pl-lg-8 pr-lg-8 mx-0 mx-md-0 mx-lg-11 mt-lg-7 d-block d-md-none">
                             Savings based on unlimited data, unlimited talk & unlimited text
                         </h3>
                     </div>
@@ -19,11 +19,15 @@
                         <img class="img-w-650 img-w-750-md img-w-860  position-relative left-n140px left-n140-md top-n80px top-n80px-md  ml-lg-n14 mt-lg-n10  d-none d-md-block people-image-calculator z-index-0 " src="{% static 'Landkit/images/v3/4.png' %}" alt="" style="z-index: -99999 !important;">
                     </div>
                     <div class="col-12 col-md-10 col-lg-9 px-4 pl-md-12 pl-lg-12 pr-lg-14">
-                        <p class="card-text  font-size-lg text-bluish mt-2 mt-md-0">
+                        <p class="card-text  font-size-lg text-bluish mt-2 mt-md-0 d-none d-lg-block" >
                             Who is your current carrier?
                         </p>
-                        <div class="row px-5 px-lg-5">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+
+                        <p class="card-text text-center font-size-lg text-bluish mt-2 mt-md-0 d-block d-lg-none">
+                            Who is your current carrier?
+                        </p>
+                        <div class="row pl-3      px-lg-5">
+                            <div class="btn-group btn-group-toggle mx-md-auto" data-toggle="buttons">
                                 <label class="btn btn-secondary w-100px  border-radius-6 mr-3 border-0 shadow">
                                   <input type="radio" name="options" id="options1" value="1" data-url="3210" onchange="updateSlider();"> Verizon
                                 </label>
@@ -39,16 +43,19 @@
                                   </label>
                               </div>
                         </div>
-                        <p class="card-text text-bluish  mt-5 font-size-lg mb-0 text-nowrap" >
+                        <p class="card-text text-bluish  mt-5 font-size-lg mb-0 text-nowrap d-none d-lg-block" >
+                            How many people are on your plan?
+                        </p>
+                        <p class="card-text text-center text-bluish  mt-5 font-size-lg mb-0 text-nowrap d-block d-lg-none" >
                             How many people are on your plan?
                         </p>
                         <div class="row px-4 px-lg-5">
-                            <div class="btn-group btn-group-toggle btn-pill p-2 mt-2 mx-width-400px w-350px" data-toggle="buttons" id="btn-group" >
-                                <label class="btn btn-secondary  text-center btn-sm active btn-rounded-circle mr-6 ml-2 pr-5 pl-4 pb-0 bottom-0 w-37px h-42_5px border-0" style="height: 40.5px !important;" >
+                            <div class="btn-group btn-group-toggle btn-pill p-2 mt-2 mx-width-400px w-350px mx-md-auto" data-toggle="buttons" id="btn-group" >
+                                <label class="btn btn-secondary  text-center btn-sm active btn-rounded-circle mr-6 ml-2 pr-4 pr-md-4 pr-lg-5 pl-4 pb-0 bottom-0 w-37px h-42_5px border-0" style="height: 41px !important;" >
                                   <input type="radio" name="options_accounts" id="options_accounts1" value="1" data-url="3210"  onchange="updateSlider();" checked>
                                   1
                                 </label>
-                                <hr class="text-white ml-8 position-absolute w-52px border-width-3px mt-1_3rem " >
+                                <hr class="text-white ml-8 position-absolute w-52px border-width-3px mt-1_3rem border border-secondary" >
                                <button class="btn btn-lg btn-rounded-circle  btn-light bg-transparent mr-3 pt-0 pb-0 mb-0"> 
                                 <label class="btn btn-secondary btn-lg  btn-rounded-circle btn-sm  shadow p-3 pr-5 pl-4 pb-0 mb-0 border-0" >
                                   <input type="radio" name="options_accounts" id="options_accounts2" value="2" data-url="321"
@@ -56,14 +63,14 @@
                                     2
                                 </label>
                               </button>
-                               <hr class="text-white ml-8 position-absolute w-52px border-width-3px mt-1_3rem left-101px" >
+                               <hr class="text-white ml-8 position-absolute w-53px border-width-3px mt-1_3rem left-101px border border-secondary" style="left: 96px;">
                                <button class="btn btn-lg btn-rounded-circle btn-light bg-transparent  mr-3 pt-0 pb-0 mb-0">
                                 <label class="btn btn-secondary  btn-lg btn-rounded-circle btn-sm  shadow p-3 pr-5 pl-4 pb-0 mb-0 border-0">
                                   <input type="radio" name="options_accounts" id="options_accounts3" value="3" data-url="231" onchange="updateSlider();" >
                                   3
                                 </label>
                               </button>
-                              <hr class="text-dark ml-7 position-absolute w-53px border-width-3px mt-1_3rem left-193px"  >
+                              <hr class="text-dark ml-7 position-absolute w-53px border-width-3px mt-1_3rem left-193px border border-secondary" >
                                <button class="btn btn-lg btn-rounded-circle btn-light bg-transparent pt-0 pb-0 mb-0 pr-0">
                                 <label class="btn btn-secondary btn-lg  btn-rounded-circle btn-sm shadow p-3 pr-5 pl-4 pb-0 mb-0 border-0">
                                   <input type="radio" name="options_accounts" id="options_accounts4" value="4" data-url="2319" onchange="updateSlider();" >
@@ -72,7 +79,10 @@
                               </button>
                              </div>
                         </div>
-                        <p class="card-text text-bluish  mt-2 font-size-lg text-nowrap">
+                        <p class="card-text text-bluish  mt-2 font-size-lg text-nowrap d-none d-lg-block">
+                            How much do you pay for your current plan together?
+                        </p>
+                        <p class=" card-text text-center text-bluish  mt-2  d-block d-lg-none">
                             How much do you pay for your current plan together?
                         </p>
                         <div class="row px-4  px-lg-5">

@@ -1,5 +1,5 @@
 {% load static %}
-<section class=" d-none d-md-block bg-light-green-shade" >
+<section class=" d-none d-lg-block bg-light-green-shade" >
     <div class="container bg-light-green-shade  rounded-lg" style="max-height: 550px !important; ;">
         <div class="row">
             <div class="col">
@@ -42,33 +42,75 @@
     </div>
 </section>
 
-<section class="bg-image-colored-md bg-image-colored no-background-image d-block d-md-none" style="max-height: 650px !important;">
-    <div class="container-fluid pt-5">
-        <div class="row">
-            <div class="col-auto">
-                <img class="icon mt-n2" src="{% static 'Landkit/images/v3/teal_people.png' %}" alt="circledin"> 
-            </div>
-            <div class="col mx-0 px-0">
-                <h4 class="card-title text-left text-uppercase font-weight-bold display-3 text-bluish pl-0 pr-3 mx-0">
-                    Circledin To save together!
-                </h4>
+
+<section  class="d-block d-lg-none">
+    <div class="container">
+        <div class="row ">
+            <div class="col">
+                <p class="h2 text-uppercase text-center font-weight-bolder text-bluish">Circledin To save together!</p>
             </div>
         </div>
-        <div class="row mb-2">
-
-            <div class="col-12 col-md-7  mt-0 mt-md-0 px-5 px-md-5  pl-lg-14  ml-lg-10">
-                <h2 class="card-title text-uppercase font-weight-bold mb-0 text-bluish">
-                    Join an Existing Plan <i class="fas fa-angle-double-right fa-lg"></i>
-                </h2>
-                
-                <h2 class="card-title text-uppercase font-weight-bold mb-0 mt-2 text-bluish">
-                    Post Your Account <i class="fas fa-angle-double-right fa-lg"></i>
-                </h2>
-                <p class="font-size-lg card-text mt-2 pr-lg-13 font-weight-bolder">
-                    * We guarantee timely payments each month so that there are no disruptions to your mobile services.
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow-light-lg accordion mb-5 mb-md-6" id="helpAccordionOne">
+                    <div class="list-group">
+                      <div class="list-group-item bg-bluish-shade">
+                        <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpOne" role="button" aria-expanded="false" aria-controls="helpOne">
+                          <span class="mr-4 h3 text-white font-weight-bolder font-Glacial-Indifference">
+                            Join an existing plan
+                          </span>
+                          <div class="text-muted ml-auto" >
+                            <!-- Chevron -->
+                            <span class="collapse-chevron font-weight-normal text-white">
+                              <i class="fas fa-chevron-down fa-2x"></i>
+                            </span>
+                          </div>
+                        </a>
+                        <!-- Collapse -->
+                        <div class="collapse" id="helpOne" >
+                          <div class="py-5 ">
+                            <!-- Text -->
+                            <p class="text-white">
+                                Looking to save? Find a plan that best suits your needs and join that account to enjoy savings per line. We'll handle the rest!
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-group-item bg-bluish-shade mt-1">
+                        <!-- Toggle -->
+                        <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpTwo" role="button" aria-expanded="false" aria-controls="helpTwo">
+                          <!-- Title -->
+                          <span class="mr-4 h3 text-white font-weight-bolder font-Glacial-Indifference">
+                            Post your account
+                          </span>
+                          <!-- Metadata -->
+                          <div class="text-muted ml-auto">
+                            <!-- Chevron -->
+                            <span class="collapse-chevron font-weight-normal text-white">
+                              <i class="fas fa-chevron-down fa-2x"></i>
+                            </span>
+                          </div>
+                        </a> <!-- / .row -->
+                        <!-- Collapse -->
+                        <div class="collapse" id="helpTwo" >
+                          <div class="py-5">
+                            <p class="text-white">
+                                Have a few extra slots on your account? Post your account for others to join and enjoy savings of line. We'll handle the rest!
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="h5 card-text">
+                    *We guarantee timely payments each month so that there are no disruptions to your mobile services.
                 </p>
             </div>
-            
         </div>
     </div>
 </section>
