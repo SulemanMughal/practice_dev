@@ -122,6 +122,9 @@ urlpatterns = [
     url(r'^send/$', views.send, name='send'),
 
 
+    url(r'^email-collection/$',views.Email_Collector, name="Collector_Email")
+
+
 
 ]
 

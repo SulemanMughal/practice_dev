@@ -1,9 +1,13 @@
 {% load static %}
-<section class="d-none d-md-block mt-md-3 mb-md-8 ">
+
+<hr class="text-dark mt-5 mt-lg-10 font-size-lg d-block d-lg-none" style="border-top: 6px solid #f1f4f8 !important;">
+
+
+<section class="d-none d-lg-block mt-md-3 mb-md-8 ">
   
     <div class="container px-lg-10">
         <div class="row ">
-                <h1 class="card-title text-uppercase font-weight-bolder display-6 text-dark text-center px-6  pl-lg-11 my-5">
+                <h1 class="card-title text-uppercase font-weight-bolder display-6 text-dark text-center px-6 px-md-9 pl-lg-11 my-5">
                         Top 3 frequently asked questions
                 </h1>
         </div>
@@ -34,8 +38,12 @@
           </div>   
 
         </div>
-        <div class="row  float-right" >
+        <div class="row  float-right d-none d-lg-block" >
           <a href="{% url 'FAQ' %}" class="btn btn-atoll mt-lg-2 col-lg-12 ml-lg-n2 mr-lg-12 pt-1 pb-1">More FAQs</a>
+        </div>
+
+        <div class="row mx-auto pl-md-14 d-none d-md-block d-lg-none my-2">
+          <a href="{% url 'FAQ' %}" class="btn btn-atoll mt-lg-2 col-md-6 col-lg-12 ml-lg-n2 mr-lg-12 pt-1 pb-1">More FAQs</a>
         </div>
 
     </div>
@@ -43,29 +51,80 @@
 
     
 </section>
-<hr class="text-dark mt-5 mt-lg-10 font-size-lg d-none d-lg-block" style="border-top: 6px solid #f1f4f8 !important;">
+
+
+<section class="d-none d-md-block d-lg-none mt-md-3 mb-md-8 ">
+  
+  <div class="container px-lg-10">
+      <div class="row ">
+              <h1 class="card-title text-uppercase font-weight-bolder display-6 text-dark text-center px-6 px-md-9 pl-lg-11 my-5">
+                      Top 3 frequently asked questions
+              </h1>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-lg-4 bg-faq p-5" style="min-width: 14rem !important; max-width: 10rem !important; ">
+          <h3 class=" font-weight-bolder text-bluish">
+            What happens when someone in the family forgets to pay?
+          </h3>
+          <p class="card-text text-bluish">
+            Circledin guarantees timely payment each month so that there are no disruptions to your mobile services.
+          </p>
+        </div>    
+        <div class="col-md-4 col-lg-4  bg-faq p-5 ml-2" style="min-width: 14rem !important; max-width: 10rem !important; ">
+          <h3 class=" font-weight-bolder text-bluish">
+            What type of data does the Account Owner see?
+          </h3>
+          <p class="card-text text-bluish">
+            Each of our Account Owners are verified and a trusted Circledin community member.The Account Owner will only see high level usuage data such as phone numbers, but not actual text messages, images, etc.
+          </p>
+        </div>    
+        <div class="col-md-4 col-lg-4 bg-faq p-5 mt-md-0 mt-xl-0 ml-md-2 ml-xl-5" style="min-width: 14rem !important; max-width: 10rem !important; ">
+          <h3 class="font-weight-bolder text-bluish">
+            Is the premium data per account or per line?
+          </h3>
+          <p class="card-text text-bluish">
+            The premium data is on a per line basis. In other words, you are not sharing data usuages across other members in the family.
+          </p>
+        </div>   
+
+      </div>
+      <div class="row  float-right d-none d-lg-block" >
+        <a href="{% url 'FAQ' %}" class="btn btn-atoll mt-lg-2 col-lg-12 ml-lg-n2 mr-lg-12 pt-1 pb-1">More FAQs</a>
+      </div>
+
+      <div class="row mx-auto pl-md-14 d-none d-md-block d-lg-none my-2">
+        <a href="{% url 'FAQ' %}" class="btn btn-atoll mt-lg-2 col-md-6 col-lg-12 ml-lg-n2 mr-lg-12 pt-1 pb-1">More FAQs</a>
+      </div>
+
+  </div>
+
+
+  
+</section>
+
+
 
 
 <section class="d-block d-md-none">
     <div class="container mx-lg-7 pb-8">
         <div class="row">
-                <h3 class="card-title text-uppercase font-weight-bolder display-3 text-bluish text-center text-md-left px-4 px-lg-0">
+                <h4 class="card-title text-uppercase font-weight-bolder text-bluish text-left text-md-left px-4 px-lg-0 mb-2" >
                         Top 3 frequently asked questions
-                </h3>
+                </h4>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="card shadow-light-lg accordion mb-5 mb-md-6" id="helpAccordionOne">
                     <div class="list-group">
-                      <div class="list-group-item bg-shade-lighter-greenish">
+                      <div class="list-group-item bg-shade-lighter-greenish p-3">
                         <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpOne" role="button" aria-expanded="false" aria-controls="helpOne">
-                          <span class="mr-4 h3 text-dark font-weight-bolder font-Glacial-Indifference">
+                          <span class="mr-4 h5 text-dark font-weight-bolder font-Glacial-Indifference">
                             What happens when someone in the family forgets to pay?
                           </span>
                           <div class="text-muted ml-auto" >
                             <!-- Chevron -->
                             <span class="collapse-chevron font-weight-normal text-dark">
-                              <i class="fas fa-chevron-down fa-2x"></i>
+                              <i class="fas fa-chevron-down"></i>
                             </span>
                           </div>
                         </a>
@@ -79,18 +138,18 @@
                           </div>
                         </div>
                       </div>
-                      <div class="list-group-item bg-shade-lighter-greenish mt-1">
+                      <div class="list-group-item bg-shade-lighter-greenish mt-1 p-3">
                         <!-- Toggle -->
                         <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpTwo" role="button" aria-expanded="false" aria-controls="helpTwo">
                           <!-- Title -->
-                          <span class="mr-4 h3 text-dark font-weight-bolder font-Glacial-Indifference">
+                          <span class="mr-4 h5 text-dark font-weight-bolder font-Glacial-Indifference">
                             What type of data does the Account Owner see?
                           </span>
                           <!-- Metadata -->
                           <div class="text-muted ml-auto">
                             <!-- Chevron -->
                             <span class="collapse-chevron font-weight-normal text-dark">
-                              <i class="fas fa-chevron-down fa-2x"></i>
+                              <i class="fas fa-chevron-down"></i>
                             </span>
                           </div>
                         </a> <!-- / .row -->
@@ -103,18 +162,18 @@
                           </div>
                         </div>
                       </div>
-                      <div class="list-group-item bg-shade-lighter-greenish mt-1">
+                      <div class="list-group-item bg-shade-lighter-greenish mt-1 p-3">
                         <!-- Toggle -->
                         <a class="d-flex align-items-center text-reset text-decoration-none" data-toggle="collapse" href="#helpThree" role="button" aria-expanded="false" aria-controls="helpThree">
                           <!-- Title -->
-                          <span class="mr-4 h3 text-dark font-weight-bolder font-Glacial-Indifference">
+                          <span class="mr-4 h5 text-dark font-weight-bolder font-Glacial-Indifference">
                             Is the premium data per account or per line?
                           </span>
                           <!-- Metadata -->
                           <div class="text-muted ml-auto">
                             <!-- Chevron -->
                             <span class="collapse-chevron font-weight-normal text-dark">
-                              <i class="fas fa-chevron-down fa-2x"></i>
+                              <i class="fas fa-chevron-down"></i>
                             </span>
                           </div>
                         </a> <!-- / .row -->
@@ -139,3 +198,5 @@
         </div>
     </div>
 </section>
+
+

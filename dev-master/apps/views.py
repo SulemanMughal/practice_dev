@@ -1445,3 +1445,14 @@ def send(request):
         return HttpResponse('<h1>Sent.</h1>')
     else:
         return HttpResponse('<h1>No email was sent.</h1>')
+
+
+# Email Collection
+def Email_Collector(request):
+    if request.method != "POST":
+        return redirect("home")
+    else:
+        email = request.POST['email']
+        obj,status = Email_Newsletter.objects.update_or_create(email=email)
+        obj.save()
+        return redirect(request.POST["next"])

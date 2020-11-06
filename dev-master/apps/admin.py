@@ -273,3 +273,4 @@ my_admin_site.register(next_estimated_Invoice_Bill, next_estimated_Invoice_Bill_
 my_admin_site.register(blogPost, blogPostAdmin)
 my_admin_site.register(postComment, postCommentAdmin)
 my_admin_site.register(commentReply)
+my_admin_site.register(Email_Newsletter)

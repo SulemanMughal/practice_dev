@@ -351,3 +351,9 @@ class next_estimated_Invoice_Bill(models.Model):
 
     def __str__(self):
         return "{}-{}-{}".format(self.user.username, self.plan.plan_name, self.bill)
+
+class Email_Newsletter(models.Model):
+    email = models.CharField(max_length=100, blank=True, null=True,default="")
+
+    def __str__(self):
+        return self.email
