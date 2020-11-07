@@ -86,6 +86,10 @@ input.invalid {
             <div class="tab">
               {% include 'app/Existing_Customer_Step_2.html' %}              
             </div>
+
+            <div class="tab">
+              {% include 'app/Existing_Customer_Step_3.html' %}              
+            </div>
             
             <div  style="overflow:auto;">
 
@@ -133,6 +137,9 @@ function showTab(n) {
   if(n==1){
     $("#progressbar").css("width", "50%");
     $("#nextBtn").hide();
+  }
+  else{
+    $("#nextBtn").show();
   }
 
   // ... and fix the Previous/Next buttons:
@@ -215,6 +222,9 @@ function fixStepIndicator(n) {
 
 <script>
   $(document).ready(function(){
+
+    
+
     $("#30-days-active-line-invalid, #account-owner-invalid").hide();
     $("#option11").on("change", function(){
       if($(this).prop("checked") == true){

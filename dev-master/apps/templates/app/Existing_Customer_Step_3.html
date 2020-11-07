@@ -26,12 +26,34 @@
                 Your order has been placed and will be processed as soon as possible.
             </p>
             <p class="card-text h2 text-dark px-lg-13">
-                Make sure you make note of your order number, which is <span class="font-weight-bolder text-uppercase">Ci-VA54</span>
+              {% autoescape off %}
+              Make sure you make note off your order number, which is <span class="font-weight-bold text-uppercase">
+                {% if plan.category.Name == "Verizon" %}
+                  CI-VZ{{ objects|add:1 }}
+                {% elif plan.category.Name == "T-Mobile" %}
+                  CI-TM{{ objects|add:1 }}
+                {% elif plan.category.Name == "Sprint" %}
+                  CI-SP{{ objects|add:1 }}
+                {% elif plan.category.Name == "AT&T" %}
+                  CI-ATT{{ objects|add:1 }}
+                {% elif plan.category.Name == "Cricket" %}
+                  CI-CR{{ objects|add:1 }}
+                {% endif %}
+              {% endautoescape %}
             </p>
             <p class="card-text h2 text-dark px-lg-13">
                 You will be receiving an email shortly with confirmation of your order.
             </p>
             
+            
         </div>
+    </div>
+    <div class="row mt-lg-3 mx-lg-5 px-lg-5 ">
+      <div class="col">
+        <a class="btn btn-success text-decoration-none" href="{% url 'home' %}">Back to Homepage</a>
+      </div>
+      <div class="col">
+        <a href="{% url 'edit_profile' %}" class="btn btn-success text-decoration-none">My Profile</a>
+      </div>
     </div>
 </div>

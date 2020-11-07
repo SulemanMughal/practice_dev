@@ -253,8 +253,18 @@ function stripePaymentMethodHandler(result, email) {
       }
       else{
         $("#exampleModalpayment_error").modal("hide");
-        $("#end_payment_exampleModal").modal("show");
+        $("#end_payment_exampleModal").modal("hide");
         $("#exampleModalpayment_processing_waiting_modal").modal("hide");
+
+        // Hide All Tabs, Hide Previous Button, Hide Next Button
+        $(".tab, #prevBtn, #nextBtn").hide();
+
+        // Show Last Tab
+        $(".tab:nth-child(3)").show();
+
+        // Change Width of Top Progress Bar
+        $("#progressbar").css("width", "100%");
+        
       }
     }).catch(function(error) {
       $("#exampleModalPaymentError").modal("hide");
