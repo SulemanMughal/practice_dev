@@ -40,6 +40,10 @@ urlpatterns = [
     # Plan Detail Page + Plan Join Page
     # ****************************************************************
     path('join-plan/<int:category_id>/<int:plan_id>/', views.Join_A_Plan, name="Join"),
+
+    # Plan Detail Page Existing Customer
+    path('join-plan/<int:category_id>/<int:plan_id>/Exisiting_Customer', views.Join_A_Plan_Existing_Customer, name="Join_Exising_Customer"),
+    
     # ****************************************************************
     # Cancel a plan
     # ****************************************************************
@@ -74,19 +78,33 @@ urlpatterns = [
     # Subscription Detail View
     # ****************************************************************
     path('detail-view-subscription/<int:plan_id>/<int:sub_id>', views.Detail, name="Details"),
+    
+    
+    
+    
     # ****************************************************************
     # About Us
     # ****************************************************************
     path('about-us', views.About, name="About"),
+    
+    
+    
     # ****************************************************************
     # FAQ
     # ****************************************************************
     path('FAQ', views.FAQ, name="FAQ"),
+    
+    
+    
+    
     # ****************************************************************
     # Plan Comment View
     # ****************************************************************
     path('plan-comment/<int:plan_id>/', views.planCommentView, name="comment_plan"),
     # ********************************************************************
+    
+    
+    
     # ****************************************************************
     # Payment Method Goes Here
     # ****************************************************************
@@ -96,16 +114,24 @@ urlpatterns = [
     url(r'^make_default/(?P<id>\w+)/$', views.make_default, name="make_default"),
     path('add_card', views.add_card, name="add_card"),
     path('charge', views.charge, name="charge"),
+    
+    
     # ****************************************************************
     # Terms of use Page
     # ****************************************************************
     path("terms-of-use", views.TermsConditions, name="TermsConditions"),
+    
+    
     # ****************************************************************
     # Privacy Policy
     # ****************************************************************
     path("privacy-policy", views.PrivacyPolicy, name="PrivacyPolicy"),
+    
+    
     #****************** Billing ANd Shipping Address ******************
     path("edit_address", views.edit_address, name="edit_address"),
+    
+    
     #****************** PayPal ************************************
     path("Paypal", views.Paypalview, name="Paypal"),
     # How it works page

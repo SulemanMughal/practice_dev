@@ -196,13 +196,13 @@ and (max-width : 320px) {
 
 
 <section class="d-block d-lg-none bg-faq" style="background: linear-gradient(180deg, white 50%, #EFF4F4 50%);"> 
-  <div class="main-carousel mx-8 px-0  mx-lg-14"  data-flickity='{ "cellAlign": "left", "contain": true, "pageDots": false, "prevNextButtons": true }'>
+  <div class="main-carousel mx-8 px-0  mx-lg-14" id="portfolio-main-carousel"  data-flickity='{ "cellAlign": "left", "contain": true, "pageDots": false, "prevNextButtons": true }' >
     {% for i in categories  %}
         {% if i.get_plans_not_on_leave %}
           {% for j in i.get_plans_not_on_leave %}
           {% with x=j.familySize y=j.currentFamilySize %}
           <div class="carousel-cell">
-          <div class="col-12 col-md-6 col-lg-4 col-xl-3 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg {{ j.category.slug }}" >
+          <div class="col-12 col-md-6 col-lg-4 col-xl-3 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg" >
           <div class="card p-2 shadow-light my-7 bg-white position-relative mx-md-10">
           <div class="card-header align-items-center {% if j.total_slots != 0 %} bg-success {% else %} bg-danger {% endif %} position-relative pt-2 pl-2" style="min-height: 140px !important;" >
           {% if j.total_slots != 0 %}
@@ -288,7 +288,7 @@ and (max-width : 320px) {
           {% endfor %}
         {% endif %}
     {% endfor %}
-    <div class="carousel-cell">
+    <div class="carousel-cell d-none d-md-block d-lg-none">
 
     </div>
   </div>
@@ -299,8 +299,6 @@ and (max-width : 320px) {
 
 
 {% endif %}
-
-
 
 
 

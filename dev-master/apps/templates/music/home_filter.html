@@ -1,4 +1,4 @@
-<section  class=" pb-md-5 pb-lg-0 d-none d-lg-block bg-light-green-shade" >
+<section  class=" pb-md-5 pb-lg-0 d-none d-md-none d-lg-block bg-light-green-shade" >
     <div class="container">
       <div class="row justify-content-center">
         <h1 class="text-uppercase text-white display-3 mt-6 font-weight-bolder text-shadow-bluish d-none d-md-block">
@@ -27,33 +27,28 @@
   </section>
 
 
-
-
-
-
-  <section  class=" pb-md-0 pb-lg-0 d-block d-lg-none" >
+  <section  class=" pb-md-0 pb-lg-0 d-block d-md-block d-lg-none" >
     <div class="container">
       <div class="row justify-content-center">
-        <h1 class="text-uppercase text-bluish display-3 mt-6 font-weight-bolder text-shadow-bluish d-none d-md-block">
+        <h1 class="text-uppercase text-bluish display-3 mt-6 font-weight-bolder text-shadow-bluish d-none d-md-block d-lg-none">
           Join a family below
-
         </h1>
-        <h2 class="text-uppercase text-bluish display-4 mt-6 mx-auto font-weight-bolder text-shadow-bluish d-block d-md-none">
+        <h2 class="text-uppercase text-bluish display-4 mt-6 mx-auto font-weight-bolder text-shadow-bluish d-block d-md-none d-lg-none">
           Join a family below
 
         </h2>
       </div>
-      <div class="row justify-content-center d-none">
+      <div class="row justify-content-center d-none d-md-none d-lg-none">
         <div class="col-12 col-md-9 col-lg-3 col-lg-6 pt-5 pb-5 ml-0 mr-0 ml-md-8 ml-lg-0">
           <div class="row align-items-center ">
             <nav class="nav justify-content-center bg-transparent pt-2 pl-2 pr-2 br-all-10">    
             {% for category in filters %}
               {% if forloop.first %}
-              <a class="btn btn-success  mr-1 mb-1 active p-1 w-120px" href="#" data-toggle="pill" data-filter="*" data-target="#portfolio" id="all" >
+              <a class="btn btn-success  mr-1 mb-1 active p-1 w-120px filter-button-group" href="#" data-toggle="pill" data-filter="*" data-target="#portfolio-main-carousel" id="all" >
                 <span class="h4 " >All</span>
               </a>
               {% endif %}
-              <a class="btn btn-success mr-1 mb-1 p-1 w-120px" href="#" data-toggle="pill" data-filter=".{{ category.slug }}" data-target="#portfolio" id="{{ category.slug }}" >
+              <a class="btn btn-success mr-1 mb-1 p-1 w-120px filter-button-group" href="#" data-toggle="pill" data-filter=".{{ category.slug }}" data-target="#portfolio-main-carousel" id="{{ category.slug }}" >
                 <span class="h4 ">{{ category.Name }}</span>
               </a>
             {% endfor %}
@@ -62,3 +57,5 @@
       </div>
     </div>
   </section>
+
+  

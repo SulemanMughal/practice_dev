@@ -1456,3 +1456,14 @@ def Email_Collector(request):
         obj,status = Email_Newsletter.objects.update_or_create(email=email)
         obj.save()
         return redirect(request.POST["next"])
+
+@login_required
+def Join_A_Plan_Existing_Customer(request, category_id, plan_id):
+    template_name="app/Join_Existing_Customer.html"
+    c = category.objects.get(id=category_id)
+    p = plan.objects.get(category = c, id=plan_id)
+    context={
+        'category' : c,
+        'plan' : p
+    }
+    return render(request, template_name,context)
