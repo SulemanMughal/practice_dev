@@ -350,13 +350,13 @@ def contact(request):
                         messages.warning(request, "Email Send")
                         return redirect(request.POST.get("next"))
                     else:
-                        return render(request, 'Landkit/contact-alt.html', context)
+                        return render(request, 'Landkit/contact-v3.html', context)
                 except :
-                    return render(request, 'Landkit/contact-alt.html', context)
+                    return render(request, 'Landkit/contact-v3.html', context)
     context = {
         'form': form,
     }
-    return render(request, 'Landkit/contact-alt.html', context)
+    return render(request, 'Landkit/contact-v3.html', context)
 
 # ****************************************************************
 # Add a New Plan Form (Request from a separate page)
@@ -1076,7 +1076,7 @@ def charge(request):
                         except Exception as e:
                             return JsonResponse(json.loads( json.dumps( {"error": str(e)})), status=400)
                     else:
-                        return JsonResponse(json.loads( json.dumps( {"error": str(e)})), status=400)
+                        return JsonResponse(json.loads( json.dumps( {"error": "Subscription is already created for this user"})), status=400)
                 except Exception as e:
                     return JsonResponse(json.loads( json.dumps( {"error": str(e)})), status=400)
             except Exception as e:
@@ -1460,6 +1460,17 @@ def Email_Collector(request):
 @login_required
 def Join_A_Plan_Existing_Customer(request, category_id, plan_id):
     template_name="app/Join_Existing_Customer.html"
+    c = category.objects.get(id=category_id)
+    p = plan.objects.get(category = c, id=plan_id)
+    context={
+        'category' : c,
+        'plan' : p
+    }
+    return render(request, template_name,context)
+
+@login_required
+def Join_A_Plan_Get_A_New_Number(request, category_id, plan_id):
+    template_name="app/Join_Get_A_New_Number.html"
     c = category.objects.get(id=category_id)
     p = plan.objects.get(category = c, id=plan_id)
     context={

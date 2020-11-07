@@ -7,15 +7,15 @@ var elements = stripe.elements();
       iconStyle: "solid",
       style: {
         base: {
-          iconColor: "#fff",
-          color: "#fff",
+          iconColor: "black",
+          color: "black",
           fontWeight: 400,
           fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
           fontSize: "16px",
           fontSmoothing: "antialiased",
   
           "::placeholder": {
-            color: "#fff"
+            color: "black"
           },
           ":-webkit-autofill": {
             color: "#fff"

@@ -3,14 +3,20 @@
 {% include "Landkit/META_TAG.html" %}
 {% block title %} Join a Plan - Existing Customer {% endblock %}
 {% block content %}
-
 <style>
+  
+h1, h2, h3, h4, h5, h6, .font-League-Spartan{
+    font-family: 'League Spartan Bold', arial;
+  }
+
+  p, a, span, input, .font-Glacial-Indifference, .btn{
+    font-family: 'Glacial Indifference' !important;
+  }
+
      /* Style the form */
 #regForm {
   background-color: #ffffff;
-  margin: 100px auto;
-  padding: 40px;
-  width: 70%;
+  width: 100%;
   min-width: 300px;
 }
 
@@ -25,7 +31,8 @@ input {
 
 /* Mark input boxes that gets an error on validation: */
 input.invalid {
-  background-color: #ffdddd;
+  background-color: #ffdddd !important;
+  
 }
 
 /* Hide all steps by default: */
@@ -41,17 +48,19 @@ input.invalid {
   background-color: #bbbbbb;
   border: none;
   border-radius: 50%;
-  display: inline-block;
+  display: none;
   opacity: 0.5;
 }
 
 /* Mark the active step: */
 .step.active {
+  display: none;
   opacity: 1;
 }
 
 /* Mark the steps that are finished and valid: */
 .step.finish {
+  display: none;
   background-color: #4CAF50;
 } 
 
@@ -61,65 +70,59 @@ input.invalid {
 
 </style>
 
+{% include 'modals/FeedbackForms.html' with edit=False subs=request.user|FindSubObject:plan.id   %}
+{% include "modals/finishing_payment_modal.html" %}
+{% include "modals/payment_processing_waiting_modal.html" %}
+{% include "modals/payment_error.html" %}
 
-<div class="card px-lg-13">
-    <div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 pt-lg-10 px-lg-0">
-        <h3 class="font-weight-bolder"> Existing Verizon Customer  </h3>
-        <h1 class="card-title display-4 text-dark font-weight-bolder ">
-            Requirements
-        </h1>
-    </div>
-    <div class="card-body">
-        <form id="regForm" action="">
+<hr class="border border-success border-width-3 mt-lg-9 ml-lg-0 sticky-top" style="position: fixed !important; border-width: 10px !important;" id="progressbar">
+<div class="card px-lg-10 pb-lg-10">
+  
+    <div class="card-body p-0 pt-lg-3">
+        
+            <div class="tab">
+              {% include 'app/Existing_Customer_Step_1.html' %}
+            </div>
+            <div class="tab">
+              {% include 'app/Existing_Customer_Step_2.html' %}              
+            </div>
+            
+            <div  style="overflow:auto;">
 
-            <h1>Register:</h1>
-            
-            <!-- One "tab" for each step in the form: -->
-            <div class="tab">Name:
-              <p><input placeholder="First name..." oninput="this.className = ''"></p>
-              <p><input placeholder="Last name..." oninput="this.className = ''"></p>
-            </div>
-            
-            <div class="tab">Contact Info:
-              <p><input placeholder="E-mail..." oninput="this.className = ''"></p>
-              <p><input placeholder="Phone..." oninput="this.className = ''"></p>
-            </div>
-            
-            <div class="tab">Birthday:
-              <p><input placeholder="dd" oninput="this.className = ''"></p>
-              <p><input placeholder="mm" oninput="this.className = ''"></p>
-              <p><input placeholder="yyyy" oninput="this.className = ''"></p>
-            </div>
-            
-            <div class="tab">Login Info:
-              <p><input placeholder="Username..." oninput="this.className = ''"></p>
-              <p><input placeholder="Password..." oninput="this.className = ''"></p>
-            </div>
-            
-            <div style="overflow:auto;">
               <div style="float:right;">
-                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-success px-lg-9 mr-lg-3">Previous</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-success px-lg-9">Next</button>
               </div>
             </div>
-            
-            <!-- Circles which indicates the steps of the form: -->
-            <div style="text-align:center;margin-top:40px;">
-              <span class="step"></span>
+            <div class="d-none" style="text-align:center;margin-top:40px;">
               <span class="step"></span>
               <span class="step"></span>
               <span class="step"></span>
             </div>
             
-            </form> 
+            
     </div>
 </div>
 
 
+{% block javascript %}
 
+
+
+<!-- ? Point to te noted -->
+<!-- TODO: Hide Next Button on second tab -->
+
+
+{% include "payment/payment_script_work.html" %}
+<script src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript" src="{% static 'music/client.js' %}"></script>
 
 
 <script>
+    $(document).ready(function(){
+      $("#progressbar").css("width", "25%");
+    });
+    
     var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
@@ -127,13 +130,23 @@ function showTab(n) {
   // This function will display the specified tab of the form ...
   var x = document.getElementsByClassName("tab");
   x[n].style.display = "block";
+  if(n==1){
+    $("#progressbar").css("width", "50%");
+    $("#nextBtn").hide();
+  }
+
   // ... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
-  } else {
+    
+    
+  } 
+  
+  else {
     document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
+    $("#progressbar").css("width", "100%");
     document.getElementById("nextBtn").innerHTML = "Submit";
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
@@ -143,8 +156,14 @@ function showTab(n) {
 }
 
 function nextPrev(n) {
+
+  if(n==-1){
+    $("#progressbar").css("width", "25%");
+  }
   // This function will figure out which tab to display
   var x = document.getElementsByClassName("tab");
+
+
   // Exit the function if any field in the current tab is invalid:
   if (n == 1 && !validateForm()) return false;
   // Hide the current tab:
@@ -193,5 +212,37 @@ function fixStepIndicator(n) {
   x[n].className += " active";
 }
 </script>
+
+<script>
+  $(document).ready(function(){
+    $("#30-days-active-line-invalid, #account-owner-invalid").hide();
+    $("#option11").on("change", function(){
+      if($(this).prop("checked") == true){
+        $("#30-days-active-line-invalid").show();
+      }
+    });
+    $("#option12").on("change", function(){
+      if($(this).prop("checked") == true){
+        $("#30-days-active-line-invalid").hide();
+      }
+    });
+    $("#option21").on("change", function(){
+      if($(this).prop("checked") == true){
+        $("#account-owner-invalid").show()
+      }
+    });
+    $("#option22").on("change", function(){
+      if($(this).prop("checked") == true){
+        $("#account-owner-invalid").hide()
+      }
+    });
+  }); 
+</script>
+
+
+
+
+
+{% endblock javascript %}
 
 {% endblock %}

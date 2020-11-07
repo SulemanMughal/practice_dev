@@ -23,7 +23,8 @@
 
           </li>
           <li class="nav-item col-md-4 mt-1 mt-md-0 mt-lg-0 mt-xl-0" >
-            <a class="btn btn-outline-success w-100 "  href="{% url 'Join_Exising_Customer' plan.category.id plan.id %}" target="_blank">Existing {{ plan.category.Name }} customer</a>
+            <button class="btn btn-outline-success w-100 " id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+              aria-controls="profile" aria-selected="false" data-plan="{{ plan.category.Name }}">Existing {{ plan.category.Name }} customer</button>
 
           </li>
           <li class="nav-item col-md-4 mt-1 mt-md-0 mt-lg-0 mt-xl-0" >

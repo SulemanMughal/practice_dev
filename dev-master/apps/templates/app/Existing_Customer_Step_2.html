@@ -1,0 +1,281 @@
+{% load static humanize FindSubUser findNextMonth findNextYear findFindSubID findSubStatus FindSubObject findPaymentCurrentDay  findSubSlots findSubCancelStatus FindCategoryPlanInfo mathfilters findUserPhone FindPlanFixedPrice %}
+
+
+<div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 pt-lg-10 px-lg-0">
+    <h3 class="font-weight-bolder text-success"> Existing Verizon Customer  </h3>
+    <div class="container-fluid px-lg-0 py-lg-0">
+      <div class="row">
+        <div class="col">
+          <h1 class="card-title display-5 text-dark font-weight-bolder text-uppercase mb-lg-0">
+            Confirm and Pay
+        </h1>
+        </div>
+        <div class="col">
+          <h1 class=" card-title text-right display-5 text-dark text-uppercase font-weight-bolder mb-lg-0">
+            Step 2
+          </h1>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="container-fluid px-lg-0">
+    <div class="row py-lg-8">
+        <div class="col-7">
+            <div class="container">
+                <div class="row border border-dark border-top-0 border-left-0 border-right-0 border-width-3 pb-lg-4">
+                    <div class="col-6">
+                        <div class="row">
+                            <h3 class="font-weight-bolder text-dark mb-lg-1">
+                                Plan
+                            </h3>
+                        </div>
+                        <div class="row">
+                            <p class="card-text h4">
+                                {{ plan.category }} - {{ plan.plan_name }} Plan
+                            </p>
+                        </div>
+                        <div class="row pt-lg-3">
+                            <h4 class="font-weight-bolder text-dark mb-lg-1">
+                                Active in the last 30 days?
+                            </h4>
+                        </div>
+                        <div class="row">
+                            <p class="card-text h4">
+                                Yes
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-6 pl-lg-7">
+                        <div class="row">
+                            <h4 class="font-weight-bolder text-dark mb-lg-1">
+                                Account Manager 
+                            </h4>
+                        </div>
+                        <div class="row">
+                            <p class="card-text h4">
+                                Yes
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row py-lg-5">
+                    <div class="col px-lg-0">
+                        <h2 class="card-title font-weight-bolder text-uppercase text-dark mb-lg-0">
+                            Payment Information 
+                        </h2>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col px-lg-0 ">
+                        <form  id="subscription-form"  method="POST" class="needs-validation" novalidate>
+                            <div class="form-row">
+                                <div class="form-group col ">
+                                    <label for="example5-name" class="font-weight-bolder text-dark h3">First Name</label>
+                                    <input type="text" class="form-control bg-light" id="example5-name">
+                                </div>
+                                    <div class="form-group col">
+                                    <label for="inputPassword4" class="font-weight-bolder text-dark h3">Last Name</label>
+                                    <input type="text" class="form-control bg-light" id="inputPassword4">
+                                    </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col ">
+                                    <label for="emailid " class="font-weight-bolder text-dark h3">Email Address</label>
+                                    <input type="text" class="form-control bg-light" id="example5-email">
+                                    </div>
+                                    <div class="form-group col">
+                                    <label for="example5-phone" class="font-weight-bolder text-dark h3">Phone Number</label>
+                                    <input type="tel" class="form-control bg-light" id="example5-phone" maxlength="12">
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="example5-address" class="font-weight-bolder h3 text-dark">Street Address</label>
+                                <input type="text" class="form-control bg-light" id="example5-address" placeholder="">
+                            </div>
+                            <div class="form-row pb-lg-4">
+                                <div class="form-group col">
+                                    <label for="example5-city" class="font-weight-bolder text-dark h3">City</label>
+                                    <input type="text" class="form-control bg-light" id="example5-city">
+                                </div>
+                                <div class="form-group col">
+                                    <label for="example5-state" class="font-weight-bolder text-dark h3">State</label>
+                                    <select id="example5-state" required data-tid="elements_examples.form.state_placeholder" class="input empty" autocomplete="address-level1" >
+                  
+                                        <option  selected="" value="None" >Select State</option>
+                                        <option value="AL" >AL</option>
+                                        <option value="AK" >AK</option>
+                                        <option value="AR" >AR</option>
+                                        <option value="AZ" >AZ</option>
+                                        <option value="CA" >CA</option>
+                                        <option value="CO" >CO</option>
+                                        <option value="CT" >CT</option>
+                                        <option value="DC" >DC</option>
+                                        <option value="DE" >DE</option>
+                                        <option value="FL" >FL</option>
+                                        <option value="GA" >GA</option>
+                                        <option value="HI" >HI</option>
+                                        <option value="IA" >IA</option>
+                                        <option value="ID" >ID</option>
+                                        <option value="IL" >IL</option>
+                                        <option value="IN" >IN</option>
+                                        <option value="KS" >KS</option>
+                                        <option value="KY" >KY</option>
+                                        <option value="LA" >LA</option>
+                                        <option value="MA" >MA</option>
+                                        <option value="MD" >MD</option>
+                                        <option value="ME" >ME</option>
+                                        <option value="MI" >MI</option>
+                                        <option value="MN" >MN</option>
+                                        <option value="MO" >MO</option>
+                                        <option value="MS" >MS</option>
+                                        <option value="MT" >MT</option>
+                                        <option value="NC" >NC</option>
+                                        <option value="NE" >NE</option>
+                                        <option value="NH" >NH</option>
+                                        <option value="NJ" >NJ</option>
+                                        <option value="NM" >NM</option>
+                                        <option value="NV" >NV</option>
+                                        <option value="NY" >NY</option>
+                                        <option value="ND" >ND</option>
+                                        <option value="OH" >OH</option>
+                                        <option value="OK" >OK</option>
+                                        <option value="OR" >OR</option>
+                                        <option value="PA" >PA</option>
+                                        <option value="RI" >RI</option>
+                                        <option value="SC" >SC</option>
+                                        <option value="SD" >SD</option>
+                                        <option value="TN" >TN</option>
+                                        <option value="TX" >TX</option>
+                                        <option value="UT" >UT</option>
+                                        <option value="VT" >VT</option>
+                                        <option value="VA" >VA</option>
+                                        <option value="WA" >WA</option>
+                                        <option value="WI" >WI</option>
+                                        <option value="WV" >WV</option>
+                                        <option value="WY" >WY</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col">
+                                    <label for="example5-zip" class="font-weight-bolder text-dark h3">Zip Code</label>
+                                    <input type="text" class="form-control bg-light" id="example5-zip">
+                                </div>
+                            </div>
+                            <hr class="border border-dark border-top-0 border-left-0 border-right-0 border-width-3 ">           
+
+                            <div class="field">
+                                <label for="example5-card" data-tid="elements_examples.form.card_label">Card</label>
+                                <div id="example5-card" class="input bg-light"></div>
+                              </div>
+                            
+                            <!-- TODO: Comment -->
+                            {% comment %}
+                            
+                            <div class="form-group pt-lg-3">
+                                <label for="inputAddress" class="font-weight-bolder h3 text-dark">Card Number</label>
+                                <input type="text" class="form-control bg-light" id="inputAddress" placeholder="">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group col-4">
+                                    <label for="inputEmail4" class="font-weight-bolder text-dark h3">MM/YYYY</label>
+                                    <input type="text" class="form-control bg-light" id="inputEmail4">
+                                </div>
+                                    <div class="form-group col-4 ml-lg-8">
+                                    <label for="inputPassword4" class="font-weight-bolder text-dark h3">CVC</label>
+                                    <input type="text" class="form-control bg-light" id="inputPassword4">
+                                    </div>
+                            </div>
+
+                            <!-- TODO: End Comment -->
+
+                            {% endcomment %}
+
+
+                            <input type="text"  id="category_id_join" value="{{ plan.category.id }}" hidden>
+                            <input type="hidden" id="plan_id_join" value="{{ plan.id }}">
+                            <input type="hidden" value="1" id="slots">
+                            <input type="hidden" id="switch_1" value="1">
+                            <input type="hidden" id="switch_2" value="1">
+                            <input type="hidden" id="switch_3" value="1">
+                            <input type="hidden" id="switch_4" value="1">
+                            <input id="joiningCondition" hidden value="">
+                            <input type="hidden" name="g-recaptcha-response" id='recaptcha_join'>
+
+                            <input type="submit" value="submit" class="btn btn-success fontw-weight-bolder mt-lg-4 w-25 float-right">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card border border-dark border-width-3 rounded-lg">
+                <div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 py-lg-2 my-lg-0">
+                    <h2 class="card-title text-uppercase font-weight-bolder text-dark mb-lg-0">
+                        Order Summary
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <p class="card-text h3">
+                                    {{ plan.category }} - {{ plan.plan_name }} Plan
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row py-lg-2">
+                            <div class="col">
+                                <p class="card-text h3">
+                                    Number of Guests
+                                </p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text font-weight-bolder h3 text-right text-dark">
+                                    1
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="card-text h3">
+                                    Subscription Fees
+                                </p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text font-weight-bolder h3 text-right text-dark">
+                                    $5/month
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row py-lg-2">
+                            <div class="col">
+                                <p class="card-text h3">
+                                    Mobile Cost
+                                </p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text font-weight-bolder h3 text-right text-dark">
+                                    $30/month
+                                </p>
+                            </div>
+                        </div>
+                        <hr class="text-dark border border-dark ">
+                        <div class="row py-lg-2">
+                            <div class="col">
+                                <p class="card-text h3 font-weight-bolder text-dark">
+                                    Total
+                                </p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text font-weight-bolder h3 text-right text-dark">
+                                    $35/month
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
