@@ -15,11 +15,10 @@
         </button>
       </div>
       <div class="modal-body">
-
+        
         <ul class="nav nav-tabs border-0 justify-content-center" id="myTab" role="tablist">
           <li class="nav-item col-md-4" >
-            <button class="btn btn-outline-success w-100 " id="home-tab" data-toggle="tab" href="#home" role="tab"
-              aria-controls="home" aria-selected="false" > Get a new number</button>
+            <a class="btn btn-outline-success w-100 "  href="{% url 'Join_Get_A_New_Number' plan.category.id plan.id %}" target="_blank"> Get a new number</a>
 
           </li>
           <li class="nav-item col-md-4 mt-1 mt-md-0 mt-lg-0 mt-xl-0" >
@@ -27,9 +26,7 @@
 
           </li>
           <li class="nav-item col-md-4 mt-1 mt-md-0 mt-lg-0 mt-xl-0" >
-            <button class="btn btn-outline-success w-100 " id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-              aria-controls="contact" aria-selected="false" > Switching carrier</button>
-
+            <a class="btn btn-outline-success w-100" href="{% url 'Join_Switch_Carrier' plan.category.id plan.id %}" target="_blank"> Switching carrier</a>
           </li>
 
           

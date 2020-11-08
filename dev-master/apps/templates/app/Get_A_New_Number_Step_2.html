@@ -2,7 +2,7 @@
 
 
 <div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 pt-lg-10 px-lg-0">
-    <h3 class="font-weight-bolder text-success"> Existing Verizon Customer  </h3>
+    <h3 class="font-weight-bolder text-success"> Get a new number  </h3>
     <div class="container-fluid px-lg-0 py-lg-0">
       <div class="row">
         <div class="col">
@@ -20,10 +20,15 @@
 </div>
 
 <div class="container-fluid px-lg-0">
-    <div class="row py-lg-8">
+    <div class="row py-lg-5">
         <div class="col-7">
             <div class="container">
-                <div class="row border border-dark border-top-0 border-left-0 border-right-0 border-width-3 pb-lg-4">
+                <div class="row">
+                    <h1 class="font-weight-bolder  text-dark text-uppercase mb-lg-1">
+                        Review
+                    </h1>
+                </div>
+                <div class="row border border-dark border-top-0 border-left-0 border-right-0 border-bottom-0 border-width-3 pb-lg-4">
                     <div class="col-6">
                         <div class="row">
                             <h3 class="font-weight-bolder text-dark mb-lg-1">
@@ -37,28 +42,41 @@
                         </div>
                         <div class="row pt-lg-3">
                             <h4 class="font-weight-bolder text-dark mb-lg-1">
-                                Active in the last 30 days?
+                                IMEI
                             </h4>
                         </div>
                         <div class="row">
-                            <p class="card-text h4">
-                                Yes
+                            <p class="card-text h4" >
+                                <span id="IMEI_Step_2">12345678912345678</span>
                             </p>
                         </div>
                     </div>
+                    
                     <div class="col-6 pl-lg-7">
                         <div class="row">
                             <h4 class="font-weight-bolder text-dark mb-lg-1">
-                                Account Manager 
+                                Area Code
                             </h4>
                         </div>
                         <div class="row">
                             <p class="card-text h4">
-                                Yes
+                                <span id="Area_Code_Step_2">12345678912345678</span>
                             </p>
                         </div>
                     </div>
                 </div>
+
+                <div class="row pt-lg-0">
+                    <h3 class="font-weight-bolder text-dark mb-lg-1">
+                        Next Steps
+                    </h3>
+                </div>
+                <div class="row border border-dark border-top-0 border-left-0 border-right-0 border-width-3 pb-lg-4">
+                    <p class="card-text h4">
+                        We'll begin processing your order and you should expect to receive your new Sim Card and number within 2 business days. You'll receive an email confirmation shortly.
+                    </p>
+                </div>
+
                 <div class="row py-lg-5">
                     <div class="col px-lg-0">
                         <h2 class="card-title font-weight-bolder text-uppercase text-dark mb-lg-0">
@@ -195,11 +213,7 @@
                             <input type="text"  id="category_id_join" value="{{ plan.category.id }}" hidden>
                             <input type="hidden" id="plan_id_join" value="{{ plan.id }}">
                             <input type="hidden" value="1" id="slots">
-                            <input type="hidden" id="switch_1" value="">
-                            <input type="hidden" id="switch_2" value="">
-                            <input type="hidden" id="switch_3" value="">
-                            <input type="hidden" id="switch_4" value="">
-                            <input id="joiningCondition" hidden value="Existing Customer">
+                            <input id="joiningCondition" hidden value="New Number">
                             <input type="hidden" name="g-recaptcha-response" id='recaptcha_join'>
 
                             <input type="submit" value="submit" class="btn btn-success fontw-weight-bolder mt-lg-4 w-25 float-right">

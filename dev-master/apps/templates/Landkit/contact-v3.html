@@ -37,6 +37,17 @@
     {% endfor %}
 {% endfor %}
 {% endif %}
+
+<style>
+  .border-width-2_5{
+    border-width: 3px !important;
+  }
+  .border-width-5{
+    border-width: 5px !important;
+  }
+
+</style>
+
     <section class="py-10 py-md-14 overlay overlay-black overlay-60 bg-cover" style="background-image: url({% static 'Landkit\images\covers\cover-5.jpg' %});">
       <div class="container">
         <div class="row justify-content-center">
@@ -52,18 +63,20 @@
     </section>
     <!-- INFO
     ================================================== -->
-    <section class="py-7 py-md-9 border-bottom border-gray-300" id="info">
-      <div class="container">
+    <section class="py-7 py-md-9 border-bottom-0 border-gray-300" id="info">
+      <div class="container-fluid px-lg-10">
         <div class="row">
-            <div class="col-4 border border-dark border-width-3 border-top-0 border-left-0 border-bottom-0 ">
-                <div class="row">
-                    <h1 class="card-title font-weight-bolder text-uppercase text-success">
+            <div class="col-4 border  border-dark  border-top-0 border-left-0 border-bottom-0 " style="border-right-width: 5px !important;">
+                <div class="row border border-dark border-top-0 border-left-0 border-right-0 border-width-5" >
+                    <h1 class="card-title font-weight-bolder text-uppercase text-dark">
                         Information
                     </h1>
                 </div>
-                <hr class="border border-dark border-width-3">
-                <div class="row">
-                    <h1 class="card-title font-weight-bolder text-uppercase text-success mb-lg-0">
+                
+
+                
+                <div class="row pt-lg-3">
+                    <h1 class="card-title font-weight-bolder text-uppercase text-dark mb-lg-0">
                         Hours
                     </h1>
                 </div>
@@ -73,7 +86,7 @@
                     </p>
                 </div>
                 <div class="row mt-lg-6">
-                    <h1 class="card-title font-weight-bolder text-uppercase text-success mb-lg-0">
+                    <h1 class="card-title font-weight-bolder text-uppercase text-dark mb-lg-0">
                         Email
                     </h1>
                 </div>
@@ -83,44 +96,56 @@
                     </p>
                 </div>
             </div>
+
+            <div class="col-8">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <p class="card-text h3 text-dark font-weight-normal">
+                      Looking for some help? Click on the chat bubble on the bottom right of the page to get in touch with a Circledin representative.
+                    </p>
+                  </div>
+                </div>
+                <div class="row mt-lg-7">
+                  <div class="col">
+                    <h1 class="text-uppercase font-weight-bolder text-dark">
+                      Let us hear from you directly!
+                    </h1>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <p class="card-text text-dark font-weight-normal h4 pr-lg-10">
+                      Leave a feedback and let us know how we can best assist you. Not seeing a service on our platform? Let us know below!
+                    </p>
+                  </div>
+                </div>
+                <div class="row mt-lg-7">
+                  <div class="col-12 col-md-12 col-lg-10">
+                    <!-- Form -->
+                    
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
+            <script>
+              hbspt.forms.create({
+              portalId: "8273202",
+              formId: "43afb830-2c55-461e-a3eb-c2343a9ce1cc"
+            });
+            $(document).ready(function()
+            {
+              $('data-reactid=".hbspt-forms-0.6"').remove();
+            });
+            </script>
+                  </div>
+                </div> <!-- / .row -->
+              </div>
+            </div>
         </div>
 
         
       </div>
     </section>
-    <section class="pt-8 pt-md-11 pb-8 pb-md-14">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12 col-md-10 col-lg-8 text-center">
-            <!-- Heading -->
-            <h2 class="font-weight-bold">
-              Let us hear from you directly!
-            </h2>
-            <!-- Text -->
-            <p class="font-size-lg text-muted mb-7 mb-md-9">
-              Leave a feedback and let us know how we can best assist you. Not seeing a service on our platform? Let us know below!
-            </p>
-          </div>
-        </div> <!-- / .row -->
-        <div class="row justify-content-center">
-          <div class="col-12 col-md-12 col-lg-10">
-            <!-- Form -->
-            
-    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
-    <script>
-      hbspt.forms.create({
-      portalId: "8273202",
-      formId: "43afb830-2c55-461e-a3eb-c2343a9ce1cc"
-    });
-    $(document).ready(function()
-    {
-      $('data-reactid=".hbspt-forms-0.6"').remove();
-    });
-    </script>
-          </div>
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
-    </section>
+    
+
     
 
 {% endblock %}

@@ -1480,3 +1480,15 @@ def Join_A_Plan_Get_A_New_Number(request, category_id, plan_id):
         'objects' : subscription.objects.all().count()
     }
     return render(request, template_name,context)
+
+@login_required
+def Join_A_Plan_Switch_Carrier(request, category_id, plan_id):
+    template_name="app/Join_Get_Switch_Carrier.html"
+    c = category.objects.get(id=category_id)
+    p = plan.objects.get(category = c, id=plan_id)
+    context={
+        'category' : c,
+        'plan' : p,
+        'objects' : subscription.objects.all().count()
+    }
+    return render(request, template_name,context)

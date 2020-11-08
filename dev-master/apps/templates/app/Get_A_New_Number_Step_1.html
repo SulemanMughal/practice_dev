@@ -1,0 +1,123 @@
+<div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 pt-lg-10 px-lg-0">
+    <h3 class="font-weight-bolder text-success"> Get a new number  </h3>
+    <div class="container-fluid px-lg-0 py-lg-0">
+      <div class="row">
+        <div class="col">
+          <h1 class="card-title display-5 text-dark font-weight-bolder text-uppercase mb-lg-0">
+            Device Compatibility
+        </h1>
+        </div>
+        <div class="col">
+          <h1 class=" card-title text-right display-5 text-dark text-uppercase font-weight-bolder mb-lg-0">
+            Step 1
+          </h1>
+        </div>
+      </div>
+    </div>
+</div>
+  <div class="container-fluid px-lg-0 ">
+    <div class="row py-lg-8 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-width-3">
+      <div class="col px-lg-0">
+        <h3 class="text-dark font-weight-bolder">
+          Will my phone work on this network?
+        </h3>
+        <p class="card-text pr-lg-11 text-dark  font-weight-normal" >
+          We recommend checking with the specific carrier to see if your device is compatible on their network. Optionally, type in your IMEI and we'll be happy to check for you. 
+        </p>
+      </div>
+      <div class="col">
+        <div class="container">
+          <div class="row px-lg-5">
+            <div class="col">
+                <input type="text" class="form-control border col-12 border-dark    bg-light " 
+                                placeholder="IMEI" name="IMEI" id="IMEI_1" required maxlength="17" />
+                <p class="card-text text-primary"></p>
+                Not sure how to get your IMEI? Follow one of the steps below
+                </p>
+                <ol class="font-size-sm">
+                <li>Enter <span class='font-weight-bolder'>*#06#</span> on your phone's dial pad.</li>
+                <li>Check in the settings:
+                <div>a. <span class='font-weight-bolder'>Android</span>: Go to Settings > About device > Status</div>
+                <div>b. <span class='font-weight-bolder'>iPhone</span>: Go to Settings > General > About</div>
+                <div>c. <span class='font-weight-bolder'>Windows Phone</span>: Go to Settings > About > More info</div>
+                </li>
+            </ol>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row py-lg-8 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-bottom-0   border-width-3">
+      <div class="col px-lg-0">
+        <h3 class="text-dark font-weight-bolder">
+          Location
+        </h3>
+        <p class="card-text pr-lg-11 text-dark font-weight-normal" >
+            Please  enter in a valid Area Code you would like your new number to be in
+        </p>
+      </div>
+      <div class="col">
+        <div class="container">
+          <div class="row  px-lg-5">
+            <div class="col">
+                <input type="text" class="form-control border border-dark bg-light" id="id_Area_code"
+                              placeholder="Area Code" name="AreaCode" required maxlength="5">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row py-lg-8 mx-lg-0 border-0">
+      <div class="col px-lg-0">
+        <p class="text-dark font-weight-normal">
+          *Our services require you to bring your own device.
+        </p>
+      </div>
+      
+    </div>
+
+  </div>
+
+
+<script>
+    $(document).ready(function(){
+        var $input1 = $("#id_Area_code");
+        var $input2 = $("#IMEI_1");
+
+        // Number conversion for IMEI-1
+        $input2.on("keyup", function (event) {
+            var $this = $(this);
+            var input = $this.val();
+            var input = input.replace(/[\D\s\._\-]+/g, "");
+            var split = 1;
+            var chunk = [];
+            for (var i = 0, len = input.length; i < len; i += split) {
+                split = 17;
+                chunk.push(input.substr(i, split));
+            }
+            $this.val(function () {
+                return chunk.join("-").toUpperCase();
+            });
+        });
+
+        // Number conversion for area code
+        $input1.on("keyup", function (event) {
+            var $this = $(this);
+            var input = $this.val();
+            var input = input.replace(/[\D\s\._\-]+/g, "");
+            var split = 1;
+            var chunk = [];
+            for (var i = 0, len = input.length; i < len; i += split) {
+                split = 17;
+                chunk.push(input.substr(i, split));
+            }
+            $this.val(function () {
+                return chunk.join("-").toUpperCase();
+            });
+        });
+    
+        
+    });
+</script>

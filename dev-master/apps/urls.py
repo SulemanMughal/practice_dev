@@ -46,6 +46,10 @@ urlpatterns = [
 
     # Plan Detail Page Get A New Number
     path('join-plan/<int:category_id>/<int:plan_id>/Get-A-New-Number', views.Join_A_Plan_Get_A_New_Number, name="Join_Get_A_New_Number"),
+
+    # Plan Detail Page Switch Carrier
+    
+    path('join-plan/<int:category_id>/<int:plan_id>/Switch-Carrier', views.Join_A_Plan_Switch_Carrier, name="Join_Switch_Carrier"),
     
     # ****************************************************************
     # Cancel a plan
