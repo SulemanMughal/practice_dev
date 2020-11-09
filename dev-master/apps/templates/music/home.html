@@ -21,17 +21,6 @@
 <script>
   $(document).ready(function () {
     var $grid = $("#portfolio").isotope({ layoutMode: "fitRows" });
-    // $('.filter-button-group').on( 'click', 'a', function() {
-  // var filterValue = $(this).attr('data-filter');
-  // $grid_mobile.isotope({ filter: filterValue });
-  // console.log("as;;dkmaskdmsalkd");
-// });
-//     var $grid = $("#portfolio").isotope({
-//   itemSelector: '.element-item',
-//   layoutMode: 'fitRows',
-//   // disable initial layout
-//   initLayout: false
-// });
     $('[data-target="#portfolio"]').on("click", function () {
       var i = $(this).attr("id");
       if (i == "all") {
@@ -62,6 +51,10 @@
     });
   });
 </script>
+
+
+
+
 {% endautoescape %} 
 {% endblock javascript %} 
 {% endblock content %}

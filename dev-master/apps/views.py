@@ -1388,7 +1388,7 @@ def ShipSubscription(request, user_id,plan_id, sub_id):
 def HowItWorks(request):
     context={         
     }
-    return render(request, "Landkit/How_It_Works_Page.html", context)
+    return render(request, "Landkit/How_It_Works_v3.html", context)
 
 @login_required
 def DeviceCompatibilityIssue(request, cat_id, plan_id):

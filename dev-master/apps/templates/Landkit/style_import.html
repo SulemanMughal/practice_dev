@@ -1,6 +1,7 @@
 {% load static %}
+
 <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
 <link rel="stylesheet" href="{% static 'Landkit/css/feather.css' %}">
 <link rel="stylesheet" href="{% static 'Landkit/css/jquery.fancybox.min.css'  %}">
 <link rel="stylesheet" href="{% static 'Landkit/css/theme.min.css' %}">
@@ -18,8 +19,20 @@
 
 <link rel="stylesheet" href="{% static 'music/css/countrySelect.css' %}">
 
+
+  
 {% endif %}
+
+
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  
 <script src="{% static 'music/js/jquery-2.2.4.min.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'Landkit/js/jquery.min.js' %} " defer></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/1.5.2/css/ionicons.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.1.0/flickity.pkgd.min.js"></script>
+
 
 <style>
   h1, h2, h3, h4, h5, h6, .font-League-Spartan{
@@ -75,6 +88,10 @@
 
   .text-shadow-bluish{
     text-shadow: 5px 5px rgba(22, 28, 45, 0.1) !important;
+  }
+
+  .text-shadow-none{
+    text-shadow: none !important
   }
 
   .text-pure-black{
