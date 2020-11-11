@@ -224,21 +224,25 @@ function fixStepIndicator(n) {
     $("#option11").on("change", function(){
       if($(this).prop("checked") == true){
         $("#30-days-active-line-invalid").show();
+        $("#active-line-response").html("No");
       }
     });
     $("#option12").on("change", function(){
       if($(this).prop("checked") == true){
         $("#30-days-active-line-invalid").hide();
+        $("#active-line-response").html("Yes");
       }
     });
     $("#option21").on("change", function(){
       if($(this).prop("checked") == true){
-        $("#account-owner-invalid").show()
+        $("#account-owner-invalid").show();
+        $("#account-owner-response").html("No");
       }
     });
     $("#option22").on("change", function(){
       if($(this).prop("checked") == true){
-        $("#account-owner-invalid").hide()
+        $("#account-owner-invalid").hide();
+        $("#account-owner-response").html("Yes");
       }
     });
   }); 
