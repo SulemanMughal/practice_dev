@@ -76,28 +76,21 @@
     {% include "modals/payment_processing_waiting_modal.html" %}
     {% include "modals/payment_error.html" %}
     
-    <hr class="border border-success border-width-3 mt-lg-9 ml-lg-0 sticky-top" style="position: fixed !important; border-width: 10px !important;" id="progressbar">
-    <div class="card px-lg-10 pb-lg-10">
+    <hr class="border border-success border-width-3 mt-9 mt-md-9 mt-lg-9 ml-lg-0 sticky-top" style="position: fixed !important; border-width: 10px !important;" id="progressbar">
+    <div class="card px-4 px-lg-10 pb-8 pb-lg-10">
       
-        <div class="card-body p-0 pt-lg-3">
-            
-            <div class="tab">
-                {% include 'app/Switch_Carrier_Step_1.html' %}              
-              </div>
+        <div class="card-body p-0 pt-3 pt-lg-3">
 
-            <div class="tab">
-                  {% include 'app/Switch_Carrier_Step_2.html' %}              
-                </div>
     
                 <div class="tab">
-                  {% include 'app/Switch_Carrier_Step_3.html' %}              
+                  {% include 'app/Switch_Carrier_Step_2.html' %}              
                 </div>
                 
                 <div  style="overflow:auto;">
     
                   <div style="float:right;">
-                    <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-success px-lg-9 mr-lg-3">Previous</button>
-                    <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-success px-lg-9">Next</button>
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-success  mr-4 mr-md-6 mr-lg-3 px-7 px-md-8 px-lg-9">Previous</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-success mr-5 px-9  px-lg-9">Next</button>
                   </div>
                 </div>
                 <div class="d-none" style="text-align:center;margin-top:40px;">

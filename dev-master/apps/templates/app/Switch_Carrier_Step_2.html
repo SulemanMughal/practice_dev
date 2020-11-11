@@ -1,9 +1,7 @@
 {% load static humanize FindSubUser findNextMonth findNextYear findFindSubID findSubStatus FindSubObject findPaymentCurrentDay  findSubSlots findSubCancelStatus FindCategoryPlanInfo mathfilters findUserPhone FindPlanFixedPrice %}
-
-
-<div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 pt-lg-10 px-lg-0">
-    <h3 class="font-weight-bolder text-success"> Switching carriers  </h3>
-    <div class="container-fluid px-lg-0 py-lg-0">
+<div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 pt-11 pt-lg-10 px-0 px-lg-0">
+    <h3 class="font-weight-bolder text-success"> Switching carriers </h3>
+    <div class="container-fluid  px-lg-0 py-lg-0 d-none d-lg-block">
       <div class="row">
         <div class="col">
           <h1 class="card-title display-5 text-dark font-weight-bolder text-uppercase mb-lg-0">
@@ -17,106 +15,202 @@
         </div>
       </div>
     </div>
+    <div class="container-fluid  px-0 px-lg-0 py-0 py-lg-0 d-block d-lg-none">
+        <div class="row">
+          <div class="col">
+            <h1 class="card-title  text-dark font-weight-bolder text-uppercase text-nowrap font-size-lg mb-0 mb-lg-0">
+              Confirm and Pay
+          </h1>
+          </div>
+          <div class="col">
+            <h1 class=" card-title text-right text-dark text-uppercase font-weight-bolder font-size-lg mb-0 mb-lg-0">
+              Step 2
+            </h1>
+          </div>
+        </div>
+      </div>
 </div>
-
-<div class="container-fluid px-lg-0">
-    <div class="row py-lg-5">
-        <div class="col-7">
+<div class="container-fluid px-0 px-lg-0">
+    <div class="row py-4 py-lg-5">
+        <div class="col-12 col-lg-7">
             <div class="container">
                 <div class="row">
-                    <h1 class="font-weight-bolder  text-dark text-uppercase mb-lg-1">
+                    <h1 class="font-weight-bolder  text-dark text-uppercase mb-1 mb-lg-1">
                         Review
                     </h1>
                 </div>
-                <div class="row border border-dark border-top-0 border-left-0 border-right-0  border-width-3 pb-lg-4">
-                    <div class="col-6">
+                <div class="row border border-dark border-top-0 border-left-0 border-right-0  border-width-3 pb-4 pb-lg-4">
+                    <div class="col-12 col-lg-6">
                         <div class="row">
-                            <h3 class="font-weight-bolder text-dark mb-lg-1">
+                            <h3 class="font-weight-bolder text-dark mx-auto mx-lg-0 mb-1 mb-lg-1">
                                 Plan
                             </h3>
                         </div>
                         <div class="row">
-                            <p class="card-text h4">
+                            <p class="card-text h4 mx-auto mx-lg-0">
                                 {{ plan.category }} - {{ plan.plan_name }} Plan
                             </p>
                         </div>
-                        <div class="row pt-lg-3">
-                            <h4 class="font-weight-bolder text-dark mb-lg-1">
+                        <div class="row pt-3 pt-lg-3">
+                            <h4 class="font-weight-bolder text-dark mx-auto mx-lg-0 mb-1  mb-lg-1">
                                 Port
                             </h4>
                         </div>
                         <div class="row">
-                            <p class="card-text h4" >
+                            <p class="card-text h4 mx-auto mx-lg-0 mb-1 " >
                                 <span id="Port_Step_2">Yes</span>
                             </p>
                         </div>
-                        <div class="row pt-lg-3">
-                            <h4 class="font-weight-bolder text-dark mb-lg-1">
+                        <div class="row pt-3 pt-lg-3">
+                            <h4 class="font-weight-bolder text-dark mx-auto mx-lg-0 mb-1  mb-lg-1">
                                 Account Number
                             </h4>
                         </div>
                         <div class="row">
-                            <p class="card-text h4" >
+                            <p class="card-text h4 mx-auto mx-lg-0 mb-1 " >
                                 <span id="Account_Number_Step_2">1234567890</span>
                             </p>
                         </div>
-                        <div class="row pt-lg-3">
-                            <h4 class="font-weight-bolder text-dark mb-lg-1">
+                        <div class="row pt-3 pt-lg-3">
+                            <h4 class="font-weight-bolder text-dark mx-auto mx-lg-0 mb-1  mb-lg-1">
                                 IMEI
                             </h4>
                         </div>
                         <div class="row">
-                            <p class="card-text h4" >
+                            <p class="card-text h4 mx-auto mx-lg-0 mb-1 " >
                                 <span id="IMEI_Step_2">1234567890</span>
                             </p>
                         </div>
                     </div>
                     
-                    <div class="col-6 pl-lg-7">
-                        <div class="row">
-                            <h4 class="font-weight-bolder text-dark mb-lg-1">
+                    <div class="col-12 col-lg pl-lg-7">
+                        <div class="row pt-3 pt-lg-0">
+                            <h4 class="font-weight-bolder text-dark mx-auto mx-lg-0 mb-1  mb-lg-1">
                                 Area Code
                             </h4>
                         </div>
                         <div class="row">
-                            <p class="card-text h4">
+                            <p class="card-text h4 mx-auto mx-lg-0 mb-1 ">
                                 <span id="Area_Code_Step_2">12345678912345678</span>
                             </p>
                         </div>
-                        <div class="row pt-lg-3">
-                            <h4 class="font-weight-bolder text-dark mb-lg-1">
+                        <div class="row pt-3 pt-lg-3">
+                            <h4 class="font-weight-bolder text-dark mx-auto mx-lg-0 mb-1  mb-lg-1">
                                 Port Number
                             </h4>
                         </div>
                         <div class="row">
-                            <p class="card-text h4" >
+                            <p class="card-text h4 mx-auto mx-lg-0 mb-1 " >
                                 <span id="Port_Number_Step_2">1234567890</span>
                             </p>
                         </div>
-                        <div class="row pt-lg-3">
-                            <h4 class="font-weight-bolder text-dark mb-lg-1">
+                        <div class="row pt-3 pt-lg-3">
+                            <h4 class="font-weight-bolder text-dark mx-auto mx-lg-0 mb-1  mb-lg-1">
                                 Pin
                             </h4>
                         </div>
                         <div class="row">
-                            <p class="card-text h4" >
+                            <p class="card-text h4 mx-auto mx-lg-0 mb-1 " >
                                 <span id="Pin_Step_2">1234567890</span>
                             </p>
                         </div>
-                        <div class="row pt-lg-3">
-                            <h4 class="font-weight-bolder text-dark mb-lg-1">
+                        <div class="row pt-3 pt-lg-3">
+                            <h4 class="font-weight-bolder text-dark mx-auto mx-lg-0 mb-1  mb-lg-1">
                                 Current Carrier
                             </h4>
                         </div>
                         <div class="row">
-                            <p class="card-text h4" >
+                            <p class="card-text h4 mx-auto mx-lg-0 mb-1 " >
                                 <span id="Carrier_Step_2">Verizon</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="row pt-3 pt-lg-3">
+                            <h4 class="font-weight-bolder text-dark mx-auto mx-lg-0 mb-lg-1">
+                                Next Steps
+                            </h4>
+                        </div>
+                        <div class="row">
+                            <p class="card-text h4 mx-auto mx-lg-0 text-center text-lg-left">
+                                We'll begin processing your order and you should expect to receive your new Sim Card and number within 2 business days.You'll receive an email confirmation shortly.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                
+                <div class="row border-0 pt-3 pb-4 pb-lg-4 d-block d-lg-none">
+                    <div class="col-12 col-lg">
+                        <div class="card border border-dark border-width-3 rounded-lg">
+                            <div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 my-0  my-lg-0 py-2 py-lg-2 px-4">
+                                <h2 class="card-title text-uppercase font-weight-bolder text-dark text-left  mb-0 mb-lg-0">
+                                    Order Summary
+                                </h2>
+                            </div>
+                            <div class="card-body pt-3 px-0">
+                                <div class="container-fluid">
+                                    <div class="row py-1">
+                                        <div class="col">
+                                            <p class="card-text h3 text-left">
+                                                {{ plan.category }} - {{ plan.plan_name }} Plan
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row py-1">
+                                        <div class="col-8">
+                                            <p class="card-text h3">
+                                                Number of Guests
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-text font-weight-bolder h3 text-right text-dark">
+                                                1
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row py-1">
+                                        <div class="col-7">
+                                            <p class="card-text h3">
+                                                Subscription Fees
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-text font-weight-bolder h3 text-right text-dark">
+                                                $5/month
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row py-1">
+                                        <div class="col">
+                                            <p class="card-text h3">
+                                                Mobile Cost
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-text font-weight-bolder h3 text-right text-dark">
+                                                $30/month
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr class="text-dark border border-dark ">
+                                    <div class="row py-1">
+                                        <div class="col">
+                                            <p class="card-text h3 font-weight-bolder text-dark">
+                                                Total
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-text font-weight-bolder h3 text-right text-dark">
+                                                $35/month
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row py-lg-5">
                     <div class="col px-lg-0">
@@ -129,21 +223,21 @@
                     <div class="col px-lg-0 ">
                         <form  id="subscription-form"  method="POST" class="needs-validation" novalidate>
                             <div class="form-row">
-                                <div class="form-group col ">
+                                <div class="form-group col-12 col-lg ">
                                     <label for="example5-name" class="font-weight-bolder text-dark h3">First Name</label>
                                     <input type="text" class="form-control bg-light" id="example5-name">
                                 </div>
-                                    <div class="form-group col">
+                                    <div class="form-group col-12 col-lg">
                                     <label for="inputPassword4" class="font-weight-bolder text-dark h3">Last Name</label>
                                     <input type="text" class="form-control bg-light" id="inputPassword4">
                                     </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col ">
+                                <div class="form-group col-12 col-lg ">
                                     <label for="emailid " class="font-weight-bolder text-dark h3">Email Address</label>
                                     <input type="text" class="form-control bg-light" id="example5-email">
                                     </div>
-                                    <div class="form-group col">
+                                    <div class="form-group col-12 col-lg">
                                     <label for="example5-phone" class="font-weight-bolder text-dark h3">Phone Number</label>
                                     <input type="tel" class="form-control bg-light" id="example5-phone" maxlength="12">
                                     </div>
@@ -153,13 +247,13 @@
                                 <input type="text" class="form-control bg-light" id="example5-address" placeholder="">
                             </div>
                             <div class="form-row pb-lg-4">
-                                <div class="form-group col">
+                                <div class="form-group col-12 col-lg">
                                     <label for="example5-city" class="font-weight-bolder text-dark h3">City</label>
                                     <input type="text" class="form-control bg-light" id="example5-city">
                                 </div>
-                                <div class="form-group col">
+                                <div class="form-group col-12 col-lg">
                                     <label for="example5-state" class="font-weight-bolder text-dark h3">State</label>
-                                    <select id="example5-state" required data-tid="elements_examples.form.state_placeholder" class="input empty" autocomplete="address-level1" >
+                                    <select id="example5-state" required data-tid="elements_examples.form.state_placeholder" class="input empty form-control" autocomplete="address-level1" >
                   
                                         <option  selected="" value="None" >Select State</option>
                                         <option value="AL" >AL</option>
@@ -215,7 +309,7 @@
                                         <option value="WY" >WY</option>
                                     </select>
                                 </div>
-                                <div class="form-group col">
+                                <div class="form-group col-12 col-lg">
                                     <label for="example5-zip" class="font-weight-bolder text-dark h3">Zip Code</label>
                                     <input type="text" class="form-control bg-light" id="example5-zip">
                                 </div>
@@ -227,28 +321,7 @@
                                 <div id="example5-card" class="input bg-light"></div>
                               </div>
                             
-                            <!-- TODO: Comment -->
-                            {% comment %}
-                            
-                            <div class="form-group pt-lg-3">
-                                <label for="inputAddress" class="font-weight-bolder h3 text-dark">Card Number</label>
-                                <input type="text" class="form-control bg-light" id="inputAddress" placeholder="">
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group col-4">
-                                    <label for="inputEmail4" class="font-weight-bolder text-dark h3">MM/YYYY</label>
-                                    <input type="text" class="form-control bg-light" id="inputEmail4">
-                                </div>
-                                    <div class="form-group col-4 ml-lg-8">
-                                    <label for="inputPassword4" class="font-weight-bolder text-dark h3">CVC</label>
-                                    <input type="text" class="form-control bg-light" id="inputPassword4">
-                                    </div>
-                            </div>
-
-                            <!-- TODO: End Comment -->
-
-                            {% endcomment %}
+                           
 
 
                             <input type="text"  id="category_id_join" value="{{ plan.category.id }}" hidden>
@@ -261,13 +334,13 @@
                             <input id="joiningCondition" hidden value="Switch Carrier">
                             <input type="hidden" name="g-recaptcha-response" id='recaptcha_join'>
 
-                            <input type="submit" value="submit" class="btn btn-success fontw-weight-bolder mt-lg-4 w-25 float-right">
+                            <input type="submit" value="Submit" class="btn btn-success fontw-weight-bolder float-right mt-4 mt-lg-4 w-25 pl-7 pl-md-0 pr-11 pr-md-0">
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col-12 col-lg d-none d-lg-block">
             <div class="card border border-dark border-width-3 rounded-lg">
                 <div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 py-lg-2 my-lg-0">
                     <h2 class="card-title text-uppercase font-weight-bolder text-dark mb-lg-0">

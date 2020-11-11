@@ -4,22 +4,18 @@
 {% block title %} Join a Plan - Get a new number {% endblock %}
 {% block content %}
 <style>
-  
 h1, h2, h3, h4, h5, h6, .font-League-Spartan{
     font-family: 'League Spartan Bold', arial;
   }
-
   p, a, span, input, .font-Glacial-Indifference, .btn{
     font-family: 'Glacial Indifference' !important;
   }
-
      /* Style the form */
 #regForm {
   background-color: #ffffff;
   width: 100%;
   min-width: 300px;
 }
-
 /* Style the input fields */
 input {
   padding: 10px;
@@ -28,18 +24,14 @@ input {
   font-family: Raleway;
   border: 1px solid #aaaaaa;
 }
-
 /* Mark input boxes that gets an error on validation: */
 input.invalid {
   background-color: #ffdddd !important;
-  
 }
-
 /* Hide all steps by default: */
 .tab {
   display: none;
 }
-
 /* Make circles that indicate the steps of the form: */
 .step {
   height: 15px;
@@ -51,51 +43,43 @@ input.invalid {
   display: none;
   opacity: 0.5;
 }
-
 /* Mark the active step: */
 .step.active {
   display: none;
   opacity: 1;
 }
-
 /* Mark the steps that are finished and valid: */
 .step.finish {
   display: none;
   background-color: #4CAF50;
 } 
-
 .border-width-3{
     border-width: 3px !important;
 }
-
 </style>
-
 {% include 'modals/FeedbackForms.html' with edit=False subs=request.user|FindSubObject:plan.id   %}
 {% include "modals/finishing_payment_modal.html" %}
 {% include "modals/payment_processing_waiting_modal.html" %}
 {% include "modals/payment_error.html" %}
-
-<hr class="border border-success border-width-3 mt-lg-9 ml-lg-0 sticky-top" style="position: fixed !important; border-width: 10px !important;" id="progressbar">
-<div class="card px-lg-10 pb-lg-10">
-  
-    <div class="card-body p-0 pt-lg-3">
-        
-            <div class="tab">
-              {% include 'app/Get_A_New_Number_Step_1.html' %}
-            </div>
-            <div class="tab">
-              {% include 'app/Get_A_New_Number_Step_2.html' %}              
-            </div>
-
-            <div class="tab">
-              {% include 'app/Get_A_New_Number_Step_3.html' %}              
+<hr class="border border-success border-width-3 mt-9 mt-md-9 mt-lg-9 ml-0 ml-lg-0 sticky-top" style="position: fixed !important; border-width: 10px !important;" id="progressbar">
+<div class="card px-4 px-lg-10 pb-8 pb-lg-10">
+    <div class="card-body p-0 pt-3 pt-lg-3">
+            
+      <div class="tab">
+        {% include 'app/Get_A_New_Number_Step_1.html' %}
+      </div>
+      <div class="tab">
+        {% include 'app/Get_A_New_Number_Step_2.html' %}
+      </div>      
+      
+      <div class="tab">
+              {% include 'app/Get_A_New_Number_Step_3.html' %}
             </div>
             
-            <div  style="overflow:auto;">
-
+            <div    style="overflow:auto;">
               <div style="float:right;">
-                <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-success px-lg-9 mr-lg-3">Previous</button>
-                <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-success px-lg-9">Next</button>
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-success  mr-4 mr-md-6 mr-lg-3 px-7 px-md-8 px-lg-9">Previous</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-success mr-5 px-8 px-lg-9">Next</button>
               </div>
             </div>
             <div class="d-none" style="text-align:center;margin-top:40px;">
@@ -103,33 +87,20 @@ input.invalid {
               <span class="step"></span>
               <span class="step"></span>
             </div>
-            
-            
     </div>
 </div>
-
-
 {% block javascript %}
-
-
-
 <!-- ? Point to te noted -->
 <!-- TODO: Hide Next Button on second tab -->
-
-
 {% include "payment/payment_script_work.html" %}
 <script src="https://js.stripe.com/v3/"></script>
 <script type="text/javascript" src="{% static 'music/client.js' %}"></script>
-
-
 <script>
     $(document).ready(function(){
       $("#progressbar").css("width", "25%");
     });
-    
     var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
-
 function showTab(n) {
   // This function will display the specified tab of the form ...
   var x = document.getElementsByClassName("tab");
@@ -143,14 +114,10 @@ function showTab(n) {
   else{
     $("#nextBtn").show();
   }
-
   // ... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
-    
-    
   } 
-  
   else {
     document.getElementById("prevBtn").style.display = "inline";
   }
@@ -163,16 +130,12 @@ function showTab(n) {
   // ... and run a function that displays the correct step indicator:
   fixStepIndicator(n)
 }
-
 function nextPrev(n) {
-
   if(n==-1){
     $("#progressbar").css("width", "25%");
   }
   // This function will figure out which tab to display
   var x = document.getElementsByClassName("tab");
-
-
   // Exit the function if any field in the current tab is invalid:
   if (n == 1 && !validateForm()) return false;
   // Hide the current tab:
@@ -188,7 +151,6 @@ function nextPrev(n) {
   // Otherwise, display the correct tab:
   showTab(currentTab);
 }
-
 function validateForm() {
   // This function deals with validation of the form fields
   var x, y, i, valid = true;
@@ -210,7 +172,6 @@ function validateForm() {
   }
   return valid; // return the valid status
 }
-
 function fixStepIndicator(n) {
   // This function removes the "active" class of all steps...
   var i, x = document.getElementsByClassName("step");
@@ -221,11 +182,5 @@ function fixStepIndicator(n) {
   x[n].className += " active";
 }
 </script>
-
-
-
-
-
 {% endblock javascript %}
-
 {% endblock %}

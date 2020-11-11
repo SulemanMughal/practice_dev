@@ -69,59 +69,55 @@ input.invalid {
 }
 
 </style>
-
 {% include 'modals/FeedbackForms.html' with edit=False subs=request.user|FindSubObject:plan.id   %}
 {% include "modals/finishing_payment_modal.html" %}
 {% include "modals/payment_processing_waiting_modal.html" %}
 {% include "modals/payment_error.html" %}
 
-<hr class="border border-success border-width-3 mt-lg-9 ml-lg-0 sticky-top" style="position: fixed !important; border-width: 10px !important;" id="progressbar">
-<div class="card px-lg-10 pb-lg-10">
-  
-    <div class="card-body p-0 pt-lg-3">
-        
-            <div class="tab">
-              {% include 'app/Existing_Customer_Step_1.html' %}
-            </div>
-            <div class="tab">
-              {% include 'app/Existing_Customer_Step_2.html' %}              
-            </div>
-
-            <div class="tab">
-              {% include 'app/Existing_Customer_Step_3.html' %}              
-            </div>
-            
-            <div  style="overflow:auto;">
-
-              <div style="float:right;">
-                <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-success px-lg-9 mr-lg-3">Previous</button>
-                <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-success px-lg-9">Next</button>
-              </div>
-            </div>
-            <div class="d-none" style="text-align:center;margin-top:40px;">
-              <span class="step"></span>
-              <span class="step"></span>
-              <span class="step"></span>
-            </div>
-            
-            
+<hr class="border border-success border-width-3 mt-9 mt-md-9 mt-lg-9 ml-lg-0 sticky-top" style="position: fixed !important; border-width: 10px !important;" id="progressbar">
+<div class="card px-4  px-lg-10 pb-10 pb-lg-10">
+  <div class="card-body p-0 p-lg-0 pt-lg-3">
+    
+    <div class="tab">
+      {% include 'app/Existing_Customer_Step_1.html' %}              
     </div>
-</div>
 
+    <div class="tab">
+      {% include 'app/Existing_Customer_Step_2.html' %}              
+    </div>
+    <div class="tab">
+      {% include 'app/Existing_Customer_Step_3.html' %}              
+    </div>
+    <div  style="overflow:auto;">
+      <div style="float:right;">
+        <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-success  mr-4 mr-md-6 mr-lg-3 px-7 px-md-8 px-lg-9">Previous</button>
+        <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-success mr-5 px-9  px-lg-9">Continue</button>
+      </div>
+    </div>
+    <div class="container d-none">
+      <div class="row mx-auto mt-5">
+        <div class="col">
+          <p class="card-text text-center">
+            *Our services require you to bring your own device. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="d-none" style="text-align:center;margin-top:40px;">
+      <span class="step"></span>
+      <span class="step"></span>
+      <span class="step"></span>
+    </div>
+  </div>
+</div>
+{% include "Landkit/footer.html" %} 
 
 {% block javascript %}
-
-
-
 <!-- ? Point to te noted -->
 <!-- TODO: Hide Next Button on second tab -->
-
-
 {% include "payment/payment_script_work.html" %}
 <script src="https://js.stripe.com/v3/"></script>
 <script type="text/javascript" src="{% static 'music/client.js' %}"></script>
-
-
 <script>
     $(document).ready(function(){
       $("#progressbar").css("width", "25%");
@@ -219,7 +215,6 @@ function fixStepIndicator(n) {
   x[n].className += " active";
 }
 </script>
-
 <script>
   $(document).ready(function(){
 
@@ -248,11 +243,5 @@ function fixStepIndicator(n) {
     });
   }); 
 </script>
-
-
-
-
-
 {% endblock javascript %}
-
 {% endblock %}

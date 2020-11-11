@@ -1,6 +1,6 @@
-<div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 pt-lg-10 px-lg-0">
+<div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 pt-11 pt-lg-10 px-0 px-lg-0">
     <h3 class="font-weight-bolder text-success"> Switching carriers  </h3>
-    <div class="container-fluid px-lg-0 py-lg-0">
+    <div class="container-fluid px-lg-0 py-lg-0 d-none d-lg-block">
       <div class="row">
         <div class="col">
           <h1 class="card-title display-5 text-dark font-weight-bolder text-uppercase mb-lg-0">
@@ -14,20 +14,34 @@
         </div>
       </div>
     </div>
+    <div class="container-fluid px-0 px-lg-0 py-0 py-lg-0 d-block d-lg-none">
+      <div class="row">
+        <div class="col">
+          <h1 class="card-title  text-dark font-weight-bolder text-uppercase text-nowrap font-size-lg mb-0 mb-lg-0">
+            Device Compatibility
+        </h1>
+        </div>
+        <div class="col">
+          <h1 class=" card-title text-right text-dark text-uppercase font-weight-bolder font-size-lg mb-0 mb-lg-0">
+            Step 1
+          </h1>
+        </div>
+      </div>
+    </div>
 </div>
   <div class="container-fluid px-lg-0 ">
-    <div class="row py-lg-8 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-width-3">
-      <div class="col px-lg-0">
-        <h3 class="text-dark font-weight-bolder">
+    <div class="row py-4 py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-width-3">
+      <div class="col-12 col-lg px-0 px-lg-0 py-3 py-lg-0">
+        <h3 class="text-dark font-weight-bolder text-center text-lg-left">
           Will my phone work on this network?
         </h3>
-        <p class="card-text pr-lg-11 text-dark  font-weight-normal" >
+        <p class="card-text text-left text-lg-left px-4  px-lg-0 pr-0 pr-lg-11 text-dark  font-weight-normal" >
           We recommend checking with the specific carrier to see if your device is compatible on their network. Optionally, type in your IMEI and we'll be happy to check for you. 
         </p>
       </div>
-      <div class="col">
+      <div class="col-12 col-lg px-0 px-lg-0">
         <div class="container">
-          <div class="row px-lg-5">
+          <div class="row px-0 px-lg-5">
             <div class="col">
                 <input type="text" class="form-control border col-12 border-dark    bg-light " 
                                 placeholder="IMEI" name="IMEI" id="IMEI_1" required maxlength="17" />
@@ -48,40 +62,43 @@
         </div>
       </div>
     </div>
-    <div class="row py-lg-8 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-width-3">
-        <div class="col px-lg-0">
-          <h3 class="text-dark font-weight-bolder">
+    <div class="row py-4 py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-width-3">
+        <div class="col-12 col-lg px-0 px-lg-0">
+          <h3 class="text-dark font-weight-bolder text-center text-lg-left mx-auto mx-lg-0">
             Would you like to port over your number?
           </h3>
-          <p class="card-text font-weight-bolder text-danger" id="port-number-no-select-option">Please select a option from the given ones.</p>
+          <p class="card-text font-weight-bolder text-danger text-center text-lg-left" id="port-number-no-select-option">Please select a option from the given ones.</p>
         </div>
-        <div class="col">
+        <div class="col-12 col-lg px-0 px-lg-0">
           <div class="container">
-            <div class="row float-right px-lg-5">
-              <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success mx-lg-8 px-lg-8 border-radius-6 ">
-                  <input type="radio" name="options" id="option11"> No
-                </label>
-                <label class="btn btn-success px-lg-8 border-radius-6">
-                  <input type="radio" name="options" id="option12"> Yes
-                </label>
+            <div class="row float-lg-right mt-3 mt-lg-0 mx-0 mx-lg-0 px-lg-0">
+              <div class="col text-center px-0 px-lg-0">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-success ml-0 mr-6 mx-lg-8 px-8 px-lg-8 border-radius-6 ">
+                    <input type="radio" name="options" id="option11"> No
+                  </label>
+                  <label class="btn btn-success px-8 px-lg-8 border-radius-6">
+                    <input type="radio" name="options" id="option12"> Yes
+                  </label>
+                </div>
               </div>
+              
             </div>
           </div>
         </div>
       </div>
-    <div class="row py-lg-8 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-bottom-0   border-width-3" id="port_over_number_no_case">
-      <div class="col px-lg-0">
-        <h3 class="text-dark font-weight-bolder">
+    <div class="row py-4 py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-bottom-0   border-width-3" id="port_over_number_no_case">
+      <div class="col-12 col-lg px-0 px-lg-0 mb-2 mb-lg-0">
+        <h3 class="text-dark font-weight-bolder text-center text-lg-left">
           Location
         </h3>
-        <p class="card-text pr-lg-11 text-dark font-weight-normal" >
+        <p class="card-text text-center text-lg-left pr-lg-11 text-dark font-weight-normal " >
             Please  enter in a valid Area Code you would like your new number to be in
         </p>
       </div>
-      <div class="col">
+      <div class="col-12 col-lg px-0">
         <div class="container">
-          <div class="row  px-lg-5">
+          <div class="row px-0  px-lg-5">
             <div class="col">
                 <input type="text" class="form-control border border-dark bg-light" id="id_Area_code"
                               placeholder="Area Code" name="AreaCode" required maxlength="5">
@@ -91,13 +108,13 @@
       </div>
     </div>
 
-    <div class="row py-lg-8 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-bottom-0   border-width-3" id="port_over_number_yes_case">
-        <div class="col px-lg-0">
-          <h3 class="text-dark font-weight-bolder">
+    <div class="row py-4 py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-bottom-0   border-width-3" id="port_over_number_yes_case">
+        <div class="col-12 col-lg px-0 px-lg-0">
+          <h3 class="text-dark font-weight-bolder text-center text-lg-left">
             Port over my number!
           </h3>
         </div>
-        <div class="col">
+        <div class="col-12 col-lg px-0">
           <div class="container">
             <div class="row  px-lg-5">
               <div class="col">
@@ -133,15 +150,15 @@
         </div>
       </div>
 
-    <div class="row py-lg-8 mx-lg-0 border-0">
-      <div class="col px-lg-0">
-        <p class="text-dark font-weight-normal">
-          *Our services require you to bring your own device.
-        </p>
+      <div class="row border-0 mx-0 mx-lg-0  py-4 py-lg-8  ">
+        <div class="col px-0 px-lg-0">
+          <p class="text-dark font-weight-normal text-center text-lg-left">
+            *Our services require you to bring your own device.
+          </p>
+        </div>
+        
       </div>
-      
-    </div>
-
+    
   </div>
 
 
