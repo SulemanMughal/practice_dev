@@ -1,375 +1,393 @@
+{% extends 'Base.html' %}
+{% load static humanize FindSubUser findNextMonth findNextYear findFindSubID findSubStatus FindSubObject findPaymentCurrentDay  findSubSlots findSubCancelStatus FindCategoryPlanInfo mathfilters FindPlanFixedPrice  %}
+{% include "Landkit/META_TAG.html" %}
+{% block title %} Join a Plan - Switch Carrier {% endblock %}
+{% block content %}
+<style>
 
-    {% extends 'Base.html' %}
-    {% load static humanize FindSubUser findNextMonth findNextYear findFindSubID findSubStatus FindSubObject findPaymentCurrentDay  findSubSlots findSubCancelStatus FindCategoryPlanInfo mathfilters FindPlanFixedPrice  %}
-    {% include "Landkit/META_TAG.html" %}
-    {% block title %} Join a Plan - Switch Carrier {% endblock %}
-    {% block content %}
-    <style>
-      
-    h1, h2, h3, h4, h5, h6, .font-League-Spartan{
-        font-family: 'League Spartan Bold', arial;
-      }
-    
-      p, a, span, input, .font-Glacial-Indifference, .btn{
-        font-family: 'Glacial Indifference' !important;
-      }
-    
-         /* Style the form */
-    #regForm {
-      background-color: #ffffff;
-      width: 100%;
-      min-width: 300px;
-    }
-    
-    /* Style the input fields */
-    input {
-      padding: 10px;
-      width: 100%;
-      font-size: 17px;
-      font-family: Raleway;
-      border: 1px solid #aaaaaa;
-    }
-    
-    /* Mark input boxes that gets an error on validation: */
-    input.invalid {
-      background-color: #ffdddd !important;
-      
-    }
-    
-    /* Hide all steps by default: */
-    .tab {
-      display: none;
-    }
-    
-    /* Make circles that indicate the steps of the form: */
-    .step {
-      height: 15px;
-      width: 15px;
-      margin: 0 2px;
-      background-color: #bbbbbb;
-      border: none;
-      border-radius: 50%;
-      display: none;
-      opacity: 0.5;
-    }
-    
-    /* Mark the active step: */
-    .step.active {
-      display: none;
-      opacity: 1;
-    }
-    
-    /* Mark the steps that are finished and valid: */
-    .step.finish {
-      display: none;
-      background-color: #4CAF50;
-    } 
-    
-    .border-width-3{
-        border-width: 3px !important;
-    }
-    
-    </style>
-    
-    {% include 'modals/FeedbackForms.html' with edit=False subs=request.user|FindSubObject:plan.id   %}
-    {% include "modals/finishing_payment_modal.html" %}
-    {% include "modals/payment_processing_waiting_modal.html" %}
-    {% include "modals/payment_error.html" %}
-    
-    <hr class="border border-success border-width-3 mt-9 mt-md-9 mt-lg-9 ml-lg-0 sticky-top" style="position: fixed !important; border-width: 10px !important;" id="progressbar">
-    <div class="card px-4 px-lg-10 pb-8 pb-lg-10">
-      
-        <div class="card-body p-0 pt-3 pt-lg-3">
+h1, h2, h3, h4, h5, h6, .font-League-Spartan{
+font-family: 'League Spartan Bold', arial;
+}
 
-      <div class="tab">
-                  {% include 'app/Switch_Carrier_Step_1.html' %}              
-                </div>
-                <div class="tab">
-                  {% include 'app/Switch_Carrier_Step_2.html' %}              
-                </div>
+p, a, span, input, .font-Glacial-Indifference, .btn{
+font-family: 'Glacial Indifference' !important;
+}
 
-                <div class="tab">
-                  {% include 'app/Switch_Carrier_Step_3.html' %}              
-                </div>
-                
-                <div  style="overflow:auto;">
-    
-                  <div style="float:right;">
-                    <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-success  mr-4 mr-md-6 mr-lg-3 px-7 px-md-8 px-lg-9">Previous</button>
-                    <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-success mr-5 px-9  px-lg-9">Next</button>
-                  </div>
-                </div>
-                <div class="d-none" style="text-align:center;margin-top:40px;">
-                  <span class="step"></span>
-                  <span class="step"></span>
-                  <span class="step"></span>
-                </div>
-                
-                
+  /* Style the form */
+#regForm {
+background-color: #ffffff;
+width: 100%;
+min-width: 300px;
+}
+
+/* Style the input fields */
+input {
+padding: 10px;
+width: 100%;
+font-size: 17px;
+font-family: Raleway;
+border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+background-color: #ffdddd !important;
+
+}
+
+/* Hide all steps by default: */
+.tab {
+display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+height: 15px;
+width: 15px;
+margin: 0 2px;
+background-color: #bbbbbb;
+border: none;
+border-radius: 50%;
+display: none;
+opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+display: none;
+opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+display: none;
+background-color: #4CAF50;
+} 
+
+.border-width-3{
+border-width: 3px !important;
+}
+
+</style>
+
+{% include 'modals/FeedbackForms.html' with edit=False subs=request.user|FindSubObject:plan.id   %}
+{% include "modals/finishing_payment_modal.html" %}
+{% include "modals/payment_processing_waiting_modal.html" %}
+{% include "modals/payment_error.html" %}
+
+<hr class="border border-success border-width-3 mt-9 mt-md-9 mt-lg-9 ml-lg-0 sticky-top" style="position: fixed !important; border-width: 10px !important;" id="progressbar">
+<div class="card px-4 px-lg-10 pb-8 pb-lg-10">
+
+<div class="card-body p-0 pt-3 pt-lg-3">
+
+<div class="tab">
+          {% include 'app/Switch_Carrier_Step_1.html' %}              
         </div>
-    </div>
-    
-    
-    {% block javascript %}
-    
-    
-
-
-
-    
-    <!-- ? Point to te noted -->
-    <!-- TODO: Hide Next Button on second tab -->
-    
-    
-    {% include "payment/payment_script_work.html" %}
-    <script src="https://js.stripe.com/v3/"></script>
-    <script type="text/javascript" src="{% static 'music/client.js' %}"></script>
-    
-    
-    <script>
-        $(document).ready(function(){
-    
-            $("#port_over_number_no_case, #port_over_number_yes_case, #port-number-no-select-option").hide();
-            
-            var $input1 = $("#id_Area_code");
-            var $input2 = $("#IMEI_1");
-    
-            // Number conversion for IMEI-1
-            $input2.on("keyup", function (event) {
-                var $this = $(this);
-                var input = $this.val();
-                var input = input.replace(/[\D\s\._\-]+/g, "");
-                var split = 1;
-                var chunk = [];
-                for (var i = 0, len = input.length; i < len; i += split) {
-                    split = 17;
-                    chunk.push(input.substr(i, split));
-                }
-                $this.val(function () {
-                    return chunk.join("-").toUpperCase();
-                });
-            });
-    
-            // Number conversion for area code
-            $input1.on("keyup", function (event) {
-                var $this = $(this);
-                var input = $this.val();
-                var input = input.replace(/[\D\s\._\-]+/g, "");
-                var split = 1;
-                var chunk = [];
-                for (var i = 0, len = input.length; i < len; i += split) {
-                    split = 17;
-                    chunk.push(input.substr(i, split));
-                }
-                $this.val(function () {
-                    return chunk.join("-").toUpperCase();
-                });
-            });
         
-    
-            // Check condition for port over number
-            // Case-NO
-            $("#option11").on("change", function(){
-                if($(this).prop("checked") == true){
-                    $("#port-number-no-select-option").hide();
-                    $("#port_over_number_no_case").show();
-                    $("#port_over_number_yes_case").hide();
-                } 
-            });
-
-            // Case-YES
-            $("#option12").on("change", function(){
-                if($(this).prop("checked") == true){
-                    $("#port-number-no-select-option").hide();
-                    $("#port_over_number_no_case").hide();
-                    $("#port_over_number_yes_case").show();
-                }
-            });
-            
-        });
-    </script>
-
-
-
-
-    <script>
-        $(document).ready(function(){
-          $("#progressbar").css("width", "25%");
-        });
+        <div class="tab">
+          {% include 'app/Switch_Carrier_Step_2.html' %}              
+        </div>
         
-        var currentTab = 0; // Current tab is set to be the first tab (0)
-    showTab(currentTab); // Display the current tab
-    
-    function showTab(n) {
-      // This function will display the specified tab of the form ...
-      var x = document.getElementsByClassName("tab");
-      x[n].style.display = "block";
-      if(n==1){
-        $("#progressbar").css("width", "50%");
-        $("#nextBtn").hide();
-      }
-      else{
-        $("#nextBtn").show();
-      }
-    
-      // ... and fix the Previous/Next buttons:
-      if (n == 0) {
-        document.getElementById("prevBtn").style.display = "none";
+
+        <div class="tab">
+          {% include 'app/Switch_Carrier_Step_3.html' %}              
+        </div>
+        
+
+        <div  style="overflow:auto;">
+
+          <div style="float:right;">
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-success  mr-4 mr-md-6 mr-lg-3 px-7 px-md-8 px-lg-9">Previous</button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-success mr-5 px-9  px-lg-9">Next</button>
+          </div>
+        </div>
+        <div class="d-none" style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
         
         
-      } 
-      
-      else {
-        document.getElementById("prevBtn").style.display = "inline";
-      }
-      if (n == (x.length - 1)) {
-        $("#progressbar").css("width", "100%");
-        document.getElementById("nextBtn").innerHTML = "Submit";
-      } else {
-        document.getElementById("nextBtn").innerHTML = "Next";
-      }
-      // ... and run a function that displays the correct step indicator:
-      fixStepIndicator(n)
-    }
-    
-    function nextPrev(n) {
-    
-      if(n==-1){
-        $("#progressbar").css("width", "25%");
-      }
-      // This function will figure out which tab to display
-      var x = document.getElementsByClassName("tab");
-    
-    
-      // Exit the function if any field in the current tab is invalid:
-      if (n == 1 && !validateForm()) return false;
-      // Hide the current tab:
-      x[currentTab].style.display = "none";
-      // Increase or decrease the current tab by 1:
-      currentTab = currentTab + n;
-      // if you have reached the end of the form... :
-      if (currentTab >= x.length) {
-        //...the form gets submitted:
-        document.getElementById("regForm").submit();
-        return false;
-      }
-      // Otherwise, display the correct tab:
-      showTab(currentTab);
-    }
-    
-    function validateForm() {
-      // This function deals with validation of the form fields
-      var x, y, i, valid = true;
-      x = document.getElementsByClassName("tab");
-      y = x[currentTab].getElementsByTagName("input");
-      // A loop that checks every input field in the current tab:
+</div>
+</div>
 
 
-        if($("#option11").prop("checked") != true && $("#option12").prop("checked") != true ){
-            valid=false;
-            $("#port-number-no-select-option").show();
+{% block javascript %}
+
+
+
+
+
+
+<!-- ? Point to te noted -->
+<!-- TODO: Hide Next Button on second tab -->
+
+
+{% include "payment/payment_script_work.html" %}
+<script src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript" src="{% static 'music/client.js' %}"></script>
+
+
+<script>
+$(document).ready(function(){
+
+    $("#port_over_number_no_case, #port_over_number_yes_case, #port-number-no-select-option").hide();
+    
+    var $input1 = $("#id_Area_code");
+    var $input2 = $("#IMEI_1");
+
+    // Number conversion for IMEI-1
+    $input2.on("keyup", function (event) {
+        var $this = $(this);
+        var input = $this.val();
+        var input = input.replace(/[\D\s\._\-]+/g, "");
+        var split = 1;
+        var chunk = [];
+        for (var i = 0, len = input.length; i < len; i += split) {
+            split = 17;
+            chunk.push(input.substr(i, split));
         }
-        else{
+        $this.val(function () {
+            return chunk.join("-").toUpperCase();
+        });
+    });
+
+    // Number conversion for area code
+    $input1.on("keyup", function (event) {
+        var $this = $(this);
+        var input = $this.val();
+        var input = input.replace(/[\D\s\._\-]+/g, "");
+        var split = 1;
+        var chunk = [];
+        for (var i = 0, len = input.length; i < len; i += split) {
+            split = 17;
+            chunk.push(input.substr(i, split));
+        }
+        $this.val(function () {
+            return chunk.join("-").toUpperCase();
+        });
+    });
+
+
+    // Check condition for port over number
+    // Case-NO
+    $("#option11").on("change", function(){
+        if($(this).prop("checked") == true){
             $("#port-number-no-select-option").hide();
+            $("#port_over_number_no_case").show();
+            $("#port_over_number_yes_case").hide();
+        } 
+    });
+
+    // Case-YES
+    $("#option12").on("change", function(){
+        if($(this).prop("checked") == true){
+            $("#port-number-no-select-option").hide();
+            $("#port_over_number_no_case").hide();
+            $("#port_over_number_yes_case").show();
         }
-
-      if($("#IMEI_1").val() == ""){
-        $("#IMEI_1").addClass("invalid");
-        valid = false;
-      }
-
-      if($("#option11").prop("checked") == true){
-          
-        if($("#id_Area_code").val().trim() == ""){
-            $("#id_Area_code").addClass("invalid");
-            valid = false;
-        }
-      }
-
-      if($("#option12").prop("checked") == true){
-        if($("#switch_1").val().trim() == "" || $("#switch_2").val().trim() == "" || $("#switch_3").val().trim() == "" || $("#switch_4").val().trim() == "")
-        {
-            if($("#switch_1").val().trim() == ""){
-                $("#switch_1").addClass("invalid");
-            }
-            if($("#switch_2").val().trim() == ""){
-                $("#switch_2").addClass("invalid");
-            }
-
-            if($("#switch_3").val().trim() == ""){
-                $("#switch_3").addClass("invalid");
-            }
-
-            if($("#switch_4").val().trim() == ""){
-                $("#switch_4").addClass("invalid");
-            }
-            valid = false;
-        }
-      }
+    });
     
-      
-      
-    //   for (i = 0; i < y.length; i++) {
-    //     // If a field is empty...
-    //     if (y[i].value == "") {
-    //       // add an "invalid" class to the field:
-    //       y[i].className += " invalid";
-    //       // and set the current valid status to false:
-    //       valid = false;
-    //     }
-    //   }
+});
+</script>
 
 
-    if($("#option12").prop("checked") == true){
-        $("#Port_Step_2").html("");
-        $("#Port_Step_2").html("Yes");
+
+
+<script>
+$(document).ready(function(){
+  $("#progressbar").css("width", "25%");
+});
+
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+// This function will display the specified tab of the form ...
+var x = document.getElementsByClassName("tab");
+x[n].style.display = "block";
+if(n==1){
+$("#progressbar").css("width", "50%");
+$("#nextBtn").hide();
+}
+else{
+$("#nextBtn").show();
+}
+
+// ... and fix the Previous/Next buttons:
+if (n == 0) {
+document.getElementById("prevBtn").style.display = "none";
+
+
+} 
+
+else {
+document.getElementById("prevBtn").style.display = "inline";
+}
+if (n == (x.length - 1)) {
+$("#progressbar").css("width", "100%");
+document.getElementById("nextBtn").innerHTML = "Submit";
+} else {
+document.getElementById("nextBtn").innerHTML = "Next";
+}
+// ... and run a function that displays the correct step indicator:
+fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+
+if(n==-1){
+$("#progressbar").css("width", "25%");
+}
+// This function will figure out which tab to display
+var x = document.getElementsByClassName("tab");
+
+
+// Exit the function if any field in the current tab is invalid:
+if (n == 1 && !validateForm()) return false;
+// Hide the current tab:
+x[currentTab].style.display = "none";
+// Increase or decrease the current tab by 1:
+currentTab = currentTab + n;
+// if you have reached the end of the form... :
+if (currentTab >= x.length) {
+//...the form gets submitted:
+document.getElementById("regForm").submit();
+return false;
+}
+// Otherwise, display the correct tab:
+showTab(currentTab);
+}
+
+function validateForm() {
+// This function deals with validation of the form fields
+var x, y, i, valid = true;
+x = document.getElementsByClassName("tab");
+y = x[currentTab].getElementsByTagName("input");
+// A loop that checks every input field in the current tab:
+
+
+if($("#option11").prop("checked") != true && $("#option12").prop("checked") != true ){
+    valid=false;
+    $("#port-number-no-select-option").show();
+}
+else{
+    $("#port-number-no-select-option").hide();
+}
+
+if($("#IMEI_1").val() == ""){
+$("#IMEI_1").addClass("invalid");
+valid = false;
+}
+
+if($("#option11").prop("checked") == true){
+  
+if($("#id_Area_code").val().trim() == ""){
+    $("#id_Area_code").addClass("invalid");
+    valid = false;
+}
+}
+
+if($("#option12").prop("checked") == true){
+if($("#switch_1").val().trim() == "" || $("#switch_2").val().trim() == "" || $("#switch_3").val().trim() == "" || $("#switch_4").val().trim() == "")
+{
+    if($("#switch_1").val().trim() == ""){
+        $("#switch_1").addClass("invalid");
+    }
+    if($("#switch_2").val().trim() == ""){
+        $("#switch_2").addClass("invalid");
     }
 
-    if($("#option11").prop("checked") == true){
-        $("#Port_Step_2").html("");
-        $("#Port_Step_2").html("No");
+    if($("#switch_3").val().trim() == ""){
+        $("#switch_3").addClass("invalid");
     }
 
-    $("#Account_Number_Step_2").html("");
-    $("#Account_Number_Step_2").html($("#switch_2").val());
-
-    $("#IMEI_Step_2").html("");
-    $("#IMEI_Step_2").html($("#IMEI_1").val());
-
-    $("#Area_Code_Step_2").html("");
-    $("#Area_Code_Step_2").html($("#id_Area_code").val());
-
-    $("#Port_Number_Step_2").html("");
-    $("#Port_Number_Step_2").html($("#switch_1").val());
-
-    $("#Pin_Step_2").html("");
-    $("#Pin_Step_2").html($("#switch_3").val());
-
-    $("#Carrier_Step_2").html("");
-    $("#Carrier_Step_2").html($("#switch_4").val());
-    
-      // If the valid status is true, mark the step as finished and valid:
-      if (valid) {
-        document.getElementsByClassName("step")[currentTab].className += " finish";
-      }
-      return valid; // return the valid status
+    if($("#switch_4").val().trim() == ""){
+        $("#switch_4").addClass("invalid");
     }
-    
-    function fixStepIndicator(n) {
-      // This function removes the "active" class of all steps...
-      var i, x = document.getElementsByClassName("step");
-      for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(" active", "");
-      }
-      //... and adds the "active" class to the current step:
-      x[n].className += " active";
-    }
-    </script>
-    
-    
-    
-    
-    
-    {% endblock javascript %}
-    
-    {% endblock %}
+    valid = false;
+}
+}
+
+
+
+//   for (i = 0; i < y.length; i++) {
+//     // If a field is empty...
+//     if (y[i].value == "") {
+//       // add an "invalid" class to the field:
+//       y[i].className += " invalid";
+//       // and set the current valid status to false:
+//       valid = false;
+//     }
+//   }
+
+
+if($("#option12").prop("checked") == true){
+$("#Port_Step_2").html("");
+$("#Port_Step_2").html("Yes");
+}
+
+if($("#option11").prop("checked") == true){
+$("#Port_Step_2").html("");
+$("#Port_Step_2").html("No");
+}
+
+$("#Account_Number_Step_2").html("");
+$("#Account_Number_Step_2").html($("#switch_2").val());
+
+$("#IMEI_Step_2").html("");
+$("#IMEI_Step_2").html($("#IMEI_1").val());
+
+$("#Area_Code_Step_2").html("");
+$("#Area_Code_Step_2").html($("#id_Area_code").val());
+
+$("#Port_Number_Step_2").html("");
+$("#Port_Number_Step_2").html($("#switch_1").val());
+
+$("#Pin_Step_2").html("");
+$("#Pin_Step_2").html($("#switch_3").val());
+
+$("#Carrier_Step_2").html("");
+$("#Carrier_Step_2").html($("#switch_4").val());
+
+// If the valid status is true, mark the step as finished and valid:
+if (valid) {
+document.getElementsByClassName("step")[currentTab].className += " finish";
+}
+return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+// This function removes the "active" class of all steps...
+var i, x = document.getElementsByClassName("step");
+for (i = 0; i < x.length; i++) {
+x[i].className = x[i].className.replace(" active", "");
+}
+//... and adds the "active" class to the current step:
+x[n].className += " active";
+}
+</script>
+
+
+
+<!-- * Payment Model State Select Styling Changes -->
+<script>
+$(document).ready(function()
+{
+$("#example5-state").on("change", function(){
+if($("#example5-state :selected").val() != "None")
+{
+$("#selectTagError").hide(); 
+}
+else{
+$("#selectTagError").show(); 
+}
+})
+});
+</script>
+
+
+
+{% endblock javascript %}
+
+{% endblock %}

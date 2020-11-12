@@ -102,7 +102,6 @@ background: linear-gradient(133deg, rgba(121,9,9,1) 39%, rgba(2,0,36,1) 100%, rg
   </div>
 
 </section>
-
 <section class="bg-light p-2 mt-5">
   <div class="container">
     <div class="row">
@@ -430,83 +429,85 @@ background: linear-gradient(133deg, rgba(121,9,9,1) 39%, rgba(2,0,36,1) 100%, rg
 
   </div>
 </section>
-
 {% include "Landkit/footer.html" %}
-
 {% include "app/device-campatibility.html" with plan=plan %}
-
-
-
-
-
 {% endwith %}
 {% endautoescape %}
-
-
-
 <script>
   $(document).ready(function()
 {
-      $('#end_payment_exampleModal').on('hidden.bs.modal', function (e) {
-        window.location.replace('.');
+  $('#end_payment_exampleModal').on('hidden.bs.modal', function (e) {
+    window.location.replace('.');
 });
-
-
-
-
-$('#end_payment_exampleModal').on('shown.bs.modal', function (e) {
-  $("#exampleModalpayment_processing_waiting_modal").modal("hide");
-});
-
-
-
+  $('#end_payment_exampleModal').on('shown.bs.modal', function (e) {
+    $("#exampleModalpayment_processing_waiting_modal").modal("hide");
   });
+});
 </script>
-
-
 <script>
   $(document).ready(function()
   {
-      // ? Functionality for the number of guests selected from the join-detail plan page 
+
+
+    $("#GET_A_NUMBER, #EXISTING_CUSTOMER, #SWITCHING_CARRIER").val($("#exampleFormControlSelect1").val());
+    // Change the URL of GET_A_NUMBER
+    // $("#GET_A_NUMBER").attr("href", $("#GET_A_NUMBER").attr("href") + "?number_guest="  + $("#exampleFormControlSelect1").val());
+  
+    // Change the URL  of EXISTING CUSTOMER
+    // $("#EXISTING_CUSTOMER").attr("href", $("#EXISTING_CUSTOMER").attr("href") + "?number_guest="  + $("#exampleFormControlSelect1").val());
+
+  // Change the URL of SWITCHING CARRIER
+  // $("#SWITCHING_CARRIER").attr("href", $("#SWITCHING_CARRIER").attr("href") + "?number_guest="  + $("#exampleFormControlSelect1").val());
+
+      // Functionality for the number of guests selected from the join-detail plan page 
       $("#exampleFormControlSelect1").on("change", function(){
-          
-       
         $("#dynamic_field_4 input").remove();
-        
         for(var j = 1; j < $("#exampleFormControlSelect1").val(); j++){
           $('#dynamic_field_4').append('<input type="text" name="switch_1"  placeholder="Enter Phone number #' + (j+1) + ' (Optional)" class="form-control bg-light border border-dark col-12 col-md-6 col-lg-5 ml-7 mt-2" maxlength="12" autocomplete="off" />'); 
         }
-          
-          // TODO: Change the value of selected number of slots
-          $("#slots").val($("#exampleFormControlSelect1").val());
+        
+        // TODO: Change the value of selected number of slots
+        $("#slots").val($("#exampleFormControlSelect1").val());
+        $("#GET_A_NUMBER, #EXISTING_CUSTOMER, #SWITCHING_CARRIER").val($("#exampleFormControlSelect1").val());
+        // $("#GET_A_NUMBER").val($("#exampleFormControlSelect1").val());
 
-          // TODO: Change the text display on the pay button of the payment form
-          $('[data-tid="elements_examples.form.pay_button"]').text("Pay $" + $("#exampleFormControlSelect1").val()*5 + "");
+        // Change the URL of GET_A_NUMBER
+        // $("#GET_A_NUMBER").attr("href", $("#GET_A_NUMBER").attr("href") + "?number_guest="  + $("#exampleFormControlSelect1").val());
 
-          // TODO : Change the value of the 'number of slots' on payment
-          $('[name="number_of_slots"]').val($("#exampleFormControlSelect1 :selected").val());
+        // Change the URL  of EXISTING CUSTOMER
+        // $("#EXISTING_CUSTOMER").attr("href", $("#EXISTING_CUSTOMER").attr("href") + "?number_guest="  + $("#exampleFormControlSelect1").val());
 
-          var elem_1 = $(this).children("option:selected").val();
-          var elem_2 = $("#payment").attr("data");
-          $("#total").html("$" +  ((elem_1 * elem_2) + 5 * elem_1 ) + " /month");
-          $("#paymentSub").html((elem_1 * elem_2));
-          $("#subs_Section").html(5 * elem_1 );
+        // Change the URL of SWITCHING CARRIER
+        // $("#SWITCHING_CARRIER").attr("href", $("#SWITCHING_CARRIER").attr("href") + "?number_guest="  + $("#exampleFormControlSelect1").val());
+        
+        
+        // TODO: Change the text display on the pay button of the payment form
+        $('[data-tid="elements_examples.form.pay_button"]').text("Pay $" + $("#exampleFormControlSelect1").val()*5 + "");
 
-          // TODO:  Display IMEI and Area code inputs based on the selected number of guests
-          if($("#slots").val() >=2){
-            //  For Tab 1 IMEI
-            $("#add").show();
-            $("#dynamic_field tr").show();
-     
-            // For Tab 3 IMEI
-            $("#add_2").show();
-            $("#dynamic_field_2 tr").show();
+        // TODO : Change the value of the 'number of slots' on payment
+        $('[name="number_of_slots"]').val($("#exampleFormControlSelect1 :selected").val());
+
+        var elem_1 = $(this).children("option:selected").val();
+        var elem_2 = $("#payment").attr("data");
+        $("#total").html("$" +  ((elem_1 * elem_2) + 5 * elem_1 ) + " /month");
+        $("#paymentSub").html((elem_1 * elem_2));
+        $("#subs_Section").html(5 * elem_1 );
+
+        // TODO:  Display IMEI and Area code inputs based on the selected number of guests
+        if($("#slots").val() >=2){
+          //  For Tab 1 IMEI
+          $("#add").show();
+          $("#dynamic_field tr").show();
     
-            // For Area Code Tab 1 
-            $("#add_3").show();
-            $("#dynamic_field_3 tr").show();
-          }
-          else{
+          // For Tab 3 IMEI
+          $("#add_2").show();
+          $("#dynamic_field_2 tr").show();
+  
+          // For Area Code Tab 1 
+          $("#add_3").show();
+          $("#dynamic_field_3 tr").show();
+        }
+        else{
             // For Tab 1  IMEI
             $("#add").hide();
             $("#dynamic_field tr").hide();
@@ -526,7 +527,7 @@ $('#end_payment_exampleModal').on('shown.bs.modal', function (e) {
       });
 
 
-$("#dynamic_field_4 input").remove();
+    $("#dynamic_field_4 input").remove();
       for(var j = 1; j < $("#exampleFormControlSelect1").val(); j++){
           $('#dynamic_field_4').append('<input type="text" name="switch_1"  placeholder="Enter Phone number #' + (j+1) + ' (Optional)" class="form-control bg-light border border-dark col-12 col-md-6 col-lg-5 ml-2" maxlength="12" autocomplete="off" />'); 
         }
@@ -579,8 +580,5 @@ $("#dynamic_field_4 input").remove();
         $('[name="number_of_slots"]').val($("#exampleFormControlSelect1 :selected").val());
   });
 </script>
-
-
 {% endblock %}
-
 <!-- TODO: See number_of_slots_script.js to see the manipulations of total  amount in the card -->

@@ -29,22 +29,33 @@
       </div>
     </div>
 </div>
-  <div class="container-fluid px-lg-0 ">
-    <div class="row py-4 py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-width-3">
-      <div class="col-12 col-lg px-0 px-lg-0 py-3 py-lg-0">
-        <h3 class="text-dark font-weight-bolder text-center text-lg-left">
+  <div class="container-fluid px-md-0 px-lg-0 ">
+    <div class="row py-4 py-md-6 py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-width-3">
+      <div class="col-12 col-md col-lg px-0 px-lg-0 py-3 py-md-0 py-lg-0">
+        <h3 class="text-dark font-weight-bolder text-center text-md-left text-lg-left">
           Will my phone work on this network?
         </h3>
-        <p class="card-text text-left text-lg-left px-4  px-lg-0 pr-0 pr-lg-11 text-dark  font-weight-normal" >
-          We recommend checking with the specific carrier to see if your device is compatible on their network. Optionally, type in your IMEI and we'll be happy to check for you. 
+        <p class="card-text text-left text-md-left text-lg-left  text-dark  font-weight-normal px-4   px-md-0 px-lg-0 pr-0 pr-md-9 pr-lg-11" >
+          We recommend checking with the specific carrier to see if your device is compatible on their network. Optionally, type in your IMEI, ICCID and ESIM/DIGITAL SIM and we'll be happy to check for you. 
         </p>
       </div>
-      <div class="col-12 col-lg px-0 px-lg-0">
+      <div class="col-12 col-md col-lg px-0 px-lg-0">
         <div class="container">
           <div class="row px-0 px-lg-5">
             <div class="col">
+              <div class="row">
                 <input type="text" class="form-control border col-12 border-dark    bg-light " 
-                                placeholder="IMEI" name="IMEI" id="IMEI_1" required maxlength="17" />
+                placeholder="IMEI" name="IMEI" id="IMEI_1" required maxlength="17" />
+              </div>
+              <div class="row mt-2">
+                <input type="text" class="form-control border col-12 border-dark    bg-light " 
+                placeholder="ICCID"  required maxlength="17" />
+              </div>
+              <div class="row mt-2">
+                <input type="text" class="form-control border col-12 border-dark    bg-light " 
+                placeholder="DIGITAL SIM" required maxlength="17" />
+              </div>
+                
                 <p class="card-text text-primary"></p>
                 Not sure how to get your IMEI? Follow one of the steps below
                 </p>
@@ -62,19 +73,19 @@
         </div>
       </div>
     </div>
-    <div class="row py-4 py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-width-3">
-        <div class="col-12 col-lg px-0 px-lg-0">
-          <h3 class="text-dark font-weight-bolder text-center text-lg-left mx-auto mx-lg-0">
+    <div class="row py-4 py-md-6 py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-width-3">
+        <div class="col-12 col-md col-lg px-0 px-lg-0">
+          <h3 class="text-dark font-weight-bolder text-center text-md-left text-lg-left mx-auto mx-md-0 mx-lg-0">
             Would you like to port over your number?
           </h3>
-          <p class="card-text font-weight-bolder text-danger text-center text-lg-left" id="port-number-no-select-option">Please select a option from the given ones.</p>
+          <p class="card-text font-weight-bolder text-danger text-center text-md-left text-lg-left" id="port-number-no-select-option">Please select a option from the given ones.</p>
         </div>
-        <div class="col-12 col-lg px-0 px-lg-0">
+        <div class="col-12 col-md col-lg px-0 px-lg-0">
           <div class="container">
-            <div class="row float-lg-right mt-3 mt-lg-0 mx-0 mx-lg-0 px-lg-0">
+            <div class="row float-lg-right mt-3 mt-md-0 mt-lg-0 mx-0 mx-lg-0 px-lg-0">
               <div class="col text-center px-0 px-lg-0">
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                  <label class="btn btn-success ml-0 mr-6 mx-lg-8 px-8 px-lg-8 border-radius-6 ">
+                  <label class="btn btn-success ml-0 mr-6 mx-md-8 mx-lg-8 px-8 px-lg-8 border-radius-6 ">
                     <input type="radio" name="options" id="option11"> No
                   </label>
                   <label class="btn btn-success px-8 px-lg-8 border-radius-6">
@@ -87,16 +98,16 @@
           </div>
         </div>
       </div>
-    <div class="row py-4 py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-bottom-0   border-width-3" id="port_over_number_no_case">
-      <div class="col-12 col-lg px-0 px-lg-0 mb-2 mb-lg-0">
-        <h3 class="text-dark font-weight-bolder text-center text-lg-left">
+    <div class="row py-4 py-md-6 py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-bottom-0   border-width-3" id="port_over_number_no_case">
+      <div class="col-12 col-md col-lg px-0 px-lg-0 mb-2 mb-md-0 mb-lg-0">
+        <h3 class="text-dark font-weight-bolder text-center text-md-left text-lg-left">
           Location
         </h3>
-        <p class="card-text text-center text-lg-left pr-lg-11 text-dark font-weight-normal " >
+        <p class="card-text text-center text-md-left text-lg-left pr-lg-11 text-dark font-weight-normal " >
             Please  enter in a valid Area Code you would like your new number to be in
         </p>
       </div>
-      <div class="col-12 col-lg px-0">
+      <div class="col-12 col-md col-lg px-0">
         <div class="container">
           <div class="row px-0  px-lg-5">
             <div class="col">
@@ -108,13 +119,13 @@
       </div>
     </div>
 
-    <div class="row py-4 py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-bottom-0   border-width-3" id="port_over_number_yes_case">
-        <div class="col-12 col-lg px-0 px-lg-0">
-          <h3 class="text-dark font-weight-bolder text-center text-lg-left">
+    <div class="row py-4 py-md-6 py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-bottom-0   border-width-3" id="port_over_number_yes_case">
+        <div class="col-12 col-md col-lg px-0 px-lg-0">
+          <h3 class="text-dark font-weight-bolder text-center text-md-left text-lg-left">
             Port over my number!
           </h3>
         </div>
-        <div class="col-12 col-lg px-0">
+        <div class="col-12 col-md  col-lg px-0">
           <div class="container">
             <div class="row  px-lg-5">
               <div class="col">
@@ -123,14 +134,14 @@
                     <input type="text" class="form-control bg-light"  placeholder="Enter Phone number#1" maxlength="12" name="switch_1" id="switch_1">
                 </div>
                 <div class="form-group">
-                    <label  class="font-weight-bold card-text text-dark">What's your account number on your existing carrier? <button type="button" class="btn p-1 pt-3 p-lg-1   pt-lg-3 mb-10px" data-toggle="popover" title=""   data-content="<p class='text-primary font-weight-bolder'>Account Number Information</p>We use this information to transition you from your existing carrier to the new carrier so that you don’t need to deal with the logistics. This helps ensure a seamless process." 
+                    <label  class="font-weight-bold card-text text-dark">What's your account number on your existing carrier? <button type="button" class="btn p-1 pt-3 p-lg-1  mb-md-0  pt-lg-3 mb-10px" data-toggle="popover" title=""   data-content="<p class='text-primary font-weight-bolder'>Account Number Information</p>We use this information to transition you from your existing carrier to the new carrier so that you don’t need to deal with the logistics. This helps ensure a seamless process." 
                         data-html="true"><i class="fa fa-info-circle text-success font-italic"></i></button></label>
                     <input type="text" class="form-control bg-light"  placeholder="Input Here" id="switch_2" maxlength="12">
                 </div>
                 <div class="form-group">
                     <label  class="font-weight-bold card-text text-dark">What's your pin on your existing carrier?<button 
                         type="button" 
-                        class="btn p-1 pt-3 p-lg-1 pt-lg-3 mb-10px" 
+                        class="btn p-1 pt-3 p-lg-1 mb-md-0 pt-lg-3 mb-10px" 
                         data-toggle="popover"  
                         data-content="<p class='text-primary font-weight-bolder'>Pin Information</p>We use this information to transition you from your existing carrier to the new carrier so that you don’t need to deal with the logistics. This helps ensure a seamless process." 
                         data-html="true" >
@@ -150,9 +161,9 @@
         </div>
       </div>
 
-      <div class="row border-0 mx-0 mx-lg-0  py-4 py-lg-8  ">
+      <div class="row border-0 mx-0 mx-lg-0  py-4 py-md-6 py-lg-8  ">
         <div class="col px-0 px-lg-0">
-          <p class="text-dark font-weight-normal text-center text-lg-left">
+          <p class="text-dark font-weight-normal text-center text-md-left text-lg-left">
             *Our services require you to bring your own device.
           </p>
         </div>

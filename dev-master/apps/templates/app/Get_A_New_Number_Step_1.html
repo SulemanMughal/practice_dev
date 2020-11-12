@@ -31,21 +31,33 @@
 </div>
 
 <div class="container-fluid px-0 px-lg-0 ">
-  <div class="row py-4 py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-width-3">
-    <div class="col-12 col-lg px-0 px-lg-0 py-3 py-lg-0">
-      <h3 class="text-dark font-weight-bolder text-center text-lg-left">
+  <div class="row py-4 py-md-6  py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-width-3">
+    <div class="col-12 col-md col-lg px-0 px-lg-0 py-3 py-md-0 py-lg-0">
+      <h3 class="text-dark font-weight-bolder text-center text-md-left text-lg-left">
         Will my phone work on this network?
       </h3>
-      <p class="card-text text-left text-lg-left px-4  px-lg-0 pr-0 pr-lg-11 text-dark  font-weight-normal" >
-        We recommend checking with the specific carrier to see if your device is compatible on their network. Optionally, type in your IMEI and we'll be happy to check for you. 
+      <p class="card-text text-left text-lg-left px-4 px-md-0  px-lg-0 pr-0 pr-lg-11 text-dark  font-weight-normal" >
+        We recommend checking with the specific carrier to see if your device is compatible on their network. Optionally, type in your IMEI, ICCID and ESIM/DIGITAL SIM and we'll be happy to check for you. 
       </p>
     </div>
-    <div class="col-12 col-lg px-0 px-lg-0">
+    <div class="col-12 col-md col-lg px-0 px-lg-0">
       <div class="container">
         <div class="row px-0 px-lg-5">
           <div class="col">
+            <div class="row">
               <input type="text" class="form-control border col-12 border-dark    bg-light " 
                               placeholder="IMEI" name="IMEI" id="IMEI_1" required maxlength="17" />
+            </div>
+            <div class="row mt-2">
+              <input type="text" class="form-control border col-12 border-dark    bg-light " 
+                              placeholder="ICCID"  required maxlength="17" />
+            </div>
+            <div class="row mt-2">
+              <input type="text" class="form-control border col-12 border-dark    bg-light " 
+                              placeholder="ESIM/DIGITAL SIM"  required maxlength="17" />
+            </div>
+              
+                              
               <p class="card-text text-primary"></p>
               Not sure how to get your IMEI? Follow one of the steps below
               </p>
@@ -63,16 +75,16 @@
       </div>
     </div>
   </div>
-  <div class="row py-4 py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-bottom-0   border-width-3">
-    <div class="col-12 col-lg py-3 py-lg-0 px-0 px-lg-0">
-      <h3 class="text-dark font-weight-bolder text-center text-lg-left">
+  <div class="row py-4 py-md-6 py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-bottom-0   border-width-3">
+    <div class="col-12 col-md col-lg py-3 py-md-0 py-lg-0 px-0 px-lg-0">
+      <h3 class="text-dark font-weight-bolder text-center text-md-left text-lg-left">
         Location
       </h3>
-      <p class="card-text text-dark font-weight-normal text-left px-5 px-lg-0 pr-lg-10 " >
+      <p class="card-text text-dark font-weight-normal text-left px-5 px-md-0 px-lg-0 pr-lg-10 " >
           Please  enter in a valid Area Code you would like your new number to be in
       </p>
     </div>
-    <div class="col-12 col-lg  px-0 px-lg-0">
+    <div class="col-12 col-md col-lg  px-0 px-lg-0">
       <div class="container">
         <div class="row  px-lg-5">
           <div class="col">
@@ -84,9 +96,9 @@
     </div>
   </div>
 
-  <div class="row border-0 mx-0 mx-lg-0  py-4 py-lg-8  ">
+  <div class="row border-0 mx-0 mx-lg-0  py-4 py-md-6 py-lg-8  ">
     <div class="col px-0 px-lg-0">
-      <p class="text-dark font-weight-normal text-center text-lg-left">
+      <p class="text-dark font-weight-normal text-center text-md-left text-lg-left">
         *Our services require you to bring your own device.
       </p>
     </div>
@@ -94,43 +106,3 @@
   </div>
 
 </div>
-<script>
-$(document).ready(function(){
-var $input1 = $("#id_Area_code");
-var $input2 = $("#IMEI_1");
-
-// Number conversion for IMEI-1
-$input2.on("keyup", function (event) {
-var $this = $(this);
-var input = $this.val();
-var input = input.replace(/[\D\s\._\-]+/g, "");
-var split = 1;
-var chunk = [];
-for (var i = 0, len = input.length; i < len; i += split) {
-split = 17;
-chunk.push(input.substr(i, split));
-}
-$this.val(function () {
-return chunk.join("-").toUpperCase();
-});
-});
-
-// Number conversion for area code
-$input1.on("keyup", function (event) {
-var $this = $(this);
-var input = $this.val();
-var input = input.replace(/[\D\s\._\-]+/g, "");
-var split = 1;
-var chunk = [];
-for (var i = 0, len = input.length; i < len; i += split) {
-split = 17;
-chunk.push(input.substr(i, split));
-}
-$this.val(function () {
-return chunk.join("-").toUpperCase();
-});
-});
-
-
-});
-</script>

@@ -254,9 +254,7 @@
             <div class="field">
               <label for="example5-phone" data-tid="elements_examples.form.phone_label">Phone</label>
               <input id="example5-phone" data-tid="elements_examples.form.phone_placeholder" class="input" type="text"   required="" autocomplete="tel" value="{{ request.user.id|findUserPhone }}">
-              <div class="invalid-feedback text-white font-weight-bolder">
-                Please provide a valid phone number.
-              </div>
+              
             </div>
           </div>
           <div data-locale-reversible>
@@ -335,14 +333,14 @@
                   <option value="WV" >WV</option>
                   <option value="WY" >WY</option>
               </select>
-              <div class="invalid-feedback text-white font-weight-bolder" id="selectTagError">
+              <div class="invalid-feedback text-danger font-weight-bolder" id="selectTagError">
                 Please provide a valid state.
               </div>
               </div>
               <div class="field">
                 <label for="example5-zip" data-tid="elements_examples.form.postal_code_label">ZIP</label>
-                <input id="example5-zip" data-tid="elements_examples.form.postal_code_placeholder" class="input empty" type="text" required="" autocomplete="postal-code" >
-                <div class="invalid-feedback text-white font-weight-bolder">
+                <input id="example5-zip" data-tid="elements_examples.form.postal_code_placeholder" class="input empty" type="text"  autocomplete="postal-code"  required="" >
+                <div class="invalid-feedback text-danger font-weight-bolder">
                   Please provide a valid zip code.
                 </div>
               </div>

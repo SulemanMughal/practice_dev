@@ -1457,38 +1457,57 @@ def Email_Collector(request):
         obj.save()
         return redirect(request.POST["next"])
 
-@login_required
-def Join_A_Plan_Existing_Customer(request, category_id, plan_id):
-    template_name="app/Join_Existing_Customer.html"
-    c = category.objects.get(id=category_id)
-    p = plan.objects.get(category = c, id=plan_id)
-    context={
-        'category' : c,
-        'plan' : p,
-        'objects' : subscription.objects.all().count()
-    }
-    return render(request, template_name,context)
 
+
+# GET A NEW NUMBER PAGE
 @login_required
 def Join_A_Plan_Get_A_New_Number(request, category_id, plan_id):
+    # if request.method != "POST":
+    #     return redirect(reverse("home"))
+    # else:
     template_name="app/Join_Get_A_New_Number.html"
     c = category.objects.get(id=category_id)
     p = plan.objects.get(category = c, id=plan_id)
     context={
         'category' : c,
         'plan' : p,
-        'objects' : subscription.objects.all().count()
+        'objects' : subscription.objects.all().count(),
+        'NUMBER_OF_GUESTS' : request.POST.get('GET_A_NUMBER', 1)
     }
     return render(request, template_name,context)
 
+
+# EXISTING CUSTOMER PAGE
+@login_required
+def Join_A_Plan_Existing_Customer(request, category_id, plan_id):
+    # if request.method !="POST":
+    #     return redirect(reverse("home"))
+    # else:
+    template_name="app/Join_Existing_Customer.html"
+    c = category.objects.get(id=category_id)
+    p = plan.objects.get(category = c, id=plan_id)
+    context={
+        'category' : c,
+        'plan' : p,
+        'objects' : subscription.objects.all().count(),
+        'NUMBER_OF_GUESTS' : request.POST.get('EXISTING_CUSTOMER', 1)
+    }
+    return render(request, template_name,context)
+
+
+# SWITCH CARRIER PAGE
 @login_required
 def Join_A_Plan_Switch_Carrier(request, category_id, plan_id):
+    # if request.method != "POST":
+    #     return redirect(reverese("home"))
+    # else:
     template_name="app/Join_Get_Switch_Carrier.html"
     c = category.objects.get(id=category_id)
     p = plan.objects.get(category = c, id=plan_id)
     context={
         'category' : c,
         'plan' : p,
-        'objects' : subscription.objects.all().count()
+        'objects' : subscription.objects.all().count(),
+        'NUMBER_OF_GUESTS' : request.POST.get("SWITCHING_CARRIER", 1)
     }
     return render(request, template_name,context)

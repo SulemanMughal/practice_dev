@@ -78,6 +78,7 @@ input.invalid {
 <div class="card px-4  px-lg-10 pb-10 pb-lg-10">
   <div class="card-body p-0 p-lg-0 pt-lg-3">
     
+    
     <div class="tab">
       {% include 'app/Existing_Customer_Step_1.html' %}              
     </div>
@@ -85,9 +86,12 @@ input.invalid {
     <div class="tab">
       {% include 'app/Existing_Customer_Step_2.html' %}              
     </div>
+
     <div class="tab">
       {% include 'app/Existing_Customer_Step_3.html' %}              
     </div>
+
+
     <div  style="overflow:auto;">
       <div style="float:right;">
         <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-success  mr-4 mr-md-6 mr-lg-3 px-7 px-md-8 px-lg-9">Previous</button>
@@ -247,5 +251,23 @@ function fixStepIndicator(n) {
     });
   }); 
 </script>
+
+
+<!-- * Payment Model State Select Styling Changes -->
+<script>
+  $(document).ready(function()
+  {
+    $("#example5-state").on("change", function(){
+      if($("#example5-state :selected").val() != "None")
+      {
+        $("#selectTagError").hide(); 
+      }
+      else{
+        $("#selectTagError").show(); 
+      }
+    })
+  });
+</script>
+
 {% endblock javascript %}
 {% endblock %}

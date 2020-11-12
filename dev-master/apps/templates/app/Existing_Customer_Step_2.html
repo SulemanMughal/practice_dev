@@ -31,58 +31,63 @@
       </div>
 </div>
 <div class="container-fluid px-0 px-lg-0">
-    <div class="row py-4 py-lg-8">
-        <div class="col-12 col-lg-7">
+    <div class="row py-4 py-md-4 py-lg-5">
+        <div class="col-12 col-md-7 col-lg-7">
             <div class="container">
+                <div class="row">
+                    <h1 class="font-weight-bolder  text-dark text-uppercase mb-1 mb-lg-1">
+                        Review
+                    </h1>
+                </div>
                 <div class="row border border-dark border-top-0 border-left-0 border-right-0 border-width-3 pb-4 pb-lg-4">
-                    <div class="col-12 col-lg-6">
+                    <div class="col-12 col-md col-lg-6">
                         <div class="row ">
-                            <h3 class="font-weight-bolder  text-dark mx-auto mx-lg-0 mb-lg-1">
+                            <h3 class="font-weight-bolder  text-dark mx-auto mx-md-0 mx-lg-0 mb-md-1 mb-lg-1">
                                 Plan
                             </h3>
                         </div>
                         <div class="row">
-                            <p class="card-text h4 mx-auto mx-lg-0">
+                            <p class="card-text h4 mx-auto mx-md-0 mx-lg-0 text-nowrap">
                                 {{ plan.category }} - {{ plan.plan_name }} Plan
                             </p>
                         </div>
                         <div class="row pt-3 pt-lg-3">
-                            <h4 class="font-weight-bolder text-dark mx-auto mx-lg-0 mb-lg-1">
+                            <h4 class="font-weight-bolder text-dark mx-auto mx-md-0 mx-lg-0 mb-md-1 mb-lg-1">
                                 Active in the last 30 days?
                             </h4>
                         </div>
                         <div class="row">
-                            <p class="card-text h4 mx-auto mx-lg-0" id="active-line-response">
+                            <p class="card-text h4 mx-auto mx-md-0 mx-lg-0" id="active-line-response">
                                 Yes
                             </p>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 pl-lg-7">
+                    <div class="col-12 col-md col-lg-6  pl-md-10 pl-lg-7">
                         <div class="row">
-                            <h4 class="font-weight-bolder text-dark mx-auto mx-lg-0 mb-lg-1">
+                            <h4 class="font-weight-bolder text-dark mx-auto mx-md-0 mx-lg-0 mb-md-1 mb-lg-1">
                                 Account Manager 
                             </h4>
                         </div>
                         <div class="row">
-                            <p class="card-text h4 mx-auto mx-lg-0" id="account-owner-response">
+                            <p class="card-text h4 mx-auto mx-md-0 mx-lg-0" id="account-owner-response">
                                 Yes
                             </p>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="row pt-3 pt-lg-3">
-                            <h4 class="font-weight-bolder text-dark mx-auto mx-lg-0 mb-lg-1">
+                            <h4 class="font-weight-bolder text-dark mx-auto mx-md-0 mx-lg-0 mb-md-1 mb-lg-1">
                                 Next Steps
                             </h4>
                         </div>
                         <div class="row">
-                            <p class="card-text h4 mx-auto mx-lg-0 text-center text-lg-left">
+                            <p class="card-text h4  text-center text-md-left text-lg-left mx-auto mx-md-0 mx-lg-0">
                                 We'll begin processing your order and you should expect to receive your new Sim Card and number within 2 business days.You'll receive an email confirmation shortly.
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="row border-0 pt-3 pb-4 pb-lg-4 d-block d-lg-none">
+                <div class="row border-0 pt-3 pb-4 pb-lg-4 d-block d-md-none d-lg-none">
                     <div class="col-12 col-lg">
                         <div class="card border border-dark border-width-3 rounded-lg">
                             <div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 my-0  my-lg-0 py-2 py-lg-2 px-4">
@@ -153,49 +158,69 @@
                         </div>
                     </div>
                 </div>
-                <div class="row py-lg-5">
-                    <div class="col px-lg-0">
-                        <h2 class="card-title font-weight-bolder text-uppercase text-dark mb-lg-0">
+
+                <!-- TODO:  PAYMENT SECTION START -->
+                <div class="row py-md-4 py-lg-5">
+                    <div class="col px-md-0 px-lg-0">
+                        <h2 class="card-title font-weight-bolder text-uppercase text-dark mb-md-0 mb-lg-0">
                             Payment Information 
                         </h2>
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="col px-lg-0 ">
+                    <div class="col px-md-0 px-lg-0 ">
                         <form  id="subscription-form"  method="POST" class="needs-validation" novalidate>
+                            {% csrf_token %}
                             <div class="form-row">
-                                <div class="form-group col-12 col-lg ">
+                                <div class="form-group col-12 col-md col-lg ">
                                     <label for="example5-name" class="font-weight-bolder text-dark h3">First Name</label>
-                                    <input type="text" class="form-control bg-light" id="example5-name">
+                                    <input type="text" class="form-control bg-light" id="example5-name" required="">
+                                    <div class="invalid-feedback text-danger font-weight-bolder">
+                                        Please provide a valid first name.
+                                      </div>
                                 </div>
-                                    <div class="form-group col-12 col-lg">
+                                    <div class="form-group col-12 col-md col-lg">
                                     <label for="inputPassword4" class="font-weight-bolder text-dark h3">Last Name</label>
-                                    <input type="text" class="form-control bg-light" id="inputPassword4">
+                                    <input type="text" class="form-control bg-light" id="inputPassword4" required="">
+                                    <div class="invalid-feedback text-danger font-weight-bolder">
+                                        Please provide a valid last name.
+                                      </div>
                                     </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-12 col-lg ">
+                                <div class="form-group col-12 col-md col-lg ">
                                     <label for="emailid " class="font-weight-bolder text-dark h3">Email Address</label>
-                                    <input type="text" class="form-control bg-light" id="example5-email">
+                                    <input type="text" class="form-control bg-light" id="example5-email" required="">
+                                    <div class="invalid-feedback text-danger font-weight-bolder">
+                                        Please provide a valid email.
+                                      </div>
                                     </div>
-                                    <div class="form-group col-12 col-lg">
+                                    <div class="form-group col-12 col-md col-lg">
                                     <label for="example5-phone" class="font-weight-bolder text-dark h3">Phone Number</label>
-                                    <input type="tel" class="form-control bg-light" id="example5-phone" maxlength="12">
+                                    <input type="tel" class="form-control bg-light" id="example5-phone" maxlength="12" required="">
+                                    <div class="invalid-feedback text-danger font-weight-bolder">
+                                        Please provide a valid phone number.
+                                      </div>
                                     </div>
                             </div>
                             <div class="form-group">
                                 <label for="example5-address" class="font-weight-bolder h3 text-dark">Street Address</label>
-                                <input type="text" class="form-control bg-light" id="example5-address" placeholder="">
+                                <input type="text" class="form-control bg-light" id="example5-address" placeholder="" required="">
+                                <div class="invalid-feedback text-danger font-weight-bolder">
+                                    Please provide a valid address.
+                                  </div>
                             </div>
                             <div class="form-row pb-lg-4">
-                                <div class="form-group col-12 col-lg">
+                                <div class="form-group col-12 col-md col-lg">
                                     <label for="example5-city" class="font-weight-bolder text-dark h3">City</label>
-                                    <input type="text" class="form-control bg-light" id="example5-city">
+                                    <input type="text" class="form-control bg-light" id="example5-city" required="">
+                                    <div class="invalid-feedback text-danger font-weight-bolder">
+                                        Please provide a valid city.
+                                      </div>
                                 </div>
-                                <div class="form-group col-12 col-lg">
+                                <div class="form-group col-12 col-md col-lg">
                                     <label for="example5-state" class="font-weight-bolder text-dark h3">State</label>
                                     <select id="example5-state" required data-tid="elements_examples.form.state_placeholder" class="input empty form-control" autocomplete="address-level1" >
-                  
                                         <option  selected="" value="None" >Select State</option>
                                         <option value="AL" >AL</option>
                                         <option value="AK" >AK</option>
@@ -249,16 +274,22 @@
                                         <option value="WV" >WV</option>
                                         <option value="WY" >WY</option>
                                     </select>
+                                    <div class="invalid-feedback text-danger font-weight-bolder" id="selectTagError">
+                                        Please provide a valid state.
+                                      </div>
                                 </div>
-                                <div class="form-group col-12 col-lg">
+                                <div class="form-group col-12 col-md col-lg">
                                     <label for="example5-zip" class="font-weight-bolder text-dark h3">Zip Code</label>
-                                    <input type="text" class="form-control bg-light" id="example5-zip">
+                                    <input type="text" class="form-control bg-light" id="example5-zip" required="">
+                                    <div class="invalid-feedback text-dange font-weight-bolder">
+                                        Please provide a valid zip.
+                                      </div>
                                 </div>
                             </div>
                             <hr class="border border-dark border-top-0 border-left-0 border-right-0 border-width-3 ">           
 
                             <div class="field">
-                                <label for="example5-card" data-tid="elements_examples.form.card_label">Card</label>
+                                <label for="example5-card" data-tid="elements_examples.form.card_label" class="font-weight-bolder text-dark h3">Card</label>
                                 <div id="example5-card" class="input bg-light"></div>
                               </div>
                             
@@ -279,17 +310,17 @@
                     </div>
                 </div>
                 
-
+                <!-- TODO:  PAYMENT SECTION END -->
             </div>
         </div>
-        <div class="col-12 col-lg d-none  d-lg-block">
+        <div class="col-12 col-md col-lg d-none d-md-block d-lg-block "> 
             <div class="card border border-dark border-width-3 rounded-lg">
-                <div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 py-lg-2 my-lg-0">
-                    <h2 class="card-title text-uppercase font-weight-bolder text-dark mb-lg-0">
+                <div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 py-md-2 py-lg-2 pr-md-0 my-md-0  my-lg-0">
+                    <h2 class="card-title text-uppercase font-weight-bolder text-dark mx-md-0 text-lg-left mb-md-0 mb-lg-0">
                         Order Summary
                     </h2>
                 </div>
-                <div class="card-body">
+                <div class="card-body px-md-1 px-lg-4">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -298,31 +329,31 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="row py-lg-2">
-                            <div class="col">
+                        <div class="row py-md-2 py-lg-2">
+                            <div class="col col-md-8 col-lg">
                                 <p class="card-text h3">
                                     Number of Guests
                                 </p>
                             </div>
-                            <div class="col">
+                            <div class="col  col-md col-lg">
                                 <p class="card-text font-weight-bolder h3 text-right text-dark">
                                     1
                                 </p>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col col-md-7 col-lg pr-md-0">
                                 <p class="card-text h3">
                                     Subscription Fees
                                 </p>
                             </div>
-                            <div class="col">
+                            <div class="col  col-md col-lg">
                                 <p class="card-text font-weight-bolder h3 text-right text-dark">
                                     $5/month
                                 </p>
                             </div>
                         </div>
-                        <div class="row py-lg-2">
+                        <div class="row py-md-2 py-lg-2">
                             <div class="col">
                                 <p class="card-text h3">
                                     Mobile Cost

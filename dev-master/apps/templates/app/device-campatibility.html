@@ -18,18 +18,36 @@
         
         <ul class="nav nav-tabs border-0 justify-content-center" id="myTab" role="tablist">
           <li class="nav-item col-md-4" >
-            <a class="btn btn-outline-success w-100 "  href="{% url 'Join_Get_A_New_Number' plan.category.id plan.id %}" target="_blank"> Get a new number</a>
-
+            <form action="{% url 'Join_Get_A_New_Number' plan.category.id plan.id %}" method="POST"> 
+              {% csrf_token %}
+              <input type="number" name="GET_A_NUMBER" id="GET_A_NUMBER" hidden>
+              <button class="btn btn-outline-success w-100 " type="submit" >
+                Get a new number
+              </button>
+            </form>
+            
           </li>
+
           <li class="nav-item col-md-4 mt-1 mt-md-0 mt-lg-0 mt-xl-0" >
-            <a class="btn btn-outline-success w-100 "  href="{% url 'Join_Exising_Customer' plan.category.id plan.id %}" target="_blank">Existing {{ plan.category.Name }} customer</a>
-
+            <form action="{% url 'Join_Exising_Customer' plan.category.id plan.id %}" method="POST"> 
+              {% csrf_token %}
+              <input type="number" name="EXISTING_CUSTOMER" id="EXISTING_CUSTOMER" hidden>
+              <button class="btn btn-outline-success w-100 " type="submit" >
+                Existing {{ plan.category.Name }} customer
+              </button>
+            </form>
           </li>
+
           <li class="nav-item col-md-4 mt-1 mt-md-0 mt-lg-0 mt-xl-0" >
-            <a class="btn btn-outline-success w-100" href="{% url 'Join_Switch_Carrier' plan.category.id plan.id %}" target="_blank"> Switching carrier</a>
+            <form action="{% url 'Join_Switch_Carrier' plan.category.id plan.id %}" method="POST"> 
+              {% csrf_token %}
+              <input type="number" name="SWITCHING_CARRIER" id="SWITCHING_CARRIER" hidden>
+              <button class="btn btn-outline-success w-100 " type="submit" >
+                Switching carrier
+              </button>
+            </form>
           </li>
 
-          
         </ul>
         <div class="tab-content" id="myTabContent">
           
