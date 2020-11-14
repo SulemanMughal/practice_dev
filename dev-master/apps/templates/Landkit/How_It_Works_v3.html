@@ -4,29 +4,6 @@
 {% block title %}How It Works{% endblock %}
 {% block content %}
 
-<style>
-    .bg-how-it-workds-banner{
-        background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important ;
-        background-position-y: -150px !important ;
-        background-size: 100% 600px !important;
-    }
-
-    .bg-how-it-works-banner-top-left{
-        background-image: url('{% static "Landkit/images/v3/6_How.png" %}');
-        background-repeat: no-repeat;
-        
-        /* background-size: 100% 90%; */
-        background-position: 215% bottom !important; 
-    }
-
-    .bg-how-it-works-banner-bottom-right{
-        background-image: url('{% static "Landkit/images/v3/7_how_it_works.png" %}');
-        background-repeat: no-repeat;
-        background-size: 50% 50%;
-        background-position: -35% 140%  !important; 
-    }
-</style>
-
 <section class="bg-image-about-us-page-banner  py-lg-1  mt-lg-n9">
     <div class="container my-lg-10 ">
         <div class="row ">
@@ -57,15 +34,21 @@
     </div>
 </section>
 
+
+
 <section>
-    <div class="container px-lg-15">
+    <div class="container px-lg-15 ">
         <div class="row py-lg-6 mx-lg-10">
             <div class="col">
-                <button class="btn btn-atoll lift font-weight-bolder  px-lg-10">Join Now!</button>
+                {% if not request.user.is_authenticated %}
+                    <button class="btn btn-atoll lift font-weight-bolder  px-lg-10" data-toggle="modal" href="#modalSignupHorizontal">Join Now!</button>
+                {% endif %}
+                
             </div>
         </div>
     </div>
 </section>
+
 
 
 {% include "Landkit/footer.html" %}

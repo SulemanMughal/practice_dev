@@ -10,29 +10,9 @@
     overflow-x: hidden !important;
     
   }
-  .bg-redish-black-gradient{ 
-    /* background-image: url('{% static "Landkit/images/v3/verizon_header.png" %}'); */
-    background: rgb(121,9,9);
-background: linear-gradient(133deg, rgba(121,9,9,1) 39%, rgba(2,0,36,1) 100%, rgba(0,212,255,1) 100%); 
-  } 
 
-  .bg-pinkish-gradient{
-    background: rgb(247,154,239);
-    background: linear-gradient(133deg, rgba(247,154,239,1) 39%, rgba(252,0,239,1) 100%, rgba(221,55,208,1) 100%); 
-  }
-
-
-  .bg-card-join-image{
-    background-image: url('{% static "Landkit/images/v3/price_box.png" %}');
-    background-position: -229px -45px;
-    background-repeat: no-repeat;
-    background-size:842px 570px;
-  }
- 
-  .border-pink{
-    border: rgb(216, 132, 209) solid 3px !important;
-  }
-
+  
+  
   
 @media (min-width:200px ) and (max-width:  700px){
   .vh-15{
@@ -48,15 +28,15 @@ background: linear-gradient(133deg, rgba(121,9,9,1) 39%, rgba(2,0,36,1) 100%, rg
 {% with x=plan.familySize y=plan.currentFamilySize %}
 <section  class="pt-5 pt-md-5 pt-lg-7 pt-xl-7 pb-10 pb-md-10 pb-lg-12 pb-xl-12 {% if plan.category.Name == 'Verizon'%} bg-redish-black-gradient {% elif plan.category.Name == 'T-Mobile' %}bg-pinkish-gradient {% else %} bg-redish-black-gradient {% endif %}">
   <div class="container">
-    <div class="row justify-content-center ">
+    <div class="row justify-content-center  mt-10 mt-lg-4">
       <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-        <h1 class="display-1 font-weight-bolder  text-white text-center" >
+        <h1 class="display-1 font-weight-bolder  text-white text-center d-none d-lg-block" >
+          {{ plan.category }} - {{ plan.plan_name }}
+        </h1>
+        <h1 class="display-3 font-weight-bolder  text-white text-center d-block d-lg-none" >
           {{ plan.category }} - {{ plan.plan_name }}
         </h1>
       </div>
-
-
-
     </div>
 
     <div class="row justify-content-center mt-5 ml-1 mr-1">
@@ -71,7 +51,7 @@ background: linear-gradient(133deg, rgba(121,9,9,1) 39%, rgba(2,0,36,1) 100%, rg
           <span class="h4  font-weight-bold " >{{ plan.id|FindCategoryPlanInfo:"3" }}</span>
         </div>
       </div>
-      <div class="col-12 col-md-4 col-lg-3 col-xl-3  text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25 {% if plan.category.Name == 'Verizon'%} bg-dark-black  text-white {% elif plan.category.Name == 'T-Mobile' %} bg-white text-dark border-pink {% else %} bg-fresh-color {% endif %}   mt-md-1 mr-md-1 mt-1 mt-md-0 mt-lg-0 mt-xl-0 "   >
+      <div class="col-12 col-md-4 col-lg-3 col-xl-3  text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25 {% if plan.category.Name == 'Verizon' %} bg-dark-black  text-white {% elif plan.category.Name == 'T-Mobile' %} bg-white text-dark border-pink {% else %} bg-fresh-color {% endif %}   mt-md-1 mr-md-1 mt-1 mt-md-0 mt-lg-0 mt-xl-0 "   >
         <div class="center position-xl-relative position-relative">
           <span class="h4 font-weight-bold ">{{ plan.id|FindCategoryPlanInfo:"5" }}</span>
         </div>
@@ -106,15 +86,24 @@ background: linear-gradient(133deg, rgba(121,9,9,1) 39%, rgba(2,0,36,1) 100%, rg
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-12 col-lg-7 col-xl-7">
-        <div class="d-flex">
-          <span><i class="fas fa-chevron-right text-danger fa-3x font-weight-bolder mt-3"></i></span><span class="h3 display-4 align-self-end pl-3 pt-3 text-dark font-weight-bolder text-bluish">{{ plan.category.Name }}-{{ plan.id|FindCategoryPlanInfo }}</span>
+        <div class="container-fluid mt-lg-n8">
+          <div class="row">
+            <div class="col-2" style="position: relative !important; left: -120px !important;">
+              {% if plan.category.Name == "T-Mobile" %}
+              <img src="{% static 'Landkit/images/v3/tmobile_arrow.png' %}" alt="Circledin" class="img-arrow mt-lg-2">
+              {% else %}
+                <img src="{% static 'Landkit/images/v3/verizon_arrow.png' %}" alt="Circledin" class="img-arrow">
+              {% endif %}
+            </div>
+            <div class="col">
+              <p class="h3 display-4  pl-3  pt-3   text-dark font-weight-bolder text-bluish  pb-lg-0 mb-lg-0  mt-lg-7 ml-lg-n11 pt-lg-5">{{ plan.category.Name }}-{{ plan.id|FindCategoryPlanInfo }}</p>
+              <p class="card-text h4 text-bluish font-weight-normal pl-0 ml-lg-n10 pl-lg-2">Family Name : {{ plan.user.username }} | {{ plan.total_slots }} spots left</p>
+              <p class="card-text h4 text-bluish font-weight-normal font-italic pl-0 ml-lg-n10 pl-lg-2">Community Member since {{ plan.created|date:"M" }} {{ plan.created|date:"Y" }}</p></div>
+          </div>
+          
+          
         </div>
-        <div class="d-flex">
-          <span class="card-text h4 text-bluish font-weight-normal pl-8">Family Name : {{ plan.user.username }} | {{ plan.total_slots }} spots left</span>
-        </div>
-        <div class="d-flex">
-          <span class="card-text h4 text-bluish font-weight-normal pl-8 font-italic">Community Member since {{ plan.created|date:"M" }} {{ plan.created|date:"Y" }}</span>
-        </div>
+        
         <div class="container">
           <div class="row">
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
@@ -194,7 +183,7 @@ background: linear-gradient(133deg, rgba(121,9,9,1) 39%, rgba(2,0,36,1) 100%, rg
 
         <hr class="text-dark border border-secondary" >
 
-        <div class="container pl-0 pr-0">
+        <div class="container pl-0 pr-0 d-none d-md-block d-lg-block d-xl-block">
           <div class="d-flex">
             <span class="h1 align-self-end pt-3 mt-1 text-dark font-weight-bold">Process</span>
           </div>
@@ -263,7 +252,7 @@ background: linear-gradient(133deg, rgba(121,9,9,1) 39%, rgba(2,0,36,1) 100%, rg
 
       </div>
       <div class="col-12 col-md-12 col-lg-5 col-xl-5 mt-2 mt-md-2 mt-lg-0 mt-xl-0 ">
-        <div class="card  bg-card-join-image" style="border-radius: 25px 25px;">
+        <div class="card  bg-shade-lighter-greenish box-shadow-lighter-greenish-join-detaild-card" style="border-radius: 25px 25px;">
           
 
           <div class="card-body">
@@ -373,12 +362,14 @@ background: linear-gradient(133deg, rgba(121,9,9,1) 39%, rgba(2,0,36,1) 100%, rg
 
               </div>
               {% else %}
+             
               <div class="form-group text-right">
                 <button class="btn text-white bg-fresh-color   p-2 w-100" type="button" data-toggle="modal" data-target="#exampleModalDevice">Join</button>
               </div>
               {% endif %}
               {% endif %}
               {% else %}
+              
               <div class="form-group text-right">
                 <a href="#" class="btn text-white bg-fresh-color   p-2 w-100" type="button" data-toggle="modal" data-target="#modalSigninHorizontal">Join</a>
               </div>

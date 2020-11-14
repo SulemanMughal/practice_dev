@@ -233,7 +233,7 @@ function fixStepIndicator(n) {
   });
   </script>
 
-<!-- * Payment Model State Select Styling Changes -->
+<!-- ! Payment Model State Select Styling Changes -->
 <script>
   $(document).ready(function()
   {
@@ -250,7 +250,7 @@ function fixStepIndicator(n) {
 </script>
 
 
-<!-- Script to handle NUMBER_OF_GUESTS -->
+<!-- ! NUMBER_OF_GUESTS HANDLER -->
 <script>
   $(document).ready(function(){
     $.each($("span#number-of-guests"), function(){
@@ -259,11 +259,74 @@ function fixStepIndicator(n) {
     $.each($("span#subscription-form-fees"), function(){
       $(this).html(parseInt("{{ NUMBER_OF_GUESTS }}")*5);
     });
+    $.each($("span#subscription-form-monthly"), function(){
+      $(this).html(parseInt("{{ NUMBER_OF_GUESTS }}") * parseInt($(this).html()));
+    });
     $.each($("span#subscription-form-total"), function(){
-      // $(this).html(parseInt($("#subscription-form-monthly")) + parseInt($("#subscription-form-fees")) );
       $(this).html(parseInt($("#subscription-form-monthly").html()) + parseInt($("#subscription-form-fees").html()));
     });
   });
+</script>
+
+  <!-- !  MULTIPLE IMEI HANDLER -->
+  <script>
+    $(document).ready(function(){  
+        var i=1;  
+        $('#add').click(function(){  
+            if(i < parseInt("{{ NUMBER_OF_GUESTS }}")){
+            i++;  
+            $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="IMEI" placeholder="IMEI" class="form-control border col-12 border-dark  bg-light" maxlength="17" /><input type="text" class="form-control border col-12 border-dark    bg-light  mt-2" placeholder="ICCID"  required maxlength="17" /><input type="text" class="form-control border col-12 border-dark    bg-light mt-2" placeholder="ESIM/DIGITAL SIM"  required maxlength="17" /></td><td><button type="button" name="remove" id="'+i+'" class="btn bg-Puerto-Rico text-white btn_remove">X</button></td></tr>');  
+            if(i == parseInt("{{ NUMBER_OF_GUESTS }}")){
+              $("#add").hide();
+            }
+            }
+            else if(i ==  parseInt("{{ NUMBER_OF_GUESTS }}")){
+              $("#add").hide();
+            }
+        });  
+        $(document).on("click", ".btn_remove", function()
+        { 
+              i--;  
+             var button_id = $(this).attr("id");   
+             $('#row'+button_id+'').remove();  
+             $("#add").show();
+        });
+        
+        
+       
+   }); 
+  </script>
+
+<!-- ! MULTIPLE AREA CODE HANDLER -->
+<script>
+  $(document).ready(function(){  
+    // console.info()
+      var j=1;  
+      $('#add_3').click(function(){  
+          if(j < parseInt("{{ NUMBER_OF_GUESTS }}")){
+          j++;  
+          $('#dynamic_field_3').append('<tr id="row'+j+'"><td class="pl-0"><input type="text" name="AreaCode" placeholder="Area Code" class="form-control border border-dark  bg-light col-12" maxlength="17"  /></td><td><button type="button" name="remove" id="'+j+'" class="btn bg-Puerto-Rico text-white btn_remove">X</button></td></tr>');  
+          if(j ==  parseInt("{{ NUMBER_OF_GUESTS }}")){
+            $("#add_3").hide();
+          }
+          }
+          else if(j ==  parseInt("{{ NUMBER_OF_GUESTS }}")){
+            
+            $("#add_3").hide();
+            
+          }
+      });  
+      $(document).on("click", ".btn_remove", function()
+      { 
+            j--;  
+           var button_id = $(this).attr("id");   
+           $('#row'+button_id+'').remove();  
+           $("#add_3").show();
+      });
+      
+      
+     
+ }); 
 </script>
 
 {% endblock javascript %}

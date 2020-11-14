@@ -44,6 +44,31 @@
   }
 
 
+  .bg-redish-black-gradient{ 
+
+background: linear-gradient(133deg, #C43636 39%, #473030 100%, rgba(0,212,255,1) 100%); 
+  } 
+
+  .bg-pinkish-gradient{
+    background: linear-gradient(133deg, #D19AC4 39%, #D42CA5 100%, rgba(221,55,208,1) 100%); 
+  }
+
+
+  .bg-card-join-image{
+    background-image: url('{% static "Landkit/images/v3/price_box.png" %}');
+    background-position: -229px -45px;
+    background-repeat: no-repeat;
+    background-size:842px 570px;
+  }
+ 
+  .border-pink{
+    border: rgb(216, 132, 209) solid 3px !important;
+  }
+
+  .img-arrow{
+    max-width: 320% !important;
+    max-height: 320% !important;
+  }
 
  
   #btn-group > #btn-group:not(:last-child) > .btn, #btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
@@ -72,6 +97,12 @@
     -webkit-box-shadow: 7px 7px 5px 0px rgba(38, 75, 69, 0.75);
     -moz-box-shadow:    7px 7px 5px 0px rgba(38, 75, 69, 0.75);
     box-shadow:         7px 7px 5px 0px rgba(38, 75, 69, 0.75);
+  }
+
+  .box-shadow-lighter-greenish-join-detaild-card{
+    -webkit-box-shadow: 7px 7px 5px 3px rgba(38, 75, 69, 0.75);
+    -moz-box-shadow:    7px 7px 5px 3px rgba(38, 75, 69, 0.75);
+    box-shadow:         7px 7px 5px 3px rgba(38, 75, 69, 0.75);
   }
 
   .bg-lightest-greenish{
@@ -1011,4 +1042,29 @@
     }
   }
 
+</style>
+
+
+
+<style>
+  .bg-how-it-workds-banner{
+      background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important ;
+      background-position-y: -150px !important ;
+      background-size: 100% 600px !important;
+  }
+
+  .bg-how-it-works-banner-top-left{
+      background-image: url('{% static "Landkit/images/v3/6_How.png" %}');
+      background-repeat: no-repeat;
+      
+      /* background-size: 100% 90%; */
+      background-position: 215% bottom !important; 
+  }
+
+  .bg-how-it-works-banner-bottom-right{
+      background-image: url('{% static "Landkit/images/v3/7_how_it_works.png" %}');
+      background-repeat: no-repeat;
+      background-size: 50% 50%;
+      background-position: -35% 140%  !important; 
+  }
 </style>

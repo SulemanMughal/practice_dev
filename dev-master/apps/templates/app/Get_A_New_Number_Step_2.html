@@ -298,10 +298,13 @@
 
                             <input type="text"  id="category_id_join" value="{{ plan.category.id }}" hidden>
                             <input type="hidden" id="plan_id_join" value="{{ plan.id }}">
-                            <input type="hidden" value="1" id="slots">
+                            <input type="hidden" value="{{ NUMBER_OF_GUESTS }}" id="slots">
                             <input id="joiningCondition" hidden value="New Number">
                             <input type="hidden" name="g-recaptcha-response" id='recaptcha_join'>
-
+                            <input type="hidden" id="switch_1" value="">
+                            <input type="hidden" id="switch_2" value="">
+                            <input type="hidden" id="switch_3" value="">
+                            <input type="hidden" id="switch_4" value="">
                             <input type="submit" value="Submit" class="btn btn-success fontw-weight-bolder float-right mt-4 mt-lg-4 w-25 pl-7 pl-md-0 pr-11 pr-md-0 button-loader">
                         </form>
                     </div>
