@@ -36,7 +36,7 @@
       <h3 class="text-dark font-weight-bolder text-center text-md-left text-lg-left">
         Will my phone work on this network?
       </h3>
-      <p class="card-text text-left text-lg-left px-4 px-md-0  px-lg-0 pr-0 pr-lg-11 text-dark  font-weight-normal" >
+      <p class="card-text text-left text-lg-left px-4 px-md-0  px-lg-0 pr-0 pr-md-8 pr-lg-11 text-dark  font-weight-normal" >
         We recommend checking with the specific carrier to see if your device is compatible on their network. Optionally, type in your IMEI, ICCID and ESIM/DIGITAL SIM and we'll be happy to check for you. 
       </p>
     </div>
@@ -44,35 +44,36 @@
       <div class="container">
         <div class="row px-0 px-lg-5">
           <div class="col">
+            {% if NUMBER_OF_GUESTS == 1 or  NUMBER_OF_GUESTS == "1" %}
             <div class="row">
-              
-              
               <!-- TODO:  START MULTIPLE IMEI HANDLER -->
-                <table class="table table-borderless" id="dynamic_field">  
-                  <tr  class="pl-0">  
-                        <td>
-                          <input type="text" class="form-control border col-12 border-dark    bg-light " 
-                        placeholder="IMEI" name="IMEI" id="IMEI_1" required maxlength="17" />
-                        <input type="text" class="form-control border col-12 border-dark    bg-light  mt-2" 
-                        placeholder="ICCID"  required maxlength="17" />
-                        <input type="text" class="form-control border col-12 border-dark    bg-light mt-2" 
-                        placeholder="ESIM/DIGITAL SIM"  required maxlength="17" />
-                      </td>  
-                        <td>
-                          <div class="col-12 pr-0 mt-1">
-                            <button type="button"  class="btn btn-light float-right font-weight-bolder"   title="Check More Device's IMEI" name="add" id="add">
-                              Check another phone
-                            </button>
-                          </div>
-                        </td> 
-                  </tr>  
-                </table> 
-              <!-- TODO:  END MULTIPLE IMEI HANDLER -->
-                              
+                  <input type="text" class="form-control border col-12 border-dark  bg-light mt-1" 
+                  placeholder="IMEI" name="IMEI"  id="IMEI_1" required maxlength="17" />
+                  <input type="text" class="form-control border col-12 border-dark   bg-light  mt-1" 
+                  placeholder="ICCID"  name="ICCID"  required maxlength="17" />
+                  <input type="text" class="form-control border col-12 border-dark  bg-light mt-1" 
+                  placeholder="ESIM/DIGITAL SIM (optional)" name="ESIM"  required maxlength="17" />
             </div>
-
-              
-                              
+              {% else %}
+              {% with ''|center:NUMBER_OF_GUESTS as range %}
+                {% for _ in range %}
+            <div class="row mt-2">
+              <div class="col pl-0">
+                <p class="card-text h3 font-weight-bolder text-dark">
+                    Cell phone line # {{ forloop.counter }}
+                </p>
+              </div>
+                      <input type="text" class="form-control border col-12 border-dark  bg-light mt-1" 
+                    placeholder="IMEI" name="IMEI" id="IMEI_1" required maxlength="17" />
+                    <input type="text" class="form-control border col-12 border-dark    bg-light  mt-1" 
+                    placeholder="ICCID" name="ICCID"  required maxlength="17" />
+                    <input type="text" class="form-control border col-12 border-dark  bg-light mt-1" 
+                    placeholder="ESIM/DIGITAL SIM (optional)"  name="ESIM" required maxlength="17" />
+            </div>
+                {% endfor %}
+                {% endwith %}
+              <!-- TODO:  END MULTIPLE IMEI HANDLER -->
+            {% endif %}
               <p class="card-text text-dark " style="font-size: 0.9rem !important;">
               Not sure how to get your IMEI? Follow one of the steps below
               </p>
@@ -103,24 +104,22 @@
       <div class="container">
         <div class="row  px-lg-5">
           <div class="col">
-              
-
             <!-- TODO: START:  Multiple Add Button For AREA CODE -->
-            <table class="table table-borderless mb-0" id="dynamic_field_3"> 
-              <tr>
-                <td class="pl-0">
-                  <input type="text" class="form-control border border-dark bg-light" id="id_Area_code"
+            {% if NUMBER_OF_GUESTS == 1 or NUMBER_OF_GUESTS == "1" %}  
+              <input type="text" class="form-control border border-dark bg-light mb-1" id="id_Area_code"
                   placeholder="Area Code" name="AreaCode" required maxlength="5">
-                  <button type="button"  class="btn btn-light float-right font-weight-bolder"   title="Check More Area Code" name="add_3" id="add_3">
-                    Check another Area Code
-                  </button>
-                </td>
-                <td>
-                </td>
-              </tr>
-            </table>
+            {% else %}
+                {% with ''|center:NUMBER_OF_GUESTS as range %}
+                {% for _ in range %}
+                <p class="card-text h3 font-weight-bolder text-dark mb-0">
+                  Cell phone line #{{ forloop.counter }}
+                </p>
+                <input type="text" class="form-control border border-dark bg-light mb-1 col-12" id="id_Area_code"
+                    placeholder="Area Code" name="AreaCode" required maxlength="5">
+                {% endfor %}
+                {% endwith %}
+            {% endif %}
             <!-- TODO: END:  Multiple Add Button For AREA CODE -->
-
           </div>
         </div>
       </div>

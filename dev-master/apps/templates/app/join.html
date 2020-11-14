@@ -7,45 +7,38 @@
   .inner 
   {
     overflow-y: auto !important;
-    overflow-x: hidden !important;
-    
+    overflow-x: hidden !important;  
   }
-
-  
-  
-  
-@media (min-width:200px ) and (max-width:  700px){
-  .vh-15{
-    height: 15vh;
+  @media (min-width:200px ) and (max-width:  700px){
+    .vh-15{
+      height: 15vh;
+    }
   }
-}
 </style>
 {% autoescape off %}
 {% include 'modals/FeedbackForms.html' with edit=False subs=request.user|FindSubObject:plan.id   %}
-{% include "modals/finishing_payment_modal.html" %}
-{% include "modals/payment_processing_waiting_modal.html" %}
-{% include "modals/payment_error.html" %}
 {% with x=plan.familySize y=plan.currentFamilySize %}
 <section  class="pt-5 pt-md-5 pt-lg-7 pt-xl-7 pb-10 pb-md-10 pb-lg-12 pb-xl-12 {% if plan.category.Name == 'Verizon'%} bg-redish-black-gradient {% elif plan.category.Name == 'T-Mobile' %}bg-pinkish-gradient {% else %} bg-redish-black-gradient {% endif %}">
   <div class="container">
     <div class="row justify-content-center  mt-10 mt-lg-4">
       <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-        <h1 class="display-1 font-weight-bolder  text-white text-center d-none d-lg-block" >
+        <h1 class="display-1 font-weight-bolder  text-white text-center d-none d-md-none d-lg-block" >
           {{ plan.category }} - {{ plan.plan_name }}
         </h1>
-        <h1 class="display-3 font-weight-bolder  text-white text-center d-block d-lg-none" >
+        <h2 class=" font-weight-bolder  text-white text-center d-block d-md-none d-lg-none" >
           {{ plan.category }} - {{ plan.plan_name }}
-        </h1>
+        </h2>
+        <h2 class=" display-2 font-weight-bolder  text-white text-center d-none d-md-block d-lg-none" >
+          {{ plan.category }} - {{ plan.plan_name }}
+        </h2>
       </div>
     </div>
-
     <div class="row justify-content-center mt-5 ml-1 mr-1">
       <div class="col-12 col-md-4 col-lg-3 col-xl-3 text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25 vh-xl-25 {% if plan.category.Name == 'Verizon'%} bg-dark-black  text-white {% elif plan.category.Name == 'T-Mobile' %} bg-white text-dark border-pink {% else %} bg-fresh-color text-white  {% endif %} ml-md-1 ml-lg-1 ml-xl-1 mr-md-1 mr-lg-1 mr-xl-1"  >
         <div class="center position-xl-relative position-relative">
           <span class="h4 font-weight-bold p-md-0 p-lg-0 p-xl-0">{{ plan.id|FindCategoryPlanInfo:"1" }}</span>
         </div>
       </div>
-
       <div class="col-12 col-md-4 col-lg-3 col-xl-3 {% if plan.category.Name == 'Verizon'%} bg-dark-black   text-white {% elif plan.category.Name == 'T-Mobile' %} bg-white text-dark border-pink {% else %} bg-fresh-color {% endif %} vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25 text-center  mt-1 mt-md-0 mt-lg-0 mt-xl-0 mr-md-1 mr-lg-1 mr-xl-1" >
         <div class="center position-xl-relative position-relative">
           <span class="h4  font-weight-bold " >{{ plan.id|FindCategoryPlanInfo:"3" }}</span>
@@ -56,57 +49,47 @@
           <span class="h4 font-weight-bold ">{{ plan.id|FindCategoryPlanInfo:"5" }}</span>
         </div>
       </div>
-
       <div class="col-12 col-md-4 col-lg-3 col-xl-3  text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25  {% if plan.category.Name == 'Verizon'%} bg-dark-black  text-white {% elif plan.category.Name == 'T-Mobile' %} bg-white text-dark border-pink  {% else %} bg-fresh-color {% endif %}   mr-md-0 mr-lg-1 mr-xl-1 mt-1 mt-md-1 mt-lg-1 mt-xl-1 " >
         <div class="center position-xl-relative position-relative">
           <span class="h4 font-weight-bold">{{ plan.id|FindCategoryPlanInfo:"2" }}</span>
         </div>
       </div>
-
       <div class="col-12 col-md-4 col-lg-3 col-xl-3  text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25  {% if plan.category.Name == 'Verizon'%} bg-dark-black  text-white {% elif plan.category.Name == 'T-Mobile' %} bg-white text-dark border-pink  {% else %} bg-fresh-color {% endif %} mr-md-1 ml-md-0  mr-lg-1 mr-xl-1 mt-1 mt-md-1  mt-lg-1 mt-xl-1">
         <div class="center position-xl-relative position-relative">
           <span class="h4  font-weight-bold">{{ plan.id|FindCategoryPlanInfo:"4" }}</span>
         </div>
       </div>
-
       <div class="col-12 col-md-4 col-lg-3 col-xl-3   {% if plan.category.Name == 'Verizon'%} bg-dark-black  text-white {% elif plan.category.Name == 'T-Mobile' %} bg-white text-dark border-pink  {% else %} bg-fresh-color {% endif %} text-center vh-15 vh-sm-25 vh-md-25 vh-lg-25  vh-xl-25  mt-1 mt-md-1 mt-lg-1 mt-xl-1 "  >
         <div class="center position-xl-relative position-relative">
           <span class="h4 font-weight-bold ">+{{ plan.total_slots }} Spots Left </span>
         </div>
       </div>
-
-
       </div>
-
-
   </div>
-
 </section>
 <section class="bg-light p-2 mt-5">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-12 col-lg-7 col-xl-7">
+      <div class="col-12 col-md-6 col-lg-7 col-xl-7">
         <div class="container-fluid mt-lg-n8">
           <div class="row">
-            <div class="col-2" style="position: relative !important; left: -120px !important;">
+            <div class="col-2" >
               {% if plan.category.Name == "T-Mobile" %}
-              <img src="{% static 'Landkit/images/v3/tmobile_arrow.png' %}" alt="Circledin" class="img-arrow mt-lg-2">
+              <img src="{% static 'Landkit/images/v3/tmobile_arrow.png' %}" alt="Circledin" class="img-arrow mt-0 ml-2 ml-md-0 mt-md-2 mt-lg-9 ml-lg-n8">
               {% else %}
-                <img src="{% static 'Landkit/images/v3/verizon_arrow.png' %}" alt="Circledin" class="img-arrow">
+                <img src="{% static 'Landkit/images/v3/verizon_arrow.png' %}" alt="Circledin" class="img-arrow  mt-0  ml-2 ml-md-0 mt-md-0 mt-lg-8 pt-lg-3 ml-lg-n8">
               {% endif %}
             </div>
-            <div class="col">
-              <p class="h3 display-4  pl-3  pt-3   text-dark font-weight-bolder text-bluish  pb-lg-0 mb-lg-0  mt-lg-7 ml-lg-n11 pt-lg-5">{{ plan.category.Name }}-{{ plan.id|FindCategoryPlanInfo }}</p>
+            <div class="col px-0 px-lg-2">
+              <p class="h3 display-4  pl-3  pt-3   text-dark font-weight-bolder text-bluish  pb-lg-0 mb-lg-0  mt-lg-9 ml-lg-n11 pt-lg-1  d-none d-lg-block">{{ plan.category.Name }}-{{ plan.id|FindCategoryPlanInfo }}</p>
+              <h2 class=" pl-0 pt-4 mt-1 mt-md-1 pt-md-4   text-dark font-weight-bolder text-bluish  pb-lg-0 mb-lg-0  mt-lg-7 ml-lg-n11 pt-lg-5 {% if plan.category.Name == 'T-Mobile' %} pt-5   mt-n2 {% endif %} d-block d-lg-none">{{ plan.category.Name }}-{{ plan.id|FindCategoryPlanInfo }}</h2>
               <p class="card-text h4 text-bluish font-weight-normal pl-0 ml-lg-n10 pl-lg-2">Family Name : {{ plan.user.username }} | {{ plan.total_slots }} spots left</p>
               <p class="card-text h4 text-bluish font-weight-normal font-italic pl-0 ml-lg-n10 pl-lg-2">Community Member since {{ plan.created|date:"M" }} {{ plan.created|date:"Y" }}</p></div>
           </div>
-          
-          
         </div>
-        
         <div class="container">
           <div class="row">
-            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6 mt-n4 mt-md-0 ml-6 ml-lg-0" >
               <div class="d-flex">
                 <span class="h3 align-self-end pt-3 mt-1 text-bluish font-weight-bold">Family Rules</span>
               </div>
@@ -118,14 +101,13 @@
                   <li class="text-bluish">No Family Rules has been decided yet.</li>
                 {% endfor %}
                 </ul>
-
               </div>
-              <div class="d-flex">
-                <span class="card-text  pt-3 mt-1 text-bluish font-weight-bold text-nowrap">Payment Date</span>
-                <span class="card-text  pt-3 mt-1 text-bluish font-weight-bold text-nowrap">&nbsp;{{ plan.monthly_payment_date|findPaymentCurrentDay|ordinal }} of each month</span>
+              <div class="d-flex ">
+                <span class="card-text  pt-3 mt-1 text-bluish font-weight-bold text-nowrap d-none d-lg-block">Payment Date</span>
+                <span class="card-text  pt-3 mt-1 text-bluish font-weight-bold text-nowrap d-none d-lg-block">&nbsp;{{ plan.monthly_payment_date|findPaymentCurrentDay|ordinal }} of each month</span>
               </div>
             </div>
-            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6 ml-6 ml-lg-0">
               <div class="d-flex">
                 <span class="h3 align-self-end pt-3 mt-1 text-bluish font-weight-bold">Cancellation Policy</span>
               </div>
@@ -137,13 +119,13 @@
                   <li class="text-bluish">No Cancellation Policy has been decided yet.</li>
                 {% endfor %}
                 </ul>
-
               </div>
-              
+              <div class="d-flex ">
+                <span class="card-text  pt-3 mt-1 text-bluish font-weight-bold text-nowrap d-block d-lg-none">Payment Date</span>
+                <span class="card-text  pt-3 mt-1 text-bluish font-weight-bold text-nowrap d-block d-lg-none">&nbsp;{{ plan.monthly_payment_date|findPaymentCurrentDay|ordinal }} of each month</span>
+              </div>
             </div>
-
           </div>
-
         </div>
         <hr class="text-dark border border-secondary" >
         <div class="container d-none">
@@ -152,15 +134,12 @@
               <div class="d-flex">
                 <span class="h5 align-self-end pt-3 mt-1 text-bluish font-weight-bold">If you run into an issues with your phone bill, need a new SIM or anything of that nature, please feel free to contact me and I'wll make sure you get what you need.</span>
               </div>
-
             </div>
             <div class="col-12 col-md-12 col-lg-4 col-xl-4">
               <div class="form-group">
                 <button class="btn text-white bg-fresh-color p-2 w-100" type="button" >Contact  Me</button>
               </div>
-
             </div>
-
           </div>
         </div>
         <div class="container">
@@ -169,24 +148,16 @@
               <div class="d-flex">
                 <span class="h5   mt-1 text-bluish font-weight-bold">Contact Circledin Support if you have any questions regarding your order.</span>
               </div>
-
             </div>
             <div class="col-12 col-md-12 col-lg-4 col-xl-4 mt-3" >
               <div class="form-group">
                 <a class="btn btn-atoll  p-0 pt-1 pb-1 w-100 text-uppercase font-size-sm" type="button" href="{% url 'contact' %}" >Ask a question</a>
               </div>
-
             </div>
-
           </div>
         </div>
-
         <hr class="text-dark border border-secondary" >
-
-        <div class="container pl-0 pr-0 d-none d-md-block d-lg-block d-xl-block">
-          <div class="d-flex">
-            <span class="h1 align-self-end pt-3 mt-1 text-dark font-weight-bold">Process</span>
-          </div>
+        <div class="container pl-0 pr-0 d-none d-md-none d-lg-block d-xl-block">
           <div class="row">
             <div class="col-12 col-md-12 col-lg-12 col-xl-12 mb-2">
               <div class="card bg-transparent">
@@ -194,163 +165,159 @@
                     <div class="container pl-3 pr-1">
                       <div class="row ">
                         <div class="col-12 col-md-12 col-lg-3 col-xl-3">
-                          <div class="row d-none d-md-block d-lg-block d-xl-block">
+                          <div class="row d-none d-md-none d-lg-block d-xl-block">
                             <span class="badge badge-lg badge-primary badge-rounded-circle border border-dark bg-shade-lighter-greenish pt-8  pl-8  pr-8 pb-9">
                               <span class="font-size-xs pl-n6  text-uppercase text-dark ml-n6 mr-6">Join Plan</span>
                             </span>
                           </div>
-
-                          
-
                         </div>
-
                         <div class="col-12 col-md-12 col-lg-3 col-xl-3  ">
-                          <div class="row d-none d-md-block d-lg-block d-xl-block">
+                          <div class="row d-none d-md-none d-lg-block d-xl-block">
                             <span class="badge badge-lg badge-primary badge-rounded-circle border border-dark bg-shade-lighter-greenish  pt-8 pr-8 pl-8 pb-9">
                               <span class="font-size-xs text-uppercase text-dark ml-n4 mr-4" >Owner</span>
                               <span class="font-size-xs text-uppercase text-dark ml-n5 mr-4">Approval</span>
                             </span>
                           </div>
-
-
                         </div>
-
                         <div class="col-12 col-md-12 col-lg-3 col-xl-3  ">
-                          <div class="row d-none d-md-block d-lg-block d-xl-block">
+                          <div class="row d-none d-md-none d-lg-block d-xl-block">
                             <span class="badge badge-lg badge-primary badge-rounded-circle border border-dark bg-shade-lighter-greenish pt-8  pl-8 pr-8 pb-9">
                               <span class="font-size-xs pl-n6  text-uppercase text-dark ml-n4 mr-5">Review</span>
                               <span class="font-size-xs pl-n6  text-uppercase text-dark ml-n4 mr-5">Payment</span>
                             </span>
                           </div>
-
-
                         </div>
-
                         <div class="col-12 col-md-12 col-lg-3 col-xl-3">
-                          <div class="row d-none d-md-block d-lg-block d-xl-block">
+                          <div class="row d-none d-md-none d-lg-block d-xl-block">
                             <span class="badge badge-lg badge-primary badge-rounded-circle border border-dark bg-shade-lighter-greenish pt-8  pl-8 pr-8 pb-9">
                               <span class="font-size-xs pl-n6 text-uppercase text-dark ml-n4 mr-4" >Finish</span>
                             </span>
                           </div>
-
-
                         </div>
-
                       </div>
-
                     </div>
-
-
                 </div>
-
               </div>
             </div>
-
           </div>
-
         </div>
-
+        <div class="container-fluid pl-0 pr-0 d-block d-md-block d-lg-none ">
+          <div class="row px-0 mx-0">
+            <div class="col-12 col-md-12 col-lg-12 col-xl-12 mb-2 px-0 mx-0">
+              <div class="card bg-transparent">
+                <div class="card-body px-0 mx-0"  >
+                    <div class="container-fluid pl-6 pr-0 mx-0">
+                      <div class="row ">
+                        <div class="col-2 pl-0">
+                          <div class="row d-block d-md-block d-lg-none ">
+                            <span class="badge badge-lg badge-primary badge-rounded-circle border border-dark bg-shade-lighter-greenish  pt-6 pb-8 pl-6 pr-6">
+                              <span class="  ml-n2 mr-2 text-uppercase text-dark  font-weight-bolder">Join</span>
+                              <span class="  ml-n2 mr-2  text-uppercase text-dark  font-weight-bolder">Now</span>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-2 pl-0 ml-5 pl-1">
+                          <div class="row d-block d-md-block d-lg-none ">
+                            <span class="badge badge-lg badge-primary badge-rounded-circle border border-dark bg-shade-lighter-greenish  pt-6 pb-8 pl-6 pr-6">
+                              <span class="font-size-xs ml-n4 mr-2 text-uppercase text-dark  font-weight-bolder">Owner</span>
+                              <span class=" font-size-xs ml-n6 mr-6 pl-1  text-uppercase text-dark  font-weight-bolder">Approval</span>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-2 pl-0 ml-5 pl-2">
+                          <div class="row d-block d-md-block d-lg-none ">
+                            <span class="badge badge-lg badge-primary badge-rounded-circle border border-dark bg-shade-lighter-greenish  pt-6 pb-8 pl-6 pr-6">
+                              <span class="  ml-n4 mr-4 text-uppercase text-dark  font-weight-bolder">Review</span>
+                              <span class="  ml-n5 mr-2 pl-1 text-uppercase text-dark  font-weight-bolder">Payment</span>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-2 pl-0 ml-6 pl-1">
+                          <div class="row d-block d-md-block d-lg-none ">
+                            <span class="badge badge-lg badge-primary badge-rounded-circle border border-dark bg-shade-lighter-greenish  pt-6 pb-8 pl-6 pr-6">
+                              <span class="  ml-n3 mr-3 text-uppercase text-dark  font-weight-bolder">Finish</span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-12 col-md-12 col-lg-5 col-xl-5 mt-2 mt-md-2 mt-lg-0 mt-xl-0 ">
+      <!-- TODO : START PLAN DETAIL JOIN CARD -->
+      <div class="col-12 col-md col-lg-5 col-xl-5 mt-2 mt-md-2 mt-lg-0 mt-xl-0 pb-10 pb-md-11 pb-lg-0">
         <div class="card  bg-shade-lighter-greenish box-shadow-lighter-greenish-join-detaild-card" style="border-radius: 25px 25px;">
-          
-
           <div class="card-body">
-            <!-- Badge -->
           <div class="position-relative text-right mt-n8 mr-n4 mb-5 ">
             <span class="badge badge-pill badge-danger shadow-lg"  >
                <span class="h5 text-uppercase">${{ plan.id|FindPlanFixedPrice|intcomma }}/MO</span>
              </span>
            </div>
-            <form action="." method="POST">
-              {% csrf_token %}
-              <div class="form-group">
-                <label for="exampleFormControlSelect1">Number of Guests</label>
-
-                <select class="form-control selectpicker border border-dark" style="border-radius: 2.375rem !important ;" id="exampleFormControlSelect1" {% if not plan.total_slots != 0 %}
-                  disabled {% endif %} {% if request.user|FindSubUser:plan.id %} disabled {% endif %}>
-                  {% for i in slots %}
-                  <option value="{{ i }}"
-                    {% if request.user.is_authenticated %}{% if request.user|FindSubUser:plan.id %}{% if request.user|findSubSlots:plan.id %}
-                    {% if request.user|findSubSlots:plan.id == i %} selected {% endif %} {% endif %} {% endif %}
-                    {% endif %}>
-                    {{ i }}</option>
-                  {% endfor %}
-                  {% if not plan.total_slots != 0 %}
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Number of cell phone lines</label>
+              <select class="form-control selectpicker border border-dark" style="border-radius: 2.375rem !important ;" id="exampleFormControlSelect1" {% if not plan.total_slots != 0 %}
+                disabled {% endif %} {% if request.user|FindSubUser:plan.id %} disabled {% endif %}>
+                {% for i in slots %}
+                <option value="{{ i }}"
                   {% if request.user.is_authenticated %}{% if request.user|FindSubUser:plan.id %}{% if request.user|findSubSlots:plan.id %}
-                  <option value="{{ request.user|findSubSlots:plan.id }}" >{{ request.user|findSubSlots:plan.id }}
-                  </option>
-                  {% endif %}
-                  {% endif %}
-                  {% endif %}
-                  {% endif %}
-                </select>
-
+                  {% if request.user|findSubSlots:plan.id == i %} selected {% endif %} {% endif %} {% endif %}
+                  {% endif %}>
+                  {{ i }}</option>
+                {% endfor %}
+                {% if not plan.total_slots != 0 %}
+                {% if request.user.is_authenticated %}{% if request.user|FindSubUser:plan.id %}{% if request.user|findSubSlots:plan.id %}
+                <option value="{{ request.user|findSubSlots:plan.id }}" >{{ request.user|findSubSlots:plan.id }}
+                </option>
+                {% endif %}
+                {% endif %}
+                {% endif %}
+                {% endif %}
+              </select>
+            </div>
+            <div class="form-group mb-0">
+              <div class="row">
+                <div class="col col-md">
+                  <label for="exampleForm" class="text-nowrap">Subscription Fees 
+                    <button type="button" class="btn pl-0 pl-lg-1 mr-0 pr-0 pt-0 pb-0" data-toggle="popover"  data-content="This helps us keep the lights on."><i class="fa fa-info-circle text-success"></i></button>
+                  </label>
+                </div>
+                <div class="col col-md text-right mr-0 mr-md-3">
+                  <p class="card-title font-weight-bold mt-0 mt-lg-0 mb-0" >$<span id="subs_Section">5</span> /month
+                </p>
+                </div>
               </div>
-              <div class="form-group">
+            </div>
+              <div class="form-group mb-0">
                 <div class="row">
-                  <div class="col">
-                    <label for="exampleForm" class="text-nowrap">Subscription Fees 
-                      <button type="button" class="btn pl-1 mr-0 pr-0 pt-0 pb-0" data-toggle="popover"  data-content="This helps us keep the lights on."><i class="fa fa-info-circle"></i></button>
-                    </label>
-
+                  <div class="col  col-md pr-0">
+                    <label for="exampleForm">Mobile Cost <button type="button" class="btn pl-0 pl-lg-1 mr-0 pr-0 pt-0 pb-0" data-toggle="popover"  data-content="Excluding taxes and fees from your carrier."><i class="fa fa-info-circle text-success"></i></button></label>
                   </div>
-                  <div class="col text-right mr-3">
-                    <p class="card-title font-weight-bold mt-2" >$<span id="subs_Section">5</span> /month
+                  <div class="col col-md text-right  mr-0 mr-md-0">
+                    <p class="card-title font-weight-bold mb-0"  id="payment" data="{{ plan.id|FindPlanFixedPrice }}" >$<span id="paymentSub">{{ plan.id|FindPlanFixedPrice|intcomma }}</span> /month
                   </p>
                   </div>
-
                 </div>
-                
-
-
-              </div>
-              <div class="form-group ">
-                <div class="row">
-                  <div class="col">
-                    <label for="exampleForm">Mobile Cost <button type="button" class="btn pl-1 mr-0 pr-0 pt-0 pb-0" data-toggle="popover"  data-content="Excluding taxes and fees from your carrier."><i class="fa fa-info-circle"></i></button></label>
-
-                  </div>
-                  <div class="col text-right mr-3">
-                    <p class="card-title font-weight-bold"  id="payment" data="{{ plan.id|FindPlanFixedPrice }}" >$<span id="paymentSub">{{ plan.id|FindPlanFixedPrice|intcomma }}</span> /month
-                  </p>
-                  </div>
-
-                </div>
-
-
-
               </div>
               <div class="form-group border border-dark pt-2 pl-2 border-bottom-0 border-left-0 border-right-0">
                 <div class="row">
                   <div class="col">
                     <label for="exampleForm">Total</label>
-
                   </div>
                   <div class="col text-right mr-3">
                     <p class="card-title font-weight-bold mt-2" style="font-size: 20px;" id="total"
                     data="{{ plan.currently_monthly_payment_per_line }}">${{ plan.id|FindPlanFixedPrice|add:5 }} /month
                   </p>
                   </div>
-
                 </div>
-
-
-
               </div>
-
-
-
-
-
-
               {% if plan.status == "Active" %}
-
               {% if plan.total_slots != 0 %}
               {% if request.user.is_authenticated %}
               {% if plan.user != request.user %}
               {% if request.user|FindSubUser:plan.id %}
-                
               <div class="form-group text-right">
                 {% if request.user|findSubCancelStatus:plan.id != "7" %}
                   <a href="{% url 'EditSubscription' plan.id request.user|findFindSubID:plan.id %}" class="btn text-white bg-fresh-color   p-2 w-100"
@@ -359,19 +326,70 @@
                   <button  class="btn text-white bg-fresh-color   p-2 w-100"
                   type="button">Subscription Cancellation Confirm</button>
                 {% endif %}
-
               </div>
               {% else %}
-             
-              <div class="form-group text-right">
-                <button class="btn text-white bg-fresh-color   p-2 w-100" type="button" data-toggle="modal" data-target="#exampleModalDevice">Join</button>
+              <div class="dropdown form-group">
+                <button class="btn text-white bg-fresh-color dropdown-toggle font-weight-bolder col-12 w-100 h3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Join
+                </button>
+                <div class="dropdown-menu text-white bg-fresh-color col-12 w-100 px-lg-9" aria-labelledby="dropdownMenuButton" >
+                  <ul class="nav nav-tabs border-0 flex-column">
+                    <li class="nav-item">
+                      <form action="{% url 'Join_Get_A_New_Number' plan.category.id plan.id %}" method="POST"> 
+                        {% csrf_token %}
+                        <input type="number" name="GET_A_NUMBER" id="GET_A_NUMBER" value="1" hidden>
+                        <button class="dropdown-item text-center text-white h3 font-weight-bolder px-8 px-lg-8" type="submit">Get a new number</button>
+                      </form> 
+                    </li>
+                    <li class="nav-item">
+                      <form action="{% url 'Join_Exising_Customer' plan.category.id plan.id %}" method="POST"> 
+                        {% csrf_token %}
+                        <input type="number" name="EXISTING_CUSTOMER" id="EXISTING_CUSTOMER" value="1" hidden>
+                        <button class="dropdown-item text-center text-white h3 font-weight-bolder px-4  px-lg-2" type="submit">Existing {{ plan.category.Name }} customer</button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                      <form action="{% url 'Join_Switch_Carrier' plan.category.id plan.id %}" method="POST"> 
+                        {% csrf_token %}
+                        <input type="number" name="SWITCHING_CARRIER" id="SWITCHING_CARRIER" hidden value="1">
+                          <button class="dropdown-item text-center text-white h3 font-weight-bolder px-8 px-lg-8" type="submit">Switching carrier</button>
+                        </form>
+                    </li>
+                  </ul>
+                </div>
               </div>
               {% endif %}
               {% endif %}
               {% else %}
-              
-              <div class="form-group text-right">
-                <a href="#" class="btn text-white bg-fresh-color   p-2 w-100" type="button" data-toggle="modal" data-target="#modalSigninHorizontal">Join</a>
+              <div class="dropdown form-group">
+                <button class="btn text-white bg-fresh-color dropdown-toggle font-weight-bolder col-12 w-100 h1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Join
+                </button>
+                <div class="dropdown-menu text-white bg-fresh-color col-12 w-100 px-lg-9" aria-labelledby="dropdownMenuButton" >
+                  <ul class="nav nav-tabs border-0 flex-column">
+                    <li class="nav-item">
+                      <form action="{% url 'Join_Get_A_New_Number' plan.category.id plan.id %}" method="POST"> 
+                        {% csrf_token %}
+                        <input type="number" name="GET_A_NUMBER" id="GET_A_NUMBER" value="1" hidden>
+                        <button class="dropdown-item text-center text-white h3 font-weight-bolder px-lg-8" type="submit">Get a new number</button>
+                      </form> 
+                    </li>
+                    <li class="nav-item">
+                      <form action="{% url 'Join_Exising_Customer' plan.category.id plan.id %}" method="POST"> 
+                        {% csrf_token %}
+                        <input type="number" name="EXISTING_CUSTOMER" id="EXISTING_CUSTOMER" value="1" hidden>
+                        <button class="dropdown-item text-center text-white h3 font-weight-bolder px-lg-2" type="submit">Existing {{ plan.category.Name }} customer</button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                      <form action="{% url 'Join_Switch_Carrier' plan.category.id plan.id %}" method="POST"> 
+                        {% csrf_token %}
+                        <input type="number" name="SWITCHING_CARRIER" id="SWITCHING_CARRIER" hidden value="1">
+                          <button class="dropdown-item text-center text-white h3 font-weight-bolder px-lg-8" type="submit">Switching carrier</button>
+                        </form>
+                    </li>
+                  </ul>
+                </div>
               </div>
               {% endif %}
               {% elif request.user|FindSubUser:plan.id %}
@@ -383,7 +401,6 @@
                 <button  class="btn text-white bg-fresh-color   p-2 w-100"
                 type="button">Subscription Cancellation Confirm</button>
               {% endif %}
-
               </div>
               {% else %}
               <div class="form-group text-right">
@@ -392,108 +409,51 @@
               </div>
               {% endif %}
               {% endif %}
-
-
-
-
-
-
-
-
-
               <input id="plan_id_join" hidden value="{{ plan.id }}">
               <input id="category_id_join" hidden value="{{ plan.category.id }}">
               <input id="slots" hidden value="1">
               <input id="joiningCondition" hidden value="">
               <input type="hidden" name="g-recaptcha-response" id='recaptcha_join'>
-
-
-            </form>
           </div>
-
         </div>
       </div>
+      <!-- TODO : END PLAN DETAIL JOIN CARD -->
     </div>
-
-
     </div>
-
   </div>
 </section>
 {% include "Landkit/footer.html" %}
-{% include "app/device-campatibility.html" with plan=plan %}
 {% endwith %}
 {% endautoescape %}
 <script>
   $(document).ready(function()
-{
-  $('#end_payment_exampleModal').on('hidden.bs.modal', function (e) {
-    window.location.replace('.');
-});
-  $('#end_payment_exampleModal').on('shown.bs.modal', function (e) {
-    $("#exampleModalpayment_processing_waiting_modal").modal("hide");
-  });
-});
-</script>
-<script>
-  $(document).ready(function()
   {
-
-
     $("#GET_A_NUMBER, #EXISTING_CUSTOMER, #SWITCHING_CARRIER").val($("#exampleFormControlSelect1").val());
-    // Change the URL of GET_A_NUMBER
-    // $("#GET_A_NUMBER").attr("href", $("#GET_A_NUMBER").attr("href") + "?number_guest="  + $("#exampleFormControlSelect1").val());
-  
-    // Change the URL  of EXISTING CUSTOMER
-    // $("#EXISTING_CUSTOMER").attr("href", $("#EXISTING_CUSTOMER").attr("href") + "?number_guest="  + $("#exampleFormControlSelect1").val());
-
-  // Change the URL of SWITCHING CARRIER
-  // $("#SWITCHING_CARRIER").attr("href", $("#SWITCHING_CARRIER").attr("href") + "?number_guest="  + $("#exampleFormControlSelect1").val());
-
       // Functionality for the number of guests selected from the join-detail plan page 
       $("#exampleFormControlSelect1").on("change", function(){
         $("#dynamic_field_4 input").remove();
         for(var j = 1; j < $("#exampleFormControlSelect1").val(); j++){
           $('#dynamic_field_4').append('<input type="text" name="switch_1"  placeholder="Enter Phone number #' + (j+1) + ' (Optional)" class="form-control bg-light border border-dark col-12 col-md-6 col-lg-5 ml-7 mt-2" maxlength="12" autocomplete="off" />'); 
         }
-        
         // TODO: Change the value of selected number of slots
         $("#slots").val($("#exampleFormControlSelect1").val());
         $("#GET_A_NUMBER, #EXISTING_CUSTOMER, #SWITCHING_CARRIER").val($("#exampleFormControlSelect1").val());
-        // $("#GET_A_NUMBER").val($("#exampleFormControlSelect1").val());
-
-        // Change the URL of GET_A_NUMBER
-        // $("#GET_A_NUMBER").attr("href", $("#GET_A_NUMBER").attr("href") + "?number_guest="  + $("#exampleFormControlSelect1").val());
-
-        // Change the URL  of EXISTING CUSTOMER
-        // $("#EXISTING_CUSTOMER").attr("href", $("#EXISTING_CUSTOMER").attr("href") + "?number_guest="  + $("#exampleFormControlSelect1").val());
-
-        // Change the URL of SWITCHING CARRIER
-        // $("#SWITCHING_CARRIER").attr("href", $("#SWITCHING_CARRIER").attr("href") + "?number_guest="  + $("#exampleFormControlSelect1").val());
-        
-        
-        // TODO: Change the text display on the pay button of the payment form
         $('[data-tid="elements_examples.form.pay_button"]').text("Pay $" + $("#exampleFormControlSelect1").val()*5 + "");
-
         // TODO : Change the value of the 'number of slots' on payment
         $('[name="number_of_slots"]').val($("#exampleFormControlSelect1 :selected").val());
-
         var elem_1 = $(this).children("option:selected").val();
         var elem_2 = $("#payment").attr("data");
         $("#total").html("$" +  ((elem_1 * elem_2) + 5 * elem_1 ) + " /month");
         $("#paymentSub").html((elem_1 * elem_2));
         $("#subs_Section").html(5 * elem_1 );
-
         // TODO:  Display IMEI and Area code inputs based on the selected number of guests
         if($("#slots").val() >=2){
           //  For Tab 1 IMEI
           $("#add").show();
           $("#dynamic_field tr").show();
-    
           // For Tab 3 IMEI
           $("#add_2").show();
           $("#dynamic_field_2 tr").show();
-  
           // For Area Code Tab 1 
           $("#add_3").show();
           $("#dynamic_field_3 tr").show();
@@ -503,71 +463,29 @@
             $("#add").hide();
             $("#dynamic_field tr").hide();
             $("#dynamic_field tr:first").show();        
-            
             // For Tab 3  IMEI
             $("#add_2").hide();
             $("#dynamic_field_2 tr").hide();
             $("#dynamic_field_2 tr:first").show();
-    
             // For Tab 1 AREA CODE
             $("#add_3").hide();
             $("#dynamic_field_3 tr").hide();
             $("#dynamic_field_3 tr:first").show();
           }
-
       });
-
-
     $("#dynamic_field_4 input").remove();
       for(var j = 1; j < $("#exampleFormControlSelect1").val(); j++){
           $('#dynamic_field_4').append('<input type="text" name="switch_1"  placeholder="Enter Phone number #' + (j+1) + ' (Optional)" class="form-control bg-light border border-dark col-12 col-md-6 col-lg-5 ml-2" maxlength="12" autocomplete="off" />'); 
         }
-
         var elem_1 = $("#exampleFormControlSelect1").children("option:selected").val();
         var elem_2 = $("#payment").attr("data");
         $("#total").html("$" +  ((elem_1 * elem_2) + 5 * elem_1) + " /month");
         $("#paymentSub").html((elem_1 * elem_2));
         $("#subs_Section").html(5 * elem_1);
-        
         if ($("#total").html() == "$NaN")
         {
           $("#total").html("$" + "0" + " /month");
         }
-    
-        $("#slots").val($("#exampleFormControlSelect1").val());
-        $('[data-tid="elements_examples.form.pay_button"]').text("Pay $" + $("#exampleFormControlSelect1").val()*5 + "")
-    
-        if($("#slots").val() >=2){
-          // For Tab 1  IMEI
-          $("#add").show();
-          $("#dynamic_field tr").show();
-
-          // For Tab 3 IMEI
-          $("#add_2").show();
-          $("#dynamic_field_2 tr").show();
-
-          // For Tab 1 Area Code
-          $("#add_3").show();
-          $("#dynamic_field_3 tr").show();
-        }
-        else{
-          // For Tab 1 IMEI
-          $("#add").hide();
-          $("#dynamic_field tr").hide();
-          $("#dynamic_field tr:first").show();
-
-          // For Tab 3  IMEI
-          $("#add_2").hide();
-          $("#dynamic_field_2 tr").hide();
-          $("#dynamic_field_2 tr:first").show();
-
-          // For TAB 1 AREA CODE
-          $("#add_3").hide();
-          $("#dynamic_field_3 tr").hide();
-          $("#dynamic_field_3 tr:first").show();
-        }
-
-        
         $('[name="number_of_slots"]').val($("#exampleFormControlSelect1 :selected").val());
   });
 </script>

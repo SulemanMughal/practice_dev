@@ -277,6 +277,8 @@ class subscription(models.Model):
     joining_condition = models.CharField(max_length=30, verbose_name="Joining Condition", default="", blank=True, null=True)
     area_code = models.CharField(max_length=200, verbose_name="Area Code", default='', blank=True, null=True)
     order_number = models.CharField(max_length=9, default='', verbose_name="Order Number", blank=True, null=True)
+    ICCID = models.CharField(max_length=200,default = '', verbose_name="ICCID", blank=True, null=True)
+    ESIM = models.CharField(max_length=200,default = '', verbose_name="ESIM/ DIGITAL SIM", blank=True, null=True)
 
     def __str__(self):
         return f"{self.user.username}'s Subscription"

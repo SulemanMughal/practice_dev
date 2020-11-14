@@ -42,20 +42,38 @@
       <div class="col-12 col-md col-lg px-0 px-lg-0">
         <div class="container">
           <div class="row px-0 px-lg-5">
+            <!-- TODO:  START MULTIPLE IMEI HANDLER -->
             <div class="col">
-              <div class="row">
-                <input type="text" class="form-control border col-12 border-dark    bg-light " 
+              {% if NUMBER_OF_GUESTS == 1 or  NUMBER_OF_GUESTS == "1" %}
+                <div class="row">
+                  
+                      <input type="text" class="form-control border col-12 border-dark  bg-light mt-1" 
+                      placeholder="IMEI" name="IMEI"  id="IMEI_1" required maxlength="17" />
+                      <input type="text" class="form-control border col-12 border-dark   bg-light  mt-1" 
+                      placeholder="ICCID"  name="ICCID"  required maxlength="17" />
+                      <input type="text" class="form-control border col-12 border-dark  bg-light mt-1" 
+                      placeholder="ESIM/DIGITAL SIM (optional)" name="ESIM"  required maxlength="17" />
+                </div>
+              {% else %}
+                {% with ''|center:NUMBER_OF_GUESTS as range %}
+                {% for _ in range %}
+                <div class="row mt-2">
+                <div class="col pl-0">
+                <p class="card-text h3 font-weight-bolder text-dark">
+                Cell phone line # {{ forloop.counter }}
+                </p>
+                </div>
+                <input type="text" class="form-control border col-12 border-dark  bg-light mt-1" 
                 placeholder="IMEI" name="IMEI" id="IMEI_1" required maxlength="17" />
-              </div>
-              <div class="row mt-2">
-                <input type="text" class="form-control border col-12 border-dark    bg-light " 
-                placeholder="ICCID"  required maxlength="17" />
-              </div>
-              <div class="row mt-2">
-                <input type="text" class="form-control border col-12 border-dark    bg-light " 
-                placeholder="DIGITAL SIM" required maxlength="17" />
-              </div>
-                
+                <input type="text" class="form-control border col-12 border-dark    bg-light  mt-1" 
+                placeholder="ICCID" name="ICCID"  required maxlength="17" />
+                <input type="text" class="form-control border col-12 border-dark  bg-light mt-1" 
+                placeholder="ESIM/DIGITAL SIM (optional)"  name="ESIM" required maxlength="17" />
+                </div>
+                {% endfor %}
+                {% endwith %}
+              {% endif %}
+                    <!-- TODO:  END MULTIPLE IMEI HANDLER -->
                 <p class="card-text text-primary"></p>
                 Not sure how to get your IMEI? Follow one of the steps below
                 </p>
@@ -99,7 +117,7 @@
         </div>
       </div>
     <div class="row py-4 py-md-6 py-lg-8 mx-0 mx-lg-0 border border-dark border-top-0 border-left-0 border-right-0 border-bottom-0   border-width-3" id="port_over_number_no_case">
-      <div class="col-12 col-md col-lg px-0 px-lg-0 mb-2 mb-md-0 mb-lg-0">
+      <div class="col-12  col-md col-lg px-0 px-lg-0 mb-2 mb-md-0 mb-lg-0">
         <h3 class="text-dark font-weight-bolder text-center text-md-left text-lg-left">
           Location
         </h3>
@@ -111,8 +129,22 @@
         <div class="container">
           <div class="row px-0  px-lg-5">
             <div class="col">
+              <!-- TODO: START:  Multiple Add Button For AREA CODE -->
+            {% if NUMBER_OF_GUESTS == 1 or NUMBER_OF_GUESTS == "1" %}  
                 <input type="text" class="form-control border border-dark bg-light" id="id_Area_code"
                               placeholder="Area Code" name="AreaCode" required maxlength="5">
+            {% else %}
+            {% with ''|center:NUMBER_OF_GUESTS as range %}
+                {% for _ in range %}
+                <p class="card-text h3 font-weight-bolder text-dark mb-0">
+                  Cell phone line #{{ forloop.counter }}
+                </p>
+                <input type="text" class="form-control border border-dark bg-light mb-2 col-12" id="id_Area_code"
+                    placeholder="Area Code" name="AreaCode"  required maxlength="5">
+                {% endfor %}
+                {% endwith %}
+            {% endif %}
+            <!-- TODO: END:  Multiple Add Button For AREA CODE -->
             </div>
           </div>
         </div>
@@ -129,10 +161,25 @@
           <div class="container">
             <div class="row  px-lg-5">
               <div class="col">
-                <div class="form-group">
-                    <label  class="font-weight-bold card-text text-dark">What is the phone number you would like to port over?</label>
-                    <input type="text" class="form-control bg-light"  placeholder="Enter Phone number#1" maxlength="12" name="switch_1" id="switch_1">
-                </div>
+                <!-- TODO: START:  Multiple Add Button For Phone Numbers -->
+            {% if NUMBER_OF_GUESTS == 1 or NUMBER_OF_GUESTS == "1" %} 
+              <div class="form-group">
+                <label  class="font-weight-bold card-text text-dark">What is the phone number you would like to port over?</label>
+                <input type="text" class="form-control bg-light"  placeholder="Enter Phone number" maxlength="12" name="switch_1" id="switch_1">
+            </div>
+            {% else %}
+            {% with ''|center:NUMBER_OF_GUESTS as range %}
+            {% for _ in range %}
+            <div class="form-group">
+              {% if forloop.counter == 1 %}
+                <label  class="font-weight-bold card-text text-dark">What is the phone number you would like to port over?</label>
+              {% endif %}
+              <input type="text" class="form-control bg-light"  placeholder="Enter Phone number #{{ forloop.counter }}" maxlength="12" name="switch_1" id="switch_1">
+          </div>
+          {% endfor %}
+                {% endwith %}
+            {% endif %}
+                
                 <div class="form-group">
                     <label  class="font-weight-bold card-text text-dark">What's your account number on your existing carrier? <button type="button" class="btn p-1 pt-3 p-lg-1  mb-md-0  pt-lg-3 mb-10px" data-toggle="popover" title=""   data-content="<p class='text-primary font-weight-bolder'>Account Number Information</p>We use this information to transition you from your existing carrier to the new carrier so that you don’t need to deal with the logistics. This helps ensure a seamless process." 
                         data-html="true"><i class="fa fa-info-circle text-success font-italic"></i></button></label>

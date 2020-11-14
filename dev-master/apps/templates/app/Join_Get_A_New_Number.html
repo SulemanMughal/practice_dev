@@ -61,17 +61,16 @@ input.invalid {
 {% include "modals/finishing_payment_modal.html" %}
 {% include "modals/payment_processing_waiting_modal.html" %}
 {% include "modals/payment_error.html" %}
+{% include 'modals/payment_error_modal.html' %}
 <hr class="border border-success border-width-3 mt-9 mt-md-9 mt-lg-9 ml-0 ml-lg-0 sticky-top" style="position: fixed !important; border-width: 10px !important;" id="progressbar">
 <div class="card px-4 px-lg-10 pb-8 pb-lg-10">
     <div class="card-body p-0 pt-3 pt-lg-3">
             
       
-      
       <div class="tab">
         {% include 'app/Get_A_New_Number_Step_1.html' %}
       </div>
 
-      
       <div class="tab">
         {% include 'app/Get_A_New_Number_Step_2.html' %}
       </div>
@@ -82,8 +81,9 @@ input.invalid {
             
             <div    style="overflow:auto;">
               <div style="float:right;">
+                
                 <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-success  mr-4 mr-md-6 mr-lg-3 px-7 px-md-8 px-lg-9">Previous</button>
-                <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-success mr-5 px-8 px-lg-9">Next</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-success mr-5 px-8 px-lg-9">Confirm</button>
               </div>
             </div>
             <div class="d-none" style="text-align:center;margin-top:40px;">
@@ -97,8 +97,6 @@ input.invalid {
 <!-- ? Point to te noted -->
 <!-- TODO: Hide Next Button on second tab -->
 <!-- TODO: Scripts to convert text into number handler  -->
-
-
 {% include "payment/payment_script_work.html" %}
 <script src="https://js.stripe.com/v3/"></script>
 <script type="text/javascript" src="{% static 'music/client.js' %}"></script>
@@ -116,8 +114,38 @@ function showTab(n) {
   if(n==1){
     $("#progressbar").css("width", "50%");
     $("#nextBtn").hide();
-    $("#IMEI_Step_2").html($("#IMEI_1").val());
-    $("#Area_Code_Step_2").html($("#id_Area_code").val());
+    // $("#IMEI_Step_2").html($("#IMEI_1").val());
+    // $("#Area_Code_Step_2").html($("#id_Area_code").val());
+    // console.info($("input[name='ICCID']"));
+
+    // IMEI Input hander
+    var i = 0;
+    $.each($("input[name='IMEI']"), function(){
+      i++;
+      $("span#IMEI_Step_"  + i + "").html($(this).val());
+    });
+
+    // ESIM Handler
+    i =0;
+    $.each($("input[name='ESIM']"), function(){
+      i++;
+      $("span#ESIM_Step_"  + i + "").html($(this).val());
+    });
+
+    // ICCID Handler
+    i = 0;
+    $.each($("input[name='ICCID']"), function(){
+      i++;
+      $("span#ICCID_Step_"  + i + "").html($(this).val());
+    });
+
+    // Area Code Handler
+    i = 0;
+    $.each($("input[name='AreaCode']"), function(){
+      i++;
+      $("span#Area_Code_Step_"  + i + "").html($(this).val());
+    });
+
   }
   else{
     $("#nextBtn").show();
@@ -133,7 +161,7 @@ function showTab(n) {
     $("#progressbar").css("width", "100%");
     document.getElementById("nextBtn").innerHTML = "Submit";
   } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
+    document.getElementById("nextBtn").innerHTML = "Continue";
   }
   // ... and run a function that displays the correct step indicator:
   fixStepIndicator(n)
@@ -268,66 +296,6 @@ function fixStepIndicator(n) {
   });
 </script>
 
-  <!-- !  MULTIPLE IMEI HANDLER -->
-  <script>
-    $(document).ready(function(){  
-        var i=1;  
-        $('#add').click(function(){  
-            if(i < parseInt("{{ NUMBER_OF_GUESTS }}")){
-            i++;  
-            $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="IMEI" placeholder="IMEI" class="form-control border col-12 border-dark  bg-light" maxlength="17" /><input type="text" class="form-control border col-12 border-dark    bg-light  mt-2" placeholder="ICCID"  required maxlength="17" /><input type="text" class="form-control border col-12 border-dark    bg-light mt-2" placeholder="ESIM/DIGITAL SIM"  required maxlength="17" /></td><td><button type="button" name="remove" id="'+i+'" class="btn bg-Puerto-Rico text-white btn_remove">X</button></td></tr>');  
-            if(i == parseInt("{{ NUMBER_OF_GUESTS }}")){
-              $("#add").hide();
-            }
-            }
-            else if(i ==  parseInt("{{ NUMBER_OF_GUESTS }}")){
-              $("#add").hide();
-            }
-        });  
-        $(document).on("click", ".btn_remove", function()
-        { 
-              i--;  
-             var button_id = $(this).attr("id");   
-             $('#row'+button_id+'').remove();  
-             $("#add").show();
-        });
-        
-        
-       
-   }); 
-  </script>
-
-<!-- ! MULTIPLE AREA CODE HANDLER -->
-<script>
-  $(document).ready(function(){  
-    // console.info()
-      var j=1;  
-      $('#add_3').click(function(){  
-          if(j < parseInt("{{ NUMBER_OF_GUESTS }}")){
-          j++;  
-          $('#dynamic_field_3').append('<tr id="row'+j+'"><td class="pl-0"><input type="text" name="AreaCode" placeholder="Area Code" class="form-control border border-dark  bg-light col-12" maxlength="17"  /></td><td><button type="button" name="remove" id="'+j+'" class="btn bg-Puerto-Rico text-white btn_remove">X</button></td></tr>');  
-          if(j ==  parseInt("{{ NUMBER_OF_GUESTS }}")){
-            $("#add_3").hide();
-          }
-          }
-          else if(j ==  parseInt("{{ NUMBER_OF_GUESTS }}")){
-            
-            $("#add_3").hide();
-            
-          }
-      });  
-      $(document).on("click", ".btn_remove", function()
-      { 
-            j--;  
-           var button_id = $(this).attr("id");   
-           $('#row'+button_id+'').remove();  
-           $("#add_3").show();
-      });
-      
-      
-     
- }); 
-</script>
 
 {% endblock javascript %}
 {% endblock %}

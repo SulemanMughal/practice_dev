@@ -839,6 +839,11 @@ def charge(request):
     if bot == 'bot':
         if request.method == 'POST':
             data = json.loads(request.body)
+            # print("*************************************************")
+            # for i in data:
+            #     print(i, data[i])
+            # print("*************************************************")
+            # return JsonResponse(json.loads( json.dumps( {"success": True})), status=200)
             category_id = data['category_id']
             plan_id = data['plan_id']
             paymentMethod = data['payment_method']
@@ -1017,6 +1022,8 @@ def charge(request):
                             obj.mobile_carrier = data["mobile_carrier"]
                             obj.joining_condition = data['joiningCondition']
                             obj.area_code = data['area_codes']
+                            obj.ICCID = data['device_ICCID']
+                            obj.ESIM = data['device_ESIM']
                             obj.save()
                             next_estimated_Invoice_Bill.objects.create(
                                 user=User.objects.get(username=request.user.username),

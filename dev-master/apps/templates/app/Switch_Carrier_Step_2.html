@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col">
           <h1 class="card-title display-5 text-dark font-weight-bolder text-uppercase mb-lg-0">
-            Confirm and Pay
+            Confirm & Pay
         </h1>
         </div>
         <div class="col">
@@ -19,7 +19,7 @@
         <div class="row">
           <div class="col">
             <h1 class="card-title  text-dark font-weight-bolder text-uppercase text-nowrap font-size-lg mb-0 mb-lg-0">
-              Confirm and Pay
+              Confirm & Pay
           </h1>
           </div>
           <div class="col">
@@ -35,137 +35,190 @@
         <div class="col-12 col-md-7 col-lg-7">
             <div class="container">
                 <div class="row">
-                    <h1 class="font-weight-bolder  text-dark text-uppercase mb-1 mb-lg-1">
+                    <h1 class="font-weight-bolder  text-dark text-uppercase mb-1 mb-lg-1 d-none d-md-block">
                         Review
                     </h1>
+                    <h2 class="font-weight-bolder  text-dark text-uppercase mb-1 mb-lg-1 d-block d-md-none">
+                        Order Summary
+                    </h2>
                 </div>
                 <div class="row border border-dark border-top-0 border-left-0 border-right-0  border-width-3 pb-4 pb-lg-4">
-                    <div class="col-12 col-md col-lg-6">
-                        <div class="row">
-                            <h3 class="font-weight-bolder text-dark mx-auto mx-md-0 mx-lg-0 mb-1 mb-lg-1">
+                    <div class="col-6 col-md-6 col-lg-6 ">
+                        <div class="row  pt-3 pt-lg-0">
+                            <h3 class="font-weight-bolder text-dark mx-0 mx-md-0 mx-lg-0 mb-1 mb-lg-1">
                                 Plan
                             </h3>
                         </div>
-                        <div class="row">
-                            <p class="card-text h4 mx-auto mx-md-0 mx-lg-0 text-nowrap">
+                        <div class="row ">
+                            <p class="card-text h4 mx-0 mx-md-0 mx-lg-0 text-nowrap d-none d-md-block ">
                                 {{ plan.category }} - {{ plan.plan_name }} Plan
                             </p>
+                            <span class="card-text font-size-xs mx-0 mx-md-0 mx-lg-0  text-nowrap d-block d-md-none mb-1">
+                                {{ plan.category }} - {{ plan.plan_name }} Plan
+                            </span>
                         </div>
-                        <div class="row pt-3 pt-lg-3">
-                            <h4 class="font-weight-bolder text-dark mx-auto mx-md-0 mx-lg-0 mb-1  mb-lg-1">
+
+                        
+                        <div class="row pt-3 pt-lg-0">
+                            <h4 class="font-weight-bolder text-dark mx-0 mx-md-0 mx-lg-0 mb-1  mb-lg-1">
                                 Port
                             </h4>
                         </div>
                         <div class="row">
-                            <p class="card-text h4 mx-auto mx-md-0 mx-lg-0 mb-1 " >
+                            <p class="card-text h4 mx-0 mx-md-0 mx-lg-0 mb-1 " >
                                 <span id="Port_Step_2">Yes</span>
                             </p>
                         </div>
+
                         <div class="row pt-3 pt-lg-3">
-                            <h4 class="font-weight-bolder text-dark mx-auto mx-md-0 mx-lg-0 mb-1  mb-lg-1">
+                            <h4 class="font-weight-bolder text-dark mx-0 mx-md-0 mx-lg-0 mb-1  mb-lg-1">
                                 Account Number
                             </h4>
                         </div>
                         <div class="row">
-                            <p class="card-text h4 mx-auto mx-md-0 mx-lg-0 mb-1 " >
+                            <p class="card-text h4 mx-0 mx-md-0 mx-lg-0 mb-1 " >
                                 <span id="Account_Number_Step_2">1234567890</span>
                             </p>
                         </div>
-                        <div class="row pt-3 pt-lg-3">
-                            <h4 class="font-weight-bolder text-dark mx-auto mx-md-0 mx-lg-0 mb-1  mb-lg-1">
-                                IMEI
-                            </h4>
-                        </div>
-                        <div class="row">
-                            <p class="card-text h4 mx-auto mx-md-0 mx-lg-0 mb-1 " >
-                                <span id="IMEI_Step_2">1234567890</span>
-                            </p>
-                        </div>
+                        
                     </div>
                     
-                    <div class="col-12 col-md col-lg pl-md-10    pl-lg-7">
-                        <div class="row pt-3 pt-md-0 pt-lg-0">
-                            <h4 class="font-weight-bolder text-dark mx-auto mx-md-0 mx-lg-0 mb-1  mb-lg-1">
-                                Area Code
-                            </h4>
-                        </div>
-                        <div class="row">
-                            <p class="card-text h4 mx-auto mx-md-0 mx-lg-0 mb-1 ">
-                                <span id="Area_Code_Step_2">12345678912345678</span>
-                            </p>
-                        </div>
-                        <div class="row pt-3 pt-lg-3">
-                            <h4 class="font-weight-bolder text-dark mx-auto mx-md-0 mx-lg-0 mb-1  mb-lg-1">
-                                Port Number
-                            </h4>
-                        </div>
-                        <div class="row">
-                            <p class="card-text h4 mx-auto mx-md-0 mx-lg-0 mb-1 " >
-                                <span id="Port_Number_Step_2">1234567890</span>
-                            </p>
-                        </div>
-                        <div class="row pt-3 pt-lg-3">
-                            <h4 class="font-weight-bolder text-dark mx-auto mx-md-0 mx-lg-0 mb-1  mb-lg-1">
-                                Pin
-                            </h4>
-                        </div>
-                        <div class="row">
-                            <p class="card-text h4 mx-auto mx-md-0 mx-lg-0 mb-1 " >
-                                <span id="Pin_Step_2">1234567890</span>
-                            </p>
-                        </div>
-                        <div class="row pt-3 pt-lg-3">
-                            <h4 class="font-weight-bolder text-dark mx-auto mx-md-0 mx-lg-0 mb-1  mb-lg-1">
+                    <div class="col-6 col-md-6 col-lg pl-9 pl-md-10   pl-lg-7">
+                        <div class="row pt-3  pt-md-0 pt-lg-0">
+                            <h4 class="font-weight-bolder text-dark mx-0 mx-md-0 mx-lg-0 mb-1     mb-lg-1">
                                 Current Carrier
                             </h4>
                         </div>
                         <div class="row">
-                            <p class="card-text h4 mx-auto mx-md-0  mx-lg-0 mb-1 " >
+                            <p class="card-text h4 mx-0 mx-md-0  mx-lg-0 mb-1 " >
                                 <span id="Carrier_Step_2">Verizon</span>
                             </p>
                         </div>
-                    </div>
+                        
+                        <div class="row pt-3 pt-lg-2">
+                            <h4 class="font-weight-bolder text-dark mx-0 mx-md-0 mx-lg-0 mb-1  mb-lg-1">
+                                Port Number
+                            </h4>
+                        </div>
+                        <div class="row">
+                            <p class="card-text h4 mx-0 mx-md-0 mx-lg-0 mb-1 " >
+                                <span id="Port_Number_Step_2">1234567890</span>
+                            </p>
+                        </div>
+                        <div class="row pt-3 pt-lg-3">
+                            <h4 class="font-weight-bolder text-dark mx-0 mx-md-0 mx-lg-0 mb-1  mb-lg-1">
+                                Pin
+                            </h4>
+                        </div>
+                        <div class="row">
+                            <p class="card-text h4 mx-0 mx-md-0 mx-lg-0 mb-1 " >
+                                <span id="Pin_Step_2">1234567890</span>
+                            </p>
+                        </div>
 
+                        
+                        
+                    </div>
+<!-- TODO   :   START OF INPUT FIELDS START -->
+{% with ''|center:NUMBER_OF_GUESTS as range %}
+                            {% for _ in range %}
+                            <div class="col-6 col-md-6 col-lg-6  border border-dark border-width-3 border-top-0 border-left-0 border-right-0">
+                        
+                                <div class="row pt-3 pt-lg-3">
+                                    <h4 class="font-weight-bolder text-dark text-md-left text-lg-left mx-0 mx-md-0 mx-lg-0 mb-1 mb-lg-1">
+                                        IMEI 
+                                    </h4>
+                                </div>
+                                <div class="row">
+                                    <p class="card-text h4 mx-0 mx-md-0 mx-lg-0" >
+                                        <span  id="IMEI_Step_{{ forloop.counter }}">12345678912345678</span>
+                                    </p>
+                                </div>
+                                <div class="row pt-3 pt-lg-3">
+                                    <h4 class="font-weight-bolder text-dark text-md-left text-lg-left mx-0 mx-md-0 mx-lg-0 mb-1 mb-lg-1">
+                                        ESIM/DIGITAL SIM
+                                    </h4>
+                                </div>
+                                <div class="row">
+                                    <p class="card-text h4 mx-0 mx-md-0 mx-lg-0" >
+                                        <span id="ESIM_Step_{{ forloop.counter }}">1717171717171717171717</span>
+                                    </p>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="col-6  col-md-6 col-lg-6 pl-9 pl-md-10 pl-lg-7 border border-dark border-width-3 border-top-0 border-left-0 border-right-0 pb-4">
+                                <div class="row pt-3 pt-md-3 pt-lg-3">
+                                    <h4 class="font-weight-bolder text-dark text-md-left text-lg-left mx-0 mx-md-0 mx-lg-0 mb-0  mb-lg-1">
+                                        ICCID
+                                    </h4>
+                                </div>
+                                <div class="row">
+                                    <p class="card-text h4 text-md-left mx-0 mx-md-0 mx-lg-0">
+                                        <span id="ICCID_Step_{{ forloop.counter }}" >12345678912345678</span>
+                                    </p>
+                                </div>
+                                <div class="row pt-3 pt-md-3 pt-lg-3">
+                                    <h4 class="font-weight-bolder text-dark text-md-left text-lg-left mx-0 mx-md-0 mx-lg-0 mb-lg-1">
+                                        Area Code
+                                    </h4>
+                                </div>
+                                <div class="row">
+                                    <p class="card-text h4 text-md-left mx-0 mx-md-0 mx-lg-0">
+                                        <span id="Area_Code_Step_{{ forloop.counter }}">12345678912345678</span>
+                                    </p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% endwith %}
+<!-- TODO   :   END OF INPUT FIELDS START -->
+                    
                     <div class="col-12">
                         <div class="row pt-3 pt-lg-3">
-                            <h4 class="font-weight-bolder text-dark mx-auto mx-md-0 mx-lg-0 mb-lg-1">
+                            <h4 class="font-weight-bolder text-dark mx-0 mx-md-0 mx-lg-0 mb-lg-1">
                                 Next Steps
                             </h4>
                         </div>
                         <div class="row">
-                            <p class="card-text h4 mx-auto mx-md-0 mx-lg-0 text-center text-md-left text-lg-left">
+                            <p class="card-text h4 mx-0 mx-md-0 mx-lg-0 text-left text-md-left text-lg-left">
                                 We'll begin processing your order and you should expect to receive your new Sim Card and number within 2 business days.You'll receive an email confirmation shortly.
+                            </p>
+                        </div>
+                        <div class="row pt-3 pt-md-0 pt-lg-3">
+                            <h3 class="font-weight-bolder text-dark text-md-left text-lg-left mb-1 mb-lg-1 mx-0 mx-md-0 mx-lg-0">
+                                Having issues?
+                            </h3>
+                        </div>
+                        <div class="row  pb-4 pb-lg-4">
+                            <p class="card-text h4 text-md-left  text-lg-left mx-0 mx-lg-0 mx-lg-0 px-0 px-md-0 px-lg-0">
+                                Feel free to book an appointment with your designated Customer Success Representative by going to "My Profile" and they will be happy to assist you with the process.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="row border-0 pt-3 pb-4 pb-lg-4 d-block d-md-none d-lg-none">
+                <div class="row border border-dark border-width-3  border-top-0 border-left-0 border-right-0 pt-3 pb-4 pb-lg-4 d-block d-md-none d-lg-none">
                     <div class="col-12 col-lg">
-                        <div class="card border border-dark border-width-3 rounded-lg">
-                            <div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 my-0  my-lg-0 py-2 py-lg-2 px-4">
-                                <h2 class="card-title text-uppercase font-weight-bolder text-dark text-left  mb-0 mb-lg-0">
-                                    Order Summary
-                                </h2>
-                            </div>
+                        <div class="card border-0">
+                            
                             <div class="card-body pt-3 px-0">
                                 <div class="container-fluid">
                                     <div class="row py-1">
                                         <div class="col">
-                                            <p class="card-text h3 text-left">
+                                            <p class="card-text h3 text-left font-weight-bolder text-dark">
                                                 {{ plan.category }} - {{ plan.plan_name }} Plan
                                             </p>
                                         </div>
                                     </div>
                                     <div class="row py-1">
                                         <div class="col-8">
-                                            <p class="card-text h3">
-                                                Number of Guests
+                                            <p class="card-text h3 text-nowrap">
+                                                Number of cell phone lines
                                             </p>
                                         </div>
                                         <div class="col">
                                             <p class="card-text font-weight-bolder h3 text-right text-dark">
-                                                1
+                                                <span id="number-of-guests">1</span>
                                             </p>
                                         </div>
                                     </div>
@@ -177,7 +230,7 @@
                                         </div>
                                         <div class="col">
                                             <p class="card-text font-weight-bolder h3 text-right text-dark">
-                                                $5/month
+                                                $<span id="subscription-form-fees">5</span>/month
                                             </p>
                                         </div>
                                     </div>
@@ -189,7 +242,7 @@
                                         </div>
                                         <div class="col">
                                             <p class="card-text font-weight-bolder h3 text-right text-dark">
-                                                $30/month
+                                                $<span id="subscription-form-monthly">{{ plan.id|FindPlanFixedPrice }}</span>/month
                                             </p>
                                         </div>
                                     </div>
@@ -202,7 +255,7 @@
                                         </div>
                                         <div class="col">
                                             <p class="card-text font-weight-bolder h3 text-right text-dark">
-                                                $35/month
+                                                $<span id="subscription-form-total">35</span>/month
                                             </p>
                                         </div>
                                     </div>
@@ -214,7 +267,7 @@
 
                 <!-- TODO: PAYMET SECTION START -->
 
-                <div class="row py-md-5 py-lg-5">
+                <div class="row pt-4 py-md-5 py-lg-5">
                     <div class="col px-md-0 px-lg-0">
                         <h2 class="card-title font-weight-bolder text-uppercase text-dark mb-md-0 mb-lg-0">
                             Payment Information 
@@ -354,10 +407,6 @@
                             <input type="text"  id="category_id_join" value="{{ plan.category.id }}" hidden>
                             <input type="hidden" id="plan_id_join" value="{{ plan.id }}">
                             <input type="hidden" value="{{ NUMBER_OF_GUESTS }}" id="slots">
-                            <input type="hidden" id="switch_1" value="">
-                            <input type="hidden" id="switch_2" value="">
-                            <input type="hidden" id="switch_3" value="">
-                            <input type="hidden" id="switch_4" value="">
                             <input id="joiningCondition" hidden value="Switch Carrier">
                             <input type="hidden" name="g-recaptcha-response" id='recaptcha_join'>
 
@@ -376,7 +425,7 @@
                     </h2>
                 </div>
                 <div class="card-body px-md-1 px-lg-4">
-                    <div class="container">
+                    <div class="container pr-md-1 pr-lg-2">
                         <div class="row">
                             <div class="col">
                                 <p class="card-text h3">
@@ -386,13 +435,13 @@
                         </div>
                         <div class="row py-md-2 py-lg-2">
                             <div class="col col-md-8 col-lg">
-                                <p class="card-text h3">
-                                    Number of Guests
+                                <p class="card-text h3 text-nowrap">
+                                    Number of cell phone lines
                                 </p>
                             </div>
                             <div class="col  col-md col-lg">
                                 <p class="card-text font-weight-bolder h3 text-right text-dark">
-                                    1
+                                    <span id="number-of-guests">3</span>
                                 </p>
                             </div>
                         </div>
@@ -403,8 +452,8 @@
                                 </p>
                             </div>
                             <div class="col  col-md col-lg">
-                                <p class="card-text font-weight-bolder h3 text-right text-dark">
-                                    $5/month
+                                <p class="card-text font-weight-bolder h3 text-right text-dark text-nowrap">
+                                    $<span id="subscription-form-fees">5</span>/month
                                 </p>
                             </div>
                         </div>
@@ -416,7 +465,7 @@
                             </div>
                             <div class="col">
                                 <p class="card-text font-weight-bolder h3 text-right text-dark">
-                                    $30/month
+                                    $<span id="subscription-form-monthly">{{ plan.id|FindPlanFixedPrice }}</span>/month
                                 </p>
                             </div>
                         </div>
@@ -429,7 +478,7 @@
                             </div>
                             <div class="col">
                                 <p class="card-text font-weight-bolder h3 text-right text-dark">
-                                    $35/month
+                                    $<span id="subscription-form-total">35</span>/month
                                 </p>
                             </div>
                         </div>

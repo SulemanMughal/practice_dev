@@ -129,33 +129,54 @@ function stripePaymentMethodHandler(result, email) {
 
   var device_IMEI = [];
   var device_area_codes = [];
+  var device_ICCID = [];
+  var device_ESIM = [];
+  var subs_contact = [];
+  
   // console.log(device_IMEI);
-  for(var i= 0 ;i < $("[name='IMEI']").length; i++)
-  {
-    if(($("[name='IMEI']")[i].value.trim() != ""))
-    {
+  for(var i= 0 ;i < $("[name='IMEI']").length; i++){
+    if(($("[name='IMEI']")[i].value.trim() != "")){
       device_IMEI.push($("[name='IMEI']")[i].value);  
     }  
-    
   }
-
-
-
-
   for(var i= 0 ;i < $("[name='AreaCode']").length; i++)
   {
     if(($("[name='AreaCode']")[i].value.trim() != ""))
     {
       device_area_codes.push($("[name='AreaCode']")[i].value);  
-    }  
-    
+    }   
   }
 
 
-  // Area Code Manipulations
-  
-  
+  // TODO:  ICCID 
+  for(var i= 0 ;i < $("[name='ICCID']").length; i++)
+  {
+    if(($("[name='ICCID']")[i].value.trim() != ""))
+    {
+      device_ICCID.push($("[name='ICCID']")[i].value);  
+    }   
+  }
 
+  // TODO:  device_ESIM
+  for(var i= 0 ;i < $("[name='ESIM']").length; i++)
+  {
+    if(($("[name='ESIM']")[i].value.trim() != ""))
+    {
+      device_ESIM.push($("[name='ESIM']")[i].value);  
+    }   
+  }
+
+
+// TODO : Switch Carrier Phone Numebr Array
+  for(var i= 0 ;i < $("[name='switch_1']").length; i++)
+  {
+    if(($("[name='switch_1']")[i].value.trim() != ""))
+    {
+      subs_contact.push($("[name='switch_1']")[i].value);  
+    }   
+  }
+
+  // Area Code Manipulations
   // var C_Country = document.getElementById('Country');
   // document.getElementById("submit_button").style.display = "nonoe";
   // document.getElementById("payment-loading").style.display = "block";
@@ -215,7 +236,7 @@ function stripePaymentMethodHandler(result, email) {
         C_Country:'US',
         number_of_slots : number_of_slots.value,
         device_IMEI : device_IMEI,
-        subs_contact : document.getElementById("switch_1").value,
+        subs_contact : subs_contact,
         subs_account : document.getElementById("switch_2").value,
         subs_PIN : document.getElementById("switch_3").value,
         mobile_carrier : document.getElementById("switch_4").value,
@@ -223,6 +244,8 @@ function stripePaymentMethodHandler(result, email) {
         Gresponse:Gresponse.value,
         joiningCondition:document.getElementById("joiningCondition").value,
         area_codes : device_area_codes,
+        device_ICCID : device_ICCID,
+        device_ESIM : device_ESIM,
       }),
 
     }).then(function(result) {

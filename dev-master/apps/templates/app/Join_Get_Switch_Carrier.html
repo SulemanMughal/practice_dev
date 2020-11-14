@@ -74,7 +74,7 @@ border-width: 3px !important;
 {% include "modals/finishing_payment_modal.html" %}
 {% include "modals/payment_processing_waiting_modal.html" %}
 {% include "modals/payment_error.html" %}
-
+{% include 'modals/payment_error_modal.html' %}
 <hr class="border border-success border-width-3 mt-9 mt-md-9 mt-lg-9 ml-lg-0 sticky-top" style="position: fixed !important; border-width: 10px !important;" id="progressbar">
 <div class="card px-4 px-lg-10 pb-8 pb-lg-10">
 
@@ -275,25 +275,63 @@ else{
     $("#port-number-no-select-option").hide();
 }
 
-if($("#IMEI_1").val() == ""){
-$("#IMEI_1").addClass("invalid");
-valid = false;
-}
 
+// IMEI VALUE EMPTY VALUE HANDLER
+$.each($("input[name='IMEI']"), function(){
+    if($(this).val().trim() == ""){
+        $(this).addClass("invalid");
+        valid = false;        
+    }
+    else{
+        $(this).removeClass("invalid");
+    }
+});
+
+
+// ICCID VALUE EMPTY VALUE HANDLER
+$.each($("input[name='ICCID']"), function(){
+    if($(this).val().trim() == ""){
+        $(this).addClass("invalid");
+        valid = false;        
+    }
+    else{
+        $(this).removeClass("invalid");
+    }
+});
+
+
+
+
+// ESIM VALUE EMPTY VALUE HANDLER
+// $.each($("input[name='ESIM']"), function(){
+//     if($(this).val().trim() == ""){
+//         $(this).addClass("invalid");
+//         valid = false;        
+//     }
+//     else{
+//         $(this).removeClass("invalid");
+//     }
+// });
+
+
+
+// AREA CODE VALUE EMPTY VALUE HANDLER
 if($("#option11").prop("checked") == true){
-  
-if($("#id_Area_code").val().trim() == ""){
-    $("#id_Area_code").addClass("invalid");
-    valid = false;
-}
+    $.each($("input[name='AreaCode']"), function(){
+    if($(this).val().trim() == ""){
+        $(this).addClass("invalid");
+        valid = false;        
+    }
+    else{
+        $(this).removeClass("invalid");
+    }
+});
+
 }
 
 if($("#option12").prop("checked") == true){
-if($("#switch_1").val().trim() == "" || $("#switch_2").val().trim() == "" || $("#switch_3").val().trim() == "" || $("#switch_4").val().trim() == "")
+if($("#switch_2").val().trim() == "" || $("#switch_3").val().trim() == "" || $("#switch_4").val().trim() == "")
 {
-    if($("#switch_1").val().trim() == ""){
-        $("#switch_1").addClass("invalid");
-    }
     if($("#switch_2").val().trim() == ""){
         $("#switch_2").addClass("invalid");
     }
@@ -307,6 +345,18 @@ if($("#switch_1").val().trim() == "" || $("#switch_2").val().trim() == "" || $("
     }
     valid = false;
 }
+
+// switch_1 VALUE EMPTY VALUE HANDLER
+$.each($("input[name='switch_1']"), function(){
+    if($(this).val().trim() == ""){
+        $(this).addClass("invalid");
+        valid = false;        
+    }
+    else{
+        $(this).removeClass("invalid");
+    }
+});
+
 }
 
 
@@ -332,23 +382,120 @@ $("#Port_Step_2").html("");
 $("#Port_Step_2").html("No");
 }
 
-$("#Account_Number_Step_2").html("");
-$("#Account_Number_Step_2").html($("#switch_2").val());
 
-$("#IMEI_Step_2").html("");
-$("#IMEI_Step_2").html($("#IMEI_1").val());
 
-$("#Area_Code_Step_2").html("");
-$("#Area_Code_Step_2").html($("#id_Area_code").val());
+if($("#option11").prop("checked") != true){
+    $("#Account_Number_Step_2").html("");
+    if($("#switch_2").val().trim() != ""){
+        $("#Account_Number_Step_2").html($("#switch_2").val());    
+    }
+    else{
+        $("#Account_Number_Step_2").html("No Previous Accout Number");
+    }
+}
+else{
+    $("#Account_Number_Step_2").html("");
+    $("#Account_Number_Step_2").html("No Previous Accout Number");
+}
 
-$("#Port_Number_Step_2").html("");
-$("#Port_Number_Step_2").html($("#switch_1").val());
 
-$("#Pin_Step_2").html("");
-$("#Pin_Step_2").html($("#switch_3").val());
 
-$("#Carrier_Step_2").html("");
-$("#Carrier_Step_2").html($("#switch_4").val());
+// $("#IMEI_Step_2").html("");
+// $("#IMEI_Step_2").html($("#IMEI_1").val());
+
+// $("#Area_Code_Step_2").html("");
+// $("#Area_Code_Step_2").html($("#id_Area_code").val());
+
+
+
+
+
+if($("#option11").prop("checked") != true){
+    $("#Pin_Step_2").html("");
+if($("#switch_3").val().trim() != ""){
+    $("#Pin_Step_2").html($("#switch_3").val());
+}
+else{
+    $("#Pin_Step_2").html("No Available Pin");
+}    
+}
+else{
+    $("#Pin_Step_2").html("");
+    $("#Pin_Step_2").html("No Available Pin");
+}
+
+
+
+
+if($("#option11").prop("checked") != true){
+    $("#Carrier_Step_2").html("");
+    if($("#switch_4").val().trim() != ""){
+    $("#Carrier_Step_2").html($("#switch_4").val());
+    }
+    else{
+    $("#Carrier_Step_2").html("No Previous Carrier");
+    }
+}
+else{
+    $("#Carrier_Step_2").html("");
+    $("#Carrier_Step_2").html("No Previous Carrier");
+}
+
+
+
+
+// IMEI Input hander
+var i = 0;
+    $.each($("input[name='IMEI']"), function(){
+      i++;
+      $("span#IMEI_Step_"  + i + "").html($(this).val());
+    });
+
+// PORT Number Handler
+i =0;
+if($("#option11").prop("checked") != true){
+    $("#Port_Number_Step_2").html("");
+    $.each($("input[name='switch_1']"), function(){
+        i++;
+        if($(this).val().trim() != ""){
+            $("#Port_Number_Step_2").html($("#Port_Number_Step_2").html() +  $(this).val() + " ");    
+        }
+        else{
+            $("#Port_Number_Step_2").html("No Available Port Number");    
+        }
+        
+        });
+
+}
+else{
+    $("#Port_Number_Step_2").html("");
+    $("#Port_Number_Step_2").html("No Available Port Number");    
+}
+
+
+
+    // ESIM Handler
+    i =0;
+    $.each($("input[name='ESIM']"), function(){
+      i++;
+      $("span#ESIM_Step_"  + i + "").html($(this).val());
+    });
+
+
+    // ICCID Handler
+    i = 0;
+    $.each($("input[name='ICCID']"), function(){
+      i++;
+      $("span#ICCID_Step_"  + i + "").html($(this).val());
+    });
+
+    // Area Code Handler
+    i = 0;
+    $.each($("input[name='AreaCode']"), function(){
+      i++;
+      $("span#Area_Code_Step_"  + i + "").html($(this).val());
+    });
+
 
 // If the valid status is true, mark the step as finished and valid:
 if (valid) {
@@ -370,7 +517,7 @@ x[n].className += " active";
 
 
 
-<!-- * Payment Model State Select Styling Changes -->
+<!-- ! Payment Model State Select Styling Changes -->
 <script>
 $(document).ready(function()
 {
@@ -386,6 +533,24 @@ $("#selectTagError").show();
 });
 </script>
 
+<!-- ! NUMBER_OF_GUESTS HANDLER -->
+<script>
+    $(document).ready(function(){
+      $.each($("span#number-of-guests"), function(){
+        $(this).html("{{ NUMBER_OF_GUESTS }}");
+      });
+      $.each($("span#subscription-form-fees"), function(){
+        $(this).html(parseInt("{{ NUMBER_OF_GUESTS }}")*5);
+      });
+      $.each($("span#subscription-form-monthly"), function(){
+        $(this).html(parseInt("{{ NUMBER_OF_GUESTS }}") * parseInt($(this).html()));
+      });
+      $.each($("span#subscription-form-total"), function(){
+        $(this).html(parseInt($("#subscription-form-monthly").html()) + parseInt($("#subscription-form-fees").html()));
+      });
+    });
+  </script>
+  
 
 
 {% endblock javascript %}
