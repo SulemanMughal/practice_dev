@@ -1,19 +1,12 @@
 {% load static humanize FindSubUser findNextYear findNextMonth findPaymentCurrentDay FindCategoryPlanInfo separate_plan_paranthese mathfilters FindPlanFixedPrice %}
-
-
-
 {% autoescape off %}
-
 {% include 'music/home_filter.html' %}
-
 <style>
-  
-
   .carousel-cell {
-    width: 100%; /* half-width */
+    width: 92%; /* half-width */
     /* min-height: 700px;
     max-height: 700px; */
-    margin-right: 10px;
+    margin-left: -30px !important;
   }
 
   .flickity-button{
@@ -32,6 +25,10 @@
 @media only screen
 and (min-device-width : 320px)
 and (max-device-width : 480px) {
+
+  .plan-2-png{
+  width: 30px !important;
+}
 
   .flickity-prev-next-button {
   width: 40px;
@@ -56,16 +53,20 @@ and (max-device-width : 480px) {
 /* Smartphones (landscape) ----------- */
 @media only screen
 and (min-width : 321px) {
+  .plan-2-png{
+  width: 30px !important;
+}
+
   .flickity-prev-next-button {
   width: 40px;
   height:40px;
   top:500px !important;
 }
 
-.flickity-prev-next-button.next{
-  /* left: 254px !important; */
+/* .flickity-prev-next-button.next{
+  left: 254px !important;
   
-}
+} */
 
 .flickity-prev-next-button.previous{
   left: -16px !important;
@@ -89,6 +90,11 @@ and (max-width : 320px) {
 .flickity-prev-next-button.previous{
   left: -16px !important;
 }
+
+.plan-2-png{
+  width: 30px !important;
+}
+
 }
   
   
@@ -101,8 +107,9 @@ and (max-width : 320px) {
     width: 50%; /* half-width */
     /* min-height: 700px;
     max-height: 700px; */
-    margin-right: 0px;
+    margin-right: 0px !important;
     right: -150px !important;
+    margin-left: 10px !important;
   }
 
 
@@ -128,9 +135,9 @@ and (max-width : 320px) {
   top:540px !important;
 }
 
-.flickity-prev-next-button.next{
-  /* left: 644px !important; */
-}
+/* .flickity-prev-next-button.next{
+  left: 644px !important;
+} */
 
 .flickity-prev-next-button.previous{
   left: -16px !important;
@@ -145,9 +152,7 @@ and (max-width : 320px) {
 {% if categories %}
 <section class="p-0 bg-light-green-shade pb-5 d-none d-lg-block" >
   <div class="container">
-    
     <div class="row" id="portfolio" data-isotope='{"layoutMode": "fitRows"}' style="height: auto;" >
-      
       {% for i in categories  %}
         {% if i.get_plans_not_on_leave %}
           {% for j in i.get_plans_not_on_leave %}
@@ -260,8 +265,8 @@ and (max-width : 320px) {
             <div class="media-body"><span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"1" }}</span></div>
             </div>
             <div class="justify-content-left text-left mt-1 media position-relative align-items-center">
-            <img src="{% static 'Landkit/images/Plan/2.png' %}" style="width:30px;" class="mr-3" loading="lazy"  alt="plan image">
-            <div class="media">
+            <img src="{% static 'Landkit/images/Plan/2.png' %}" style="width:30px;" class="mr-3  plan-2-png" loading="lazy"  alt="plan image">
+            <div class="media-body">
             <span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"2" }}</span>
             </div>
             </div>
@@ -286,7 +291,7 @@ and (max-width : 320px) {
             </div>
             <div class="card-footer m-0 text-left pt-lg-10 " style="position: absolute; bottom: -10px;">
                 <div class="row">
-                    <div class="col-9">
+                    <div class="col">
                         {%  if j.total_slots != 0   %}
                             <a class="h6 font-size-sm btn-link btn btn-lighter-greenish text-uppercase text-decoration-none p-1 pl-3 pr-3" href="{% url 'Join' i.id j.id %}" target="_blank" style="font-size: 0.8rem !important;">More Details </a>
                         {% else %} 
@@ -294,12 +299,14 @@ and (max-width : 320px) {
                         {% endif %}
                     </div>
                     
-                        <div class="col-2 pl-0" >
-                            <a class="btn btn-round btn-lighter-greenish p-2 pl-3 pr-3 text-decoration-none" data-src='"{{ j.linkWeb }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen'
-                            href='javascript:;' target="_blank" data-fancybox>
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
+                    {% if j.linkWeb.stripe != "" and  "youtube" not in  j.linkWeb.stripe %}
+                    <div class="col-2" >
+                        <a class="btn btn-round btn-lighter-greenish p-2 pl-3 pr-3 text-decoration-none" data-src='"{{ j.linkWeb }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen'
+                        href='javascript:;' target="_blank" data-fancybox>
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    {% endif %}
                     
                 </div>
                 
@@ -316,12 +323,12 @@ and (max-width : 320px) {
           <div class="carousel-cell">
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 bg-transparent plan_name mb-8 pb-8 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg ">
                   <div class="card bg-white  my-7 h-100 box-shadow-lighter-greenish bg-none" >
-                    <div class="card-body text-left mb-8 pb-8 text-center bg-transparent">
-                      <a class="   mt-10 font-size-4_5rem " href="#!"
+                    <div class="card-body text-left mb-8 pb-8 text-center bg-transparent pl-0 pl-md-8">
+                      <a class="   mt-10 font-size-4_5rem pl-0 " href="#!"
                         {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"
                         onclick="PlanCreationFunction('None', 'None');" {% else %} data-toggle="modal"
                         data-target="#modalSigninHorizontal" {% endif %} >
-                        <img src="{% static 'Landkit/images/v3/add_plan.png' %}" alt="circledin" class="bg-add-plan-button">
+                        <img src="{% static 'Landkit/images/v3/add_plan.png' %}" alt="circledin" class="bg-add-plan-button ">
                     </a>
                     </div>
                   </div>
@@ -386,8 +393,8 @@ and (max-width : 320px) {
             <div class="media-body"><span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"1" }}</span></div>
             </div>
             <div class="justify-content-left text-left mt-1 media position-relative align-items-center">
-            <img src="{% static 'Landkit/images/Plan/2.png' %}" style="width:30px;" class="mr-3" loading="lazy"  alt="plan image">
-            <div class="media">
+            <img src="{% static 'Landkit/images/Plan/2.png' %}" style="width:30px;" class="mr-3 plan-2-png" loading="lazy"  alt="plan image">
+            <div class="media-body">
             <span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"2" }}</span>
             </div>
             </div>
@@ -412,7 +419,7 @@ and (max-width : 320px) {
             </div>
             <div class="card-footer m-0 text-left pt-lg-10 " style="position: absolute; bottom: -10px;">
                 <div class="row">
-                    <div class="col-9">
+                    <div class="col">
                         {%  if j.total_slots != 0   %}
                             <a class="h6 font-size-sm btn-link btn btn-lighter-greenish text-uppercase text-decoration-none p-1 pl-3 pr-3" href="{% url 'Join' i.id j.id %}" target="_blank" style="font-size: 0.8rem !important;">More Details </a>
                         {% else %} 
@@ -420,12 +427,14 @@ and (max-width : 320px) {
                         {% endif %}
                     </div>
                     
-                        <div class="col-2 pl-0" >
-                            <a class="btn btn-round btn-lighter-greenish p-2 pl-3 pr-3 text-decoration-none" data-src='"{{ j.linkWeb }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen'
-                            href='javascript:;' target="_blank" data-fancybox>
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
+                    {% if j.linkWeb.stripe != "" and  "youtube" not in  j.linkWeb.stripe %}
+                    <div class="col-2" >
+                        <a class="btn btn-round btn-lighter-greenish p-2 pl-3 pr-3 text-decoration-none" data-src='"{{ j.linkWeb }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen'
+                        href='javascript:;' target="_blank" data-fancybox>
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    {% endif %}
                     
                 </div>
                 
@@ -442,8 +451,8 @@ and (max-width : 320px) {
       <div class="carousel-cell">
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 bg-transparent plan_name mb-8 pb-8 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg ">
               <div class="card bg-white  my-7 h-100 box-shadow-lighter-greenish bg-none" >
-                <div class="card-body text-left mb-8 pb-8 text-center bg-transparent">
-                  <a class="   mt-10 font-size-4_5rem " href="#!"
+                <div class="card-body text-left mb-8 pb-8 text-center bg-transparent pl-0 pl-md-8">
+                  <a class="   mt-10 font-size-4_5rem pl-0" href="#!"
                     {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"
                     onclick="PlanCreationFunction('None', 'None');" {% else %} data-toggle="modal"
                     data-target="#modalSigninHorizontal" {% endif %} >
@@ -483,14 +492,14 @@ and (max-width : 320px) {
         if($(this).prop("checked") == true){
           $.each($("section"), function(){
             if($(this).attr("data-plan") && $(this).attr("data-plan") =="all" ){
-              $(this).show();
-              $(this).removeClass("d-none d-lg-none");
-              $(this).addClass("d-block d-lg-none");
+              $(this).show().removeClass("d-none d-lg-none").addClass("d-block d-lg-none");
+              // $(this).removeClass("d-none d-lg-none");
+              // $(this).addClass("d-block d-lg-none");
             }
             else if($(this).attr("data-plan") ){
-              $(this).hide();
-              $(this).removeClass("d-block d-lg-none");
-              $(this).addClass("d-none d-lg-none");
+              $(this).hide().removeClass("d-block d-lg-none").addClass("d-none d-lg-none");
+              // $(this).removeClass("d-block d-lg-none");
+              // $(this).addClass("d-none d-lg-none");
             }
           });
         }
@@ -502,17 +511,17 @@ and (max-width : 320px) {
         if($(this).prop("checked") == true){
           $.each($("section"), function(){
             if($(this).attr("data-plan") && $(this).attr("data-plan") == "verizon" ){
-              $(this).addClass("d-block d-lg-none");
-              $(this).removeClass("d-none d-lg-none");
-              $(this).show();
+              $(this).show().removeClass("d-none d-lg-none").addClass("d-block d-lg-none");
+              // $(this).addClass("d-block d-lg-none");
+              // $(this).removeClass("d-none d-lg-none");
+              // $(this).show();
               // $(this).
               // console.info($(this).show());
             }
             else if($(this).attr("data-plan")){
-              $(this).addClass("d-none d-lg-none");
-              $(this).removeClass("d-block d-lg-none");
-              
-              $(this).hide();
+              // $(this).addClass("d-none d-lg-none");
+              // $(this).removeClass("d-block d-lg-none");
+              $(this).hide().addClass("d-none d-lg-none").removeClass("d-block d-lg-none");
               
             }
           });
@@ -525,17 +534,16 @@ and (max-width : 320px) {
         if($(this).prop("checked") == true){
           $.each($("section"), function(){
             if($(this).attr("data-plan") && $(this).attr("data-plan") == "t-mobile" ){
-              $(this).addClass("d-block d-lg-none");
-              $(this).removeClass("d-none d-lg-none");
-              $(this).show();
+              // $(this).addClass("d-block d-lg-none");
+              // $(this).removeClass("d-none d-lg-none");
+              $(this).show().removeClass("d-none d-lg-none").addClass("d-block d-lg-none");
               // $(this).
               // console.info($(this).show());
             }
             else if($(this).attr("data-plan")){
-              $(this).addClass("d-none d-lg-none");
-              $(this).removeClass("d-block d-lg-none");
-              
-              $(this).hide();
+              // $(this).addClass("d-none d-lg-none");
+              // $(this).removeClass("d-block d-lg-none");
+              $(this).hide().addClass("d-none d-lg-none").removeClass("d-block d-lg-none");
               
             }
           });
@@ -547,24 +555,20 @@ and (max-width : 320px) {
     if($(this).prop("checked") == true){
       $.each($("section"), function(){
         if($(this).attr("data-plan") && $(this).attr("data-plan") == "t" ){
-          $(this).addClass("d-block d-lg-none");
-          $(this).removeClass("d-none d-lg-none");
-          $(this).show();
+          // $(this).addClass("d-block d-lg-none");
+          // $(this).removeClass("d-none d-lg-none");
+          $(this).show().removeClass("d-none d-lg-none").addClass("d-block d-lg-none");
           // $(this).
           // console.info($(this).show());
         }
         else if($(this).attr("data-plan")){
-          $(this).addClass("d-none d-lg-none");
-          $(this).removeClass("d-block d-lg-none");
-          
-          $(this).hide();
-          
+          // $(this).addClass("d-none d-lg-none");
+          // $(this).removeClass("d-block d-lg-none");
+          $(this).hide().addClass("d-none d-lg-none").removeClass("d-block d-lg-none");
         }
       });
     }
 });
-
-
   });
 </script>
 
