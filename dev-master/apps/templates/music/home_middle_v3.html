@@ -3,43 +3,46 @@
     <div class="container bg-light-green-shade  rounded-lg" style="max-height: 550px !important; ;">
         <div class="row">
             <div class="col">
-                <h1 class="card-title text-center text-uppercase font-weight-bold display-4 text-white text-shadow-bluish">
+                <h1 class="card-title text-center text-uppercase font-weight-bold display-4 text-dark text-shadow-bluish">
                     <img class="icon mt-md-5 mt-lg-5" src="{% static 'Landkit/images/v3/teal_people.png' %}" alt="circledin"> Circledin To save together!
                 </h1>
             </div>
         </div>
         <div class="row mb-2">
             <div class="col-12 col-md-5 col-xl-3">
+                  <p class="card-text  text-uppercase position-relative bg-dark p-2 text-white rounded-lg border border-white border-width-4 shadow-lg text-center mt-lg-3" style="left: 200px !important;">
+                    Your new personal assistant to take away the headache from dealing with mobile carriers.
+                  </p>
                 <div class="row pl-0 pl-md-4 pl-xl-0" >
-                    <img class="diverse-2  ml-lg-0" data-toggle="tooltip"
-                    src="{% static 'Landkit/images/v3/addin.png' %}" alt="circledin" style="bottom: 0px !important;">
-                <img class="img-w-350-md img-w-500  ml-md-n3 mr-md-0 mx-lg-auto diverse" data-toggle="tooltip"
-                    src="{% static 'Landkit/images/v3/7.png' %}" alt="circledin" style="bottom: 0px !important;">    
+                    <img class="diverse-2 ml-lg-n15 mt-lg-n12" data-toggle="tooltip"
+                    src="{% static 'Landkit/images/v3/assistant.png' %}" alt="circledin" style="bottom: 0px !important;">
+                <img class="img-w-350-md img-w-500  ml-md-n3 mr-md-0  ml-lg-14 mt-lg-n1 diverse" data-toggle="tooltip"
+                    src="{% static 'Landkit/images/v3/7.png' %}" alt="circledin" style="bottom: 0px !important; z-index: 0 !important; ">    
                 </div>
+                
             </div>
             <div class="col-12 col-md-7 col-lg-6 col-xl-7   mt-0 mt-md-0 px-5  pl-md-8 pr-md-5 pl-lg-0  pr-lg-0 pb-lg-8 pl-xl-14 ml-lg-0 ml-xl-11 mr-lg-0 ">
-                <h2 class="card-title text-uppercase font-weight-bolder mb-0  text-white">
+              
+                <h2 class="card-title text-uppercase font-weight-bolder mb-0  text-dark">
                     Join an Existing Plan
                 </h2>
-                <p class="h5 card-text pr-0 pr-lg-6 text-white">
+                <p class="h5 card-text pr-0 pr-lg-6 text-dark">
                     Looking to save? Find a plan that best suits your needs and join that account to enjoy savings per line. We'll handle the rest!
                 </p>
-                <h2 class="card-title text-uppercase font-weight-bold mb-0   text-white">
+                <h2 class="card-title text-uppercase font-weight-bold mb-0   text-dark">
                     Post Your Account
                 </h2>
-                <p class="h5 card-text pr-0 pr-lg-6 text-white">
-                  Have a few extra slots on your account? Post your account for others to join and enjoy the savings. It’s like having a personal assistant, Circledin will manage your account so you don’t need to worry about a thing.                                    
+                <p class="h5 card-text pr-0 pr-lg-6 text-dark">
+                  Have a few extra slots on your account? Post your account for others to join and enjoy savings per line. Like having a personal assistant, Circledin will manage your account so you don’t need to worry about a thing.
                 </p>
-                <p class="h5 card-text pr-0 pr-lg-6 text-white text-center" >
-                  * By Invite Only
+                <p class="h5 card-text pr-0 pr-lg-6 text-dark text-left" >
+                  *This feature is by invite only.
                 </p>
 
                 
                 
-                <a class="btn btn-light-greenish col-12 col-lg-9  lift pt-1 pb-1" type="button" href="{% url 'how-it-works-url' %}" title="circledin" target="_blank">Learn More</a>
-                <p class="h5 card-text mt-2 pr-lg-6 text-white">
-                    We guarantee timely payments each month so that there are no disruptions to your mobile services.
-                </p>
+                <a class="btn btn-dark col-12 col-lg-6 lift pt-1 pb-1 float-right" type="button" href="{% url 'how-it-works-url' %}" title="circledin" target="_blank">Learn More</a>
+                
             </div>
         </div>
     </div>
@@ -100,7 +103,10 @@
                         <div class="collapse" id="helpTwo" >
                           <div class="py-5">
                             <p class="text-white">
-                                Have a few extra slots on your account? Post your account for others to join and enjoy savings of line. We'll handle the rest!
+                              Have a few extra slots on your account? Post your account for others to join and enjoy savings per line. Like having a personal assistant, Circledin will manage your account so you don’t need to worry about a thing.
+                            </p>
+                            <p class="h5 card-text pr-0 pr-lg-6 text-white text-left" >
+                              *This feature is by invite only.
                             </p>
                           </div>
                         </div>
@@ -115,10 +121,30 @@
                 <p class="h6 card-text d-block d-md-none">
                     *We guarantee timely payments each month so that there are no disruptions to your mobile services.
                 </p>
-                <p class="h3 card-text d-none d-md-block d-lg-none">
+                <p class="h3 card-text d-none d-md-none d-lg-none">
                   *We guarantee timely payments each month so that there are no disruptions to your mobile services.
               </p>
             </div>
         </div>
     </div>
+</section>
+
+
+
+
+
+
+<section class="bg-how-it-workds-banner-new pb-lg-8 d-none d-lg-block" >
+  <div class="container py-lg-8 " >
+      <div class="row">
+          <div class="col">
+              <h1 class="card-title display-3 text-uppercase font-weight-bolder text-white mb-lg-0 text-shadow-bluish">
+                  You're covered!
+              </h1>
+              <p class="card-text text-white h3 ">
+                We guarantee timely payments each month so that there are no disruptions to your mobile services. Regardless of the amount of users in the plan, we guarantee the same low price.
+              </p>
+          </div>
+      </div>
+  </div>
 </section>

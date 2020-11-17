@@ -1492,6 +1492,7 @@ def Join_A_Plan_Existing_Customer(request, category_id, plan_id):
     # else:
     template_name="app/Join_Existing_Customer.html"
     c = category.objects.get(id=category_id)
+
     p = plan.objects.get(category = c, id=plan_id)
     context={
         'category' : c,
@@ -1499,8 +1500,12 @@ def Join_A_Plan_Existing_Customer(request, category_id, plan_id):
         'objects' : subscription.objects.all().count(),
         'NUMBER_OF_GUESTS' : request.POST.get('EXISTING_CUSTOMER', 1)
     }
-    return render(request, template_name,context)
-
+    # Check Point for T-Mobile Category
+    if c.Name == "T-Mobile":
+        template_name = "app/Join_Existing_Customer_T_Mobile.html"
+        return render(request, template_name,context)
+    else:
+        return render(request, template_name,context)
 
 # SWITCH CARRIER PAGE
 @login_required
