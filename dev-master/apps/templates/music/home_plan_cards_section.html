@@ -11,7 +11,11 @@
 
   .flickity-button{
     background-color: #287777 !important;
+  margin-left: 35px !important;
+  margin-right: 35px !important;
+  margin-top: 20px !important;
   }
+
 
 
   .flickity-prev-next-button.next{
@@ -133,6 +137,9 @@ and (max-width : 320px) {
   width: 40px;
   height:40px;
   top:540px !important;
+  margin-left: 45px !important;
+  margin-right:45px !important;
+  
 }
 
 /* .flickity-prev-next-button.next{
@@ -149,8 +156,14 @@ and (max-width : 320px) {
   
   </style>
 
+
+
+
 {% if categories %}
-<section class="p-0 bg-light-green-shade pb-5 d-none d-lg-block" >
+
+<!-- ! LARGE SCREEN DESIGNS -->
+
+<section class="p-0 bg-picato-green pb-5 d-none d-lg-block" >
   <div class="container">
     <div class="row" id="portfolio" data-isotope='{"layoutMode": "fitRows"}' style="height: auto;" >
       {% for i in categories  %}
@@ -162,12 +175,12 @@ and (max-width : 320px) {
                 id="btn_{{ j.category.slug }}">
                 <div class="card bg-white my-7   h-100 box-shadow-lighter-greenish bg-none" >
                   <div class="card-body text-left mb-8 pb-8 text-center bg-transparent">
-                    <button class="btn btn-lg btn-rounded-circle btn-success  mt-10 font-size-4_5rem"
+                    <a class="  mt-10 font-size-4_5rem" href="#!"
                       {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"
                       onclick="PlanCreationFunction('{{ i.slug }}', '{{ i.id }}');" {% else %} data-toggle="modal"
                       data-target="#modalSigninHorizontal" {% endif %} >
-                      <i class="fas fa-plus"></i>
-                    </button>
+                      <img src="{% static 'Landkit/images/v3/add_plan.png' %}" alt="circledin" class="bg-add-plan-button">
+                  </a>
                   </div>
                 </div>
               </div>
@@ -178,12 +191,12 @@ and (max-width : 320px) {
           id="btn_{{ i.slug }}">
           <div class="card bg-white my-7 h-100 box-shadow-lighter-greenish bg-none" >
             <div class="card-body text-left mb-8 pb-8 text-center bg-transparent ">
-              <button class="btn btn-lg btn-rounded-circle btn-success  mt-10 font-size-4_5rem"
+              <a class="mt-10 font-size-4_5rem" href="#!"
                 {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"
                 onclick="PlanCreationFunction('{{ i.slug }}', '{{ i.id }}');" {% else %} data-toggle="modal"
                 data-target="#modalSigninHorizontal" {% endif %}>
-                <i class="fas fa-plus"></i>
-              </button>
+                <img src="{% static 'Landkit/images/v3/add_plan.png' %}" alt="circledin" class="bg-add-plan-button">
+            </a>
             </div>
           </div>
           </div>
@@ -212,14 +225,9 @@ and (max-width : 320px) {
 
 
 
-
-
-
-
-
-
-<section class="d-block d-lg-none bg-faq" style="background: linear-gradient(180deg, white 50%, #EFF4F4 50%);"  data-plan="all"> 
-  <div class="main-carousel mx-8 px-0  mx-lg-14" id="portfolio-main-carousel-all"  data-flickity='{ "cellAlign": "left", "contain": true, "pageDots": false, "prevNextButtons": true }' >
+<!-- ! IPHONE AND IPADS DESIGNS -->
+<section class="d-block d-lg-none bg-faq" style="background: linear-gradient(180deg, white 50%, #D0E6E3 50%);"  data-plan="all"> 
+  <div class="main-carousel mx-0 px-0  mx-lg-14" id="portfolio-main-carousel-all"  data-flickity='{ "cellAlign": "left", "contain": true, "pageDots": false, "prevNextButtons": true }' >
     {% for i in categories  %}
         {% if i.get_plans_not_on_leave %}
           {% for j in i.get_plans_not_on_leave %}
@@ -307,17 +315,13 @@ and (max-width : 320px) {
                         </a>
                     </div>
                     {% endif %}
-                    
                 </div>
-                
             </div>
             </div>
             </div>
           </div>
-
           {% endwith %}
           {% endfor %}
-
         {% endif %}
         {% if forloop.last %}
           <div class="carousel-cell">
@@ -339,14 +343,10 @@ and (max-width : 320px) {
     <div class="carousel-cell d-none d-md-block d-lg-none">
     </div>
   </div>
-  
 </section>
-
-
 {% for k in categories  %}
-
-<section class="d-none bg-faq" style="background: linear-gradient(180deg, white 50%, #EFF4F4 50%); display: inline !important;"  data-plan="{{ k.slug }}"> 
-  <div class="main-carousel mx-8 px-0  mx-lg-14" id="portfolio-main-carousel-verizon"  data-flickity='{ "cellAlign": "left", "contain": true, "pageDots": false, "prevNextButtons": true }' >
+<section class="d-none bg-faq" style="background: linear-gradient(180deg, white 50%, #D0E6E3 50%); display: inline !important;"  data-plan="{{ k.slug }}"> 
+  <div class="main-carousel mx-0 px-0  mx-lg-14" id="portfolio-main-carousel-verizon"  data-flickity='{ "cellAlign": "left", "contain": true, "pageDots": false, "prevNextButtons": true }' >
     {% for i in categories  %}
       {% if i.slug == k.slug %}
         {% if i.get_plans_not_on_leave %}
@@ -426,7 +426,6 @@ and (max-width : 320px) {
                             <a  href="#!" class="btn-link btn btn-lighter-greenish text-uppercase text-decoration-none p-2 pl-3 pr-3">FULL</a>
                         {% endif %}
                     </div>
-                    
                     {% if j.linkWeb.stripe != "" and  "youtube" not in  j.linkWeb.stripe %}
                     <div class="col-2" >
                         <a class="btn btn-round btn-lighter-greenish p-2 pl-3 pr-3 text-decoration-none" data-src='"{{ j.linkWeb }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen'
@@ -435,13 +434,10 @@ and (max-width : 320px) {
                         </a>
                     </div>
                     {% endif %}
-                    
                 </div>
-                
             </div>
             </div>
             </div>
-            
             </div>
           {% endwith %}
           {% endfor %}

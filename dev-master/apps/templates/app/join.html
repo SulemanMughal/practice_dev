@@ -67,7 +67,7 @@
       </div>
   </div>
 </section>
-<section class="bg-light p-2 mt-5">
+<section class="bg-light p-2 pt-5">
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-6 col-lg-7 col-xl-7">
@@ -284,7 +284,7 @@
                     <button type="button" class="btn pl-0 pl-lg-1 mr-0 pr-0 pt-0 pb-0" data-toggle="popover"  data-content="This helps us keep the lights on."><i class="fa fa-info-circle text-success"></i></button>
                   </label>
                 </div>
-                <div class="col col-md text-right mr-0 mr-md-3">
+                <div class="col col-md text-right mr-0 mr-md-0">
                   <p class="card-title font-weight-bold mt-0 mt-lg-0 mb-0" >$<span id="subs_Section">5</span> /month
                 </p>
                 </div>
@@ -295,19 +295,19 @@
                   <div class="col  col-md pr-0">
                     <label for="exampleForm">Mobile Cost <button type="button" class="btn pl-0 pl-lg-1 mr-0 pr-0 pt-0 pb-0" data-toggle="popover"  data-content="Excluding taxes and fees from your carrier."><i class="fa fa-info-circle text-success"></i></button></label>
                   </div>
-                  <div class="col col-md text-right  mr-0 mr-md-0">
+                  <div class="col col-md text-right  mr-0 mr-md-0 ">
                     <p class="card-title font-weight-bold mb-0"  id="payment" data="{{ plan.id|FindPlanFixedPrice }}" >$<span id="paymentSub">{{ plan.id|FindPlanFixedPrice|intcomma }}</span> /month
                   </p>
                   </div>
                 </div>
               </div>
-              <div class="form-group border border-dark pt-2 pl-2 border-bottom-0 border-left-0 border-right-0">
+              <div class="form-group border border-dark pt-2 pl-0 border-bottom-0 border-left-0 border-right-0">
                 <div class="row">
-                  <div class="col">
+                  <div class="col-4">
                     <label for="exampleForm">Total</label>
                   </div>
-                  <div class="col text-right mr-3">
-                    <p class="card-title font-weight-bold mt-2" style="font-size: 20px;" id="total"
+                  <div class="col text-right mr-0">
+                    <p class="card-title font-weight-bold mt-0" style="font-size: 20px;" id="total"
                     data="{{ plan.currently_monthly_payment_per_line }}">${{ plan.id|FindPlanFixedPrice|add:5 }} /month
                   </p>
                   </div>
@@ -332,27 +332,27 @@
                 <button class="btn text-white bg-fresh-color dropdown-toggle font-weight-bolder col-12 w-100 h3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Join
                 </button>
-                <div class="dropdown-menu text-white bg-fresh-color col-12 w-100 px-lg-9" aria-labelledby="dropdownMenuButton" >
-                  <ul class="nav nav-tabs border-0 flex-column">
-                    <li class="nav-item">
+                <div class="dropdown-menu text-dark  col-12 w-100 px-0 py-0" aria-labelledby="dropdownMenuButton" >
+                  <ul class=" border-0  list-group">
+                    <li class="list-group-item list-group-item-action">
                       <form action="{% url 'Join_Get_A_New_Number' plan.category.id plan.id %}" method="POST"> 
                         {% csrf_token %}
                         <input type="number" name="GET_A_NUMBER" id="GET_A_NUMBER" value="1" hidden>
-                        <button class="dropdown-item text-center text-white h3 font-weight-bolder px-8 px-lg-8" type="submit">Get a new number</button>
+                        <button class="dropdown-item text-center text-dark  h5 font-weight-bolder mx-auto" type="submit">Get a new number</button>
                       </form> 
                     </li>
-                    <li class="nav-item">
+                    <li class="list-group-item list-group-item-action">
                       <form action="{% url 'Join_Exising_Customer' plan.category.id plan.id %}" method="POST"> 
                         {% csrf_token %}
                         <input type="number" name="EXISTING_CUSTOMER" id="EXISTING_CUSTOMER" value="1" hidden>
-                        <button class="dropdown-item text-center text-white h3 font-weight-bolder px-4  px-lg-2" type="submit">Existing {{ plan.category.Name }} customer</button>
+                        <button class="dropdown-item text-center text-dark h5 font-weight-bolder mx-auto" type="submit">Existing {{ plan.category.Name }} customer</button>
                         </form>
                     </li>
-                    <li class="nav-item">
+                    <li class="list-group-item list-group-item-action">
                       <form action="{% url 'Join_Switch_Carrier' plan.category.id plan.id %}" method="POST"> 
                         {% csrf_token %}
                         <input type="number" name="SWITCHING_CARRIER" id="SWITCHING_CARRIER" hidden value="1">
-                          <button class="dropdown-item text-center text-white h3 font-weight-bolder px-8 px-lg-8" type="submit">Switching carrier</button>
+                          <button class="dropdown-item text-center text-dark  font-weight-bolder mx-auto h5" type="submit">Switching carrier</button>
                         </form>
                     </li>
                   </ul>
@@ -365,27 +365,27 @@
                 <button class="btn text-white bg-fresh-color dropdown-toggle font-weight-bolder col-12 w-100 h1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Join
                 </button>
-                <div class="dropdown-menu text-white bg-fresh-color col-12 w-100 px-lg-9" aria-labelledby="dropdownMenuButton" >
-                  <ul class="nav nav-tabs border-0 flex-column">
-                    <li class="nav-item">
+                <div class="dropdown-menu text-dark  col-12 w-100 px-0 py-0" aria-labelledby="dropdownMenuButton" >
+                  <ul class=" border-0  list-group">
+                    <li class="list-group-item list-group-item-action">
                       <form action="{% url 'Join_Get_A_New_Number' plan.category.id plan.id %}" method="POST"> 
                         {% csrf_token %}
                         <input type="number" name="GET_A_NUMBER" id="GET_A_NUMBER" value="1" hidden>
-                        <button class="dropdown-item text-center text-white h3 font-weight-bolder px-lg-8" type="submit">Get a new number</button>
+                        <button class="dropdown-item text-center text-dark  h5 font-weight-bolder mx-auto" type="submit">Get a new number</button>
                       </form> 
                     </li>
-                    <li class="nav-item">
+                    <li class="list-group-item list-group-item-action">
                       <form action="{% url 'Join_Exising_Customer' plan.category.id plan.id %}" method="POST"> 
                         {% csrf_token %}
                         <input type="number" name="EXISTING_CUSTOMER" id="EXISTING_CUSTOMER" value="1" hidden>
-                        <button class="dropdown-item text-center text-white h3 font-weight-bolder px-lg-2" type="submit">Existing {{ plan.category.Name }} customer</button>
+                        <button class="dropdown-item text-center text-dark h5 font-weight-bolder mx-auto" type="submit">Existing {{ plan.category.Name }} customer</button>
                         </form>
                     </li>
-                    <li class="nav-item">
+                    <li class="list-group-item list-group-item-action">
                       <form action="{% url 'Join_Switch_Carrier' plan.category.id plan.id %}" method="POST"> 
                         {% csrf_token %}
                         <input type="number" name="SWITCHING_CARRIER" id="SWITCHING_CARRIER" hidden value="1">
-                          <button class="dropdown-item text-center text-white h3 font-weight-bolder px-lg-8" type="submit">Switching carrier</button>
+                          <button class="dropdown-item text-center text-dark  font-weight-bolder mx-auto h5" type="submit">Switching carrier</button>
                         </form>
                     </li>
                   </ul>

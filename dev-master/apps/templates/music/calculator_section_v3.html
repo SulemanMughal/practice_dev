@@ -1,6 +1,6 @@
 {% load static  %}  
 <script src="{% static 'music/js/calculator_slider.js' %}" type="text/javascript" defer async></script>
-<section  class="pl-md-7 pb-10 pb-lg-n12 pt-5 pt-md-5 pt-lg-0 pl-lg-0 pr-lg-0  pr-0 mb-3 mb-md-0 mb-lg-n14 bg-faq">
+<section  class="pl-md-7 pb-10 pb-lg-n12 pt-0 pt-md-0  pt-lg-0 pl-lg-0 pr-lg-0  pr-0 mb-3 mb-md-0 mb-lg-n14 bg-shade-lighter-greenish">
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-9">
@@ -28,17 +28,17 @@
                         </p>
                         <div class="row pl-3      px-lg-5 ">
                             <div class="btn-group btn-group-toggle mx-auto mx-md-auto" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100px  border-radius-6 mr-3 border-0 shadow">
+                                <label class="btn btn-navy-blue w-100px  border-radius-6 mr-3 border-0 shadow">
                                   <input type="radio" name="options" id="options1" value="1" data-url="3210" onchange="updateSlider();"> Verizon
                                 </label>
-                                <label class="btn btn-secondary w-100px  border-radius-6 mr-3 border-0 shadow">
+                                <label class="btn btn-navy-blue w-100px  border-radius-6 mr-3 border-0 shadow">
                                   <input type="radio" name="options" id="options2" value="2" data-url="321"
                                   onchange="updateSlider();"> T-Mobile
                                 </label>
-                                <label class="btn btn-secondary w-100px  border-radius-6 mr-3 border-0 shadow">
+                                <label class="btn btn-navy-blue w-100px  border-radius-6 mr-3 border-0 shadow">
                                   <input type="radio" name="options" id="options3" value="3" data-url="231" onchange="updateSlider();"> AT&T
                                 </label>
-                                <label class="btn btn-secondary w-100px  border-radius-6 mr-3 border-0 shadow active">
+                                <label class="btn btn-navy-blue w-100px  border-radius-6 mr-3 border-0 shadow active">
                                     <input type="radio" name="options" id="options4" value="4" data-url="2319" onchange="updateSlider();" checked > Other
                                   </label>
                               </div>
@@ -51,13 +51,13 @@
                         </p>
                         <div class="row px-4 pl-lg-0 pr-lg-5 mx-auto">
                             <div class="btn-group btn-group-toggle btn-pill p-2 mt-2 mx-width-400px w-350px mx-auto mx-md-auto" data-toggle="buttons" id="btn-group" >
-                                <label class="btn btn-secondary  text-center btn-sm active btn-rounded-circle mr-6 ml-2 pr-4 pr-md-4 pr-lg-5 pl-4 pb-0 bottom-0 w-37px h-42_5px border-0" style="height: 41px !important;" >
+                                <label class="btn btn-navy-blue text-center btn-sm active btn-rounded-circle mr-6 ml-2 pr-4 pr-md-4 pr-lg-5 pl-4 pb-0 bottom-0 w-37px h-42_5px border-0" style="height: 41px !important;" >
                                   <input type="radio" name="options_accounts" id="options_accounts1" value="1" data-url="3210"  onchange="updateSlider();" checked>
                                   1
                                 </label>
                                 <hr class="text-white ml-8 position-absolute w-52px border-width-3px mt-1_3rem border border-secondary" >
                                <button class="btn btn-lg btn-rounded-circle  btn-light bg-transparent mr-3 pt-0 pb-0 mb-0"> 
-                                <label class="btn btn-secondary btn-lg  btn-rounded-circle btn-sm  shadow p-3 pr-5 pl-4 pb-0 mb-0 border-0" >
+                                <label class="btn btn-navy-blue btn-lg  btn-rounded-circle btn-sm  shadow p-3 pr-5 pl-4 pb-0 mb-0 border-0" >
                                   <input type="radio" name="options_accounts" id="options_accounts2" value="2" data-url="321"
                                   onchange="updateSlider();">
                                     2
@@ -65,14 +65,14 @@
                               </button>
                                <hr class="text-white ml-8 position-absolute w-53px border-width-3px mt-1_3rem left-101px border border-secondary" style="left: 96px;">
                                <button class="btn btn-lg btn-rounded-circle btn-light bg-transparent  mr-3 pt-0 pb-0 mb-0">
-                                <label class="btn btn-secondary  btn-lg btn-rounded-circle btn-sm  shadow p-3 pr-5 pl-4 pb-0 mb-0 border-0">
+                                <label class="btn btn-navy-blue  btn-lg btn-rounded-circle btn-sm  shadow p-3 pr-5 pl-4 pb-0 mb-0 border-0">
                                   <input type="radio" name="options_accounts" id="options_accounts3" value="3" data-url="231" onchange="updateSlider();" >
                                   3
                                 </label>
                               </button>
                               <hr class="text-dark ml-7 position-absolute w-53px border-width-3px mt-1_3rem left-193px border border-secondary" >
                                <button class="btn btn-lg btn-rounded-circle btn-light bg-transparent pt-0 pb-0 mb-0 pr-0">
-                                <label class="btn btn-secondary btn-lg  btn-rounded-circle btn-sm shadow p-3 pr-5 pl-4 pb-0 mb-0 border-0">
+                                <label class="btn btn-navy-blue btn-lg  btn-rounded-circle btn-sm shadow p-3 pr-5 pl-4 pb-0 mb-0 border-0">
                                   <input type="radio" name="options_accounts" id="options_accounts4" value="4" data-url="2319" onchange="updateSlider();" >
                                   4
                                 </label>
@@ -86,7 +86,7 @@
                             How much do you pay for your current plan together?
                         </p>
                         <div class="row px-4  px-lg-5">
-                            <input type="text"  placeholder="Input..." class="form-control bg-white text-dark border border-dark col-12 col-md-12 col-lg-12 shadow-lg" name="totalcostAmount" onkeyup="updateSlider();" value="80" maxlength="6">
+                            <input type="text"  placeholder="Input..." class="form-control bg-white text-dark border border-dark col-8 col-md-6 col-lg-12 shadow-lg mx-auto bg-light bg-lg-white" name="totalcostAmount" onkeyup="updateSlider();" value="80" maxlength="6">
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
             <div class="col-12 col-md-12 col-lg-3 pl-0 mt-3 mt-md-3 mt-lg-0 pl-md-2">
                 <div class="card mt-0 ml-7 ml-md-14 ml-lg-0 mt-lg-10 br-none d-none d-lg-block calc-card bg-transparent" >
                     <img src="{% static 'Landkit/images/v3/5.png' %}" class="card-img position-absolute-card-image" alt="Circledin" style="z-index: -9999999 !important;">
-                    <div class="card-body text-center pr-md-10 pr-lg-0 padding-980-left-0 left-980-width-21 ">
+                    <div class="card-body text-center pr-md-10 pr-lg-0 padding-980-left-0 left-980-width-21  ">
                         <h2 class="h2 card-text text-uppercase font-weight-bolder text-white">
                             Estimated Savings
                         </h2>
@@ -106,7 +106,7 @@
                 </div>
                 <div class="row d-block d-lg-none">
                     <div class="col-12 col-md-10 ">
-                        <div class="card  pl-md-0 ml-2 ml-md-9 bg-shade-lighter-greenish box-shadow-lighter-greenish">
+                        <div class="card  pl-md-0 ml-2 ml-md-9 bg-shade-lighter-greenish box-shadow-lighter-greenish-calculator">
                             <div class="card-body " >
                                 <div class="row">
                                     <div class="col-5 col-md-6 pl-0 pr-0 ml-0 mr-0 text-center">

@@ -1,12 +1,13 @@
 {% load static %}
-<section class="pb-2 d-none d-lg-block">
+<!-- ! FOR LARGE DEVICES -->
+<section class="pb-2 d-none d-md-block d-lg-block">
     <div class="container">
         <div class="row">
             <div class="col mx-lg-2">
                 <div class="row">
                   <img class="img-w-750-sm ml-md-n6 ml-lg-0" src="{% static 'Landkit/images/v3/9.png' %}" alt="Circledin">  
                 </div>
-                <div class="row mb-1 px-md-4 pl-md-6 px-lg-8 pl-lg-8">
+                <div class="row mb-1 px-md-4 pl-md-6 px-lg-8 pl-lg-10">
                     <h3 class="card-title text-uppercase text-center text-bluish font-weight-bold mb-1 display-5">Why Circledin</h3>
                 </div>
                 <div class="row">
@@ -57,3 +58,87 @@
         </div>
     </div>
 </section>
+
+<!-- ! FOR SMALL DEVICES -->
+<section class="pb-2 d-block d-md-none d-lg-none">
+    <div class="container">
+        <div class="row bg-lightest-greenish mx-1 py-2">
+            <div class="col ">
+                <div class="row " >
+                    <div class="col-4">
+                        <img class="align-self-center ml-n11 mt-9" src="{% static 'Landkit/images/v3/9.png' %}" alt="Circledin" style="width:280px !important;">  
+                    </div>
+                    <div class="col pr-6 mt-5">
+                        <div class="row ">
+                            <h3 class="card-title text-uppercase font-size-sm   text-bluish font-weight-bolder mb-1 text-center ml-7">Why Circledin</h3>
+                            <p class="card-text font-size-sm  text-bluish text-center">
+                                <ul class="text-bluish">
+                                    <li class="font-size-sm">
+                                        You're covered! Monthly payments for your phone bill are guranteed on time.
+                                    </li>
+                                    <li class="font-size-sm">
+                                        We take the hassle out of managing your  phone plan.
+                                    </li>
+                                    <li class="font-size-sm">
+                                        We take a proactive approach to maximize your savings. 
+                                    </li>
+                                </ul>
+                            </p>
+                            
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row bg-lightest-greenish mx-1 py-2 my-2">
+            <div class="col ">
+                <div class="row " >
+                    
+                    <div class="col pr-6 mt-5">
+                        <div class="row ">
+                            <h3 class="card-title text-uppercase font-size-sm   text-bluish font-weight-bolder mb-1 text-center ml-6">Circledin Cares</h3>
+                            <p class="card-text font-size-sm  text-bluish px-4">
+                                Here at Circledin we promise to donate 1% of our profits to a charitable foundation, dedicate 1% of our time to volunteering and to provide a white glove experience for users to ensure you are completely satisfied with our services.
+                            </p>
+                            
+                        </div>  
+                    </div>
+                    <div class="col-4">
+                        <img class="align-self-center  ml-n10 mt-9" src="{% static 'Landkit/images/v3/10.png' %}" alt="Circledin" style="width:200px !important;">  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row bg-lightest-greenish mx-1 py-2 my-2">
+            <div class="col ">
+                <div class="row " >
+                    <div class="col-4">
+                        <img class="align-self-center  ml-n9 mt-9" src="{% static 'Landkit/images/v3/11.png' %}" alt="Circledin" style="width:210px !important;">  
+                    </div>
+                    <div class="col pr-6 mt-5">
+                        <div class="row ">
+                            <h3 class="card-title text-uppercase font-size-sm   text-bluish font-weight-bolder mb-1 text-center ml-5">Customer Success</h3>
+                            <p class="card-text font-size-sm  text-bluish px-4">
+                                Ever had a painful experience just to get your phone activated, switched, and/or port in/out?  We provide a white glove experience and will handle all of the logistics behind the scenes so that you can sit back, relax and save. Simply sign up and we'll handle all the back office stuff for you.
+                            </p>
+                            
+                        </div>  
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if  not request.user.is_authenticated %}
+<section class="d-block d-md-block d-lg-none">
+    <div class="container ">
+        <div class="row ">
+            <div class="col mx-md-14 px-md-10">
+                <a class="btn btn-lighter-greenish w-100  my-2 " data-toggle="modal" href="#modalSignupHorizontal">Join Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}

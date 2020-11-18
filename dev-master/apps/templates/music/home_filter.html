@@ -1,9 +1,10 @@
-<section  class=" pb-md-5 pb-lg-0 d-none d-md-none d-lg-block bg-light-green-shade" >
+
+<!-- TODO : LARGE SCREEN DEVICES DESIGNS -->
+<section  class=" pb-md-5 pb-lg-0 d-none d-md-none d-lg-block bg-picato-green" >
     <div class="container">
       <div class="row justify-content-center">
         <h1 class="text-uppercase text-white display-3 mt-6 font-weight-bolder text-shadow-bluish d-none d-md-block">
           Join a family below
-
         </h1>
       </div>
       <div class="row justify-content-center">
@@ -12,11 +13,11 @@
             <nav class="nav justify-content-center bg-transparent pt-2 pl-2 pr-2 br-all-10">    
             {% for category in filters %}
               {% if forloop.first %}
-              <a class="btn btn-success  mr-1 mb-1 active p-1 w-120px" href="#" data-toggle="pill" data-filter="*" data-target="#portfolio" id="all" >
+              <a class="btn btn-navy-blue  mr-1 mb-1 active p-1 w-120px" href="#" data-toggle="pill" data-filter="*" data-target="#portfolio" id="all" >
                 <span class="h4 " >All</span>
               </a>
               {% endif %}
-              <a class="btn btn-success mr-1 mb-1 p-1 w-120px" href="#" data-toggle="pill" data-filter=".{{ category.slug }}" data-target="#portfolio" id="{{ category.slug }}" >
+              <a class="btn btn-navy-blue mr-1 mb-1 p-1 w-120px" href="#" data-toggle="pill" data-filter=".{{ category.slug }}" data-target="#portfolio" id="{{ category.slug }}" >
                 <span class="h4 ">{{ category.Name }}</span>
               </a>
             {% endfor %}
@@ -26,6 +27,9 @@
     </div>
   </section>
 
+
+
+  <!-- TODO: MOBILE DESIGN -->
 
   <section  class="pb-5 pb-md-5 pb-lg-0 d-block d-md-block d-lg-none" >
     <div class="container">
@@ -37,39 +41,23 @@
           Join a family below
         </h2>
       </div>
-      <div class="row justify-content-center mx-auto d-none d-md-none d-lg-none">
-        <div class="col-12 col-md-9 col-lg-3 col-lg-6 pt-5 pb-5 ml-0 mr-0 ml-md-8 ml-lg-0">
-          <div class="row align-items-center ">
-            <nav class="nav justify-content-center bg-transparent pt-2 pl-2 pr-2 br-all-10 ">    
-            {% for category in filters %}
-              {% if forloop.first %}
-              <a class="btn btn-success  mr-1 mb-1 active p-1 w-120px filter-button-group" href="#" data-toggle="pill" data-filter="*" data-target="#portfolio-main-carousel" id="all" >
-                <span class="h4 " >All</span>
-              </a>
-              {% endif %}
-              <a class="btn btn-success mr-1 mb-1 p-1 w-120px filter-button-group" href="#" data-toggle="pill" data-filter=".{{ category.slug }}" data-target="#portfolio-main-carousel" id="{{ category.slug }}" >
-                <span class="h4 ">{{ category.Name }}</span>
-              </a>
-            {% endfor %}
-          </nav>
-        </div>
-      </div>
-    </div>
+      
 
 
-    <div class="row justify-content-center mx-auto d-block d-lg-none mx-md-12 px-md-6">
+    <!-- ! FOR SMALL DEVICE -->
+    <div class="row justify-content-center  d-block d-lg-none mx-md-12 px-md-6">
       <div class="col">
-        <div class="btn-group btn-group-toggle col-6 p-0" data-toggle="buttons">
-          <label class="btn btn-success ml-2 br-none col-6 font-size-sm  border-radius-6 active">
+        <div class="btn-group btn-group-toggle col-6 p-0 mx-auto" data-toggle="buttons">
+          <label class="btn btn-navy-blue ml-2 br-none col-6 font-size-sm  border-radius-6 active">
             <input type="radio" id="filter-option4" checked> All
           </label>
-          <label class="btn btn-success br-none font-size-sm p-3 pt-3 ml-2 border-radius-6">
+          <label class="btn btn-navy-blue br-none font-size-sm p-3 pt-3 ml-2 border-radius-6">
             <input type="radio"  id="filter-option1"> Verizon
           </label>
-          <label class="btn btn-success ml-2 col-6 font-size-sm p-2 pt-3 border-radius-6  ">
+          <label class="btn btn-navy-blue ml-2 col-6 font-size-sm p-2 pt-3 border-radius-6  ">
             <input type="radio" id="filter-option2"> T-Mobile
           </label>
-          <label class="btn btn-success ml-2 col-6 font-size-sm br-none border-radius-6">
+          <label class="btn btn-navy-blue ml-2 col-6 font-size-sm br-none border-radius-6">
             <input type="radio" id="filter-option3"> AT&T
           </label>
           
