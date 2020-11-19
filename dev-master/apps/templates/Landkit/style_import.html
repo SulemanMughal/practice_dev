@@ -43,6 +43,18 @@
     font-family: 'Glacial Indifference' !important;
   }
 
+
+  .contact-us-header-background-image{
+    background-image: url("{% static 'Landkit\images\v3\contact_us_header.png' %}");
+    background-position: 0px 0px  !important;
+    background-size: 100% 100% !important;
+  }
+
+
+  /* .text-dark-blue{
+    color:  #24475E !important;
+  } */
+
   .bg-verizon-plan-card{
     background-color: #C43636 !important;
   }
@@ -65,7 +77,7 @@
   }
 
   .bg-T-Mobile-plan-card{
-    background-color: #D42CA5 !important;
+    background-color: #e20074 !important;
   }
 
   .badge-T-Mobile-bg{
@@ -82,6 +94,21 @@ background: linear-gradient(133deg, #C43636 39%, #473030 100%, rgba(0,212,255,1)
   }
 
 
+  .btn-navy-blue:not(:disabled):not(.disabled).active, .btn-navy-blue:not(:disabled):not(.disabled):active, .show > .btn-navy-blue.dropdown-toggle {
+    color: #fff;
+    background-color: #0f517e !important;
+    /* border-color: #4e555b; */
+}
+
+.btn-navy-blue:hover{
+  color: #fff;
+  background-color: #0f517e !important;
+}
+
+
+.border-light-grey{
+  border-color:  #D9D9D9 !important;
+}
 
   .border-width-3{
 border-width: 3px !important;
@@ -122,6 +149,10 @@ border-width: 4px !important;
 
   .bg-bluish-shade{
     background-color: #24475E !important;
+  }
+
+  .bg-bluish-shade-accordion{
+    background-color: #5c829b !important;
   }
 
   .bg-dark-blue{
@@ -219,6 +250,10 @@ border-width: 4px !important;
   .btn-lighter-greenish{
     color: white !important;
     background-color: #287777 !important;
+  }
+
+  .text-lighter-greenish{
+    color: #287777 !important
   }
 
   .bg-dark-blue{
@@ -1162,9 +1197,9 @@ and (max-device-width : 480px) {
     left: -80px !important;
     top: -48px !important;
   }
-
-
 }
+
+
 
 
 /* Smartphones (landscape) ----------- */
@@ -1202,6 +1237,10 @@ and (max-device-width : 1024px) {
     top: -40px !important;
   }
 
+  /* .bg-shade-white-lg{
+    background-color: white !important;
+  } */
+
 }
 
 
@@ -1226,6 +1265,12 @@ and (orientation : portrait) {
     top: -40px !important;
   }
 
+
+  /* .bg-shade-white-lg{
+    background-color: white !important;
+  } */
+
+
 }
 
 
@@ -1233,12 +1278,19 @@ and (orientation : portrait) {
 @media only screen
 and (min-width : 1224px) {
 /* STYLES GO HERE */
+.bg-shade-white-lg{
+    background-color: white !important;
+  }
 }
 
 
 /* Large screens ----------- */
 @media only screen
 and (min-width : 1824px) {
+
+  .bg-shade-white-lg{
+    background-color: white !important;
+  }
 /* STYLES GO HERE */
 }
 
@@ -1254,6 +1306,12 @@ and (max-device-width : 568px) {
     left: -80px !important;
     top: -48px !important;
   }
+
+  .bg-how-it-workds-banner {
+    background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important;
+    background-position-y: -180px !important;
+    background-size: 100% 600px !important;
+}
 
 
 }
@@ -1283,5 +1341,15 @@ and (orientation : portrait) {
   }
 
 }
+
+ /*iPhone 6+ Portrait*/
+ @media only screen and (min-device-width: 414px) and (max-device-width: 736px)  {
+  .bg-how-it-workds-banner {
+    background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important;
+    background-position-y: -200px !important;
+    background-size: 100% 600px !important;
+  }
+}
+
 
 </style>

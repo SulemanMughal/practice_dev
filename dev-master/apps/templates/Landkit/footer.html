@@ -1,311 +1,360 @@
 {% load static %}
 
+<!-- ! SMALL DEVICES -->
 <footer class="pt-5 pb-0 bg-bluish-shade d-block d-md-none">
-  <div class="container">
-    <div class="row pl-2 pr-8 px-md-10">
-      <div class="col"><p class="h2 text-uppercase text-white font-weight-bolder">About</p></div>
-      <div class="col"><p class="h2 text-uppercase text-white font-weight-bolder " >Legal<p></div>
-      <div class="col"><p class="h2 text-uppercase text-white font-weight-bolder ">Support</p></div>
+<div class="container">
+<div class="row pl-2 pr-8 px-md-10">
+  <div class="col">
+    <p class="h2 text-uppercase text-white font-weight-bolder">About</p>
+    <ul class="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
+      <li class="mb-md-1">
+        <a href="{% url 'About' %}" class=" font-Glacial-Indifference text-reset" target="_blank"
+          >About Us</a
+        >
+      </li>
+      <li class="mb-3">
+        <a
+          href="{% url 'how-it-works-url' %}"
+          class="text-reset font-Glacial-Indifference text-nowrap"
+          target="_blank"
+          >How it Works</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="col">
+    <p class="h2 text-uppercase text-white font-weight-bolder " >Legal<p>
+      <ul class="list-unstyled text-muted mb-0">
+        <li class="mb-md-1">
+          <a href="{% url 'contact' %}" class="text-reset font-Glacial-Indifference text-nowrap" target="_blank"
+            >Contact Us</a
+          >
+        </li>
+        <li class="mb-3">
+          <a href="{% url 'FAQ' %}" class="text-reset font-Glacial-Indifference" target="_blank">FAQ</a>
+        </li>
+      </ul>
     </div>
-    <div class="row pl-2 pr-8 px-md-10">
-      <div class="col"><a href="https://www.youtube.com/channel/UCJBTqwhi3OUAjApStiXb-2Q" class="text-decoration-none">
-        <i class="fab fa-youtube text-white fa-3x"></i>
-      </a></div>
-      <div class="col">
+  <div class="col">
+    <p class="h2 text-uppercase text-white font-weight-bolder ">Support</p>
+    <ul class="list-unstyled text-muted mb-0">
+      <li class="mb-md-1">
+        <a
+          href="{% url 'TermsConditions' %}"
+          class="text-reset font-Glacial-Indifference text-nowrap"
+          target="_blank"
+          >Terms of Service</a
+        >
+      </li>
+      <li class="mb-3">
+        <a
+          href="{% url 'PrivacyPolicy' %}"
+          class="text-reset font-Glacial-Indifference  text-nowrap"
+          target="_blank"
+          >Privacy Policy</a
+        >
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="row pl-2 pr-8 px-md-10">
+  <div class="col"><a href="https://www.youtube.com/channel/UCJBTqwhi3OUAjApStiXb-2Q" class="text-decoration-none">
+    <i class="fab fa-youtube text-white fa-3x"></i>
+  </a></div>
+  <div class="col">
+    <a href="https://twitter.com/joincircledin" class="text-decoration-none">
+      <i class="fab fa-twitter text-white fa-3x"></i>
+    </a>
+  </div>
+  <div class="col">
+    <a href="https://www.facebook.com/joincircledin" class="text-decoration-none">
+      <i class="fab fa-facebook-square text-white fa-3x"></i>
+    </a>
+  </div>
+  <div class="col">
+    <a href="https://www.instagram.com/joincircledin/" class="text-decoration-none">
+      <i class="fab fa-instagram text-white fa-3x"></i>
+    </a>
+  </div>
+  <div class="col">
+    <a href="mailto:Support@Joincircledin.com" class="text-decoration-none">
+      <i class="fas fa-envelope text-white fa-3x"></i>
+    </a>
+  </div>
+</div>
+<div class="row">
+  <img
+      src="{% static 'Landkit/images/v3/logo.png' %}"
+      alt="circledin"
+      class="footer-brand img-fluid mb-2 mt-lg-n3"
+      loading="lazy"
+    />
+</div>
+</div>
+</footer>
+
+<!-- ! IPAD DEVICES -->
+<footer class="py-8 py-md-6 bg-bluish-shade d-none d-md-block  d-lg-none">
+<div class="container">
+<div class="row">
+<div class="col-12 col-md-5 col-lg-3">
+  <img
+    src="{% static 'Landkit/images/v3/logo.png' %}"
+    alt="circledin"
+    class="footer-brand img-fluid mb-2 mt-lg-n3"
+    loading="lazy"
+  />
+  <p class="mb-2 text-white font-Glacial-Indifference mx-md-5">
+    Group together and start
+  </p>
+  <p class="text-white mx-md-5">
+    saving on your mobile bill.
+  </p>
+  <p class="text-gray-700 mb-2">
+    <ul class="list-unstyled list-inline list-social mb-6 mb-md-0">
+      <li class="list-inline-item list-social-item">
+        <a href="https://www.youtube.com/channel/UCJBTqwhi3OUAjApStiXb-2Q" class="text-decoration-none">
+          <i class="fab fa-youtube text-white fa-2x"></i>
+        </a>
+      </li>
+      <li class="list-inline-item list-social-item mr-3">
         <a href="https://twitter.com/joincircledin" class="text-decoration-none">
-          <i class="fab fa-twitter text-white fa-3x"></i>
+          <i class="fab fa-twitter text-white fa-2x"></i>
         </a>
-      </div>
-      <div class="col">
+      </li>
+      <li class="list-inline-item list-social-item mr-3">
         <a href="https://www.facebook.com/joincircledin" class="text-decoration-none">
-          <i class="fab fa-facebook-square text-white fa-3x"></i>
+          <i class="fab fa-facebook-square text-white fa-2x"></i>
         </a>
-      </div>
-      <div class="col">
+      </li>
+      <li class="list-inline-item list-social-item mr-3">
         <a href="https://www.instagram.com/joincircledin/" class="text-decoration-none">
-          <i class="fab fa-instagram text-white fa-3x"></i>
+          <i class="fab fa-instagram text-white fa-2x"></i>
         </a>
-      </div>
-      <div class="col">
+      </li>
+      <li class="list-inline-item list-social-item mr-3">
         <a href="mailto:Support@Joincircledin.com" class="text-decoration-none">
-          <i class="fas fa-envelope text-white fa-3x"></i>
+          <i class="fas fa-envelope text-white fa-2x"></i>
         </a>
+      </li>
+      
+      
+      
+    </ul>
+  </p>
+</div>
+
+<div class="col-6 col-md-7  col-lg-6">
+  <div class="row mt-md-5">
+    <h3 class="text-white">
+      Get updates on Circledin services and improvements.
+    </h3>
+  </div>
+  <div class="row mb-md-5 mb-lg-4">
+    
+    <form method="POST" action="{% url 'Collector_Email' %}">
+      {% csrf_token  %}
+      <div class="form-row ">
+        <div class="col-7">
+          <input type="email" placeholder="Your email address" class="form-control text-center mr-2 pt-1 pb-1" required="" name="email">
+        </div>
+        <div class="col-5">
+          <button class="btn btn-atoll" type="submit">Update Me!</button>  
+        </div>
+    
       </div>
-    </div>
+      <input type="hidden" name="next" value="{{ request.path }}">
+    </form>
+  </div>
+  <div class="row">
+      <div class="col-6 col-md-4 col-lg-4">
+        <h2 class="font-weight-bolder text-uppercase font-League-Spartan text-white mb-md-1" >About</h2>
+  <ul class="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
+    <li class="mb-md-1">
+      <a href="{% url 'About' %}" class=" font-Glacial-Indifference text-white" target="_blank"
+        >About Us</a
+      >
+    </li>
+    <li class="mb-3">
+      <a
+        href="{% url 'how-it-works-url' %}"
+        class="text-white font-Glacial-Indifference"
+        target="_blank"
+        >How it Works</a
+      >
+    </li>
+  </ul>
+      </div>
+      <div class="col-6 col-md-4  col-lg-4 offset-lg-0">
+        <h2 class="font-weight-bolder text-uppercase font-League-Spartan text-white mb-md-1">Support</h2>
+        <ul class="list-unstyled text-muted mb-0">
+          <li class="mb-md-1">
+            <a href="{% url 'contact' %}" class="text-white font-Glacial-Indifference" target="_blank"
+              >Contact Us</a
+            >
+          </li>
+          <li class="mb-3">
+            <a href="{% url 'FAQ' %}" class="text-white font-Glacial-Indifference" target="_blank">FAQ</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-4 col-lg-4 pr-md-0">
+        <h2 class="font-weight-bolder text-uppercase font-League-Spartan text-white mb-md-1">Legal</h2>
+        <ul class="list-unstyled text-muted mb-0">
+          <li class="mb-md-1">
+            <a
+              href="{% url 'TermsConditions' %}"
+              class="text-white font-Glacial-Indifference"
+              target="_blank"
+              >Terms of Service</a
+            >
+          </li>
+          <li class="mb-3">
+            <a
+              href="{% url 'PrivacyPolicy' %}"
+              class="text-white font-Glacial-Indifference"
+              target="_blank"
+              >Privacy Policy</a
+            >
+          </li>
+        </ul>
+      </div>
+  </div>
+  
+</div>
+
+</div>
+</div>
+</footer>
+
+<!-- ! LARGE DEVICES -->
+<footer class="py-8 py-md-11 bg-bluish-shade d-none d-lg-block">
+  <div class="container">
     <div class="row">
-      <img
+      <div class="col-12 col-md-4 col-lg-3">
+        <img
           src="{% static 'Landkit/images/v3/logo.png' %}"
           alt="circledin"
           class="footer-brand img-fluid mb-2 mt-lg-n3"
           loading="lazy"
         />
+        <p class="mb-2 text-white font-Glacial-Indifference">
+          Group together and start saving on your mobile bill.
+        </p>
+        <p class="text-gray-700 mb-2">
+          <ul class="list-unstyled list-inline list-social mb-6 mb-md-0">
+            <li class="list-inline-item list-social-item">
+              <a href="https://www.youtube.com/channel/UCJBTqwhi3OUAjApStiXb-2Q" class="text-decoration-none">
+                <i class="fab fa-youtube text-white"></i>
+              </a>
+            </li>
+            <li class="list-inline-item list-social-item mr-3">
+              <a href="https://twitter.com/joincircledin" class="text-decoration-none">
+                <i class="fab fa-twitter text-white"></i>
+              </a>
+            </li>
+            <li class="list-inline-item list-social-item mr-3">
+              <a href="https://www.facebook.com/joincircledin" class="text-decoration-none">
+                <i class="fab fa-facebook-square text-white"></i>
+              </a>
+            </li>
+            <li class="list-inline-item list-social-item mr-3">
+              <a href="https://www.instagram.com/joincircledin/" class="text-decoration-none">
+                <i class="fab fa-instagram text-white"></i>
+              </a>
+            </li>
+            <li class="list-inline-item list-social-item mr-3">
+              <a href="mailto:Support@Joincircledin.com" class="text-decoration-none">
+                <i class="fas fa-envelope text-white"></i>
+              </a>
+            </li>
+            
+            
+            
+          </ul>
+        </p>
+      </div>
+      
+      <div class="col-6 col-md-4 col-lg-6">
+        <div class="row ">
+          <h3 class="text-white">
+            Get updates on Circledin services and improvements.
+          </h3>
+        </div>
+        <div class="row mb-lg-4">
+          <form class=" w-100" method="POST" action="{% url 'Collector_Email' %}">
+            {% csrf_token %}
+            <div class="form-row">
+              <div class="col-7">
+                <input type="email" placeholder="Your email address" class="form-control text-center mr-2" name="email" required="">
+              </div>
+              <div class="col-5">
+                <button class="btn btn-atoll ">Update Me!</button>
+              </div>
+            </div>
+            <input type="hidden" name="next" value="{{ request.path }}">
+            
+          </form>
+          
+          
+        </div>
+        <div class="row pt-lg-1">
+            <div class="col-6 col-md-4 col-lg-4">
+              <h6 class="font-weight-bold text-uppercase font-League-Spartan text-white">About</h6>
+        <ul class="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
+          <li class="mb-3">
+            <a href="{% url 'About' %}" class="text-reset font-Glacial-Indifference " target="_blank"
+              >About Us</a
+            >
+          </li>
+          <li class="mb-3">
+            <a
+              href="{% url 'how-it-works-url' %}"
+              class="text-reset font-Glacial-Indifference"
+              target="_blank"
+              >How it Works</a
+            >
+          </li>
+        </ul>
+            </div>
+            <div class="col-6 col-md-4 offset-md-4 col-lg-4 offset-lg-0">
+              <h6 class="font-weight-bold text-uppercase font-League-Spartan text-white">Support</h6>
+              <ul class="list-unstyled text-muted mb-0">
+                <li class="mb-3">
+                  <a href="{% url 'contact' %}" class="text-reset font-Glacial-Indifference" target="_blank"
+                    >Contact Us</a
+                  >
+                </li>
+                <li class="mb-3">
+                  <a href="{% url 'FAQ' %}" class="text-reset font-Glacial-Indifference" target="_blank">FAQ</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-4 col-lg-4">
+              <h6 class="font-weight-bold text-uppercase font-League-Spartan text-white">Legal</h6>
+              <ul class="list-unstyled text-muted mb-0">
+                <li class="mb-3">
+                  <a
+                    href="{% url 'TermsConditions' %}"
+                    class="text-reset font-Glacial-Indifference"
+                    target="_blank"
+                    >Terms of Service</a
+                  >
+                </li>
+                <li class="mb-3">
+                  <a
+                    href="{% url 'PrivacyPolicy' %}"
+                    class="text-reset font-Glacial-Indifference"
+                    target="_blank"
+                    >Privacy Policy</a
+                  >
+                </li>
+              </ul>
+            </div>
+        </div>
+        
+      </div>
+      
     </div>
   </div>
-  </footer>
-
-
-  <footer class="py-8 py-md-6 bg-bluish-shade d-none d-md-block  d-lg-none">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-5 col-lg-3">
-          <img
-            src="{% static 'Landkit/images/v3/logo.png' %}"
-            alt="circledin"
-            class="footer-brand img-fluid mb-2 mt-lg-n3"
-            loading="lazy"
-          />
-          <p class="mb-2 text-white font-Glacial-Indifference mx-md-5">
-            Group together and start
-          </p>
-          <p class="text-white mx-md-5">
-            saving on your mobile bill.
-          </p>
-          <p class="text-gray-700 mb-2">
-            <ul class="list-unstyled list-inline list-social mb-6 mb-md-0">
-              <li class="list-inline-item list-social-item">
-                <a href="https://www.youtube.com/channel/UCJBTqwhi3OUAjApStiXb-2Q" class="text-decoration-none">
-                  <i class="fab fa-youtube text-white fa-2x"></i>
-                </a>
-              </li>
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="https://twitter.com/joincircledin" class="text-decoration-none">
-                  <i class="fab fa-twitter text-white fa-2x"></i>
-                </a>
-              </li>
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="https://www.facebook.com/joincircledin" class="text-decoration-none">
-                  <i class="fab fa-facebook-square text-white fa-2x"></i>
-                </a>
-              </li>
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="https://www.instagram.com/joincircledin/" class="text-decoration-none">
-                  <i class="fab fa-instagram text-white fa-2x"></i>
-                </a>
-              </li>
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="mailto:Support@Joincircledin.com" class="text-decoration-none">
-                  <i class="fas fa-envelope text-white fa-2x"></i>
-                </a>
-              </li>
-              
-              
-              
-            </ul>
-          </p>
-        </div>
-        
-        <div class="col-6 col-md-7  col-lg-6">
-          <div class="row mt-md-5">
-            <h3 class="text-white">
-              Get updates on Circledin services and improvements.
-            </h3>
-          </div>
-          <div class="row mb-md-5 mb-lg-4">
-            
-            <form method="POST" action="{% url 'Collector_Email' %}">
-              {% csrf_token  %}
-              <div class="form-row ">
-                <div class="col-7">
-                  <input type="email" placeholder="Your email address" class="form-control text-center mr-2 pt-1 pb-1" required="" name="email">
-                </div>
-                <div class="col-5">
-                  <button class="btn btn-atoll" type="submit">Update Me!</button>  
-                </div>
-            
-              </div>
-              <input type="hidden" name="next" value="{{ request.path }}">
-            </form>
-          </div>
-          <div class="row">
-              <div class="col-6 col-md-4 col-lg-4">
-                <h2 class="font-weight-bolder text-uppercase font-League-Spartan text-white mb-md-1" >About</h2>
-          <ul class="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
-            <li class="mb-md-1">
-              <a href="{% url 'About' %}" class=" font-Glacial-Indifference text-white" target="_blank"
-                >About Us</a
-              >
-            </li>
-            <li class="mb-3">
-              <a
-                href="{% url 'how-it-works-url' %}"
-                class="text-white font-Glacial-Indifference"
-                target="_blank"
-                >How it Works</a
-              >
-            </li>
-          </ul>
-              </div>
-              <div class="col-6 col-md-4  col-lg-4 offset-lg-0">
-                <h2 class="font-weight-bolder text-uppercase font-League-Spartan text-white mb-md-1">Support</h2>
-                <ul class="list-unstyled text-muted mb-0">
-                  <li class="mb-md-1">
-                    <a href="{% url 'contact' %}" class="text-white font-Glacial-Indifference" target="_blank"
-                      >Contact Us</a
-                    >
-                  </li>
-                  <li class="mb-3">
-                    <a href="{% url 'FAQ' %}" class="text-white font-Glacial-Indifference" target="_blank">FAQ</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-6 col-md-4 col-lg-4 pr-md-0">
-                <h2 class="font-weight-bolder text-uppercase font-League-Spartan text-white mb-md-1">Legal</h2>
-                <ul class="list-unstyled text-muted mb-0">
-                  <li class="mb-md-1">
-                    <a
-                      href="{% url 'TermsConditions' %}"
-                      class="text-white font-Glacial-Indifference"
-                      target="_blank"
-                      >Terms of Service</a
-                    >
-                  </li>
-                  <li class="mb-3">
-                    <a
-                      href="{% url 'PrivacyPolicy' %}"
-                      class="text-white font-Glacial-Indifference"
-                      target="_blank"
-                      >Privacy Policy</a
-                    >
-                  </li>
-                </ul>
-              </div>
-          </div>
-          
-        </div>
-        
-      </div>
-    </div>
-    </footer>
-
-
-  <footer class="py-8 py-md-11 bg-bluish-shade d-none d-lg-block">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-4 col-lg-3">
-          <img
-            src="{% static 'Landkit/images/v3/logo.png' %}"
-            alt="circledin"
-            class="footer-brand img-fluid mb-2 mt-lg-n3"
-            loading="lazy"
-          />
-          <p class="mb-2 text-white font-Glacial-Indifference">
-            Group together and start saving on your mobile bill.
-          </p>
-          <p class="text-gray-700 mb-2">
-            <ul class="list-unstyled list-inline list-social mb-6 mb-md-0">
-              <li class="list-inline-item list-social-item">
-                <a href="https://www.youtube.com/channel/UCJBTqwhi3OUAjApStiXb-2Q" class="text-decoration-none">
-                  <i class="fab fa-youtube text-white"></i>
-                </a>
-              </li>
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="https://twitter.com/joincircledin" class="text-decoration-none">
-                  <i class="fab fa-twitter text-white"></i>
-                </a>
-              </li>
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="https://www.facebook.com/joincircledin" class="text-decoration-none">
-                  <i class="fab fa-facebook-square text-white"></i>
-                </a>
-              </li>
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="https://www.instagram.com/joincircledin/" class="text-decoration-none">
-                  <i class="fab fa-instagram text-white"></i>
-                </a>
-              </li>
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="mailto:Support@Joincircledin.com" class="text-decoration-none">
-                  <i class="fas fa-envelope text-white"></i>
-                </a>
-              </li>
-              
-              
-              
-            </ul>
-          </p>
-        </div>
-        
-        <div class="col-6 col-md-4 col-lg-6">
-          <div class="row ">
-            <h3 class="text-white">
-              Get updates on Circledin services and improvements.
-            </h3>
-          </div>
-          <div class="row mb-lg-4">
-            <form class=" w-100" method="POST" action="{% url 'Collector_Email' %}">
-              {% csrf_token %}
-              <div class="form-row">
-                <div class="col-7">
-                  <input type="email" placeholder="Your email address" class="form-control text-center mr-2" name="email" required="">
-                </div>
-                <div class="col-5">
-                  <button class="btn btn-atoll ">Update Me!</button>
-                </div>
-              </div>
-              <input type="hidden" name="next" value="{{ request.path }}">
-              
-            </form>
-            
-            
-          </div>
-          <div class="row pt-lg-1">
-              <div class="col-6 col-md-4 col-lg-4">
-                <h6 class="font-weight-bold text-uppercase font-League-Spartan text-white">About</h6>
-          <ul class="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
-            <li class="mb-3">
-              <a href="{% url 'About' %}" class="text-reset font-Glacial-Indifference " target="_blank"
-                >About Us</a
-              >
-            </li>
-            <li class="mb-3">
-              <a
-                href="{% url 'how-it-works-url' %}"
-                class="text-reset font-Glacial-Indifference"
-                target="_blank"
-                >How it Works</a
-              >
-            </li>
-          </ul>
-              </div>
-              <div class="col-6 col-md-4 offset-md-4 col-lg-4 offset-lg-0">
-                <h6 class="font-weight-bold text-uppercase font-League-Spartan text-white">Support</h6>
-                <ul class="list-unstyled text-muted mb-0">
-                  <li class="mb-3">
-                    <a href="{% url 'contact' %}" class="text-reset font-Glacial-Indifference" target="_blank"
-                      >Contact Us</a
-                    >
-                  </li>
-                  <li class="mb-3">
-                    <a href="{% url 'FAQ' %}" class="text-reset font-Glacial-Indifference" target="_blank">FAQ</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-6 col-md-4 col-lg-4">
-                <h6 class="font-weight-bold text-uppercase font-League-Spartan text-white">Legal</h6>
-                <ul class="list-unstyled text-muted mb-0">
-                  <li class="mb-3">
-                    <a
-                      href="{% url 'TermsConditions' %}"
-                      class="text-reset font-Glacial-Indifference"
-                      target="_blank"
-                      >Terms of Service</a
-                    >
-                  </li>
-                  <li class="mb-3">
-                    <a
-                      href="{% url 'PrivacyPolicy' %}"
-                      class="text-reset font-Glacial-Indifference"
-                      target="_blank"
-                      >Privacy Policy</a
-                    >
-                  </li>
-                </ul>
-              </div>
-          </div>
-          
-        </div>
-        
-      </div>
-    </div>
-    </footer>
-    
+</footer>

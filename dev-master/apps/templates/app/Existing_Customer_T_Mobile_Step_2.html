@@ -1,6 +1,6 @@
 {% load static humanize FindSubUser findNextMonth findNextYear findFindSubID findSubStatus FindSubObject findPaymentCurrentDay  findSubSlots findSubCancelStatus FindCategoryPlanInfo mathfilters findUserPhone FindPlanFixedPrice %}
 <div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 pt-11 pt-lg-10 px-0 px-lg-0">
-    <h3 class="font-weight-bolder text-success"> Existing Verizon Customer  </h3>
+    <h3 class="font-weight-bolder text-success"> Existing {{ plan.category }} Customer  </h3>
     <div class="container-fluid px-lg-0 py-lg-0 d-none d-md-none d-lg-block">
       <div class="row">
         <div class="col">
@@ -75,6 +75,18 @@
                         </div>
                         <div class="row">
                             <p class="card-text h4 mx-0 mx-md-0 mx-lg-0" id="active-line-response">
+                                No
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="row pt-3 pt-lg-3">
+                            <h4 class="font-weight-bolder text-dark mx-0 mx-md-0 mx-lg-0 mb-md-1 mb-lg-1">
+                                Financing or leasing any phone with T-Mobile?
+                            </h4>
+                        </div>
+                        <div class="row">
+                            <p class="card-text h4 mx-0 mx-md-0 mx-lg-0"  id="leasing-phone-response">
                                 No
                             </p>
                         </div>

@@ -390,12 +390,12 @@ if($("#option11").prop("checked") != true){
         $("#Account_Number_Step_2").html($("#switch_2").val());    
     }
     else{
-        $("#Account_Number_Step_2").html("No Previous Accout Number");
+        $("#Account_Number_Step_2").html("N/A");
     }
 }
 else{
     $("#Account_Number_Step_2").html("");
-    $("#Account_Number_Step_2").html("No Previous Accout Number");
+    $("#Account_Number_Step_2").html("N/A");
 }
 
 
@@ -416,12 +416,12 @@ if($("#switch_3").val().trim() != ""){
     $("#Pin_Step_2").html($("#switch_3").val());
 }
 else{
-    $("#Pin_Step_2").html("No Available Pin");
+    $("#Pin_Step_2").html("N/A");
 }    
 }
 else{
     $("#Pin_Step_2").html("");
-    $("#Pin_Step_2").html("No Available Pin");
+    $("#Pin_Step_2").html("N/A");
 }
 
 
@@ -433,12 +433,12 @@ if($("#option11").prop("checked") != true){
     $("#Carrier_Step_2").html($("#switch_4").val());
     }
     else{
-    $("#Carrier_Step_2").html("No Previous Carrier");
+    $("#Carrier_Step_2").html("N/A");
     }
 }
 else{
     $("#Carrier_Step_2").html("");
-    $("#Carrier_Step_2").html("No Previous Carrier");
+    $("#Carrier_Step_2").html("N/A");
 }
 
 
@@ -461,7 +461,7 @@ if($("#option11").prop("checked") != true){
             $("#Port_Number_Step_2").html($("#Port_Number_Step_2").html() +  $(this).val() + " ");    
         }
         else{
-            $("#Port_Number_Step_2").html("No Available Port Number");    
+            $("#Port_Number_Step_2").html("N/A");    
         }
         
         });
@@ -469,7 +469,7 @@ if($("#option11").prop("checked") != true){
 }
 else{
     $("#Port_Number_Step_2").html("");
-    $("#Port_Number_Step_2").html("No Available Port Number");    
+    $("#Port_Number_Step_2").html("N/A");    
 }
 
 
