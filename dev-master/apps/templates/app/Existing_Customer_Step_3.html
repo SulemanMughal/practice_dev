@@ -4,16 +4,16 @@
       <div class="row">
         <div class="col">
           <h1 class="card-title display-5 text-dark font-weight-bolder text-uppercase mb-lg-0">
-            Order Complete! #{% autoescape off %}{% if plan.category.Name == "Verizon" %}
-            CI-VZ{{ objects|add:1 }}
+            Order Complete! {% autoescape off %}{% if plan.category.Name == "Verizon" %}
+            #CI-VZ{{ objects|add:1 }}
           {% elif plan.category.Name == "T-Mobile" %}
-            CI-TM{{ objects|add:1 }}
+            #CI-TM{{ objects|add:1 }}
           {% elif plan.category.Name == "Sprint" %}
-            CI-SP{{ objects|add:1 }}
+            #CI-SP{{ objects|add:1 }}
           {% elif plan.category.Name == "AT&T" %}
-            CI-ATT{{ objects|add:1 }}
+            #CI-ATT{{ objects|add:1 }}
           {% elif plan.category.Name == "Cricket" %}
-            CI-CR{{ objects|add:1 }}
+            #CI-CR{{ objects|add:1 }}
           {% endif %}
         {% endautoescape %}
         </h1>
@@ -29,16 +29,16 @@
       <div class="row">
         <div class="col-8 pr-0">
           <h3 class="card-title text-dark font-weight-bolder text-uppercase mb-0 mb-lg-0 text-nowrap">
-            Order Complete! #{% autoescape off %}{% if plan.category.Name == "Verizon" %}
-            CI-VZ{{ objects|add:1 }}
+            Order Complete! {% autoescape off %}{% if plan.category.Name == "Verizon" %}
+            #CI-VZ{{ objects|add:1 }}
           {% elif plan.category.Name == "T-Mobile" %}
-            CI-TM{{ objects|add:1 }}
+            #CI-TM{{ objects|add:1 }}
           {% elif plan.category.Name == "Sprint" %}
-            CI-SP{{ objects|add:1 }}
+            #CI-SP{{ objects|add:1 }}
           {% elif plan.category.Name == "AT&T" %}
-            CI-ATT{{ objects|add:1 }}
+            #CI-ATT{{ objects|add:1 }}
           {% elif plan.category.Name == "Cricket" %}
-            CI-CR{{ objects|add:1 }}
+            #CI-CR{{ objects|add:1 }}
           {% endif %}
         {% endautoescape %}
         </h3>

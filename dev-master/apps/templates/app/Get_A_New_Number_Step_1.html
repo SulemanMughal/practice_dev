@@ -37,7 +37,7 @@
         Will my phone work on this network?
       </h3>
       <p class="card-text text-left text-lg-left px-4 px-md-0  px-lg-0 pr-0 pr-md-8 pr-lg-11 text-dark  font-weight-normal" >
-        We recommend checking with the specific carrier to see if your device is compatible on their network. Optionally, type in your IMEI, ICCID and ESIM/DIGITAL SIM and we'll be happy to check for you. 
+        We recommend checking with the specific carrier to see if your device is compatible on their network. Optionally, type in your IMEI, ICCID and eSIM/Digital SIM and we'll be happy to check for you. 
       </p>
     </div>
     <div class="col-12 col-md col-lg px-0 px-lg-0">
@@ -52,7 +52,7 @@
                   <input type="text" class="form-control border col-12 border-dark   bg-light  mt-1" 
                   placeholder="ICCID"  name="ICCID"  required maxlength="17" />
                   <input type="text" class="form-control border col-12 border-dark  bg-light mt-1" 
-                  placeholder="ESIM/DIGITAL SIM (optional)" name="ESIM"  required maxlength="17" />
+                  placeholder="eSIM/Digital SIM  (optional)" name="ESIM"  required maxlength="17" />
             </div>
               {% else %}
               {% with ''|center:NUMBER_OF_GUESTS as range %}
@@ -60,7 +60,7 @@
             <div class="row mt-2">
               <div class="col pl-0">
                 <p class="card-text h3 font-weight-bolder text-dark">
-                    Cell phone line # {{ forloop.counter }}
+                    Cell phone line #{{ forloop.counter }}
                 </p>
               </div>
                       <input type="text" class="form-control border col-12 border-dark  bg-light mt-1" 
@@ -68,13 +68,13 @@
                     <input type="text" class="form-control border col-12 border-dark    bg-light  mt-1" 
                     placeholder="ICCID" name="ICCID"  required maxlength="17" />
                     <input type="text" class="form-control border col-12 border-dark  bg-light mt-1" 
-                    placeholder="ESIM/DIGITAL SIM (optional)"  name="ESIM" required maxlength="17" />
+                    placeholder="eSIM/Digital SIM  (optional)"  name="ESIM" required maxlength="17" />
             </div>
                 {% endfor %}
                 {% endwith %}
               <!-- TODO:  END MULTIPLE IMEI HANDLER -->
             {% endif %}
-              <p class="card-text text-dark " style="font-size: 0.9rem !important;">
+              <p class="card-text text-dark mt-2 font-weight-bolder mb-2" style="font-size: 0.9rem !important;">
               Not sure how to get your IMEI? Follow one of the steps below
               </p>
               <ol class="font-size-sm" style="font-size: 0.8rem !important;">
@@ -97,7 +97,7 @@
         Location
       </h3>
       <p class="card-text text-dark font-weight-normal text-left px-5 px-md-0 px-lg-0 pr-lg-10 " >
-          Please  enter in a valid Area Code you would like your new number to be in
+          Please  enter in a valid area code you would like your new number to be in
       </p>
     </div>
     <div class="col-12 col-md col-lg  px-0 px-lg-0">
@@ -111,7 +111,7 @@
             {% else %}
                 {% with ''|center:NUMBER_OF_GUESTS as range %}
                 {% for _ in range %}
-                <p class="card-text h3 font-weight-bolder text-dark mb-0">
+                <p class="card-text h3 font-weight-bolder text-dark mb-1 mt-3">
                   Cell phone line #{{ forloop.counter }}
                 </p>
                 <input type="text" class="form-control border border-dark bg-light mb-1 col-12" id="id_Area_code"
@@ -126,13 +126,6 @@
     </div>
   </div>
 
-  <div class="row border-0 mx-0 mx-lg-0  py-4 py-md-6 py-lg-8  ">
-    <div class="col px-0 px-lg-0">
-      <p class="text-dark font-weight-normal text-center text-md-left text-lg-left">
-        *Our services require you to bring your own device.
-      </p>
-    </div>
-    
-  </div>
+  
 
 </div>

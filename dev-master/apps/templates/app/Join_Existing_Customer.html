@@ -68,6 +68,60 @@ input.invalid {
     border-width: 3px !important;
 }
 
+
+
+.border-success {
+    border-color: #579B9D !important;
+}
+
+.text-success{
+  color: #579B9D !important;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #579B9D;
+    border-color: #579B9D;
+    box-shadow: none;
+}
+
+.btn-success:hover {
+  color: #fff;
+  background-color: #279a9e;
+  border-color: #279a9e;
+}
+
+
+.btn-success.focus,
+.btn-success:focus {
+  color: #fff;
+  background-color: #279a9e;
+  border-color: #279a9e;
+  box-shadow: 0 0 0 0 rgba(94, 196, 166, 0.5);
+}
+
+
+.btn-success.disabled,
+.btn-success:disabled {
+  color: #fff;
+  background-color: #279a9e;
+  border-color: #279a9e;
+}
+
+
+.btn-success:not(:disabled):not(.disabled).active,
+.btn-success:not(:disabled):not(.disabled):active,
+.show > .btn-success.dropdown-toggle {
+  color: #fff;
+  background-color: #279a9e;
+  border-color: #279a9e;
+}
+
+.border-dark {
+    border-color: #D9D9D9 !important;
+}
+
+
 </style>
 {% include 'modals/FeedbackForms.html' with edit=False subs=request.user|FindSubObject:plan.id   %}
 {% include "modals/finishing_payment_modal.html" %}
@@ -98,15 +152,7 @@ input.invalid {
         <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-success mr-5 px-9  px-lg-9">Continue</button>
       </div>
     </div>
-    <div class="container d-none">
-      <div class="row mx-auto mt-5">
-        <div class="col">
-          <p class="card-text text-center">
-            *Our services require you to bring your own device. 
-          </p>
-        </div>
-      </div>
-    </div>
+    
     <div class="d-none" style="text-align:center;margin-top:40px;">
       <span class="step"></span>
       <span class="step"></span>

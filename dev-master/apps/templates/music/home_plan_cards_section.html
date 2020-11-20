@@ -173,7 +173,7 @@ and (max-width : 320px) {
             {% if forloop.last %}
               <div class="col-12 col-md-6 col-lg-4 col-xl-3 bg-transparent plan_name mb-8 pb-8 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg  {{ j.category.slug }} d-none"
                 id="btn_{{ j.category.slug }}">
-                <div class="card bg-white my-7   h-100 box-shadow-lighter-greenish bg-none" >
+                <div class="card bg-white my-7   h-100  bg-none" >
                   <div class="card-body text-left mb-8 pb-8 text-center bg-transparent">
                     <a class="  mt-10 font-size-4_5rem" href="#!"
                       {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"
@@ -181,11 +181,9 @@ and (max-width : 320px) {
                       data-target="#modalSigninHorizontal" {% endif %} >
                       <img src="{% static 'Landkit/images/v3/add_plan.png' %}" alt="circledin" class="bg-add-plan-button">
                   </a>
-                  </div>
-                  <div class="card-footer">
-                    <p class="card-text">
-                      **Currently By Invite Only
-                    </p>
+                  <p class="card-text mb-0">
+                    **Currently By Invite Only
+                  </p>
                   </div>
                 </div>
               </div>
@@ -194,7 +192,7 @@ and (max-width : 320px) {
         {% else %}
           <div class="col-12 col-md-6 col-lg-4 col-xl-3 bg-transparent plan_name mb-8 pb-8 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg {{ i.slug }} d-none"
           id="btn_{{ i.slug }}">
-          <div class="card bg-white my-7 h-100 box-shadow-lighter-greenish bg-none" >
+          <div class="card bg-white my-7 h-100  bg-none" >
             <div class="card-body text-left mb-8 pb-8 text-center bg-transparent ">
               <a class="mt-10 font-size-4_5rem" href="#!"
                 {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"
@@ -202,18 +200,16 @@ and (max-width : 320px) {
                 data-target="#modalSigninHorizontal" {% endif %}>
                 <img src="{% static 'Landkit/images/v3/add_plan.png' %}" alt="circledin" class="bg-add-plan-button">
             </a>
-            </div>
-            <div class="card-footer">
-              <p class="card-text">
-                **Currently By Invite Only
-              </p>
+            <p class="card-text mb-0">
+              **Currently By Invite Only
+            </p>
             </div>
           </div>
           </div>
         {% endif %}
         {% if forloop.last %}
           <div class="col-12 col-md-6 col-lg-4 col-xl-3 bg-transparent plan_name mb-8 pb-8 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg ">
-            <div class="card bg-white  my-7 h-100 box-shadow-lighter-greenish bg-none" >
+            <div class="card bg-white  my-7 h-100  bg-none" >
               <div class="card-body text-left mb-8 pb-8 text-center bg-transparent">
                 <a class="   mt-10 font-size-4_5rem " href="#!"
                   {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"
@@ -221,11 +217,9 @@ and (max-width : 320px) {
                   data-target="#modalSigninHorizontal" {% endif %} >
                   <img src="{% static 'Landkit/images/v3/add_plan.png' %}" alt="circledin" class="bg-add-plan-button">
               </a>
-              </div>
-              <div class="card-footer">
-                <p class="card-text">
-                  **Currently By Invite Only
-                </p>
+              <p class="card-text mb-0">
+                **Currently By Invite Only
+              </p>
               </div>
             </div>
           </div>
@@ -341,7 +335,7 @@ and (max-width : 320px) {
         {% if forloop.last %}
           <div class="carousel-cell">
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 bg-transparent plan_name mb-8 pb-8 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg ">
-                  <div class="card bg-white  my-7 h-100 box-shadow-lighter-greenish bg-none" >
+                  <div class="card bg-white  my-7 h-100  bg-none" >
                     <div class="card-body text-left mb-8 pb-8 text-center bg-transparent pl-0 pl-md-8">
                       <a class="   mt-10 font-size-4_5rem pl-0 " href="#!"
                         {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"
@@ -461,7 +455,7 @@ and (max-width : 320px) {
       {% if forloop.last %}
       <div class="carousel-cell">
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 bg-transparent plan_name mb-8 pb-8 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg ">
-              <div class="card bg-white  my-7 h-100 box-shadow-lighter-greenish bg-none" >
+              <div class="card bg-white  my-7 h-100  bg-none" >
                 <div class="card-body text-left mb-8 pb-8 text-center bg-transparent pl-0 pl-md-8">
                   <a class="   mt-10 font-size-4_5rem pl-0" href="#!"
                     {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"

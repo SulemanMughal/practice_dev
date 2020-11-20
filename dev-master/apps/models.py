@@ -269,7 +269,7 @@ class subscription(models.Model):
                               default="Inactive", blank=False, null=False, choices=SUBSCRIPTION_STATUS)
     leaveRequest = models.BooleanField(verbose_name="Leave Request", default=False)
     device_IMEI = models.CharField(max_length=200, verbose_name="IMEI",blank=True, default="", null=True)
-    subs_contact_switch = models.CharField(max_length=15, verbose_name="Switch Contact Number", blank=True, null=True, default='')
+    subs_contact_switch = models.CharField(max_length=200, verbose_name="Switch Contact Number", blank=True, null=True, default='')
     subs_account = models.CharField(max_length=20, verbose_name="Account Number", blank=True, null=True, default='')
     subs_PIN = models.CharField(max_length=20, verbose_name="PIN Number", blank=True, null=True, default='')
     payment_contactNumber = models.CharField(max_length=15, verbose_name="Subscriber's Contact Number", blank=True, null=True, default='')
