@@ -16,16 +16,12 @@
   margin-top: 20px !important;
   }
 
-
-
-  .flickity-prev-next-button.next{
+.flickity-prev-next-button.next{
   /* left: 254px !important; */
   right: -15px !important;
 }
 
-
-
-  /* Smartphones (portrait and landscape) ----------- */
+/* Smartphones (portrait and landscape) ----------- */
 @media only screen
 and (min-device-width : 320px)
 and (max-device-width : 480px) {
@@ -48,12 +44,8 @@ and (max-device-width : 480px) {
 .flickity-prev-next-button.previous{
   left: -16px !important;
 }
-
-
-
-
 }
- 
+
 /* Smartphones (landscape) ----------- */
 @media only screen
 and (min-width : 321px) {
@@ -154,15 +146,10 @@ and (max-width : 320px) {
   
   
   
-  </style>
-
-
-
+</style>
 
 {% if categories %}
-
 <!-- ! LARGE SCREEN DESIGNS -->
-
 <section class="p-0 bg-picato-green pb-5 d-none d-lg-block" >
   <div class="container">
     <div class="row" id="portfolio" data-isotope='{"layoutMode": "fitRows"}' style="height: auto;" >
@@ -174,14 +161,14 @@ and (max-width : 320px) {
               <div class="col-12 col-md-6 col-lg-4 col-xl-3 bg-transparent plan_name mb-8 pb-8 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg  {{ j.category.slug }} d-none"
                 id="btn_{{ j.category.slug }}">
                 <div class="card bg-white my-7   h-100  bg-none" >
-                  <div class="card-body text-left mb-8 pb-8 text-center bg-transparent">
+                  <div class="card-body text-left   text-center bg-transparent">
                     <a class="  mt-10 font-size-4_5rem" href="#!"
                       {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"
                       onclick="PlanCreationFunction('{{ i.slug }}', '{{ i.id }}');" {% else %} data-toggle="modal"
                       data-target="#modalSigninHorizontal" {% endif %} >
                       <img src="{% static 'Landkit/images/v3/add_plan.png' %}" alt="circledin" class="bg-add-plan-button">
                   </a>
-                  <p class="card-text mb-0">
+                  <p class="card-text mb-0 mt-7">
                     **Currently By Invite Only
                   </p>
                   </div>
@@ -193,14 +180,14 @@ and (max-width : 320px) {
           <div class="col-12 col-md-6 col-lg-4 col-xl-3 bg-transparent plan_name mb-8 pb-8 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg {{ i.slug }} d-none"
           id="btn_{{ i.slug }}">
           <div class="card bg-white my-7 h-100  bg-none" >
-            <div class="card-body text-left mb-8 pb-8 text-center bg-transparent ">
+            <div class="card-body text-left text-center bg-transparent ">
               <a class="mt-10 font-size-4_5rem" href="#!"
                 {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"
                 onclick="PlanCreationFunction('{{ i.slug }}', '{{ i.id }}');" {% else %} data-toggle="modal"
                 data-target="#modalSigninHorizontal" {% endif %}>
                 <img src="{% static 'Landkit/images/v3/add_plan.png' %}" alt="circledin" class="bg-add-plan-button">
             </a>
-            <p class="card-text mb-0">
+            <p class="card-text mb-0 mt-7">
               **Currently By Invite Only
             </p>
             </div>
@@ -210,14 +197,14 @@ and (max-width : 320px) {
         {% if forloop.last %}
           <div class="col-12 col-md-6 col-lg-4 col-xl-3 bg-transparent plan_name mb-8 pb-8 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg ">
             <div class="card bg-white  my-7 h-100  bg-none" >
-              <div class="card-body text-left mb-8 pb-8 text-center bg-transparent">
+              <div class="card-body text-left  text-center bg-transparent">
                 <a class="   mt-10 font-size-4_5rem " href="#!"
                   {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"
                   onclick="PlanCreationFunction('None', 'None');" {% else %} data-toggle="modal"
                   data-target="#modalSigninHorizontal" {% endif %} >
                   <img src="{% static 'Landkit/images/v3/add_plan.png' %}" alt="circledin" class="bg-add-plan-button">
               </a>
-              <p class="card-text mb-0">
+              <p class="card-text mb-0 mt-7">
                 **Currently By Invite Only
               </p>
               </div>
@@ -231,8 +218,6 @@ and (max-width : 320px) {
   
   </div>
 </section>
-
-
 
 <!-- ! IPHONE AND IPADS DESIGNS -->
 <section class="d-block d-lg-none bg-faq" style="background: linear-gradient(180deg, white 50%, #D0E6E3 50%);"  data-plan="all"> 
@@ -336,13 +321,16 @@ and (max-width : 320px) {
           <div class="carousel-cell">
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 bg-transparent plan_name mb-8 pb-8 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg ">
                   <div class="card bg-white  my-7 h-100  bg-none" >
-                    <div class="card-body text-left mb-8 pb-8 text-center bg-transparent pl-0 pl-md-8">
+                    <div class="card-body text-left   text-center bg-transparent pl-0 pl-md-8">
                       <a class="   mt-10 font-size-4_5rem pl-0 " href="#!"
                         {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"
                         onclick="PlanCreationFunction('None', 'None');" {% else %} data-toggle="modal"
                         data-target="#modalSigninHorizontal" {% endif %} >
                         <img src="{% static 'Landkit/images/v3/add_plan.png' %}" alt="circledin" class="bg-add-plan-button ">
                     </a>
+                    <p class="card-text mb-0 mt-4 pt-1">
+                      **Currently By Invite Only
+                    </p>
                     </div>
                   </div>
             </div>
@@ -456,13 +444,16 @@ and (max-width : 320px) {
       <div class="carousel-cell">
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 bg-transparent plan_name mb-8 pb-8 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg ">
               <div class="card bg-white  my-7 h-100  bg-none" >
-                <div class="card-body text-left mb-8 pb-8 text-center bg-transparent pl-0 pl-md-8">
+                <div class="card-body text-left  text-center bg-transparent pl-0 pl-md-8">
                   <a class="   mt-10 font-size-4_5rem pl-0" href="#!"
                     {% if request.user.is_authenticated %} data-toggle="modal" data-target="#exampleModal"
                     onclick="PlanCreationFunction('None', 'None');" {% else %} data-toggle="modal"
                     data-target="#modalSigninHorizontal" {% endif %} >
                     <img src="{% static 'Landkit/images/v3/add_plan.png' %}" alt="circledin" class="bg-add-plan-button">
                 </a>
+                <p class="card-text mb-0 mt-4 pt-1">
+                  **Currently By Invite Only
+                </p>
                 </div>
               </div>
         </div>
@@ -475,12 +466,8 @@ and (max-width : 320px) {
   </div>
   
 </section>
-
-
 {% endfor %}
-
 {% endif %}
-
 
 <script>
   $(document).ready(function(){
@@ -576,7 +563,4 @@ and (max-width : 320px) {
 });
   });
 </script>
-
-
-
 {% endautoescape %} 

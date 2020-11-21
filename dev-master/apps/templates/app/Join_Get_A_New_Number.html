@@ -4,134 +4,114 @@
 {% block title %} Join a Plan - Get a new number {% endblock %}
 {% block content %}
 <style>
-h1, h2, h3, h4, h5, h6, .font-League-Spartan{
-    font-family: 'League Spartan Bold', arial;
+  /* Style the form */
+  #regForm {
+    background-color: #ffffff;
+    width: 100%;
+    min-width: 300px;
   }
-  p, a, span, input, .font-Glacial-Indifference, .btn{
-    font-family: 'Glacial Indifference' !important;
+  /* Style the input fields */
+  input {
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Raleway;
+    border: 1px solid #aaaaaa;
   }
-     /* Style the form */
-#regForm {
-  background-color: #ffffff;
-  width: 100%;
-  min-width: 300px;
-}
-/* Style the input fields */
-input {
-  padding: 10px;
-  width: 100%;
-  font-size: 17px;
-  font-family: Raleway;
-  border: 1px solid #aaaaaa;
-}
-/* Mark input boxes that gets an error on validation: */
-input.invalid {
-  background-color: #ffdddd !important;
-}
-/* Hide all steps by default: */
-.tab {
-  display: none;
-}
-/* Make circles that indicate the steps of the form: */
-.step {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbbbbb;
-  border: none;
-  border-radius: 50%;
-  display: none;
-  opacity: 0.5;
-}
-/* Mark the active step: */
-.step.active {
-  display: none;
-  opacity: 1;
-}
-/* Mark the steps that are finished and valid: */
-.step.finish {
-  display: none;
-  background-color: #4CAF50;
-} 
-.border-width-3{
-    border-width: 3px !important;
-}
-
-
-.border-success {
-    border-color: #579B9D !important;
-}
-
-.text-success{
-  color: #579B9D !important;
-}
-
-.btn-success {
+  /* Mark input boxes that gets an error on validation: */
+  input.invalid {
+    background-color: #ffdddd !important;
+  }
+  /* Hide all steps by default: */
+  .tab {
+    display: none;
+  }
+  /* Make circles that indicate the steps of the form: */
+  .step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: none;
+    opacity: 0.5;
+  }
+  /* Mark the active step: */
+  .step.active {
+    display: none;
+    opacity: 1;
+  }
+  /* Mark the steps that are finished and valid: */
+  .step.finish {
+    display: none;
+    background-color: #4CAF50;
+  } 
+  .border-width-3{
+      border-width: 3px !important;
+  }
+  .border-success {
+      border-color: #579B9D !important;
+  }
+  .text-success{
+    color: #579B9D !important;
+  }
+  .btn-success {
+      color: #fff;
+      background-color: #579B9D;
+      border-color: #579B9D;
+      box-shadow: none;
+  }
+  .btn-success:hover {
     color: #fff;
-    background-color: #579B9D;
-    border-color: #579B9D;
-    box-shadow: none;
-}
-
-.btn-success:hover {
-  color: #fff;
-  background-color: #279a9e;
-  border-color: #279a9e;
-}
-
-
-.btn-success.focus,
-.btn-success:focus {
-  color: #fff;
-  background-color: #279a9e;
-  border-color: #279a9e;
-  box-shadow: 0 0 0 0 rgba(94, 196, 166, 0.5);
-}
-
-
-.btn-success.disabled,
-.btn-success:disabled {
-  color: #fff;
-  background-color: #279a9e;
-  border-color: #279a9e;
-}
-
-
-.btn-success:not(:disabled):not(.disabled).active,
-.btn-success:not(:disabled):not(.disabled):active,
-.show > .btn-success.dropdown-toggle {
-  color: #fff;
-  background-color: #279a9e;
-  border-color: #279a9e;
-}
-
-
-.border-dark {
-    border-color: #D9D9D9 !important;
-}
-
+    background-color: #279a9e;
+    border-color: #279a9e;
+  }
+  .btn-success.focus,
+  .btn-success:focus {
+    color: #fff;
+    background-color: #279a9e;
+    border-color: #279a9e;
+    box-shadow: 0 0 0 0 rgba(94, 196, 166, 0.5);
+  }
+  .btn-success.disabled,
+  .btn-success:disabled {
+    color: #fff;
+    background-color: #279a9e;
+    border-color: #279a9e;
+  }
+  .btn-success:not(:disabled):not(.disabled).active,
+  .btn-success:not(:disabled):not(.disabled):active,
+  .show > .btn-success.dropdown-toggle {
+    color: #fff;
+    background-color: #279a9e;
+    border-color: #279a9e;
+  }
+  .border-dark {
+      border-color: #D9D9D9 !important;
+  }
 </style>
 {% include 'modals/FeedbackForms.html' with edit=False subs=request.user|FindSubObject:plan.id   %}
 {% include "modals/finishing_payment_modal.html" %}
 {% include "modals/payment_processing_waiting_modal.html" %}
 {% include "modals/payment_error.html" %}
 {% include 'modals/payment_error_modal.html' %}
-<hr class="border border-success border-width-3 mt-9 mt-md-9 mt-lg-9 ml-0 ml-lg-0 sticky-top" style="position: fixed !important; border-width: 10px !important;" id="progressbar">
+<hr class="border border-success border-width-10  sticky-top position-fixed mt-9 mt-md-9 mt-lg-9 ml-0 ml-lg-0 " id="progressbar">
 <div class="card px-4 px-lg-10 pb-8 pb-lg-10">
     <div class="card-body p-0 pt-3 pt-lg-3">
-            
       
-      <div class="tab">
-        {% include 'app/Get_A_New_Number_Step_1.html' %}
-      </div>
 
       <div class="tab">
-        {% include 'app/Get_A_New_Number_Step_2.html' %}
-      </div>
-      
+        {% include 'app/Get_A_New_Number_Step_1.html' %}
+  </div>
+
+  <div class="tab">
+    {% include 'app/Get_A_New_Number_Step_2.html' %}
+</div>
+
       <div class="tab">
               {% include 'app/Get_A_New_Number_Step_3.html' %}
-            </div>
+        </div>
             
             <div    style="overflow:auto;">
               <div style="float:right;">
@@ -384,7 +364,6 @@ function fixStepIndicator(n) {
     });
   });
 </script>
-
 
 {% endblock javascript %}
 {% endblock %}

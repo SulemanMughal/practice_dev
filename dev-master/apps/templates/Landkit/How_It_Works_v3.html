@@ -3,12 +3,11 @@
 {% include "Landkit/META_TAG.html" %}
 {% block title %}How It Works{% endblock %}
 {% block content %}
-
-<section class="bg-image-about-us-page-banner  py-lg-1  mt-lg-n9">
-    <div class="container my-lg-10 ">
+<section class="bg-image-about-us-page-banner  mt-n5 mt-md-n5 py-10 py-md-10 py-lg-1  mt-lg-n9">
+    <div class="container  my-lg-10 ">
         <div class="row ">
             <div class="col">
-                <h1 class="text-uppercase text-center font-weight-bolder display-2 text-bluish text-shadow-bluish font-League-Spartan mt-lg-10">
+                <h1 class="text-uppercase text-center font-weight-bolder display-2 text-bluish text-shadow-bluish font-League-Spartan mt-10 mt-md-10 mt-lg-10 mb-0 mx-auto">
                     how it works
                 </h1>
             </div>
@@ -19,8 +18,9 @@
 {% include 'Landkit/How_It_Works_Page_Post_Account_v3.html' %}
 {% include 'Landkit/How_It_Works_Page_Existing_V3.html' %}
 
-<section class="bg-how-it-workds-banner pb-lg-8">
-    <div class="container py-lg-8 ">
+<!-- ! LARGE  -->
+<section class="bg-how-it-workds-banner  pb-lg-8 d-none d-md-none d-lg-block">
+    <div class="container  py-lg-8 ">
         <div class="row">
             <div class="col">
                 <h1 class="card-title display-3 text-uppercase font-weight-bolder text-dark mb-lg-0 text-shadow-bluish">
@@ -34,22 +34,52 @@
     </div>
 </section>
 
-
-
-<section>
-    <div class="container px-lg-15 ">
-        <div class="row py-lg-6 mx-lg-10">
+<!-- ! IPADS -->
+<section class="bg-how-it-workds-banner  pb-md-8 pb-lg-8 d-none d-md-block d-lg-none">
+    <div class="container  py-md-8 py-lg-8 ">
+        <div class="row">
             <div class="col">
-                {% if not request.user.is_authenticated %}
-                    <button class="btn btn-atoll lift font-weight-bolder  px-lg-10" data-toggle="modal" href="#modalSignupHorizontal">Join Now!</button>
-                {% endif %}
-                
+                <h1 class="card-title display-3 text-uppercase font-weight-bolder text-dark mb-md-0 mb-lg-0 text-shadow-bluish">
+                    You're covered!
+                </h1>
+                <p class="card-text text-dark h3 ">
+                    We guarantee all payments are made on time so that your mobile services will continue. Long gone are the days of waiting around or reminding friends and family to pay their monthly phone bill!
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ! IPHONSE -->
+<section class="bg-how-it-workds-banner  pb-6 pb-md-8 pb-lg-8 d-block d-md-none d-lg-none">
+    <div class="container py-3 py-md-8 py-lg-8 ">
+        <div class="row">
+            <div class="col">
+                <h1 class="card-title display-3 text-uppercase font-weight-bolder text-dark mb-0 mb-md-0 mb-lg-0 text-shadow-bluish">
+                    You're covered!
+                </h1>
+                <p class="card-text text-dark h3 ">
+                    We guarantee all payments are made on time so that your mobile services will continue. Long gone are the days of waiting around or reminding friends and family to pay their monthly phone bill!
+                </p>
             </div>
         </div>
     </div>
 </section>
 
 
+
+<section>
+    <div class="container ">
+        <div class="row py-5 py-lg-5 ">
+            <div class="col text-center">
+                {% if not request.user.is_authenticated %}
+                    <button class="btn btn-atoll lift font-weight-bolder  w-100 w-md-50  " data-toggle="modal" href="#modalSignupHorizontal">Join Now!</button>
+                {% endif %}
+                
+            </div>
+        </div>
+    </div>
+</section>
 
 {% include "Landkit/footer.html" %}
 {% endblock %}

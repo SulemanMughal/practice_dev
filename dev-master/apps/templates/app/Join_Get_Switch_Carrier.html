@@ -4,15 +4,6 @@
 {% block title %} Join a Plan - Switch Carrier {% endblock %}
 {% block content %}
 <style>
-
-h1, h2, h3, h4, h5, h6, .font-League-Spartan{
-font-family: 'League Spartan Bold', arial;
-}
-
-p, a, span, input, .font-Glacial-Indifference, .btn{
-font-family: 'Glacial Indifference' !important;
-}
-
   /* Style the form */
 #regForm {
 background-color: #ffffff;
@@ -131,30 +122,23 @@ border-width: 3px !important;
 {% include "modals/payment_processing_waiting_modal.html" %}
 {% include "modals/payment_error.html" %}
 {% include 'modals/payment_error_modal.html' %}
-<hr class="border border-success border-width-3 mt-9 mt-md-9 mt-lg-9 ml-lg-0 sticky-top" style="position: fixed !important; border-width: 10px !important;" id="progressbar">
+<hr class="border border-success position-fixed border-width-10 mt-9 mt-md-9 mt-lg-9 ml-lg-0 sticky-top" id="progressbar">
 <div class="card px-4 px-lg-10 pb-8 pb-lg-10">
 
 <div class="card-body p-0 pt-3 pt-lg-3">
 
-<div class="tab">
-          {% include 'app/Switch_Carrier_Step_1.html' %}              
-        </div>
-        
         <div class="tab">
           {% include 'app/Switch_Carrier_Step_2.html' %}              
         </div>
         
 
-        <div class="tab">
-          {% include 'app/Switch_Carrier_Step_3.html' %}              
-        </div>
         
 
         <div  style="overflow:auto;">
 
           <div style="float:right;">
             <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-success  mr-4 mr-md-6 mr-lg-3 px-7 px-md-8 px-lg-9">Previous</button>
-            <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-success mr-5 px-9  px-lg-9">Next</button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-success mr-5 px-9  px-lg-9 mt-2">Next</button>
           </div>
         </div>
         <div class="d-none" style="text-align:center;margin-top:40px;">
@@ -176,13 +160,11 @@ border-width: 3px !important;
 
 
 <!-- ? Point to te noted -->
-<!-- TODO: Hide Next Button on second tab -->
-
-
+<!-- TODO   :   Hide Next Button on second tab -->
+<!-- TODO   :    -->
 {% include "payment/payment_script_work.html" %}
 <script src="https://js.stripe.com/v3/"></script>
 <script type="text/javascript" src="{% static 'music/client.js' %}"></script>
-
 
 <script>
 $(document).ready(function(){
@@ -247,9 +229,6 @@ $(document).ready(function(){
 });
 </script>
 
-
-
-
 <script>
 $(document).ready(function(){
   $("#progressbar").css("width", "25%");
@@ -284,7 +263,7 @@ if (n == (x.length - 1)) {
 $("#progressbar").css("width", "100%");
 document.getElementById("nextBtn").innerHTML = "Submit";
 } else {
-document.getElementById("nextBtn").innerHTML = "Next";
+    document.getElementById("nextBtn").innerHTML = "Continue";
 }
 // ... and run a function that displays the correct step indicator:
 fixStepIndicator(n)
@@ -331,7 +310,6 @@ else{
     $("#port-number-no-select-option").hide();
 }
 
-
 // IMEI VALUE EMPTY VALUE HANDLER
 $.each($("input[name='IMEI']"), function(){
     if($(this).val().trim() == ""){
@@ -343,7 +321,6 @@ $.each($("input[name='IMEI']"), function(){
     }
 });
 
-
 // ICCID VALUE EMPTY VALUE HANDLER
 $.each($("input[name='ICCID']"), function(){
     if($(this).val().trim() == ""){
@@ -354,22 +331,6 @@ $.each($("input[name='ICCID']"), function(){
         $(this).removeClass("invalid");
     }
 });
-
-
-
-
-// ESIM VALUE EMPTY VALUE HANDLER
-// $.each($("input[name='ESIM']"), function(){
-//     if($(this).val().trim() == ""){
-//         $(this).addClass("invalid");
-//         valid = false;        
-//     }
-//     else{
-//         $(this).removeClass("invalid");
-//     }
-// });
-
-
 
 // AREA CODE VALUE EMPTY VALUE HANDLER
 if($("#option11").prop("checked") == true){
@@ -412,20 +373,7 @@ $.each($("input[name='switch_1']"), function(){
         $(this).removeClass("invalid");
     }
 });
-
 }
-
-
-
-//   for (i = 0; i < y.length; i++) {
-//     // If a field is empty...
-//     if (y[i].value == "") {
-//       // add an "invalid" class to the field:
-//       y[i].className += " invalid";
-//       // and set the current valid status to false:
-//       valid = false;
-//     }
-//   }
 
 
 if($("#option12").prop("checked") == true){
@@ -453,18 +401,6 @@ else{
     $("#Account_Number_Step_2").html("");
     $("#Account_Number_Step_2").html("N/A");
 }
-
-
-
-// $("#IMEI_Step_2").html("");
-// $("#IMEI_Step_2").html($("#IMEI_1").val());
-
-// $("#Area_Code_Step_2").html("");
-// $("#Area_Code_Step_2").html($("#id_Area_code").val());
-
-
-
-
 
 if($("#option11").prop("checked") != true){
     $("#Pin_Step_2").html("");
@@ -509,23 +445,14 @@ var i = 0;
 
 // PORT Number Handler
 i =0;
-if($("#option11").prop("checked") != true){
-    $("#Port_Number_Step_2").html("");
+if($("#option12").prop("checked") == true){
     $.each($("input[name='switch_1']"), function(){
         i++;
-        if($(this).val().trim() != ""){
-            $("#Port_Number_Step_2").html($("#Port_Number_Step_2").html() +  $(this).val() + " ");    
-        }
-        else{
-            $("#Port_Number_Step_2").html("N/A");    
-        }
-        
-        });
-
+        $("span#PortNumber_Step_"  + i + "").html($(this).val());
+    });
 }
 else{
-    $("#Port_Number_Step_2").html("");
-    $("#Port_Number_Step_2").html("N/A");    
+    $("span#PortNumber_Step_1").html("N/A");
 }
 
 
@@ -571,8 +498,6 @@ x[n].className += " active";
 }
 </script>
 
-
-
 <!-- ! Payment Model State Select Styling Changes -->
 <script>
 $(document).ready(function()
@@ -606,9 +531,6 @@ $("#selectTagError").show();
       });
     });
   </script>
-  
-
 
 {% endblock javascript %}
-
 {% endblock %}

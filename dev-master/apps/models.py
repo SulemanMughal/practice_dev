@@ -265,20 +265,20 @@ class subscription(models.Model):
 
     feedback = models.TextField(
         verbose_name="Feedback", max_length=500, default="", blank=True, null=True)
-    status = models.CharField(max_length=20, verbose_name="Subscription Status",
+    status = models.CharField(max_length=40, verbose_name="Subscription Status",
                               default="Inactive", blank=False, null=False, choices=SUBSCRIPTION_STATUS)
     leaveRequest = models.BooleanField(verbose_name="Leave Request", default=False)
-    device_IMEI = models.CharField(max_length=200, verbose_name="IMEI",blank=True, default="", null=True)
-    subs_contact_switch = models.CharField(max_length=200, verbose_name="Switch Contact Number", blank=True, null=True, default='')
-    subs_account = models.CharField(max_length=20, verbose_name="Account Number", blank=True, null=True, default='')
-    subs_PIN = models.CharField(max_length=20, verbose_name="PIN Number", blank=True, null=True, default='')
-    payment_contactNumber = models.CharField(max_length=15, verbose_name="Subscriber's Contact Number", blank=True, null=True, default='')
-    mobile_carrier = models.CharField(max_length=100, verbose_name="Carrier", default="", blank = True, null=True)
-    joining_condition = models.CharField(max_length=30, verbose_name="Joining Condition", default="", blank=True, null=True)
-    area_code = models.CharField(max_length=200, verbose_name="Area Code", default='', blank=True, null=True)
+    device_IMEI = models.CharField(max_length=300, verbose_name="IMEI",blank=True, default="", null=True)
+    subs_contact_switch = models.CharField(max_length=300, verbose_name="Switch Contact Number", blank=True, null=True, default='')
+    subs_account = models.CharField(max_length=300, verbose_name="Account Number", blank=True, null=True, default='')
+    subs_PIN = models.CharField(max_length=300, verbose_name="PIN Number", blank=True, null=True, default='')
+    payment_contactNumber = models.CharField(max_length=40, verbose_name="Subscriber's Contact Number", blank=True, null=True, default='')
+    mobile_carrier = models.CharField(max_length=300, verbose_name="Carrier", default="", blank = True, null=True)
+    joining_condition = models.CharField(max_length=40, verbose_name="Joining Condition", default="", blank=True, null=True)
+    area_code = models.CharField(max_length=300, verbose_name="Area Code", default='', blank=True, null=True)
     order_number = models.CharField(max_length=9, default='', verbose_name="Order Number", blank=True, null=True)
-    ICCID = models.CharField(max_length=200,default = '', verbose_name="ICCID", blank=True, null=True)
-    ESIM = models.CharField(max_length=200,default = '', verbose_name="ESIM/ DIGITAL SIM", blank=True, null=True)
+    ICCID = models.CharField(max_length=300,default = '', verbose_name="ICCID", blank=True, null=True)
+    ESIM = models.CharField(max_length=300,default = '', verbose_name="ESIM/ DIGITAL SIM", blank=True, null=True)
 
     def __str__(self):
         return f"{self.user.username}'s Subscription"

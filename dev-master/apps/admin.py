@@ -27,7 +27,8 @@ class categoryAdmin(admin.ModelAdmin):
 
 class planAdmin(admin.ModelAdmin):
     search_fields = [
-        'plan_name'
+        'plan_name',
+        'family_name'
 
     ]
 

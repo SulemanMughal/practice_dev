@@ -6,8 +6,6 @@
 <script type="text/javascript" src="{% static 'music/js/bootstrap-select.js' %}" defer ></script>
 <script type="text/javascript" src="{% static 'music/js/script.js' %}" defer ></script>
 <script type="text/javascript" src="{% static 'music/js/General_script.js' %}" defer ></script>
-
-
 {% if request.user.is_authenticated %}
 
 <script type="text/javascript" src="{% static 'music/js/countrySelect.js' %}" defer ></script>
@@ -43,8 +41,4 @@ setTimeout(function(){var script = document.createElement('script');script.src =
 
 grecaptcha.ready(function () {$("#id_registrationForm").submit(function (e) {var form = this;e.preventDefault();grecaptcha.execute('{% settings_value "RECAPTCHA_SITE_KEY" %}', {action: "{% url 'register' %}",}).then(function (token) {$("#recaptcha").val(token);e.preventDefault();var serializedData = $("#id_registrationForm").serialize();if ($("#id_contactNumber").val().length == 12) {$(".button-loader").button("loading");$.ajax({type: "POST",url: "{% url 'register' %}",data: serializedData,success: function (response) {$("#modalSignupHorizontal").modal("hide");$("#exampleModalActivation").modal("show");$("#exampleModalActivationTitle").html(response["instance"]);$(".button-loader").button("reset");},error: function (response) {$(".button-loader").button("reset");var h = "";for (var key in response["responseJSON"]["error"]) {if (response["responseJSON"]["error"].hasOwnProperty(key)) {h =h +"<li>" +response["responseJSON"]["error"][key] +"</li>";}$("#signupModalForm_errors").html(h);}},});} else {$("#signupModalForm_errors").html("<li>Please enter a valid contact number.</li>");}});});$("#signInModalForm").submit(function (e) {e.preventDefault();grecaptcha.execute('{% settings_value "RECAPTCHA_SITE_KEY" %}', {action: "{% url 'login' %}",}).then(function (token) {$("#recaptcha_signin").val(token);var form = this;e.preventDefault();$(".button-loader").button("loading");var serializedData = $("#signInModalForm").serialize();$.ajax({type: "POST",url: "{% url 'login' %}",data: serializedData,success: function (response) {window.location.href = response["instance"];},error: function (response) {$("#signInModalForm_errors").html(response["responseJSON"]["error"]);$("#modalSigninVerticalPassword").val("");$(".button-loader").button("reset");},});});});if ($("#contactForm").length) {$("#contact_submit").on("click", function (e) {e.preventDefault();if ($("#contactForm")[0].checkValidity() === true) {var form = this;$(".button-loader").button("loading");grecaptcha.execute('{% settings_value "RECAPTCHA_SITE_KEY" %}', {action: "{% url 'contact' %}",}).then(function (token) {$("#recaptcha_contact").val(token);$("#contactForm").submit();});}else{$("#contactForm").addClass("was-validated");}});}if ($("#recaptcha_join").length) {grecaptcha.execute('{% settings_value "RECAPTCHA_SITE_KEY" %}', {action: "/join/",}).then(function (token) {$("#recaptcha_join").val(token);});}if ($("#exampleModalpayment_error").length) {$("#exampleModalpayment_error_form").submit(function (e) {e.preventDefault();var serializedData = $("#exampleModalpayment_error_form").serialize();$.ajax({type: "POST",url: $(this).attr("action"),data: serializedData,}).done(function (html) {$("body").append(html);$("#exampleModal_subscription_issue").modal("show");$("#exampleModalpayment_error").modal("hide");});});}});
 </script>
-
-
-
-
 {% endblock javascript %}

@@ -95,16 +95,6 @@
                             </p>
                         </div>
                         
-                        <div class="row pt-3 pt-lg-2">
-                            <h4 class="font-weight-bolder text-dark mx-0 mx-md-0 mx-lg-0 mb-1  mb-lg-1">
-                                Port Number
-                            </h4>
-                        </div>
-                        <div class="row">
-                            <p class="card-text h4 mx-0 mx-md-0 mx-lg-0 mb-1 " >
-                                <span id="Port_Number_Step_2">1234567890</span>
-                            </p>
-                        </div>
                         <div class="row pt-3 pt-lg-3">
                             <h4 class="font-weight-bolder text-dark mx-0 mx-md-0 mx-lg-0 mb-1  mb-lg-1">
                                 Pin
@@ -119,88 +109,96 @@
                         
                         
                     </div>
-<!-- TODO   :   START OF INPUT FIELDS START -->
-{% with ''|center:NUMBER_OF_GUESTS as range %}
-                            {% for _ in range %}
-                            <div class="col-6 col-md-6 col-lg-6  border border-dark border-width-3 border-top-0 border-left-0 border-right-0">
-                        
-                                <div class="row pt-3 pt-lg-3">
-                                    <h4 class="font-weight-bolder text-dark text-md-left text-lg-left mx-0 mx-md-0 mx-lg-0 mb-1 mb-lg-1">
-                                        IMEI 
-                                    </h4>
-                                </div>
-                                <div class="row">
-                                    <p class="card-text h4 mx-0 mx-md-0 mx-lg-0" >
-                                        <span  id="IMEI_Step_{{ forloop.counter }}">12345678912345678</span>
-                                    </p>
-                                </div>
-                                <div class="row pt-3 pt-lg-3">
-                                    <h4 class="font-weight-bolder text-dark text-md-left text-lg-left mx-0 mx-md-0 mx-lg-0 mb-1 mb-lg-1">
-                                        eSIM/Digital SIM
-                                    </h4>
-                                </div>
-                                <div class="row">
-                                    <p class="card-text h4 mx-0 mx-md-0 mx-lg-0" >
-                                        <span id="ESIM_Step_{{ forloop.counter }}">1717171717171717171717</span>
-                                    </p>
-                                </div>
+                        <!-- TODO   :   START OF INPUT FIELDS START -->
+                            {% with ''|center:NUMBER_OF_GUESTS as range %}
+                                {% for _ in range %}
+                                    <div class="col-6 col-md-6 col-lg-6  border border-dark border-width-3 border-top-0 border-left-0 border-right-0">
                                 
-                            </div>
-                            
-                            <div class="col-6  col-md-6 col-lg-6 pl-9 pl-md-10 pl-lg-7 border border-dark border-width-3 border-top-0 border-left-0 border-right-0 pb-4">
-                                <div class="row pt-3 pt-md-3 pt-lg-3">
-                                    <h4 class="font-weight-bolder text-dark text-md-left text-lg-left mx-0 mx-md-0 mx-lg-0 mb-0  mb-lg-1">
-                                        ICCID
-                                    </h4>
-                                </div>
-                                <div class="row">
-                                    <p class="card-text h4 text-md-left mx-0 mx-md-0 mx-lg-0">
-                                        <span id="ICCID_Step_{{ forloop.counter }}" >12345678912345678</span>
-                                    </p>
-                                </div>
-                                <div class="row pt-3 pt-md-3 pt-lg-3">
-                                    <h4 class="font-weight-bolder text-dark text-md-left text-lg-left mx-0 mx-md-0 mx-lg-0 mb-lg-1">
-                                        Area Code
-                                    </h4>
-                                </div>
-                                <div class="row">
-                                    <p class="card-text h4 text-md-left mx-0 mx-md-0 mx-lg-0">
-                                        <span id="Area_Code_Step_{{ forloop.counter }}">12345678912345678</span>
-                                    </p>
-                                </div>
-                            </div>
-                            {% endfor %}
+                                        <div class="row pt-3 pt-lg-3">
+                                            <h4 class="font-weight-bolder text-dark text-md-left text-lg-left mx-0 mx-md-0 mx-lg-0 mb-1 mb-lg-1">
+                                                IMEI 
+                                            </h4>
+                                        </div>
+                                        <div class="row">
+                                            <p class="card-text h4 mx-0 mx-md-0 mx-lg-0" >
+                                                <span  id="IMEI_Step_{{ forloop.counter }}">12345678912345678</span>
+                                            </p>
+                                        </div>
+                                        <div class="row pt-3 pt-lg-3">
+                                            <h4 class="font-weight-bolder text-dark text-md-left text-lg-left mx-0 mx-md-0 mx-lg-0 mb-1 mb-lg-1">
+                                                eSIM/Digital SIM
+                                            </h4>
+                                        </div>
+                                        <div class="row">
+                                            <p class="card-text h4 mx-0 mx-md-0 mx-lg-0" >
+                                                <span id="ESIM_Step_{{ forloop.counter }}">1717171717171717171717</span>
+                                            </p>
+                                        </div>
+                                        <div class="row pt-3 pt-lg-3">
+                                            <h4 class="font-weight-bolder text-dark text-md-left text-lg-left mx-0 mx-md-0 mx-lg-0 mb-1 mb-lg-1">
+                                                Port Number
+                                            </h4>
+                                        </div>
+                                        <div class="row pb-2">
+                                            <p class="card-text h4 mx-0 mx-md-0 mx-lg-0" >
+                                                <span id="PortNumber_Step_{{ forloop.counter }}">N/A</span>
+                                            </p>
+                                        </div>
+                                        
+                                    </div>    
+                                    <div class="col-6  col-md-6 col-lg-6 pl-9 pl-md-10 pl-lg-7 border border-dark border-width-3 border-top-0 border-left-0 border-right-0 pb-4">
+                                        <div class="row pt-3 pt-md-3 pt-lg-3">
+                                            <h4 class="font-weight-bolder text-dark text-md-left text-lg-left mx-0 mx-md-0 mx-lg-0 mb-0  mb-lg-1">
+                                                ICCID
+                                            </h4>
+                                        </div>
+                                        <div class="row">
+                                            <p class="card-text h4 text-md-left mx-0 mx-md-0 mx-lg-0">
+                                                <span id="ICCID_Step_{{ forloop.counter }}" >12345678912345678</span>
+                                            </p>
+                                        </div>
+                                        <div class="row pt-3 pt-md-3 pt-lg-3">
+                                            <h4 class="font-weight-bolder text-dark text-md-left text-lg-left mx-0 mx-md-0 mx-lg-0 mb-lg-1">
+                                                Area Code
+                                            </h4>
+                                        </div>
+                                        <div class="row">
+                                            <p class="card-text h4 text-md-left mx-0 mx-md-0 mx-lg-0">
+                                                <span id="Area_Code_Step_{{ forloop.counter }}">12345678912345678</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
                             {% endwith %}
-<!-- TODO   :   END OF INPUT FIELDS START -->
+                        <!-- TODO   :   END OF INPUT FIELDS START -->
                     
-                    <div class="col-12">
-                        <div class="row pt-3 pt-lg-3">
-                            <h4 class="font-weight-bolder text-dark mx-0 mx-md-0 mx-lg-0 mb-lg-1">
-                                Next Steps
-                            </h4>
+                        <div class="col-12">
+                            <div class="row pt-3 pt-lg-3">
+                                <h4 class="font-weight-bolder text-dark mx-0 mx-md-0 mx-lg-0 mb-lg-1">
+                                    Next Steps
+                                </h4>
+                            </div>
+                            <div class="row">
+                                <p class="card-text h4 mx-0 mx-md-0 mx-lg-0 text-left text-md-left text-lg-left">
+                                    We'll begin processing your order and you should expect to receive your new Sim Card and number within 2 business days.You'll receive an email confirmation shortly.
+                                </p>
+                            </div>
+                            <div class="row pt-3 pt-md-0 pt-lg-3">
+                                <h3 class="font-weight-bolder text-dark text-md-left text-lg-left mb-1 mb-lg-1 mx-0 mx-md-0 mx-lg-0">
+                                    Having issues?
+                                </h3>
+                            </div>
+                            <div class="row  pb-4 pb-lg-4">
+                                <p class="card-text h4 text-md-left  text-lg-left mx-0 mx-lg-0 mx-lg-0 px-0 px-md-0 px-lg-0">
+                                    Feel free to book an appointment with your designated Customer Success Representative by going to "My Profile" and they will be happy to assist you with the process.
+                                </p>
+                            </div>
                         </div>
-                        <div class="row">
-                            <p class="card-text h4 mx-0 mx-md-0 mx-lg-0 text-left text-md-left text-lg-left">
-                                We'll begin processing your order and you should expect to receive your new Sim Card and number within 2 business days.You'll receive an email confirmation shortly.
-                            </p>
-                        </div>
-                        <div class="row pt-3 pt-md-0 pt-lg-3">
-                            <h3 class="font-weight-bolder text-dark text-md-left text-lg-left mb-1 mb-lg-1 mx-0 mx-md-0 mx-lg-0">
-                                Having issues?
-                            </h3>
-                        </div>
-                        <div class="row  pb-4 pb-lg-4">
-                            <p class="card-text h4 text-md-left  text-lg-left mx-0 mx-lg-0 mx-lg-0 px-0 px-md-0 px-lg-0">
-                                Feel free to book an appointment with your designated Customer Success Representative by going to "My Profile" and they will be happy to assist you with the process.
-                            </p>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="row border border-dark border-width-3  border-top-0 border-left-0 border-right-0 pt-3 pb-4 pb-lg-4 d-block d-md-none d-lg-none">
                     <div class="col-12 col-lg">
                         <div class="card border-0">
-                            
                             <div class="card-body pt-3 px-0">
                                 <div class="container-fluid">
                                     <div class="row py-1">
