@@ -2,6 +2,12 @@
 {% autoescape off %}
 {% include 'music/home_filter.html' %}
 <style>
+
+.main-carousel .flickity-viewport {
+  /* position: absolute; */
+  height: 670px !important;
+}
+
   .carousel-cell {
     width: 92%; /* half-width */
     /* min-height: 700px;
@@ -220,7 +226,7 @@ and (max-width : 320px) {
 </section>
 
 <!-- ! IPHONE AND IPADS DESIGNS -->
-<section class="d-block d-lg-none bg-faq" style="background: linear-gradient(180deg, white 50%, #D0E6E3 50%);"  data-plan="all"> 
+<section class="d-lg-none bg-faq" style="background: linear-gradient(180deg, white 50%, #D0E6E3 50%);"  data-plan="all"  > 
   <div class="main-carousel mx-0 px-0  mx-lg-14" id="portfolio-main-carousel-all"  data-flickity='{ "cellAlign": "left", "contain": true, "pageDots": false, "prevNextButtons": true }' >
     {% for i in categories  %}
         {% if i.get_plans_not_on_leave %}
@@ -342,8 +348,8 @@ and (max-width : 320px) {
   </div>
 </section>
 {% for k in categories  %}
-<section class="d-none bg-faq" style="background: linear-gradient(180deg, white 50%, #D0E6E3 50%); display: inline !important;"  data-plan="{{ k.slug }}"> 
-  <div class="main-carousel mx-0 px-0  mx-lg-14" id="portfolio-main-carousel-verizon"  data-flickity='{ "cellAlign": "left", "contain": true, "pageDots": false, "prevNextButtons": true }' >
+<section class="d-lg-none  bg-faq" style="background: linear-gradient(180deg, white 50%, #D0E6E3 50%);    display: inline;       "  data-plan="{{ k.slug }}"> 
+  <div class="main-carousel mx-0 px-0  mx-lg-14" id="portfolio-main-carousel-{{ k.slug }}"  data-flickity='{ "cellAlign": "left", "contain": true, "pageDots": false, "prevNextButtons": true}' >
     {% for i in categories  %}
       {% if i.slug == k.slug %}
         {% if i.get_plans_not_on_leave %}
@@ -471,96 +477,47 @@ and (max-width : 320px) {
 
 <script>
   $(document).ready(function(){
-    $.each($("section"), function(){
-      if($(this).attr("data-plan") && $(this).attr("data-plan") !="all" ){
-          $(this).hide();
-          // $(this).removeClass("d-block d-lg-none");
-          $(this).addClass("d-none");
+    $("section[data-plan = 'all']").show();
+    $("section[data-plan = 'verizon']").hide();
+    $("section[data-plan = 't-mobile']").hide();
+    $("section[data-plan = 't']").hide();
+
+    $("#filter-option4").on("change", function(){
+      if($(this).prop("checked") == true ){
+        $("section[data-plan = 'all']").show();
+        $("section[data-plan = 'verizon']").hide();
+        $("section[data-plan = 't-mobile']").hide();
+        $("section[data-plan = 't']").hide();
       }
     });
 
-    // Case 1 : Filter : ALL
-    $("#filter-option4").on("change",function(){
-        if($(this).prop("checked") == true){
-          $.each($("section"), function(){
-            if($(this).attr("data-plan") && $(this).attr("data-plan") =="all" ){
-              $(this).show().removeClass("d-none d-lg-none").addClass("d-block d-lg-none");
-              // $(this).removeClass("d-none d-lg-none");
-              // $(this).addClass("d-block d-lg-none");
-            }
-            else if($(this).attr("data-plan") ){
-              $(this).hide().removeClass("d-block d-lg-none").addClass("d-none d-lg-none");
-              // $(this).removeClass("d-block d-lg-none");
-              // $(this).addClass("d-none d-lg-none");
-            }
-          });
-        }
+    $("#filter-option1").on("change", function(){
+      if($(this).prop("checked") == true ){
+        $("section[data-plan = 'all']").hide();
+        $("section[data-plan = 'verizon']").show("slow");
+        $("section[data-plan = 't-mobile']").hide();
+        $("section[data-plan = 't']").hide();
+      }
     });
 
-
-    // Case 2 : Filter : VERIZON
-    $("#filter-option1").on("change",function(){
-        if($(this).prop("checked") == true){
-          $.each($("section"), function(){
-            if($(this).attr("data-plan") && $(this).attr("data-plan") == "verizon" ){
-              $(this).show().removeClass("d-none d-lg-none").addClass("d-block d-lg-none");
-              // $(this).addClass("d-block d-lg-none");
-              // $(this).removeClass("d-none d-lg-none");
-              // $(this).show();
-              // $(this).
-              // console.info($(this).show());
-            }
-            else if($(this).attr("data-plan")){
-              // $(this).addClass("d-none d-lg-none");
-              // $(this).removeClass("d-block d-lg-none");
-              $(this).hide().addClass("d-none d-lg-none").removeClass("d-block d-lg-none");
-              
-            }
-          });
-        }
+    $("#filter-option2").on("change", function(){
+      if($(this).prop("checked") == true ){
+        $("section[data-plan = 'all']").hide();
+        $("section[data-plan = 'verizon']").hide();
+        $("section[data-plan = 't-mobile']").show("slow");
+        $("section[data-plan = 't']").hide();
+      }
     });
 
-
-    // Case 3 : Filter : T-Mobiles
-    $("#filter-option2").on("change",function(){
-        if($(this).prop("checked") == true){
-          $.each($("section"), function(){
-            if($(this).attr("data-plan") && $(this).attr("data-plan") == "t-mobile" ){
-              // $(this).addClass("d-block d-lg-none");
-              // $(this).removeClass("d-none d-lg-none");
-              $(this).show().removeClass("d-none d-lg-none").addClass("d-block d-lg-none");
-              // $(this).
-              // console.info($(this).show());
-            }
-            else if($(this).attr("data-plan")){
-              // $(this).addClass("d-none d-lg-none");
-              // $(this).removeClass("d-block d-lg-none");
-              $(this).hide().addClass("d-none d-lg-none").removeClass("d-block d-lg-none");
-              
-            }
-          });
-        }
+$("#filter-option3").on("change", function(){
+      if($(this).prop("checked") == true ){
+        $("section[data-plan = 'all']").hide();
+        $("section[data-plan = 'verizon']").hide();
+        $("section[data-plan = 't-mobile']").hide();
+        $("section[data-plan = 't']").show("slow");
+      }
     });
 
-    // Case 4 : Filter : AT&T
-    $("#filter-option3").on("change",function(){
-    if($(this).prop("checked") == true){
-      $.each($("section"), function(){
-        if($(this).attr("data-plan") && $(this).attr("data-plan") == "t" ){
-          // $(this).addClass("d-block d-lg-none");
-          // $(this).removeClass("d-none d-lg-none");
-          $(this).show().removeClass("d-none d-lg-none").addClass("d-block d-lg-none");
-          // $(this).
-          // console.info($(this).show());
-        }
-        else if($(this).attr("data-plan")){
-          // $(this).addClass("d-none d-lg-none");
-          // $(this).removeClass("d-block d-lg-none");
-          $(this).hide().addClass("d-none d-lg-none").removeClass("d-block d-lg-none");
-        }
-      });
-    }
-});
   });
 </script>
 {% endautoescape %} 
