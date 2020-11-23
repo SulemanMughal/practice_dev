@@ -19,9 +19,19 @@
 <script type="text/javascript" src="{% static 'Landkit/js/jquery.min.js' %} " defer></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/1.5.2/css/ionicons.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.1.0/flickity.pkgd.min.js"></script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+
 <style>
 
-@font-face {
+
+
+
+/* @font-face {
     font-family: 'League Spartan';
     src: url('{% static "Landkit/fonts/leaguespartan/leaguespartan-bold.eot" %}');
     src: url('{% static "Landkit/fonts/leaguespartan/leaguespartan-bold.eot?#iefix" %}') format('embedded-opentype'),
@@ -31,7 +41,7 @@
          url('{% static "Landkit/fonts/leaguespartan/leaguespartan-bold.svg#league_spartanbold" %}') format('svg');
     font-weight: bold;
     font-style: normal;
-}
+} */
 
   .position-fixed{
     position : fixed !important
@@ -42,11 +52,12 @@
   }
 
   h1, h2, h3, h4, h5, h6, .font-League-Spartan{
-    font-family: 'League Spartan Bold', arial;
+    /* font-family: 'League Spartan Bold', arial; */
+    font-family: 'Spartan', sans-serif;
   }
 
-  p, a, span, input, .font-Glacial-Indifference, .btn{
-    font-family: 'Glacial Indifference' !important;
+  p, a, span, input, .font-Glacial-Indifference, .btn, li{
+    font-family: 'Montserrat',  sans-serif;
   }
 
   .bg-join-plan-detail-pattern{
