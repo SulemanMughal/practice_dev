@@ -488,8 +488,13 @@ and (max-width : 320px) {
 
 <script>
   $(document).ready(function(){
+    // $carousel4 = $("div#portfolio-main-carousel-all.main-carouse");
+    // $carousel4.flickity();
+    // $carousel4.show().flickity("resize");
     $("section[data-plan = 'all']").show();
     $("section[data-plan = 'verizon'], section[data-plan = 't-mobile'], section[data-plan = 't']").hide();
+
+ 
 
     $("#filter-option4").on("change", function(){
       if($(this).prop("checked") == true ){
@@ -521,8 +526,17 @@ and (max-width : 320px) {
   });
 </script>
 
-<script>
+<!-- <script>
 
+  // Verizon Filter Case
+  $("#filter-option1").on("click", function(){
+    $carousel = $("div#portfolio-main-carousel-verizon.main-carouse");
+    $carousel.flickity();
+      if($(this).prop("checked") == true ){
+        $carousel.show().flickity("resize");
+        $("section[data-plan = 'all'], section[data-plan = 't'], section[data-plan = 't-mobile']").hide();
+      }
+  });
   // $("#filter-option1").on("change", function(){
   //   $carousel = $("div#portfolio-main-carousel-verizon.main-carouse");
   //   $carousel.flickity();
@@ -532,15 +546,39 @@ and (max-width : 320px) {
   //     }
   //   });
     
-    // $("#filter-option4").on("change", function(){
-    //   $carousel1 = $("div#portfolio-main-carousel-all.main-carouse");
-    //   $carousel1.flickity();
-    //   if($(this).prop("checked") == true ){
-    //     $carousel1.show().flickity("resize");
-    //     $("section[data-plan = 'verizon'], section[data-plan = 't-mobile'], section[data-plan = 't']").hide();
-    //   }
-    // });
+    // All Filter Case
+    $("#filter-option4").on("change", function(){
+      $carousel1 = $("div#portfolio-main-carousel-all.main-carouse");
+      $carousel1.flickity();
+      if($(this).prop("checked") == true ){
+        $carousel1.show().flickity("resize");
+        $("section[data-plan = 'verizon'], section[data-plan = 't-mobile'], section[data-plan = 't']").hide();
+      }
+    });
+
+    // AT&T filter case
+    $("#filter-option3").on("change", function(){
+      $carousel2 = $("div#portfolio-main-carousel-t.main-carouse");
+      $carousel2.flickity();
+      if($(this).prop("checked") == true ){
+        $carousel2.show().flickity("resize");
+        // $("section[data-plan = 't']").show("slow").resize();
+        $("section[data-plan = 'all'], section[data-plan = 'verizon'], section[data-plan = 't-mobile']").hide();
+      }
+    }); 
 
 
-</script>
+    // T-Mobile filter case
+    $("#filter-option2").on("change", function(){
+      $carousel3 = $("div#portfolio-main-carousel-t-mobile.main-carouse");
+      $carousel3.flickity();
+      if($(this).prop("checked") == true ){
+        $carousel3.show().flickity("resize");
+        // $("section[data-plan = 't-mobile']").show("slow").resize();
+        $("section[data-plan = 'all'], section[data-plan = 'verizon'], section[data-plan = 't']").hide();
+      }
+    });
+
+
+</script> -->
 {% endautoescape %} 
