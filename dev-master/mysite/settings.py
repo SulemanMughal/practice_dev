@@ -170,7 +170,7 @@ BOOTSTRAP4 = {
 }
 #--------------------------------------------------------------------
 # For session expire
-SESSION_COOKIE_AGE = 30*60  # ! define number of second
+# SESSION_COOKIE_AGE = 30*60  # ! define number of second
 #--------------------------------------------------------------------
 # Google recaptcha
 RECAPTCHA_SITE_KEY = "6LcqH74ZAAAAAOwKB7xcYtUVwMHaBlckxiHHTCOM"
