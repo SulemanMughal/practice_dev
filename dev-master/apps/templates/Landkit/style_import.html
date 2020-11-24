@@ -461,6 +461,9 @@ border-width: 4px !important;
     .w-53px{  
       width: 53px !important;
     }
+
+
+
   }
 
 
@@ -592,6 +595,8 @@ border-width: 4px !important;
     .w-53px{  
       width: 53px !important;
     }
+
+
     }
 
   @media (min-width:400px){
@@ -725,11 +730,11 @@ border-width: 4px !important;
       width: 65px !important;
     }
 
-    .home-page-top-section-image {    
+    /* .home-page-top-section-image {    
       display: inline-block;    
       width: 150%;  
       margin-top: -30px !important;
-    }  
+    }   */
   }
 
   @media (min-width:770px) {
@@ -1117,7 +1122,7 @@ border-width: 4px !important;
   .bg-how-it-workds-banner{
       background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important ;
       background-position-y: -150px !important ;
-      background-size: 100% 600px !important;
+      background-size: 100% 580px !important;
   }
 
   .bg-assistant{
@@ -1183,25 +1188,117 @@ and (max-width : 320px) {
 
 }
 
+
+
+/* iPhone 5 (portrait &amp; landscape)----------- */
+/* GALAXY S9/S9+ ANDROID */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+/* STYLES GO HERE */
+.img-arrow{
+    max-width: 150px !important;
+    position: relative !important; 
+    left: -80px !important;
+    top: -48px !important;
+  }
+
+  .bg-how-it-workds-banner {
+    background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important;
+    background-position-y: -180px !important;
+    background-size: 100% 680px !important;
+}
+
+}
+
+/* iPhone 5 (landscape)----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px)
+and (orientation : landscape) {
+/* STYLES GO HERE */
+}
+
+/* iPhone 5 (portrait)----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px)
+and (orientation : portrait) {
+/* STYLES GO HERE */
+
+.img-arrow{
+    max-width: 150px !important;
+    position: relative !important; 
+    left: -80px !important;
+    top: -40px !important;
+  }
+
+}
+
+
+
+
+/*iPhone 6/7/8 Portrait*/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : portrait) {
+
+  .bg-how-it-workds-banner {
+    background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important;
+    background-position-y: -180px !important;
+    background-size: 100% 650px !important;
+}
+
+}
+
+/*iPhone 6/7/8 landscape*/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : landscape) {
+
+  .bg-how-it-workds-banner {
+    background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important;
+    background-position-y: -180px !important;
+    background-size: 100% 650px !important;
+}
+}
+
+
+ /*iPhone 6+ Portrait*/
+ @media only screen and (min-device-width: 414px) and (max-device-width: 736px)  {
+  .bg-how-it-workds-banner {
+    background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important;
+    background-position-y: -200px !important;
+    background-size: 100% 700px !important;
+  }
+}
+
+
+
+
+
+
 /* iPads (portrait and landscape) ----------- */
 @media only screen
 and (min-device-width : 768px)
 and (max-device-width : 1024px) {
-/* STYLES GO HERE */
-
 .img-arrow{
     max-width: 150px !important;
     position: relative !important; 
     left: -70px !important;
     top: -40px !important;
   }
-
   .people-img-faq{
     max-width: 340px !important;
     min-width: 100px !important;
   }
+  .home-page-top-section-image {    
+      display: inline-block;    
+      width: 150%;  
+      margin-top: -30px ;
+      margin-left: 15%;
+    }  
 
-
+    .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1.5rem;
+    padding-left: 0.5rem;
+}
 }
 
 /* iPads (landscape) ----------- */
@@ -1231,109 +1328,47 @@ and (orientation : portrait) {
 
 }
 
-/* Desktops and laptops ----------- */
-@media only screen
-and (min-width : 1224px) {
-
-  .personal-assistance{
-  left: 200px !important; 
-  width: 280px !important;
-}
-
-
-.bg-shade-white-lg{
-    background-color: white !important;
-  }
-
-
-  .diverse{
-          position: relative;
-          top: -208px !important;
-          left: -100px !important;
-          min-width: 300px !important; 
-          max-width: 300px !important;
-      }
-
-
-      .diverse-2{
-          position: relative;
-          left: 100px !important;
-          top: -50px !important;
-            min-width: 400px   !important;
-            max-width: 400px !important;
-        }
-
-}
-
-/* Large screens ----------- */
-@media only screen
-and (min-width : 1824px) {
-  .bg-shade-white-lg{
-    background-color: white !important;
-  }
-  
-}
-
-/* iPhone 5 (portrait &amp; landscape)----------- */
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px) {
-/* STYLES GO HERE */
-.img-arrow{
-    max-width: 150px !important;
-    position: relative !important; 
-    left: -80px !important;
-    top: -48px !important;
-  }
-
-  .bg-how-it-workds-banner {
-    background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important;
-    background-position-y: -180px !important;
-    background-size: 100% 650px !important;
-}
-
-}
-
-/* iPhone 5 (landscape)----------- */
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px)
-and (orientation : landscape) {
-/* STYLES GO HERE */
-}
-
-/* iPhone 5 (portrait)----------- */
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px)
-and (orientation : portrait) {
-/* STYLES GO HERE */
-
-.img-arrow{
-    max-width: 150px !important;
-    position: relative !important; 
-    left: -80px !important;
-    top: -40px !important;
-  }
-
-}
-
- /*iPhone 6+ Portrait*/
- @media only screen and (min-device-width: 414px) and (max-device-width: 736px)  {
-  .bg-how-it-workds-banner {
-    background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important;
-    background-position-y: -200px !important;
-    background-size: 100% 600px !important;
-  }
-}
-
 
 
 /* Portrait and Landscape */
+/* iPad Pro (10.5-inch) */
+@media only screen 
+  and (min-device-width: 834px) 
+  and (max-device-width: 1112px)
+  and (-webkit-min-device-pixel-ratio: 2){
+
+
+
+  }
+
+/* Portrait and Landscape */
+/* iPad Pro (12.9-inch) */
 @media only screen 
   and (min-device-width: 1024px) 
   and (max-device-width: 1366px)
   and (-webkit-min-device-pixel-ratio: 2) {
+
+    .mt-ipad-pro-27{
+      margin-top: 27px !important;
+    }
+
+.bg-shade-white-pro-ipad{
+  background-color: white !important;
+}
+
+
+.d-ipad-pro-none{
+  display: none;
+}
+
+.font-size-pro{
+  font-size: 24px;
+}
+
+p.font-size-pro{
+  font-size: 14px;
+}
+
 
 .bg-how-it-works-banner-bottom-right{
       background-image: url('{% static "Landkit/images/v3/7_how_it_works.png" %}');
@@ -1377,7 +1412,7 @@ and (orientation : portrait) {
   
   .diverse{
     position: relative;
-    top: -45px !important;
+    top: 5px !important;
     left: -100px !important;
     min-width: 280px !important; 
     max-width: 280px !important;
@@ -1394,6 +1429,58 @@ and (orientation : portrait) {
         
 
 }
+
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+
+  .personal-assistance{
+  left: 200px !important; 
+  width: 280px !important;
+}
+
+
+.bg-shade-white-lg{
+    background-color: white !important;
+  }
+
+
+  .diverse{
+          position: relative;
+          top: -157px !important;
+          left: -100px !important;
+          min-width: 300px !important; 
+          max-width: 300px !important;
+      }
+
+
+      .diverse-2{
+          position: relative;
+          left: 100px !important;
+          top: -50px !important;
+            min-width: 400px   !important;
+            max-width: 400px !important;
+        }
+
+}
+
+
+
+
+/* Large screens ----------- */
+  @media only screen
+  and (min-width : 1824px) {
+  .bg-shade-white-lg{
+    background-color: white !important;
+  }
+  
+}
+
+
+
+
+
 
 
 .border-custom-1{
