@@ -249,7 +249,7 @@ and (max-width : 320px) {
             <div class="card-header align-items-center   {% if j.total_slots != 0 %} {% if j.category.Name == 'Verizon' %} bg-verizon-plan-card {% elif j.category.Name == 'T-Mobile' %} bg-T-Mobile-plan-card {% else %} bg-success {% endif %}  {% else %} bg-danger {% endif %} position-relative pt-2 px-2 rounded-lg border-radius-top-16  " style="min-height: 140px !important;" >
             {% if j.total_slots != 0 %}
                 <div class="row justify-content-center mx-auto text-center"  >
-                    <span class="h2 mb-1 text-white font-weight-bold mx-auto">
+                    <span class="h2 mb-1 text-white font-weight-bolder mx-auto">
                         {{ j.category.Name }} - {{ j.id|FindCategoryPlanInfo }} 
                     </span>
                 </div>
@@ -372,7 +372,7 @@ and (max-width : 320px) {
             <div class="card-header align-items-center   {% if j.total_slots != 0 %} {% if j.category.Name == 'Verizon' %} bg-verizon-plan-card {% elif j.category.Name == 'T-Mobile' %} bg-T-Mobile-plan-card {% else %} bg-success {% endif %}  {% else %} bg-danger {% endif %} position-relative pt-2 px-2 rounded-lg border-radius-top-16  " style="min-height: 140px !important;" >
             {% if j.total_slots != 0 %}
             <div class="row justify-content-center mx-auto text-center"  >
-              <span class="h2 mb-1 text-white font-weight-bold mx-auto ">
+              <span class="h2 mb-1 text-white font-weight-bolder mx-auto ">
                   {{ j.category.Name }} - {{ j.id|FindCategoryPlanInfo }} 
               </span>
           </div>

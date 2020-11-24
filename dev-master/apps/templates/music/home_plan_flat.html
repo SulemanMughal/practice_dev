@@ -6,7 +6,7 @@
 <div class="card-header align-items-center   border-radius-16 {% if j.total_slots != 0 %} {% if j.category.Name == 'Verizon' %} bg-verizon-plan-card {% elif j.category.Name == 'T-Mobile' %} bg-T-Mobile-plan-card {% else %} bg-success {% endif %}  {% else %} bg-danger {% endif %} position-relative pt-2 py-2 rounded-lg " style="min-height: 140px !important;" >
 {% if j.total_slots != 0 %}
     <div class="row justify-content-center mx-auto text-center"  >
-        <span class="h3 mb-1 text-white font-weight-bold mx-auto mt-3 mb-2">
+        <span class="h3 mb-1 text-white font-weight-bolder mx-auto mt-3 mb-2" >
             {{ j.category.Name }} - {{ j.id|FindCategoryPlanInfo }} 
         </span>
     </div>

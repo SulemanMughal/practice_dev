@@ -51,12 +51,12 @@
     border-width : 10px !important
   }
 
-  h1, h2, h3, h4, h5, h6, .font-League-Spartan{
+  h1, h2, h3, h4, h5, h6, #dollar_results, #savings_amount, #year_results, #faqHeader ,.font-League-Spartan{
     /* font-family: 'League Spartan Bold', arial; */
     font-family: 'Spartan', sans-serif;
   }
 
-  p, a, span, input, .font-Glacial-Indifference, .btn, li{
+  p, a, span, input, .font-Glacial-Indifference, .btn, li, label, input::placeholder, input.form-control{
     font-family: 'Montserrat',  sans-serif;
   }
 
@@ -1289,7 +1289,7 @@ and (max-device-width : 568px) {
   .bg-how-it-workds-banner {
     background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important;
     background-position-y: -180px !important;
-    background-size: 100% 600px !important;
+    background-size: 100% 650px !important;
 }
 
 }
@@ -1335,6 +1335,25 @@ and (orientation : portrait) {
   and (max-device-width: 1366px)
   and (-webkit-min-device-pixel-ratio: 2) {
 
+.bg-how-it-works-banner-bottom-right{
+      background-image: url('{% static "Landkit/images/v3/7_how_it_works.png" %}');
+      background-repeat: no-repeat;
+      background-size: 0% 0% !important;
+      background-position: 0% 0%  !important; 
+  }
+
+  .bg-how-it-works-banner-top-left{
+      background-image: url('{% static "Landkit/images/v3/6_How.png" %}');
+      background-repeat: no-repeat;
+      background-size: 0 0;
+  }
+
+    .img-arrow{
+    max-width: 150px !important;
+    position: relative !important; 
+    left: -60px !important;
+    top: -40px !important;
+  }
 
     .personal-assistance{
       left: 150px !important; 
@@ -1371,6 +1390,8 @@ and (orientation : portrait) {
             min-width: 250px   !important;
             max-width: 250px !important;
         }
+
+        
 
 }
 
