@@ -197,9 +197,9 @@
     $("#zip_code_format_error").hide();
     var $input = $("#example5-phone");
 
-    $("#emailid").on("change", function () {
+    $("#example5-email").on("change", function () {
       var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-      if (document.getElementById("emailid").value.search(emailRegEx) == -1) {
+      if (document.getElementById("example5-email").value.search(emailRegEx) == -1) {
         $("#email_format_error").toggle();
       } else {
         $("#email_format_error").hide();
