@@ -131,73 +131,9 @@
                         Feel free to book an appointment with your designated Customer Success Representative by going to "My Profile" and they will be happy to assist you with the process.
                     </p>
                 </div>
-                <div class="row border border-dark border-width-3  border-top-0 border-left-0 border-right-0 pt-3 pb-4 pb-lg-4 d-block d-md-none d-lg-none">
-                    <div class="col-12 col-lg">
-                        <div class="card border-0">
-                            
-                            <div class="card-body pt-3 px-0">
-                                <div class="container-fluid">
-                                    <div class="row py-1">
-                                        <div class="col">
-                                            <p class="card-text h3 text-left font-weight-bolder text-dark">
-                                                {{ plan.category }} - {{ plan.plan_name }} Plan
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="row py-1">
-                                        <div class="col-8">
-                                            <p class="card-text h3 text-nowrap">
-                                                Number of cell phone lines
-                                            </p>
-                                        </div>
-                                        <div class="col">
-                                            <p class="card-text font-weight-bolder h3 text-right text-dark">
-                                                <span id="number-of-guests">1</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="row py-1">
-                                        <div class="col-7">
-                                            <p class="card-text h3">
-                                                Subscription Fees
-                                            </p>
-                                        </div>
-                                        <div class="col">
-                                            <p class="card-text font-weight-bolder h3 text-right text-dark">
-                                                $<span id="subscription-form-fees">5</span>/month
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="row py-1">
-                                        <div class="col">
-                                            <p class="card-text h3">
-                                                Mobile Cost
-                                            </p>
-                                        </div>
-                                        <div class="col">
-                                            <p class="card-text font-weight-bolder h3 text-right text-dark">
-                                                $<span id="subscription-form-monthly">{{ plan.id|FindPlanFixedPrice }}</span>/month
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <hr class="text-dark border border-dark ">
-                                    <div class="row py-1">
-                                        <div class="col">
-                                            <p class="card-text h3 font-weight-bolder text-dark">
-                                                Total
-                                            </p>
-                                        </div>
-                                        <div class="col">
-                                            <p class="card-text font-weight-bolder h3 text-right text-dark">
-                                                $<span id="subscription-form-total">35</span>/month
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                <!-- !  SUMMARY BLOCK FOR IPHONE  -->
+                {% include "app/summary_block_plan.html" %}
 
                 <!-- TODO: PAYMENT FORM START -->
                 <div class="row py-3 py-md-4 py-lg-5">
@@ -346,81 +282,14 @@
                             <input type="hidden" id="switch_2" value="">
                             <input type="hidden" id="switch_3" value="">
                             <input type="hidden" id="switch_4" value="">
-                            <input type="submit" value="Submit" class="btn btn-success fontw-weight-bolder float-right mt-4 mt-lg-4 w-25 pl-7 pl-md-0 pr-11 pr-md-0">
+                            <button type="submit"  class="btn btn-success font-weight-bolder float-right mt-4 mt-lg-4  pl-0 pl-md-0 pr-0 pr-md-0 px-auto w-50">Submit</button>
                         </form>
                     </div>
                 </div>
                 <!-- TODO: PAYMENT FORM END -->
             </div>
         </div>
-        <div class="col-12 col-md col-lg d-none d-md-block d-lg-block "> 
-            <div class="card border border-dark border-width-3 rounded-lg">
-                <div class="card-header border border-dark border-top-0 border-left-0 border-right-0 border-width-3 py-md-2 py-lg-2 pr-md-0 my-md-0  my-lg-0">
-                    <h2 class="card-title text-uppercase font-weight-bolder text-dark mx-md-0 text-lg-left mb-md-0 mb-lg-0">
-                        Order Summary
-                    </h2>
-                </div>
-                <div class="card-body px-md-1 px-lg-4">
-                    <div class="container pr-md-1 pr-lg-2">
-                        <div class="row">
-                            <div class="col">
-                                <p class="card-text h3 font-weight-bolder">
-                                    {{ plan.category }} - {{ plan.plan_name }} Plan
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row py-md-2 py-lg-2">
-                            <div class="col col-md-8 col-lg-8">
-                                <p class="card-text h3">
-                                    Number of cell phone lines
-                                </p>
-                            </div>
-                            <div class="col  col-md col-lg">
-                                <p class="card-text font-weight-bolder  text-right text-dark">
-                                    <span id="number-of-guests">3</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col col-md-7 col-lg pr-md-0">
-                                <p class="card-text h3">
-                                    Subscription Fees
-                                </p>
-                            </div>
-                            <div class="col  col-md col-lg">
-                                <p class="card-text font-weight-bolder  text-right text-dark text-nowrap">
-                                    $<span id="subscription-form-fees">5</span>/month
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row py-md-2 py-lg-2">
-                            <div class="col">
-                                <p class="card-text h3">
-                                    Mobile Cost
-                                </p>
-                            </div>
-                            <div class="col">
-                                <p class="card-text font-weight-bolder  text-right text-dark">
-                                    $<span id="subscription-form-monthly">{{ plan.id|FindPlanFixedPrice }}</span>/month
-                                </p>
-                            </div>
-                        </div>
-                        <hr class="text-dark border border-dark ">
-                        <div class="row py-lg-2">
-                            <div class="col">
-                                <p class="card-text h3 font-weight-bolder text-dark">
-                                    Total
-                                </p>
-                            </div>
-                            <div class="col">
-                                <p class="card-text font-weight-bolder  text-right text-dark">
-                                    $<span id="subscription-form-total">35</span>/month
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- ! SUMMARY BLOCK FOR IPADS + LARGE DEVICES -->
+        {% include "app/summary_block_plan_2.html" %}
     </div>
 </div>

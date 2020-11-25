@@ -1,0 +1,68 @@
+{% load static humanize FindSubUser findNextMonth findNextYear findFindSubID findSubStatus FindSubObject findPaymentCurrentDay  findSubSlots findSubCancelStatus FindCategoryPlanInfo mathfilters findUserPhone FindPlanFixedPrice %}
+<div class="row border border-dark border-width-3  border-top-0 border-left-0 border-right-0 pt-3 pb-4 pb-lg-4 d-block d-md-none d-lg-none">
+    <div class="col-12 col-lg">
+        <div class="card border-0">
+            
+            <div class="card-body pt-3 px-0">
+                <div class="container-fluid">
+                    <div class="row py-1">
+                        <div class="col">
+                            <h3 class=" text-left font-weight-bolder text-dark float-left overflow-wrap-break">
+                                {{ plan.category }} - {{ plan.plan_name }} Plan
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row py-1">
+                        <div class="col-8 pr-0">
+                            <p class="card-text h3 overflow-wrap-break">
+                                Number of cell phone lines
+                            </p>
+                        </div>
+                        <div class="col pl-0">
+                            <p class="card-text font-weight-bolder h3 text-right text-dark float-right">
+                                <span id="number-of-guests">1</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row py-1">
+                        <div class="col-7 pr-0">
+                            <p class="card-text h3 text-left float-left overflow-wrap-break pr-md-0">
+                                Subscription Fees
+                            </p>
+                        </div>
+                        <div class="col pl-0">
+                            <p class="card-text font-weight-bolder h3 text-right text-dark float-right">
+                                $<span id="subscription-form-fees">5</span>/month
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row py-1">
+                        <div class="col">
+                            <p class="card-text h3 text-left float-left overflow-wrap-break pr-md-0">
+                                Mobile Cost
+                            </p>
+                        </div>
+                        <div class="col pl-0">
+                            <p class="card-text font-weight-bolder h3 text-right text-dark float-right">
+                                $<span id="subscription-form-monthly">{{ plan.id|FindPlanFixedPrice }}</span>/month
+                            </p>
+                        </div>
+                    </div>
+                    <hr class="text-dark border border-dark ">
+                    <div class="row py-1">
+                        <div class="col">
+                            <p class="card-text h3 font-weight-bolder text-dark text-left float-left">
+                                Total
+                            </p>
+                        </div>
+                        <div class="col pl-0">
+                            <p class="card-text font-weight-bolder h3 text-right text-dark float-right">
+                                $<span id="subscription-form-total">35</span>/month
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

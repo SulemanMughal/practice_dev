@@ -27,13 +27,13 @@
   <div class="container">
     <div class="row justify-content-center  mt-10 mt-lg-4">
       <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-        <h1 class="display-1 font-weight-bolder  text-white text-center d-none d-md-none d-lg-block" >
+        <h1 class="display-2 font-weight-bolder  text-white text-center text-uppercase font-League-Spartan d-none d-md-none d-lg-block" >
           {{ plan.category }} - {{ plan.plan_name }}
         </h1>
-        <h2 class=" font-weight-bolder  text-white text-center d-block d-md-none d-lg-none" >
+        <h1 class=" font-weight-bolder  text-white text-center text-uppercase font-size-lg font-League-Spartan  d-block d-md-none d-lg-none" >
           {{ plan.category }} - {{ plan.plan_name }}
-        </h2>
-        <h2 class=" display-2 font-weight-bolder  text-white text-center d-none d-md-block d-lg-none" >
+        </h1>
+        <h2 class=" display-2 font-weight-bolder  text-white text-center text-uppercase  font-League-Spartan d-none d-md-block d-lg-none" >
           {{ plan.category }} - {{ plan.plan_name }}
         </h2>
       </div>
@@ -86,17 +86,17 @@
               {% endif %}
             </div>
             <div class="col px-0 px-lg-2">
-              <p class="h3 display-4  pl-3  pt-3   text-dark font-weight-bolder text-bluish  pb-lg-0 mb-lg-0  mt-lg-9 ml-lg-n11 pt-lg-1  d-none d-lg-block">{{ plan.category.Name }} - {{ plan.id|FindCategoryPlanInfo }}</p>
-              <h2 class=" pl-0 pt-4 mt-1 mt-md-1 pt-md-4   text-dark font-weight-bolder text-bluish  pb-lg-0 mb-lg-0  mt-lg-7 ml-lg-n11 pt-lg-5 {% if plan.category.Name == 'T-Mobile' %} pt-5   mt-n2 {% endif %} d-block d-lg-none mb-0">{{ plan.category.Name }} - {{ plan.id|FindCategoryPlanInfo }}</h2>
+              <h3 class=" display-5  pl-3  pt-3   text-dark font-weight-bolder text-bluish  pb-lg-0 mb-lg-0  mt-lg-9 ml-lg-n10 pt-lg-1 text-uppercase font-League-Spartan  d-none d-lg-block">{{ plan.category.Name }} - {{ plan.id|FindCategoryPlanInfo }}</h3>
+              <h2 class=" pl-0 pt-4 mt-1 mt-md-1 pt-md-4   text-dark font-weight-bolder text-bluish  pb-lg-0 mb-lg-0  mt-lg-7 ml-lg-n11 pt-lg-5 {% if plan.category.Name == 'T-Mobile' %} pt-5   mt-n2 {% endif %} text-uppercase font-League-Spartan d-block d-lg-none mb-0">{{ plan.category.Name }} - {{ plan.id|FindCategoryPlanInfo }}</h2>
               <p class="card-text h4 text-bluish font-weight-normal pl-0 ml-lg-n10 pl-lg-2 mb-0">Family Name : {{ plan.user.username }} | {{ plan.total_slots }} spots left</p>
               <p class="card-text h4 text-bluish font-weight-normal font-italic pl-0 ml-lg-n10 pl-lg-2">Community Member since {{ plan.created|date:"M" }} {{ plan.created|date:"Y" }}</p></div>
           </div>
         </div>
         <div class="container">
-          <div class="row">
-            <div class="col-12 col-md-12 col-lg-6 col-xl-6 mt-n4 mt-md-0 ml-6 ml-lg-0" >
+          <div class="row mt-lg-n8">
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6  mt-md-0 ml-6 ml-lg-0" >
               <div class="d-flex">
-                <span class="h3 align-self-end pt-3 mt-3 text-bluish font-weight-bold">Family Rules</span>
+                <span class="h3 align-self-end pt-3 mt-1 text-bluish font-weight-bold">Family Rules</span>
               </div>
               <div class="d-flex">
                 <ul class="list-group pl-5">
@@ -112,7 +112,7 @@
                 <span class="card-text  pt-3 mt-1 text-bluish font-weight-bold text-nowrap d-none d-lg-block">&nbsp;{{ plan.monthly_payment_date|findPaymentCurrentDay|ordinal }} of each month</span>
               </div>
             </div>
-            <div class="col-12 col-md-12 col-lg-6 col-xl-6 ml-6 ml-lg-0">
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6 mt-0 mt-md-0 ml-6 ml-lg-0">
               <div class="d-flex">
                 <span class="h3 align-self-end pt-3 mt-1 text-bluish font-weight-bold">Cancellation Policy</span>
               </div>
@@ -295,10 +295,10 @@
             </div>
             <div class="form-group mb-0">
               <div class="row">
-                <div class="col col-md-7">
-                  <label for="exampleForm" class="">Subscription Fees<button type="button" class="btn pl-0 pl-lg-1 mr-0 pr-0 pt-0 pb-0" data-toggle="popover" data-content="This helps us keep the lights on."><i class="fa fa-info-circle text-success"></i></button></label>
+                <div class="col col-md-7 pr-0">
+                  <label for="exampleForm " class="text-left float-left overflow-wrap-break font-size-sm">Subscription Fees<button type="button" class="btn pl-0 pl-lg-1 mr-0 pr-0 pt-0 pb-0" data-toggle="popover" data-content="This helps us keep the lights on."><i class="fa fa-info-circle text-success"></i></button></label>
                 </div>
-                <div class="col col-md text-right mr-0 mr-md-0">
+                <div class="col col-md text-right mr-0 mr-md-0 pl-0">
                   <span class="card-title font-weight-bold mt-0 mt-lg-0 mb-0 font-size-sm" >$<span id="subs_Section">5</span>/month
                 </span>
                 </div>
@@ -307,20 +307,20 @@
               <div class="form-group mb-0">
                 <div class="row">
                   <div class="col-7  col-md pr-0">
-                    <label for="exampleForm">Mobile Cost <button type="button" class="btn pl-0 pl-lg-1 mr-0 pr-0 pt-0 pb-0" data-toggle="popover"  data-content="Excluding taxes and fees from your carrier."><i class="fa fa-info-circle text-success"></i></button></label>
+                    <label for="exampleForm" class="text-left float-left overflow-wrap-break  font-size-sm">Mobile Cost <button type="button" class="btn pl-0 pl-lg-1 mr-0 pr-0 pt-0 pb-0" data-toggle="popover"  data-content="Excluding taxes and fees from your carrier."><i class="fa fa-info-circle text-success"></i></button></label>
                   </div>
-                  <div class="col col-md text-right  mr-0 mr-md-0 ">
-                    <span class="card-title font-weight-bold mb-0 font-size-sm"   id="payment" data="{{ plan.id|FindPlanFixedPrice }}" >$<span id="paymentSub">{{ plan.id|FindPlanFixedPrice|intcomma }}</span>/month
+                  <div class="col col-md   mr-0  pl-0">
+                    <span class="card-title font-weight-bold mb-0 font-size-sm text-right float-right"   id="payment" data="{{ plan.id|FindPlanFixedPrice }}" >$<span id="paymentSub">{{ plan.id|FindPlanFixedPrice|intcomma }}</span>/month
                   </span>
                   </div>
                 </div>
               </div>
               <div class="form-group border border-dark pt-2 pl-0 border-bottom-0 border-left-0 border-right-0">
                 <div class="row">
-                  <div class="col-4">
-                    <label for="exampleForm">Total</label>
+                  <div class="col-4 pr-0" >
+                    <label for="exampleForm" class="text-left float-left overflow-wrap-break  font-size-sm">Total</label>
                   </div>
-                  <div class="col text-right mr-0">
+                  <div class="col text-right mr-0 pl-0">
                     <span class="card-title font-weight-bold mt-0 font-size-sm"  id="total"
                     data="{{ plan.currently_monthly_payment_per_line }}">${{ plan.id|FindPlanFixedPrice|add:5 }}/month
                     </span>
