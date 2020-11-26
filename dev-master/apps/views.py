@@ -306,7 +306,7 @@ def change_password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            return HttpResponseRedirect(reverse('profile'))
+            return HttpResponseRedirect(reverse('edit_profile'))
     context={
         'form': form, 'change_password_section': True, 
     }

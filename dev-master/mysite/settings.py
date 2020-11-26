@@ -84,19 +84,6 @@ DATABASES = {
 }
 
 
-
-# DATABASES = {
-#     'default': {
-#      'ENGINE': 'django.db.backends.mysql',
-#       'NAME': 'CircledIn_Db',
-#        'USER': 'root',
-#         'PASSWORD':'i;)LM;v$kFwHx$0T3X64G<.cKXgf)!Eu',
-#         'HOST':'ls-ae48dd21c525115c6693356db343ed93aeb0cdb9.cn5zbpbn48n2.us-east-1.rds.amazonaws.com',
-#         'PORT':'3306'
-
-#   }
-# }
-
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
