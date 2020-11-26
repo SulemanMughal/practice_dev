@@ -57,6 +57,9 @@
 }
 
 
+
+
+
   .position-fixed{
     position : fixed !important
   }
@@ -679,10 +682,10 @@ border-width: 4px !important;
       min-width: 300px !important;
     }  
 
-    .img-w-350-md{
+    /* .img-w-350-md{
       max-width: 350px !important;
       min-width: 350px !important;
-    }  
+    }   */
 
     .icon{
       min-width: 90px !important;
@@ -710,7 +713,7 @@ border-width: 4px !important;
       background-image: none ;
     }  
 
-    .diverse{
+    /* .diverse{
           position: relative;
           top: -180px !important;
           left: -98px !important;
@@ -722,7 +725,7 @@ border-width: 4px !important;
           top: -23px !important;
             min-width:  270px   !important;
             max-width:  270px !important;
-        }
+        } */
 
         .w-100px{
       width: 80px !important;
@@ -789,13 +792,13 @@ border-width: 4px !important;
     .w-53px{  
       width: 65px !important;
     }
-        .diverse-2{
+        /* .diverse-2{
           position: relative;
           left: 58px !important;
           top: -22px !important;
             min-width:  270px   !important;
             max-width:  270px !important;
-        }
+        } */
       }
 
 
@@ -811,13 +814,13 @@ border-width: 4px !important;
         .w-53px{  
       width: 65px !important;
     }
-        .diverse-2{
+        /* .diverse-2{
           position: relative;
           left: 60px !important;
           top: -25px !important;
             min-width:  270px   !important;
             max-width:  270px !important;
-        }
+        } */
       }
 
   @media (min-width: 860px) {  
@@ -862,7 +865,7 @@ border-width: 4px !important;
         top: -80px !important;
     }
 
-    .diverse{
+    /* .diverse{
           position: relative;
           top: -180px !important;
           left: -125px !important;
@@ -873,7 +876,7 @@ border-width: 4px !important;
           top: -20px !important;
             min-width:  270px   !important;
             max-width:  270px !important;
-        }
+        } */
   }
 
 
@@ -890,13 +893,13 @@ border-width: 4px !important;
     .w-53px{  
       width: 65px !important;
     }
-        .diverse-2{
+        /* .diverse-2{
           position: relative;
           left: 30px !important;
           top: -20px !important;
             min-width:  270px   !important;
             max-width:  270px !important;
-        }
+        } */
 
         .img-w-650{
           min-width:800px !important ;
@@ -1022,12 +1025,7 @@ border-width: 4px !important;
       margin-top: -10px !important; 
     }
 
-    .people-image-calculator{
-      /* min-width: 850px !important;
-      max-width: 80px !important; */
-        left: -60% !important;
-        top: -25% !important;   
-    }
+    
 
     .w-120-lg{
         width: 150% !important;
@@ -1204,7 +1202,6 @@ and (max-width : 320px) {
 
 
 /* iPhone 5 (portrait &amp; landscape)----------- */
-/* GALAXY S9/S9+ ANDROID */
 @media only screen
 and (min-device-width : 320px)
 and (max-device-width : 568px) {
@@ -1219,7 +1216,20 @@ and (max-device-width : 568px) {
   .bg-how-it-workds-banner {
     background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important;
     background-position-y: -180px !important;
-    background-size: 100% 680px !important;
+    background-size: 100% 810px !important;
+}
+
+
+p.font-size-iphone-5{
+  font-size: 12px !important;
+}
+
+p.left-iphone-5-12{
+  left:12px;
+}
+
+p.top-iphone-5-12{
+  left:12px;
 }
 
 }
@@ -1249,6 +1259,30 @@ and (orientation : portrait) {
 }
 
 
+/* GALAXY S9/S9+ ANDROID */
+@media only screen 
+and (min-device-width:360px)
+and (max-device-width:740px ) {
+  
+  .bg-how-it-workds-banner {
+    background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important;
+    background-position-y: -180px !important;
+    background-size: 100% 700px !important;
+}
+
+.font-size-galaxy-heading{
+  font-size:15px;
+}
+
+.font-size-galaxy-span{
+  font-size: 15px;
+}
+
+p.font-size-galaxy{
+  font-size: 12px !important;
+}
+
+}
 
 
 /*iPhone 6/7/8 Portrait*/
@@ -1259,6 +1293,7 @@ and (orientation : portrait) {
     background-position-y: -180px !important;
     background-size: 100% 650px !important;
 }
+
 
 }
 
@@ -1273,12 +1308,72 @@ and (orientation : portrait) {
 }
 
 
+
+/* ----------- iPhone X ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+
+}
+
+
+
+/* iphone 12 */
+/* portrait + landscape */
+@media screen 
+and (min-device-width : 393px)
+and (max-device-width : 786px)
+and (orientation : portrait) {
+    
+   
+    .bg-how-it-workds-banner {
+    background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important;
+    background-position-y: -200px !important;
+    background-size: 100% 620px !important;
+  }
+
+}
+
+
+
  /*iPhone 6+ Portrait*/
  @media only screen and (min-device-width: 414px) and (max-device-width: 736px)  {
   .bg-how-it-workds-banner {
     background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important;
     background-position-y: -200px !important;
-    background-size: 100% 700px !important;
+    background-size: 100% 670px !important;
+  }
+}
+
+
+ /* iphone xr */
+ /* portrait + landscape */
+ @media only screen and (min-device-width: 414px) and (max-device-width: 896px)  {
+  .bg-how-it-workds-banner {
+    background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important;
+    background-position-y: -200px !important;
+    background-size: 100% 650px !important;
   }
 }
 
@@ -1312,6 +1407,13 @@ and (max-device-width : 1024px) {
     padding-right: 1.5rem;
     padding-left: 0.5rem;
 }
+
+  
+h3.font-size-ipad{
+    font-size: 16px;
+  }
+
+
 }
 
 /* iPads (landscape) ----------- */
@@ -1341,6 +1443,42 @@ and (orientation : portrait) {
 
 }
 
+@media only screen
+and (min-device-width : 810px)
+and (max-device-width : 1080px){
+
+  .home-page-bottom-img-1, .home-page-bottom-img-2, .home-page-bottom-img-3{
+      min-width: 230px !important;
+      max-width: 230px  !important;
+      min-height: 230px !important;
+      max-height: 230px  !important;
+      position: relative;
+      left: 30px;
+    }
+
+    
+    .diverse {
+    position: relative !important;
+    top: -100px !important;
+    left: -100px !important;
+    min-width: 200px !important;
+    max-width: 200px !important;
+    z-index: 0 !important;
+    bottom: 0px !important;
+}
+
+
+.diverse-2{
+          position: relative !important;
+          left: 185px !important;
+          top: -155px !important;
+            min-width: 250px   !important;
+            max-width: 250px !important;
+            bottom: 0px !important;
+        }
+
+
+}
 
 
 /* Portrait and Landscape */
@@ -1350,16 +1488,211 @@ and (orientation : portrait) {
   and (max-device-width: 1112px)
   and (-webkit-min-device-pixel-ratio: 2){
 
-
-
+    h3.font-size-ipad-pro{
+    font-size: 16px;
   }
+  }
+
+
 
 /* Portrait and Landscape */
 /* iPad Pro (12.9-inch) */
 @media only screen 
   and (min-device-width: 1024px) 
+  and (max-device-width: 1253px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    
+/* 
+    .diverse {
+    position: relative !important;
+    top: 0px !important;
+    left: -60px !important;
+    min-width: 260px !important;
+    max-width: 260px !important;
+    min-height: 220px !important;
+    max-height: 220px !important;
+    z-index: 0 !important;
+    bottom: 0px !important;
+    margin-top: 0px !important;
+} 
+
+
+ .diverse-2{
+          position: relative !important;
+          left: 185px !important;
+          top: -60px !important;
+            min-width: 230px   !important;
+            max-width: 230px !important;
+            min-height: 280px   !important;
+            max-height: 280px !important;
+            bottom: 0px !important;
+        }  */
+
+
+        .diverse{
+    min-width: 200px !important; 
+    max-width: 200px !important;
+  }
+
+
+  .diverse-2{
+      min-width: 300px   !important;
+      max-width: 300px !important;
+  }
+
+    .home-page-bottom-img-1, .home-page-bottom-img-2, .home-page-bottom-img-3{
+      min-width: 230px !important;
+      max-width: 230px  !important;
+      min-height: 230px !important;
+      max-height: 230px  !important;
+      position: relative;
+      left: 30px;
+    }
+
+
+
+  }
+
+
+  @media only screen
+and (min-device-width : 1024px)
+and (max-device-width : 1253px)
+and (orientation  : landscape){
+  
+  .diverse{
+    position: relative !important;
+    top: 100px !important;
+    left: 100px !important;
+    min-width: 200px !important; 
+    max-width: 200px !important;
+  }
+  
+  .diverse-2{
+      position: relative !important;
+      left: 100px !important;
+      top: -50px !important;
+      min-width: 300px   !important;
+      max-width: 300px !important;
+  }
+}
+
+
+  @media only screen
+and (min-device-width : 1024px)
+and (max-device-width : 1253px)
+and (orientation : portrait){
+  
+  .people-image-calculator{
+        left: -50px !important;
+        top: -65px !important;
+        max-width: 700px !important;
+    	min-width: 700px !important;      
+    }
+
+    .position-absolute-card-image {
+	position: absolute !important;
+	min-width: 800px !important;
+	max-width: 800px !important;
+	right: 0px !important;
+	left: -275px !important;
+	top: -165px !important;
+  margin-left: 00px !important;
+  min-height: 640px !important;
+	max-height: 640px !important;
+}
+.calc-card {
+  width: 110% !important;
+  padding: 0px !important;
+  padding-left: 30px !important;
+  padding-top: -80px !important ;
+  font-size: 10px !important;
+  
+}
+
+.calc-card > .card-body > h2{
+  
+  margin:  10px auto !important;
+  margin-top: -50px !important;
+}
+
+/* .calc-card > .card-body  >  h2, .calc-card > .card-body  >  span{
+  font-size: 16px !important;
+} */
+
+.calc-card > .card-body > span#negative_results{
+  font-size: 14px !important;
+}
+  
+  .diverse {
+    position: relative !important;
+    top: -15px !important;
+    left: -60px !important;
+    min-width: 260px !important;
+    max-width: 260px !important;
+    min-height: 220px !important;
+    max-height: 220px !important;
+    z-index: 0 !important;
+    bottom: 0px !important;
+    margin-top: 0px !important;
+} 
+
+
+ .diverse-2{
+          position: relative !important;
+          left: 185px !important;
+          top: -60px !important;
+            min-width: 230px   !important;
+            max-width: 230px !important;
+            min-height: 280px   !important;
+            max-height: 280px !important;
+            bottom: 0px !important;
+        } 
+
+
+}
+
+
+@media only screen 
+  and (min-device-width: 834px) 
+  and (max-device-width: 1194px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape){
+    /* .bg-shade-lighter-greenish-pro-ipad-11-2018{
+        background-color:  #D0E6E3   !important;
+    } */
+
+    .bg-shade-white-pro-ipad-11-2018{
+      background-color: white  !important;
+    }
+      
+    
+    .font-size-pro-11-2018-h2{
+      font-size: 24px !important;
+    }
+    
+  }
+
+
+@media only screen 
+  and (min-device-width: 834px) 
+  and (max-device-width: 1194px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait){
+    .bg-shade-lighter-greenish-pro-ipad-11-2018{
+        background-color:  #D0E6E3   !important;
+    }
+
+    .font-size-pro-11-2018-portrait-h2{
+      font-size: 18px !important;
+    }
+
+  }
+
+@media only screen 
+  and (min-device-width: 1024px) 
   and (max-device-width: 1366px)
   and (-webkit-min-device-pixel-ratio: 2) {
+
 
     .mt-ipad-pro-27{
       margin-top: 27px !important;
@@ -1422,7 +1755,7 @@ p.font-size-pro{
 
   }
 
-  
+/*   
   .diverse{
     position: relative;
     top: 5px !important;
@@ -1437,16 +1770,48 @@ p.font-size-pro{
           top: -35px !important;
             min-width: 250px   !important;
             max-width: 250px !important;
-        }
+        } */
+
+/*         
+    .diverse {
+    position: relative !important;
+    top: -100px !important;
+    left: -100px !important;
+    min-width: 200px !important;
+    max-width: 200px !important;
+    z-index: 0 !important;
+    bottom: 0px !important;
+} */
+
+
+/* .diverse-2{
+          position: relative !important;
+          left: 185px !important;
+          top: -155px !important;
+            min-width: 250px   !important;
+            max-width: 250px !important;
+            bottom: 0px !important;
+        } */
+
 
         
+        h3.font-size-ipad-pro-12-9{
+    font-size: 18px;
+  }
+
+  /* .home-page-bottom-img-1{
+
+  } */
 
 }
 
 
+
+
+
 /* Desktops and laptops ----------- */
 @media only screen
-and (min-width : 1224px) {
+and (min-width : 1281px) {
 
   .personal-assistance{
   left: 200px !important; 
@@ -1460,23 +1825,121 @@ and (min-width : 1224px) {
 
 
   .diverse{
-          position: relative;
+          position: relative !important;
           top: -157px !important;
-          left: -100px !important;
+          left: 0px !important;
           min-width: 300px !important; 
           max-width: 300px !important;
       }
 
+  .diverse-2{
+      position: relative;
+      left: 100px !important;
+      top: -50px !important;
+      min-width: 400px   !important;
+      max-width: 400px !important;
+    }
 
-      .diverse-2{
-          position: relative;
-          left: 100px !important;
-          top: -50px !important;
-            min-width: 400px   !important;
-            max-width: 400px !important;
-        }
+    .people-image-calculator{
+      /* min-width: 850px !important;
+      max-width: 80px !important; */
+        left: -85% !important;
+        top: -13% !important;   
+    }
 
 }
+
+
+
+
+
+
+
+/* ipad pro 12.9 2020 */
+/* Landscape */
+@media only screen
+and (max-device-width : 1253px) {
+
+
+  
+  .diverse{
+          position: relative !important;
+          top: -50px !important;
+          left: 0px !important;
+          min-width: 330px !important; 
+          max-width: 330px !important;
+      }
+
+  .diverse-2{
+      position: relative;
+      left: 110px !important;
+      top: -55px !important;
+      min-width: 350px   !important;
+      max-width: 350px !important;
+      min-height: 300px   !important;
+      max-height: 300px !important;
+    }
+
+}
+
+
+
+  /* ipad pro 11 2018 */
+  /* Landscape Version */
+  @media only screen 
+  and (max-device-width : 1194px){
+
+    
+   
+    .personal-assistance{
+      left: 130px !important; 
+      width: 280px !important;
+    }
+
+
+
+  .diverse{
+          position: relative !important;
+          top: 0px !important;
+          left: -80px !important;
+          min-width: 280px !important; 
+          max-width: 280px !important;
+      }
+
+      .diverse-2{
+      position: relative;
+      left: 130px !important;
+      top: -55px !important;
+      min-width: 250px   !important;
+      max-width: 250px !important;
+      min-height: 250px   !important;
+      max-height: 250px !important;
+    }
+
+
+
+    .font-size-pro-11-2018-p{
+      font-size: 14px !important;
+    }
+    .people-image-calculator{
+        left: -120px !important;
+        top: -60px !important;
+    }
+
+    .position-absolute-card-image {
+	position: absolute !important;
+	min-width: 800px !important;
+	max-width: 800px !important;
+	right: 0px !important;
+	left: -275px !important;
+	top: -140px !important;
+  margin-left: 00px !important;
+  min-height: 640px !important;
+	max-height: 640px !important;
+}
+
+
+  }
 
 
 

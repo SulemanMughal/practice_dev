@@ -6,7 +6,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '9l$ef-y(q$3ixo*oziug4)z8y6#$vz9)#vh@ne^%-%wnd8z56i'
 DEBUG = True
 SEND = False
-ALLOWED_HOSTS = ['localhost','167.172.128.142','127.0.0.1', 'www.circledin.io', "origin.circledin.io" , "3.209.205.115"]
+ALLOWED_HOSTS = ['localhost','167.172.128.142','127.0.0.1', 'www.circledin.io', "origin.circledin.io" , "3.209.205.115", "bs-local.com"]
 
 # ------------------------------------------------------------------------------
 # when you are going on Live
