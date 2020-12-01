@@ -44,6 +44,13 @@
 } */
 
 
+.btn{
+  -webkit-appearance: none;
+  opacity: 1;
+  -moz-appearance: none;
+appearance: none;
+}
+
 .rtl{
   direction: rtl;
 }
@@ -1293,6 +1300,9 @@ p.font-size-galaxy{
     background-position-y: -180px !important;
     background-size: 100% 650px !important;
 }
+button.font-size-iphone-6{
+  font-size: 12px !important;
+}
 
 
 }
@@ -1356,6 +1366,12 @@ and (orientation : portrait) {
 }
 
 
+/*Galaxy S10 Portrait + Landscape*/
+@media only screen and (min-device-width: 412px) and (max-device-width: 722px)  {
+  h3.font-size-iphone-galaxy-s10{
+    font-size: 16px;
+  }
+}
 
  /*iPhone 6+ Portrait*/
  @media only screen and (min-device-width: 414px) and (max-device-width: 736px)  {
@@ -1367,13 +1383,16 @@ and (orientation : portrait) {
 }
 
 
- /* iphone xr */
- /* portrait + landscape */
+ /* IPHONE XR */
+ /* PORTRAIT + LANDSCAPE */
  @media only screen and (min-device-width: 414px) and (max-device-width: 896px)  {
   .bg-how-it-workds-banner {
     background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important;
     background-position-y: -200px !important;
     background-size: 100% 650px !important;
+  }
+  h3.font-size-iphone-xr{
+    font-size: 16px;
   }
 }
 

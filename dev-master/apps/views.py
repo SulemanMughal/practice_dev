@@ -1028,7 +1028,7 @@ def charge(request):
                             next_estimated_Invoice_Bill.objects.create(
                                 user=User.objects.get(username=request.user.username),
                                 plan = p,
-                                bill="1000"
+                                bill="0"
                             )
                             # ? Calculate Order Number
                             if p.category.Name == "Verizon":
