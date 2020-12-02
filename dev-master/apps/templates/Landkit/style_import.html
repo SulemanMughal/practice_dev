@@ -63,6 +63,9 @@ appearance: none;
   overflow-wrap: break-word;
 }
 
+.word-wrap-break{
+  word-wrap:break-word !important;
+}
 
 
 
@@ -1291,6 +1294,38 @@ p.font-size-galaxy{
 
 }
 
+label#circle-no-1{
+  height: 41px !important;
+}
+
+
+/* GALAXY S20+ ANDROID */
+/* PORTRAIT + LANDSCAPE */
+@media only screen 
+and (min-device-width:360px)
+and (max-device-width:800px ){
+  .px-galaxy-s20-0{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .px-galaxy-s20-left-8{
+    padding-left: 8px !important;
+  }
+
+  hr#galaxy-s20-hr-line-no-1{
+    /* margin-left: 0px !important; */
+    left: 3px !important;
+    width: 54px !important;
+  }
+  
+
+  label#circle-no-1{
+    width: 41px !important;
+}
+
+}
+
 
 /*iPhone 6/7/8 Portrait*/
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : portrait) {
@@ -1349,18 +1384,24 @@ button.font-size-iphone-6{
 
 
 
-/* iphone 12 */
-/* portrait + landscape */
+/* IPHONE 12 */
+/* PORTRAIT + LANDSCAPE */
 @media screen 
 and (min-device-width : 393px)
-and (max-device-width : 786px)
-and (orientation : portrait) {
+and (max-device-width : 786px) {
     
    
     .bg-how-it-workds-banner {
     background-image: url('{% static "Landkit/images/v3/8_how.png" %}') !important;
     background-position-y: -200px !important;
     background-size: 100% 620px !important;
+  }
+
+
+  .people-img-about{
+    max-width: 300px !important;
+    min-width: 100px !important;
+
   }
 
 }
@@ -1394,6 +1435,27 @@ and (orientation : portrait) {
   h3.font-size-iphone-xr{
     font-size: 16px;
   }
+
+  hr#galaxy-s20-hr-line-no-1{
+    /* margin-left: 0px !important; */
+    left: 5px !important;
+    width: 54px !important;
+  }
+
+  hr#galaxy-s20-hr-line-no-3, hr#galaxy-s20-hr-line-no-2{
+    width: 60px !important;
+  }
+  
+  
+  label#circle-no-1{
+    width: 37px !important;
+}
+
+img.how-it-works-img-1, img.how-it-works-img-2,  img.how-it-works-img-3{
+  margin-left: 10px !important;
+}
+
+
 }
 
 
@@ -1514,6 +1576,34 @@ and (max-device-width : 1080px){
 
 
 
+  @media only screen 
+  and (min-device-width: 834px) 
+  and (max-device-width: 1194px)
+  and (orientation : portrait){
+h2.font-size-ipad-11-2018{
+  font-size : 16px ;
+}
+img.img-arrow{
+  max-width: 140px !important;
+  min-width: 140px !important;
+}
+  }
+
+
+  @media only screen 
+  and (min-device-width: 834px) 
+  and (max-device-width: 1194px)
+  and (orientation : landscape){
+      span#faqHeader{
+        font-size : 45px;
+        
+      }
+      img.people-img-faq{
+        margin-top: -140px !important;
+      }
+  }
+
+
 /* Portrait and Landscape */
 /* iPad Pro (12.9-inch) */
 @media only screen 
@@ -1557,6 +1647,7 @@ and (max-device-width : 1080px){
   .diverse-2{
       min-width: 300px   !important;
       max-width: 300px !important;
+      /* margin-left: -200px !important; */
   }
 
     .home-page-bottom-img-1, .home-page-bottom-img-2, .home-page-bottom-img-3{

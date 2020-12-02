@@ -19,7 +19,7 @@ my_admin_site = MyAdminSite(name='Mobile')
 class profileAdmin(admin.ModelAdmin):
     list_display = ['id','user', 'contactNumber']
     search_fields = ['id', 'user__username', 'user__first_name', 'user__last_name', ]
-    list_per_page = 10
+    # list_per_page = 10
 
 class categoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('Name',)}
@@ -47,7 +47,7 @@ class planAdmin(admin.ModelAdmin):
         'status'
     ]
 
-    list_per_page = 10
+    # list_per_page = 10
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         if request.method == "POST":
@@ -96,7 +96,7 @@ class planAdmin(admin.ModelAdmin):
 
 class subscriptionAdmin(admin.ModelAdmin):
     list_display = ['user','plan', 'created_at', 'number_of_slots', 'status']
-    list_per_page = 10
+    # list_per_page = 10
 
     readonly_fields = [
         'leaveRequest'
@@ -178,7 +178,7 @@ class UserAdmin(admin.ModelAdmin):
     list_display=[
         'email', 'first_name', 'last_name'
     ]
-    list_per_page=10
+    # list_per_page=10
     ordering=[
         'email'
     ]
@@ -236,7 +236,7 @@ class blogPostAdmin(admin.ModelAdmin):
     list_filter=[
         'publish'
     ]
-    list_per_page=10
+    # list_per_page=10
     list_display=[
         'title',
         'user',

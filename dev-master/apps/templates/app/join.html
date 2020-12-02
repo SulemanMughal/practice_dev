@@ -87,7 +87,7 @@
             </div>
             <div class="col px-0 px-lg-2">
               <h3 class=" display-5  pl-3  pt-3   text-dark font-weight-bolder text-bluish  pb-lg-0 mb-lg-0  mt-lg-9 ml-lg-n10 pt-lg-1 text-uppercase font-League-Spartan  d-none d-lg-block">{{ plan.category.Name }} - {{ plan.id|FindCategoryPlanInfo }}</h3>
-              <h2 class=" pl-0 pt-4 mt-1 mt-md-1 pt-md-4   text-dark font-weight-bolder text-bluish  pb-lg-0 mb-lg-0  mt-lg-7 ml-lg-n11 pt-lg-5 {% if plan.category.Name == 'T-Mobile' %} pt-5   mt-n2 {% endif %} text-uppercase font-League-Spartan d-block d-lg-none mb-0">{{ plan.category.Name }} - {{ plan.id|FindCategoryPlanInfo }}</h2>
+              <h2 class=" pl-0 pt-4 mt-1 mt-md-1 pt-md-4   text-dark font-weight-bolder text-bluish  pb-lg-0 mb-lg-0  mt-lg-7 ml-lg-n11 pt-lg-5 {% if plan.category.Name == 'T-Mobile' %} pt-5   mt-n2 {% endif %} text-uppercase font-League-Spartan d-block d-lg-none mb-0 font-size-ipad-11-2018">{{ plan.category.Name }} - {{ plan.id|FindCategoryPlanInfo }}</h2>
               <p class="card-text h4 text-bluish font-weight-normal pl-0 ml-lg-n10 pl-lg-2 mb-0">Family Name : {{ plan.family_name }} | {{ plan.total_slots }} spots left</p>
               <p class="card-text h4 text-bluish font-weight-normal font-italic pl-0 ml-lg-n10 pl-lg-2">Community Member since {{ plan.created|date:"M" }} {{ plan.created|date:"Y" }}</p></div>
           </div>
