@@ -1,11 +1,11 @@
 {% extends 'Landkit/Account_Header.html' %}
-{% load static %} 
+{% load static settings_value %} 
 {% block middle_content %}
 
 
 <!-- Calendly inline widget begin -->
-<div class="calendly-inline-widget" data-url="https://calendly.com/circledin?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=1dc9c2" style="min-width:320px;height:630px;"></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+<div class="calendly-inline-widget" data-url='{% settings_value "CALENDLY_SITE_DATA_URL" %}' style="min-width:320px;height:630px;"></div>
+<script type="text/javascript" src='{% settings_value "CALENDLY_SITE" %}'></script>
 <!-- Calendly inline widget end -->
 
 {% endblock %}

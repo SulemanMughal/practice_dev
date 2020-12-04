@@ -159,7 +159,7 @@ BOOTSTRAP4 = {
 # For session expire
 SESSION_COOKIE_AGE = 30*60  # ! define number of second
 #--------------------------------------------------------------------
-# Google recaptcha
+# ? Google recaptcha
 RECAPTCHA_SITE_KEY = "6LcqH74ZAAAAAOwKB7xcYtUVwMHaBlckxiHHTCOM"
 RECAPTCHA_SECRET_KEY = "6LcqH74ZAAAAAIms-JWLR4Rzx8BuJC4Bvkko_5wM"
 #--------------------------------------------------------------------
@@ -175,14 +175,23 @@ PRODUCT_LIST_IDS=[
 ]
 #--------------------------------------------------------------------
 
+#--------------------------------------------------------------------
+# ? Hubspot
+HUBSPOT = "8273202.js"
+#--------------------------------------------------------------------
+
+# -------------------------------------------------------------------
+# ? Google Analyst 
+GOOGLE_ANALYST_SITE = "https://www.googletagmanager.com/gtag/js?id=UA-180318163-1"
+GOOGLE_ANALYST_SITE_ID = "UA-180318163-1"
+# -------------------------------------------------------------------
+
+# -------------------------------------------------------------------
+# ? Calendly
+CALENDLY_SITE = "https://assets.calendly.com/assets/external/widget.js"
+CALENDLY_SITE_DATA_URL = "https://calendly.com/circledin?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=1dc9c2"
+# -------------------------------------------------------------------
 
 # CKEDITOR
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_BASEPATH = "/my_static/ckeditor/ckeditor/"
-# CKEDITOR_CONFIGS = {
-#     'default':
-#         {'toolbar': 'Custom', 
-#          'toolbar_Custom': [
-#             ['Bold', 'Link', 'Unlink', 'Image'], 
-#         ], 
-# }}

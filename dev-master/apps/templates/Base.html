@@ -1,18 +1,18 @@
-{% load static %}
+{% load static settings_value %}
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
  <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180318163-1">
+    <script async src="{% settings_value 'GOOGLE_ANALYST_SITE' %}">
     </script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    gtag('config', 'UA-180318163-1');
+    
+    gtag('config', "{% settings_value 'GOOGLE_ANALYST_SITE_ID' %}");
     </script>
     <!-- ******************************************* -->
     {% include "Landkit/META_TAG.html" %}
