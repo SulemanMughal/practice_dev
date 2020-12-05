@@ -678,15 +678,12 @@ def Detail(request, plan_id, sub_id):
             context = {
                 'plan': p,
                 'subs': s,
-                 
             }
             return render(request, template_name, context)
     except (plan.DoesNotExist, category.DoesNotExist):
         return render(request, 'app/error.html')
     except :
         return redirect("edit_profile")
-
-
 
 # ****************************************************************
 # About Us
@@ -998,92 +995,95 @@ def charge(request):
                 c = category.objects.get(id=category_id)
                 p = plan.objects.get(id=plan_id, category=c)
                 try:
-                    obj, status = subscription.objects.get_or_create(
+                    obj = subscription.objects.create(
                         user=request.user,
                         plan=p
                     )
-                    if status:
+                    try:
+                        obj.number_of_slots = data['number_of_slots']
+                        obj.TotalAmount = int(
+                            p.currently_monthly_payment_per_line) * int(data['number_of_slots'])
+                        obj.save()
+                        p.total_slots = p.total_slots - int(obj.number_of_slots)
+                        p.currentFamilySize += 1
+                        if p.total_slots < 0:
+                            p.total_slots = 0
+                        p.save()
+                        obj.status = "Pending"
+                        obj.device_IMEI = data['device_IMEI']
+                        obj.subs_contact_switch = data['subs_contact']
+                        obj.subs_account = data['subs_account']
+                        obj.subs_PIN = data['subs_PIN']
+                        obj.payment_contactNumber = data['phone']
+                        obj.mobile_carrier = data["mobile_carrier"]
+                        obj.joining_condition = data['joiningCondition']
+                        obj.area_code = data['area_codes']
+                        obj.ICCID = data['device_ICCID']
+                        obj.ESIM = data['device_ESIM']
+                        obj.save()
+                        next_estimated_Invoice_Bill.objects.create(
+                            user=User.objects.get(username=request.user.username),
+                            plan = p,
+                            bill="0"
+                        )
+                        # ? Calculate Order Number
+                        if p.category.Name == "Verizon":
+                            obj.order_number = "CI-VZ" + str(subscription.objects.all().count())
+                        elif p.category.Name == "T-Mobile":
+                            obj.order_number = "CI-TM" + str(subscription.objects.all().count())
+                        elif p.category.Name == "Sprint":
+                            obj.order_number = "CI-SP" + str(subscription.objects.all().count())
+                        elif p.category.Name == "AT&T":
+                            obj.order_number = "CI-ATT" + str(subscription.objects.all().count())
+                        elif p.category.Name == "Cricket":
+                            obj.order_number = "CI-CR" + str(subscription.objects.all().count())
+                        obj.save()
+                        
+                        # ? Build Profile Link
+                        link_build =  str(settings.SITE_REDIRECT_ORIGINAL) +  str(reverse("edit_profile"))
+                        
+                        # ? Send Email to the Plan Owner
+                        subject = "Circledin - You've got a new family member! Please approve!"
+                        content = render_to_string('EmailTemplates/Join_A_Plan.html', {
+                        'user': p.user,
+                        'build_link' : link_build,
+                        'carrier_name' :  c.Name,
+                        'plan_name' : p.plan_name ,
+                        'family_name' :  p.family_name,
+                        'joining_condition' : obj.joining_condition
+                        })
                         try:
-                            obj.number_of_slots = data['number_of_slots']
-                            obj.TotalAmount = int(
-                                p.currently_monthly_payment_per_line) * int(data['number_of_slots'])
-                            obj.save()
-                            p.total_slots = p.total_slots - int(obj.number_of_slots)
-                            p.currentFamilySize += 1
-                            if p.total_slots < 0:
-                                p.total_slots = 0
-                            p.save()
-                            obj.status = "Pending"
-                            obj.device_IMEI = data['device_IMEI']
-                            obj.subs_contact_switch = data['subs_contact']
-                            obj.subs_account = data['subs_account']
-                            obj.subs_PIN = data['subs_PIN']
-                            obj.payment_contactNumber = data['phone']
-                            obj.mobile_carrier = data["mobile_carrier"]
-                            obj.joining_condition = data['joiningCondition']
-                            obj.area_code = data['area_codes']
-                            obj.ICCID = data['device_ICCID']
-                            obj.ESIM = data['device_ESIM']
-                            obj.save()
-                            next_estimated_Invoice_Bill.objects.create(
-                                user=User.objects.get(username=request.user.username),
-                                plan = p,
-                                bill="0"
-                            )
-                            # ? Calculate Order Number
-                            if p.category.Name == "Verizon":
-                                obj.order_number = "CI-VZ" + str(subscription.objects.all().count())
-                            elif p.category.Name == "T-Mobile":
-                                obj.order_number = "CI-TM" + str(subscription.objects.all().count())
-                            elif p.category.Name == "Sprint":
-                                obj.order_number = "CI-SP" + str(subscription.objects.all().count())
-                            elif p.category.Name == "AT&T":
-                                obj.order_number = "CI-ATT" + str(subscription.objects.all().count())
-                            elif p.category.Name == "Cricket":
-                                obj.order_number = "CI-CR" + str(subscription.objects.all().count())
-                            obj.save()
-                            
-                            # ? Build Profile Link
-                            link_build =  str(settings.SITE_REDIRECT_ORIGINAL) +  str(reverse("edit_profile"))
-                            
-                            # ? Send Email to the Plan Owner
-                            subject = "Circledin - You've got a new family member! Please approve!"
-                            content = render_to_string('EmailTemplates/Join_A_Plan.html', {
-                            'user': p.user,
+                            email = EmailMessage(subject, content, to=[p.user.email])
+                            email.send()
+                        except:
+                            pass
+
+                        # ? Send Email to the Subscriber 
+                        subject = "Circledin - Thank you! Confirmation #" + obj.order_number
+                        content = render_to_string('EmailTemplates/Subscribe_A_Plan.html', {
+                            'user': obj.user,
                             'build_link' : link_build,
                             'carrier_name' :  c.Name,
                             'plan_name' : p.plan_name ,
                             'family_name' :  p.family_name,
-                            'joining_condition' : obj.joining_condition
-                            })
-                            email = EmailMessage(subject, content, to=[p.user.email])
-                            email.send()
-
-                            # ? Send Email to the Subscriber 
-                            subject = "Circledin - Thank you! Confirmation #" + obj.order_number
-                            content = render_to_string('EmailTemplates/Subscribe_A_Plan.html', {
-                                'user': obj.user,
-                                'build_link' : link_build,
-                                'carrier_name' :  c.Name,
-                                'plan_name' : p.plan_name ,
-                                'family_name' :  p.family_name,
-                                'joining_condition' : obj.joining_condition,
-                                'order_number' : obj.order_number
-                            })
+                            'joining_condition' : obj.joining_condition,
+                            'order_number' : obj.order_number
+                        })
+                        try:
                             email = EmailMessage(subject, content, to=[obj.user.email])
                             email.send()
-                            profile = profileModel.objects.get(user=User.objects.get(username = request.user.username))
-                            profile.country = C_Country
-                            profile.street_address = C_address_line1 
-                            profile.city = C_City
-                            profile.state = C_State
-                            profile.zip_code = C_Postal_code
-                            profile.save()
-                            return JsonResponse(json.loads( json.dumps( {"success": True})), status=200)
-                        except Exception as e:
+                        except : 
+                            pass
+                        profile = profileModel.objects.get(user=User.objects.get(username = request.user.username))
+                        profile.country = C_Country
+                        profile.street_address = C_address_line1 
+                        profile.city = C_City
+                        profile.state = C_State
+                        profile.zip_code = C_Postal_code
+                        profile.save()
+                        return JsonResponse(json.loads( json.dumps( {"success": True})), status=200)
+                    except Exception as e:
                             return JsonResponse(json.loads( json.dumps( {"error": str(e)})), status=400)
-                    else:
-                        return JsonResponse(json.loads( json.dumps( {"error": "Subscription is already created for this user"})), status=400)
                 except Exception as e:
                     return JsonResponse(json.loads( json.dumps( {"error": str(e)})), status=400)
             except Exception as e:
@@ -1469,57 +1469,56 @@ def Email_Collector(request):
 # GET A NEW NUMBER PAGE
 @login_required
 def Join_A_Plan_Get_A_New_Number(request, category_id, plan_id):
-    # if request.method != "POST":
-    #     return redirect(reverse("home"))
-    # else:
-    template_name="app/Join_Get_A_New_Number.html"
-    c = category.objects.get(id=category_id)
-    p = plan.objects.get(category = c, id=plan_id)
-    context={
-        'category' : c,
-        'plan' : p,
-        'objects' : subscription.objects.all().count(),
-        'NUMBER_OF_GUESTS' : request.POST.get('GET_A_NUMBER', 1)
-    }
-    return render(request, template_name,context)
+    if request.method != "POST":
+        return redirect(reverse("Join", args=[category_id, plan_id]))
+    else:
+        template_name="app/Join_Get_A_New_Number.html"
+        c = category.objects.get(id=category_id)
+        p = plan.objects.get(category = c, id=plan_id)
+        context={
+            'category' : c,
+            'plan' : p,
+            'objects' : subscription.objects.all().count(),
+            'NUMBER_OF_GUESTS' : request.POST.get('GET_A_NUMBER', 1)
+        }
+        return render(request, template_name,context)
 
 
 # EXISTING CUSTOMER PAGE
 @login_required
 def Join_A_Plan_Existing_Customer(request, category_id, plan_id):
-    # if request.method !="POST":
-    #     return redirect(reverse("home"))
-    # else:
-    template_name="app/Join_Existing_Customer.html"
-    c = category.objects.get(id=category_id)
-
-    p = plan.objects.get(category = c, id=plan_id)
-    context={
-        'category' : c,
-        'plan' : p,
-        'objects' : subscription.objects.all().count(),
-        'NUMBER_OF_GUESTS' : request.POST.get('EXISTING_CUSTOMER', 1)
-    }
-    # Check Point for T-Mobile Category
-    if c.Name == "T-Mobile":
-        template_name = "app/Join_Existing_Customer_T_Mobile.html"
-        return render(request, template_name,context)
+    if request.method !="POST":
+        return redirect(reverse("Join", args=[category_id, plan_id]))
     else:
-        return render(request, template_name,context)
+        template_name="app/Join_Existing_Customer.html"
+        c = category.objects.get(id=category_id)
+        p = plan.objects.get(category = c, id=plan_id)
+        context={
+            'category' : c,
+            'plan' : p,
+            'objects' : subscription.objects.all().count(),
+            'NUMBER_OF_GUESTS' : request.POST.get('EXISTING_CUSTOMER', 1)
+        }
+        # Check Point for T-Mobile Category
+        if c.Name == "T-Mobile":
+            template_name = "app/Join_Existing_Customer_T_Mobile.html"
+            return render(request, template_name,context)
+        else:
+            return render(request, template_name,context)
 
 # SWITCH CARRIER PAGE
 @login_required
 def Join_A_Plan_Switch_Carrier(request, category_id, plan_id):
-    # if request.method != "POST":
-    #     return redirect(reverese("home"))
-    # else:
-    template_name="app/Join_Get_Switch_Carrier.html"
-    c = category.objects.get(id=category_id)
-    p = plan.objects.get(category = c, id=plan_id)
-    context={
-        'category' : c,
-        'plan' : p,
-        'objects' : subscription.objects.all().count(),
-        'NUMBER_OF_GUESTS' : request.POST.get("SWITCHING_CARRIER", 1)
-    }
-    return render(request, template_name,context)
+    if request.method != "POST":
+        return redirect(reverse("Join",  args=[category_id, plan_id]))
+    else:
+        template_name="app/Join_Get_Switch_Carrier.html"
+        c = category.objects.get(id=category_id)
+        p = plan.objects.get(category = c, id=plan_id)
+        context={
+            'category' : c,
+            'plan' : p,
+            'objects' : subscription.objects.all().count(),
+            'NUMBER_OF_GUESTS' : request.POST.get("SWITCHING_CARRIER", 1)
+        }
+        return render(request, template_name,context)

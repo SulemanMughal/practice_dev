@@ -80,13 +80,11 @@ urlpatterns = [
     # ****************************************************************
     # Edit a subscription
     # ****************************************************************
-    path("edit-a-subscription/<int:plan_id>/<int:sub_id>/", views.EditSubscription, name="EditSubscription"),
+    # path("edit-a-subscription/<int:plan_id>/<int:sub_id>/", views.EditSubscription, name="EditSubscription"),
     # ****************************************************************
     # Subscription Detail View
     # ****************************************************************
-    path('detail-view-subscription/<int:plan_id>/<int:sub_id>', views.Detail, name="Details"),
-    
-    
+    # path('detail-view-subscription/<int:plan_id>/<int:sub_id>', views.Detail, name="Details"),
     
     
     # ****************************************************************
@@ -95,22 +93,16 @@ urlpatterns = [
     path('about-us', views.About, name="About"),
     
     
-    
     # ****************************************************************
     # FAQ
     # ****************************************************************
     path('FAQ', views.FAQ, name="FAQ"),
-    
-    
-    
     
     # ****************************************************************
     # Plan Comment View
     # ****************************************************************
     path('plan-comment/<int:plan_id>/', views.planCommentView, name="comment_plan"),
     # ********************************************************************
-    
-    
     
     # ****************************************************************
     # Payment Method Goes Here
