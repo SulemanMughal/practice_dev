@@ -1,5 +1,5 @@
 import os
-
+# ! PROJECT DIRECTORY
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -148,9 +148,16 @@ AUTHENTICATION_BACKENDS=[
     'django.contrib.auth.backends.ModelBackend',
 ]
 #--------------------------------------------------------------------
+# ! STRIPE API ID
 STRIPE_SECRET_KEY = 'sk_test_jAndihGEFE8VtiRfUfTyygxH00JNgys3DY'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_7Caol5AeV11tgvLYCf7FlGXr00hMYbhIfm'
-STRIPE_PLAN_MONTHLY_ID = 'plan_HFv9CmBmgpSKED'
+# ? Product List
+PRODUCT_LIST_IDS=[
+    'plan_HFv9CmBmgpSKED',
+    'price_1H6NfSFx8Q0sUqQj5MZnPegV',
+    'price_1H6NgPFx8Q0sUqQjx2RuaVzo',
+    'price_1H6NhAFx8Q0sUqQjP7ygC99Z'
+]
 #--------------------------------------------------------------------
 BOOTSTRAP4 = {
     'include_jquery': True,
@@ -165,14 +172,6 @@ RECAPTCHA_SECRET_KEY = "6LcqH74ZAAAAAIms-JWLR4Rzx8BuJC4Bvkko_5wM"
 #--------------------------------------------------------------------
 # ? Circledin Email ID
 CIRCLEDIN_SUPPORT_EMAIL = "Support@Joincircledin.com"
-#--------------------------------------------------------------------
-# ? Product List
-PRODUCT_LIST_IDS=[
-    'plan_HFv9CmBmgpSKED',
-    'price_1H6NfSFx8Q0sUqQj5MZnPegV',
-    'price_1H6NgPFx8Q0sUqQjx2RuaVzo',
-    'price_1H6NhAFx8Q0sUqQjP7ygC99Z'
-]
 #--------------------------------------------------------------------
 
 #--------------------------------------------------------------------
