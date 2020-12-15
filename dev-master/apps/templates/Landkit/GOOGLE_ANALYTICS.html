@@ -1,0 +1,10 @@
+{% load static settings_value %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="{% settings_value 'GOOGLE_ANALYST_SITE' %}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', "{% settings_value 'GOOGLE_ANALYST_SITE_ID' %}");
+</script>
+<!-- ******************************************* -->

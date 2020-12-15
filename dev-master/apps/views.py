@@ -1,9 +1,10 @@
-import sys, requests
+import sys, requests, traceback
 import json
 import stripe
 from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from .forms import *
@@ -24,6 +25,8 @@ from django.utils import timezone
 from django.http import JsonResponse
 from django.core import serializers
 
+from django.contrib.auth import REDIRECT_FIELD_NAME
+
 #################################################################################
 import sendgrid
 import os
@@ -40,6 +43,16 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 # Circledin Support Email ID
 SUPPORT_EMAIL = settings.CIRCLEDIN_SUPPORT_EMAIL
+
+
+# ! PrintTraceback error
+def printlogError():
+    print("#"*80)
+    print("Error Code")
+    print("-"*80)
+    traceback.print_exc(file=sys.stdout)
+    print("#"*80)
+
 # ****************************************************************
 # Home Page View
 # ****************************************************************
@@ -1001,11 +1014,17 @@ def charge(request):
                     )
                     try:
                         obj.number_of_slots = data['number_of_slots']
-                        obj.TotalAmount = int(
-                            p.currently_monthly_payment_per_line) * int(data['number_of_slots'])
+                        currentFamilySize = p.currentFamilySize
+                        total_slots = p.total_slots
+                        dictA=  p.get_category_plan_slots_values()
+                        total_amount = 0
+                        for i in range(1, (p.currentFamilySize + int(number_of_slots))+1):
+                            total_amount += dictA[i]
+                        total_amount = int(total_amount/(p.currentFamilySize + int(number_of_slots)))
+                        obj.TotalAmount = total_amount
                         obj.save()
                         p.total_slots = p.total_slots - int(obj.number_of_slots)
-                        p.currentFamilySize += 1
+                        p.currentFamilySize += int(obj.number_of_slots)
                         if p.total_slots < 0:
                             p.total_slots = 0
                         p.save()
@@ -1475,11 +1494,20 @@ def Join_A_Plan_Get_A_New_Number(request, category_id, plan_id):
         template_name="app/Join_Get_A_New_Number.html"
         c = category.objects.get(id=category_id)
         p = plan.objects.get(category = c, id=plan_id)
+        number_of_slots = request.POST.get('GET_A_NUMBER', 1)
+        currentFamilySize = p.currentFamilySize
+        total_slots = p.total_slots
+        dictA=  p.get_category_plan_slots_values()
+        total_amount = 0
+        for i in range(1, (p.currentFamilySize + int(number_of_slots))+1):
+            total_amount += dictA[i]
+        total_amount = round(total_amount/(p.currentFamilySize + int(number_of_slots)), 2)
         context={
             'category' : c,
             'plan' : p,
             'objects' : subscription.objects.all().count(),
-            'NUMBER_OF_GUESTS' : request.POST.get('GET_A_NUMBER', 1)
+            'NUMBER_OF_GUESTS' : request.POST.get('GET_A_NUMBER', 1),
+            'total_amount' : total_amount
         }
         return render(request, template_name,context)
 
@@ -1493,11 +1521,20 @@ def Join_A_Plan_Existing_Customer(request, category_id, plan_id):
         template_name="app/Join_Existing_Customer.html"
         c = category.objects.get(id=category_id)
         p = plan.objects.get(category = c, id=plan_id)
+        number_of_slots = request.POST.get('GET_A_NUMBER', 1)
+        currentFamilySize = p.currentFamilySize
+        total_slots = p.total_slots
+        dictA=  p.get_category_plan_slots_values()
+        total_amount = 0
+        for i in range(1, (p.currentFamilySize + int(number_of_slots))+1):
+            total_amount += dictA[i]
+        total_amount = round(total_amount/(p.currentFamilySize + int(number_of_slots)), 2)
         context={
             'category' : c,
             'plan' : p,
             'objects' : subscription.objects.all().count(),
-            'NUMBER_OF_GUESTS' : request.POST.get('EXISTING_CUSTOMER', 1)
+            'NUMBER_OF_GUESTS' : request.POST.get('EXISTING_CUSTOMER', 1),
+            'total_amount' : total_amount
         }
         # Check Point for T-Mobile Category
         if c.Name == "T-Mobile":
@@ -1515,10 +1552,59 @@ def Join_A_Plan_Switch_Carrier(request, category_id, plan_id):
         template_name="app/Join_Get_Switch_Carrier.html"
         c = category.objects.get(id=category_id)
         p = plan.objects.get(category = c, id=plan_id)
+        number_of_slots = request.POST.get('GET_A_NUMBER', 1)
+        currentFamilySize = p.currentFamilySize
+        total_slots = p.total_slots
+        dictA=  p.get_category_plan_slots_values()
+        total_amount = 0
+        for i in range(1, (p.currentFamilySize + int(number_of_slots))+1):
+            total_amount += dictA[i]
+        total_amount = round(total_amount/(p.currentFamilySize + int(number_of_slots)), 2)
         context={
             'category' : c,
             'plan' : p,
             'objects' : subscription.objects.all().count(),
-            'NUMBER_OF_GUESTS' : request.POST.get("SWITCHING_CARRIER", 1)
+            'NUMBER_OF_GUESTS' : request.POST.get("SWITCHING_CARRIER", 1),
+            'total_amount' : total_amount
         }
         return render(request, template_name,context)
+
+
+
+# ? Admin:  Set values of slots for a plan
+# @staff_member_required(REDIRECT_FIELD_NAME, login_url='admin:login')
+@staff_member_required
+def SET_PLAN_SLOT_VALUES(request, category_id, cp_id):
+    template_name="apps/set/plan/slots.html"
+    try:
+        c = category.objects.get(id=category_id)
+        cp = CategoryPlanName.objects.get(id = cp_id, category = c)
+        category_slots = cp.categoryslotvalues_set.all()
+    except Exception as e:
+        printlogError()
+        return redirect("admin:index")
+    if request.method  == "POST":
+        try:
+            if len(category_slots) == 0:
+                for  i in range(0, len(request.POST.getlist("slot_number_value"))):
+                    categorySlotValues.objects.create(categoryplanname = cp, slot_number = i+1, slot_value = request.POST.getlist("slot_number_value")[i])
+                category_slots = cp.categoryslotvalues_set.all()
+            else:
+                for  i in range(0, len(request.POST.getlist("slot_number_value"))):
+                    cs = category_slots[i]
+                    cs.slot_number = i+1
+                    cs.slot_value = request.POST.getlist("slot_number_value")[i]
+                    cs.save()
+            messages.success(request, "Values for plan slots has been updated successfully.")
+            category_slots = cp.categoryslotvalues_set.all()
+            return redirect("/admin/apps/categoryplanname/")
+        except Exception as e:
+            printlogError()
+            messages.error(request, str(e))
+            return redirect("admin:index")
+    context = {
+        "category" : c,
+        "CategoryPlanName": cp,
+        "slots_values" : category_slots
+    }
+    return render(request,template_name, context)

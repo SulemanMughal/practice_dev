@@ -533,10 +533,10 @@ $("#selectTagError").show();
         $(this).html(parseInt("{{ NUMBER_OF_GUESTS }}")*5);
       });
       $.each($("span#subscription-form-monthly"), function(){
-        $(this).html(parseInt("{{ NUMBER_OF_GUESTS }}") * parseInt($(this).html()));
+        $(this).html(parseFloat("{{ total_amount }}"));
       });
       $.each($("span#subscription-form-total"), function(){
-        $(this).html(parseInt($("#subscription-form-monthly").html()) + parseInt($("#subscription-form-fees").html()));
+        $(this).html(parseFloat($("#subscription-form-monthly").html()) + parseInt($("#subscription-form-fees").html()));
       });
     });
   </script>

@@ -1,0 +1,151 @@
+{% extends "admin/Base.html" %}
+{% load i18n static %}
+{% block title %}Plan Slot-Value | Circledin{% endblock %}
+
+
+
+<!-- Header -->
+<div id="header">
+    <div id="branding">
+        {% block branding %}
+        <h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Circledin') }}</a></h1>
+        {% endblock %}
+    </div>
+    {% block usertools %}
+    
+    <div id="user-tools">
+        {% block welcome-msg %}
+            {% trans 'Welcome,' %}
+            <strong>{% firstof user.get_short_name user.get_username %}</strong>.
+        {% endblock %}
+        {% block userlinks %}
+            {% if site_url %}
+                <a href="{{ site_url }}">{% trans 'View site' %}</a> /
+            {% endif %}
+            {% if user.is_active and user.is_staff %}
+                {% url 'django-admindocs-docroot' as docsroot %}
+                {% if docsroot %}
+                    <a href="{{ docsroot }}">{% trans 'Documentation' %}</a> /
+                {% endif %}
+            {% endif %}
+            {% if user.has_usable_password %}
+            <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a> /
+            {% endif %}
+            <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
+        {% endblock %}
+    </div>
+    
+    {% endblock %}
+    {% block nav-global %}{% endblock %}
+</div>
+<!-- END Header -->
+
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+    &rsaquo;
+    <a href="/admin/apps/">Apps</a>
+    &rsaquo; 
+    <a href="/admin/apps/plan/">Plan Owners</a>
+    &rsaquo; 
+    Plan Slot Values
+</div>
+{% endblock %}
+
+
+{% block messages %}
+    {% if messages %}
+        <ul class="messagelist">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                    {{ message|capfirst }}
+                <li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock messages %}
+
+    <!-- Content -->
+    <div id="content" >
+        
+        {% block content %}
+
+        <link rel="stylesheet" href="{% static 'Landkit/css/theme.min.css' %}" />
+<link rel="stylesheet" href="{% static 'music/css/bootstrap-select.css' %}" />
+<link rel="stylesheet" href="{% static 'Landkit/css/customize.css' %}" />
+        <div class="container mx-auto">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1 class="card-title text-dark m-0 p-0 display-4 ">
+                                Update Plan Slot Values
+                            </h1>
+                            <h1 class="card-text  text-secondary ">
+                                Plan Name: {{ CategoryPlanName.category.Name }} - {{ CategoryPlanName.name }}
+                            </h1>
+                        </div>
+                        <form action="." method="POST">
+                            {% csrf_token %}
+                        <div class="card-body mt-0 pt-0">
+
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">
+                                        <p class="card-text">
+                                            Slot  Number
+                                        </p>
+                                    </th>
+                                    <th scope="col"><p class="card-text">
+                                        Value
+                                    </p></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+
+                                    
+                                        {% for j in slots_values %}
+                                            <tr>
+                                                <td >
+                                                    <p class="font-weight-bolder">{{ forloop.counter }}</p>
+                                                </td>
+                                                <td class="">
+                                                    <input type="text" name="slot_number_value" value="{{ j.slot_value }}" class="form-control">
+                                                </td>
+                                            </tr>
+                                        {% empty %}
+                                            {% with ''|center:10 as range %}        
+                                                {% for i in range %}
+                                                    <tr>
+                                                        <td >
+                                                            <p class="font-weight-bolder">{{ forloop.counter }}</p>
+                                                        </td>
+                                                        <td class="">
+                                                            <input type="text" name="slot_number_value" value="{{ forloop.counter }}" class="form-control">
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            {% endwith %}
+                                        {% endfor %}
+                                    
+                                </tbody>
+                              </table>
+                        </div>
+                        <div class="card-footer border-0">
+                            <div class="row justify-content-end">
+                                <button type="submit" value="{% trans 'Save' %}" class=" btn btn-primary"  name="_save">
+                                    Update
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        {% endblock %}
+    </div>
+    <!-- END Content -->

@@ -269,16 +269,31 @@
           <div class="card-body">
           <div class="position-relative text-right mt-n8 mr-n4 mb-5 ">
             <span class="badge badge-pill  text-white shadow-lg {% if plan.category.Name == 'Verizon' %} bg-verizon-plan-card {% elif plan.category.Name == 'T-Mobile' %} badge-T-Mobile-bg-join {% else %} badge-danger {% endif %}"  >
-               <span class="h5 text-uppercase">${{ plan.id|FindPlanFixedPrice|intcomma }}/MO</span>
+                <span class="h5 text-uppercase">
+                    {% if  plan.get_category_average_switch_value %}
+                      ${{ plan.get_category_plan_average_value_for_subscription|floatformat:2|intcomma }}/MO
+                    {% else %}
+                      ${{ plan.id|FindPlanFixedPrice|floatformat:2|intcomma }}/MO
+                    {% endif %}
+                </span>
              </span>
            </div>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Number of cell phone lines</label>
               <select class="form-control selectpicker border border-dark" style="border-radius: 2.375rem !important ;" id="exampleFormControlSelect1" 
               {% if  plan.total_slots == 0  %} disabled {% endif %} >
-                {% for i in slots %}
-                  <option value="{{ i }}">{{ i }}</option>
-                {% endfor %}
+                {% with ''|center:plan.total_slots as range %}
+                  {% if plan.total_slots > 4  %}
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  {% else %}
+                    {% for _ in range %}
+                      <option value="{{ forloop.counter }}">{{ forloop.counter }}</option>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
               </select>
             </div>
             <div class="form-group mb-0">
@@ -298,7 +313,11 @@
                     <label for="exampleForm" class="text-left float-left overflow-wrap-break  font-size-sm">Mobile Cost <button type="button" class="btn pl-0 pl-lg-1 mr-0 pr-0 pt-0 pb-0" data-toggle="popover"  data-content="Excluding taxes and fees from your carrier."><i class="fa fa-info-circle text-success"></i></button></label>
                   </div>
                   <div class="col col-md   mr-0  pl-0">
-                    <span class="card-title font-weight-bold mb-0 font-size-sm text-right float-right"   id="payment" data="{{ plan.id|FindPlanFixedPrice }}" >$<span id="paymentSub">{{ plan.id|FindPlanFixedPrice|intcomma }}</span>/month
+                    <span class="card-title font-weight-bold mb-0 font-size-sm text-right float-right"   id="payment" data="{% if  plan.get_category_average_switch_value %}
+                    {{ plan.get_category_plan_average_value_for_subscription }}
+                  {% else %}
+                    {{ plan.id|FindPlanFixedPrice|intcomma }}
+                  {% endif %}" >$<span id="paymentSub">{% if  plan.get_category_average_switch_value %}{{ plan.get_category_plan_average_value_for_subscription }}{% else %}{{ plan.id|FindPlanFixedPrice|intcomma }}{% endif %}</span>/month
                   </span>
                   </div>
                 </div>
@@ -391,6 +410,9 @@
               <input id="slots" hidden value="1">
               <input id="joiningCondition" hidden value="">
               <input type="hidden" name="g-recaptcha-response" id='recaptcha_join'>
+              {{ plan.currentFamilySize|json_script:"currentFamilySize" }}
+              {{ plan.total_slots|json_script:"plan_total_slots" }}
+              {{ plan.get_category_plan_slots_values|json_script:"dictValues" }}
           </div>
         </div>
       </div>
@@ -402,69 +424,5 @@
 {% include "Landkit/footer.html" %}
 {% endwith %}
 {% endautoescape %}
-<script>
-  $(document).ready(function()
-  {
-    $("#GET_A_NUMBER, #EXISTING_CUSTOMER, #SWITCHING_CARRIER").val($("#exampleFormControlSelect1").val());
-      // Functionality for the number of guests selected from the join-detail plan page 
-      $("#exampleFormControlSelect1").on("change", function(){
-        $("#dynamic_field_4 input").remove();
-        for(var j = 1; j < $("#exampleFormControlSelect1").val(); j++){
-          $('#dynamic_field_4').append('<input type="text" name="switch_1"  placeholder="Enter Phone number #' + (j+1) + ' (Optional)" class="form-control bg-light border border-dark col-12 col-md-6 col-lg-5 ml-7 mt-2" maxlength="12" autocomplete="off" />'); 
-        }
-        // TODO: Change the value of selected number of slots
-        $("#slots").val($("#exampleFormControlSelect1").val());
-        $("#GET_A_NUMBER, #EXISTING_CUSTOMER, #SWITCHING_CARRIER").val($("#exampleFormControlSelect1").val());
-        $('[data-tid="elements_examples.form.pay_button"]').text("Pay $" + $("#exampleFormControlSelect1").val()*5 + "");
-        // TODO : Change the value of the 'number of slots' on payment
-        $('[name="number_of_slots"]').val($("#exampleFormControlSelect1 :selected").val());
-        var elem_1 = $(this).children("option:selected").val();
-        var elem_2 = $("#payment").attr("data");
-        $("#total").html("$" +  ((elem_1 * elem_2) + 5 * elem_1 ) + " /month");
-        $("#paymentSub").html((elem_1 * elem_2));
-        $("#subs_Section").html(5 * elem_1 );
-        // TODO:  Display IMEI and Area code inputs based on the selected number of guests
-        if($("#slots").val() >=2){
-          //  For Tab 1 IMEI
-          $("#add").show();
-          $("#dynamic_field tr").show();
-          // For Tab 3 IMEI
-          $("#add_2").show();
-          $("#dynamic_field_2 tr").show();
-          // For Area Code Tab 1 
-          $("#add_3").show();
-          $("#dynamic_field_3 tr").show();
-        }
-        else{
-            // For Tab 1  IMEI
-            $("#add").hide();
-            $("#dynamic_field tr").hide();
-            $("#dynamic_field tr:first").show();        
-            // For Tab 3  IMEI
-            $("#add_2").hide();
-            $("#dynamic_field_2 tr").hide();
-            $("#dynamic_field_2 tr:first").show();
-            // For Tab 1 AREA CODE
-            $("#add_3").hide();
-            $("#dynamic_field_3 tr").hide();
-            $("#dynamic_field_3 tr:first").show();
-          }
-      });
-    $("#dynamic_field_4 input").remove();
-      for(var j = 1; j < $("#exampleFormControlSelect1").val(); j++){
-          $('#dynamic_field_4').append('<input type="text" name="switch_1"  placeholder="Enter Phone number #' + (j+1) + ' (Optional)" class="form-control bg-light border border-dark col-12 col-md-6 col-lg-5 ml-2" maxlength="12" autocomplete="off" />'); 
-        }
-        var elem_1 = $("#exampleFormControlSelect1").children("option:selected").val();
-        var elem_2 = $("#payment").attr("data");
-        $("#total").html("$" +  ((elem_1 * elem_2) + 5 * elem_1) + "/month");
-        $("#paymentSub").html((elem_1 * elem_2));
-        $("#subs_Section").html(5 * elem_1);
-        if ($("#total").html() == "$NaN")
-        {
-          $("#total").html("$" + "0" + "/month");
-        }
-        $('[name="number_of_slots"]').val($("#exampleFormControlSelect1 :selected").val());
-  });
-</script>
+<script src="{% static 'Landkit/js/join.js' %}"></script>
 {% endblock %}
-<!-- TODO: See number_of_slots_script.js to see the manipulations of total  amount in the card -->

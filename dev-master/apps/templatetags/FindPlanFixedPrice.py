@@ -1,17 +1,6 @@
-
-
-
-
-
-
 from django import template
-from apps.models import *
-from django.contrib.auth.models import User
-
-from datetime import datetime
-from datetime import timedelta
+from apps.models import plan, category, CategoryPlanName
 register = template.Library()
-
 
 def FindPlanFixedPrice(plan_id=None):
     try:
@@ -21,9 +10,10 @@ def FindPlanFixedPrice(plan_id=None):
         try:
             return int(cp.plan_price)
         except Exception as e:
+            print(e)
             return 0
     except Exception as e:
-        # print("Template Tag : FindPlanFixedPrice :", e)
+        print(e)
         return 0
 
 register.filter(FindPlanFixedPrice)

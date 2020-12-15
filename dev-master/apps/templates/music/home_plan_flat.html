@@ -32,8 +32,14 @@
 </div>
 <div class="card-body text-left mb-7">
 <div class="position-relative text-right mt-n8 mr-n6 mb-3">
-<span class="badge   {% if  j.total_slots != 0 %} {% if j.category.Name == 'Verizon' %} badge-Verizon-bg {% elif j.category.Name == 'T-Mobile' %} badge-T-Mobile-bg {% else %} badge-danger {% endif %} {% else %} bg-Puerto-Rico {% endif %}">
-<span class="h5 text-uppercase font-weight-bolder">${{ j.id|FindPlanFixedPrice|intcomma }}/MO</span>
+<span class="badge {% if  j.total_slots != 0 %}{% if j.category.Name == 'Verizon' %} badge-Verizon-bg {% elif j.category.Name == 'T-Mobile' %} badge-T-Mobile-bg {% else %} badge-danger {% endif %} {% else %} bg-Puerto-Rico {% endif %}">
+<span class="h5 text-uppercase font-weight-bolder">
+    {% if  j.get_category_average_switch_value %}
+        ${{ j.get_category_plan_average_value_for_subscription|floatformat:2|intcomma  }}/MO
+    {% else %}
+        ${{ j.id|FindPlanFixedPrice|floatformat:2|intcomma }}/MO
+    {% endif %}
+</span>
 </span>
 </div>
 <div class=" justify-content-left text-left mt-7 media position-relative align-items-center">

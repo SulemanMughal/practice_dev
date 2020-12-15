@@ -23,6 +23,7 @@ from apps.admin import my_admin_site
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import GenericSitemap
 from apps.models import plan
+from apps.views import SET_PLAN_SLOT_VALUES
 from apps.sitemaps import StaticSitemap
 info_dict = {
     'queryset': plan.objects.all(),
@@ -37,6 +38,11 @@ sitemaps={
 ###################################
 urlpatterns = [
     path('admin/', my_admin_site.urls),
+    
+    # ? Admin: Set Category Plan Slot Values
+    path('admin/<int:category_id>/plan/<int:cp_id>/set/slots-values/', SET_PLAN_SLOT_VALUES, name="SET_PLAN_SLOT_VALUES_URL" ),
+
+    
     url(r'', include('apps.urls')),
     url(r'^blog/', include('blog.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),

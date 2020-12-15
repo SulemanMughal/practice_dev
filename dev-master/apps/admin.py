@@ -8,6 +8,7 @@ from django.urls import reverse
 from django.contrib.sites.shortcuts import get_current_site
 from django.conf import settings
 from blog.models import *
+from django.utils.html import format_html
 
 class MyAdminSite(AdminSite):
     site_header = 'Circledin Admin'
@@ -34,18 +35,18 @@ class planAdmin(admin.ModelAdmin):
 
     list_display = [
         'user',
-        
         'category' , 
         'plan_name', 
         'family_name', 
-        'total_slots', 
-        'currently_monthly_payment_per_line', 
-        'status'
+        'status',
+        # 'Values'
     ]
     list_filter=[
         'category',
         'status'
     ]
+
+
 
     # list_per_page = 10
 
@@ -253,17 +254,39 @@ class postCommentAdmin(admin.ModelAdmin):
         'publish'
     ]
 
+# Customize Category Plan Name Admin Model
+class CategoryPlanNameAdmin(admin.ModelAdmin):
+    list_display = [
+        'category',
+        'name',
+        'plan_price',
+        'average_switch',
+        'Values',
+    ]
+    list_editable = [
+        'plan_price',
+        'average_switch'
+    ]
+    list_filter=[
+        'average_switch',
+    ]
+
+    # ? CATEGORY PLAN SLOT VALUES LINK
+    def Values(self, obj):
+        return format_html("<a href='/admin/%s/plan/%s/set/slots-values/' target='_blank'>%s</a>" % (obj.category.id, obj.id, "Update Slot Values"))
+    Values.short_description = 'Slot Values'
+
 # Related to User Profile Management
 my_admin_site.register(Group, GroupAdmin)
 my_admin_site.register(User, UserAdmin)
 my_admin_site.register(profileModel, profileAdmin)
-
+my_admin_site.register(CategoryPlanName, CategoryPlanNameAdmin)
 my_admin_site.register(category, categoryAdmin)
 my_admin_site.register(plan, planAdmin)
 my_admin_site.register(subscription, subscriptionAdmin)
 my_admin_site.register(commentPlan)
 my_admin_site.register(Api_key)
-my_admin_site.register(CategoryPlanName)
+
 my_admin_site.register(Address)
 my_admin_site.register(PayPal)
 my_admin_site.register(planFamilyRules, planFamilyRulesAdmin)

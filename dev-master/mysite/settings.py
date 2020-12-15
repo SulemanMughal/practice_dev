@@ -181,8 +181,8 @@ HUBSPOT = "8273202.js"
 
 # -------------------------------------------------------------------
 # ? Google Analyst 
-GOOGLE_ANALYST_SITE = "https://www.googletagmanager.com/gtag/js?id=UA-180318163-1"
-GOOGLE_ANALYST_SITE_ID = "UA-180318163-1"
+GOOGLE_ANALYST_SITE = "https://www.googletagmanager.com/gtag/js?id=G-0SP6Y09ZDY"
+GOOGLE_ANALYST_SITE_ID = "G-0SP6Y09ZDY"
 # -------------------------------------------------------------------
 
 # -------------------------------------------------------------------
