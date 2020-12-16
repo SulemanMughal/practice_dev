@@ -231,32 +231,24 @@ class plan(models.Model):
     def get_category_plan_slots_values(self):
         A = {}
         try:
-            # return CategoryPlanName.objects.get(category = self.category, name = self.plan_name).categoryslotvalues_set.all()
             for i in CategoryPlanName.objects.get(category = self.category, name = self.plan_name).categoryslotvalues_set.all():
-                # A[i] = CategoryPlanName.objects.get(category = self.category, name = self.plan_name).categoryslotvalues_set.all()[i]
                 A[int(i.slot_number)] =int(i.slot_value)
-            # print("*"*60)
             return A
         except Exception as e:
-            # print("*"*60)
-            print(e)
             return {}
 
     # ****************************************************************
     # Get current plan category average value for monthly charges
     # ****************************************************************
-    def get_category_plan_average_value_for_subscription(self):
-        average = 0
+    def get_category_plan_value_for_subscription(self):
+        current_size = self.currentFamilySize
+        A = {}
         try:
-            if self.total_slots != 0:
-                for  i in range(self.currentFamilySize+1):
-                    average += int(CategoryPlanName.objects.get(category = self.category, name = self.plan_name).categoryslotvalues_set.all()[i].slot_value)
-                average/=(self.currentFamilySize+1)
-                return average
-            else:
-                return self.get_category_average_fixed_price()
-        except :
-            return self.get_category_average_fixed_price()
+            for i in CategoryPlanName.objects.get(category = self.category, name = self.plan_name).categoryslotvalues_set.all():
+                A[int(i.slot_number)] =int(i.slot_value)
+            return A[int(current_size)+1]
+        except Exception as e:
+            return 0
 
 
 # ****************************************************************
@@ -413,7 +405,7 @@ class Email_Newsletter(models.Model):
 class categorySlotValues(models.Model):
     categoryplanname = models.ForeignKey(CategoryPlanName, on_delete=models.CASCADE)
     slot_number = models.CharField(max_length=2, verbose_name="Category Plan Slot Number", default = "1", blank=False, null=False, )
-    slot_value = models.CharField(max_length = 4, verbose_name="Category  Plan Slot Value", default = "50", blank = False,null=False, help_text="Plan Slot Value")
+    slot_value = models.CharField(max_length = 4, verbose_name="Category  Plan Slot Value", default = "50", blank = False, null=False, help_text="Plan Slot Value")
 
     def __str__(self):
         return "{}-{}-{}".format(self.categoryplanname, self.slot_number, self.slot_value)

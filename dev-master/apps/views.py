@@ -1018,9 +1018,10 @@ def charge(request):
                         total_slots = p.total_slots
                         dictA=  p.get_category_plan_slots_values()
                         total_amount = 0
-                        for i in range(1, (p.currentFamilySize + int(number_of_slots))+1):
-                            total_amount += dictA[i]
-                        total_amount = int(total_amount/(p.currentFamilySize + int(number_of_slots)))
+                        # for i in range(1, (p.currentFamilySize + int(number_of_slots))+1):
+                        #     total_amount += dictA[i]
+                        # total_amount = int(total_amount/(p.currentFamilySize + int(number_of_slots)))
+                        total_amount = dictA[int(currentFamilySize) + int(data['number_of_slots'])]*int(data['number_of_slots'])
                         obj.TotalAmount = total_amount
                         obj.save()
                         p.total_slots = p.total_slots - int(obj.number_of_slots)
@@ -1499,9 +1500,10 @@ def Join_A_Plan_Get_A_New_Number(request, category_id, plan_id):
         total_slots = p.total_slots
         dictA=  p.get_category_plan_slots_values()
         total_amount = 0
-        for i in range(1, (p.currentFamilySize + int(number_of_slots))+1):
-            total_amount += dictA[i]
-        total_amount = round(total_amount/(p.currentFamilySize + int(number_of_slots)), 2)
+        # for i in range(1, (p.currentFamilySize + int(number_of_slots))+1):
+        #     total_amount += dictA[i]
+        # total_amount = round(total_amount/(p.currentFamilySize + int(number_of_slots)), 2)
+        total_amount=round(dictA[int(currentFamilySize)+int(number_of_slots)]*int(number_of_slots), 2)
         context={
             'category' : c,
             'plan' : p,
@@ -1526,9 +1528,10 @@ def Join_A_Plan_Existing_Customer(request, category_id, plan_id):
         total_slots = p.total_slots
         dictA=  p.get_category_plan_slots_values()
         total_amount = 0
-        for i in range(1, (p.currentFamilySize + int(number_of_slots))+1):
-            total_amount += dictA[i]
-        total_amount = round(total_amount/(p.currentFamilySize + int(number_of_slots)), 2)
+        # for i in range(1, (p.currentFamilySize + int(number_of_slots))+1):
+        #     total_amount += dictA[i]
+        # total_amount = round(total_amount/(p.currentFamilySize + int(number_of_slots)), 2)
+        total_amount=round(dictA[int(currentFamilySize)+int(number_of_slots)]*int(number_of_slots), 2)
         context={
             'category' : c,
             'plan' : p,
@@ -1557,9 +1560,10 @@ def Join_A_Plan_Switch_Carrier(request, category_id, plan_id):
         total_slots = p.total_slots
         dictA=  p.get_category_plan_slots_values()
         total_amount = 0
-        for i in range(1, (p.currentFamilySize + int(number_of_slots))+1):
-            total_amount += dictA[i]
-        total_amount = round(total_amount/(p.currentFamilySize + int(number_of_slots)), 2)
+        # for i in range(1, (p.currentFamilySize + int(number_of_slots))+1):
+        #     total_amount += dictA[i]
+        # total_amount = round(total_amount/(p.currentFamilySize + int(number_of_slots)), 2)
+        total_amount=round(dictA[int(currentFamilySize)+int(number_of_slots)]*int(number_of_slots), 2)
         context={
             'category' : c,
             'plan' : p,

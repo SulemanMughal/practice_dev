@@ -269,9 +269,9 @@
           <div class="card-body">
           <div class="position-relative text-right mt-n8 mr-n4 mb-5 ">
             <span class="badge badge-pill  text-white shadow-lg {% if plan.category.Name == 'Verizon' %} bg-verizon-plan-card {% elif plan.category.Name == 'T-Mobile' %} badge-T-Mobile-bg-join {% else %} badge-danger {% endif %}"  >
-                <span class="h5 text-uppercase">
+                <span class="h5 text-uppercase" id="plan-join-badge">
                     {% if  plan.get_category_average_switch_value %}
-                      ${{ plan.get_category_plan_average_value_for_subscription|floatformat:2|intcomma }}/MO
+                      ${{ plan.get_category_plan_value_for_subscription|floatformat:2|intcomma }}/MO
                     {% else %}
                       ${{ plan.id|FindPlanFixedPrice|floatformat:2|intcomma }}/MO
                     {% endif %}
@@ -314,10 +314,10 @@
                   </div>
                   <div class="col col-md   mr-0  pl-0">
                     <span class="card-title font-weight-bold mb-0 font-size-sm text-right float-right"   id="payment" data="{% if  plan.get_category_average_switch_value %}
-                    {{ plan.get_category_plan_average_value_for_subscription }}
+                    {{ plan.get_category_plan_value_for_subscription }}
                   {% else %}
                     {{ plan.id|FindPlanFixedPrice|intcomma }}
-                  {% endif %}" >$<span id="paymentSub">{% if  plan.get_category_average_switch_value %}{{ plan.get_category_plan_average_value_for_subscription }}{% else %}{{ plan.id|FindPlanFixedPrice|intcomma }}{% endif %}</span>/month
+                  {% endif %}" >$<span id="paymentSub">{% if  plan.get_category_average_switch_value %}{{ plan.get_category_plan_value_for_subscription }}{% else %}{{ plan.id|FindPlanFixedPrice|intcomma }}{% endif %}</span>/month
                   </span>
                   </div>
                 </div>

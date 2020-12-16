@@ -35,7 +35,7 @@
 <span class="badge {% if  j.total_slots != 0 %}{% if j.category.Name == 'Verizon' %} badge-Verizon-bg {% elif j.category.Name == 'T-Mobile' %} badge-T-Mobile-bg {% else %} badge-danger {% endif %} {% else %} bg-Puerto-Rico {% endif %}">
 <span class="h5 text-uppercase font-weight-bolder">
     {% if  j.get_category_average_switch_value %}
-        ${{ j.get_category_plan_average_value_for_subscription|floatformat:2|intcomma  }}/MO
+        ${{ j.get_category_plan_value_for_subscription|floatformat:2|intcomma  }}/MO
     {% else %}
         ${{ j.id|FindPlanFixedPrice|floatformat:2|intcomma }}/MO
     {% endif %}
