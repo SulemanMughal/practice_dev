@@ -256,7 +256,7 @@ else{
   valid=true;
     $("#account-owner-no-select-option").hide();
     if($("#option11").prop("checked") == true){
-      $("#30-days-active-line-invalid").show();
+      // $("#30-days-active-line-invalid").show();
     }
     else{
       $("#30-days-active-line-invalid").hide();
@@ -274,7 +274,7 @@ else{
   valid=true
     $("#30-days-active-line-no-select-option").hide();
     if($("#option21").prop("checked") == true){
-      $("#account-owner-invalid").show();
+      // $("#account-owner-invalid").show();
     }
     else{
       $("#account-owner-invalid").hide();
@@ -314,7 +314,7 @@ function fixStepIndicator(n) {
     $("#option11").on("change", function(){
       $("#30-days-active-line-no-select-option").hide();
       if($(this).prop("checked") == true){
-        $("#30-days-active-line-invalid").show();
+        // $("#30-days-active-line-invalid").show();
         $("#active-line-response").html("No");
         $("#30-days-active-line-no-select-option").hide();
       }
@@ -330,7 +330,7 @@ function fixStepIndicator(n) {
     $("#option21").on("change", function(){
       $("#account-owner-no-select-option").hide();
       if($(this).prop("checked") == true){
-        $("#account-owner-invalid").show();
+        // $("#account-owner-invalid").show();
         $("#account-owner-response").html("No");
         $("#account-owner-no-select-option").hide();
       }

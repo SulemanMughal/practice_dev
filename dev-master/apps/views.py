@@ -1021,7 +1021,10 @@ def charge(request):
                         # for i in range(1, (p.currentFamilySize + int(number_of_slots))+1):
                         #     total_amount += dictA[i]
                         # total_amount = int(total_amount/(p.currentFamilySize + int(number_of_slots)))
-                        total_amount = dictA[int(currentFamilySize) + int(data['number_of_slots'])]*int(data['number_of_slots'])
+                        if(p.get_category_average_switch_value()):
+                            total_amount = dictA[int(currentFamilySize) + int(data['number_of_slots'])]*int(data['number_of_slots'])
+                        else:
+                            total_amount = round((p.get_category_average_fixed_price() * int(number_of_slots)) + (5*(int(number_of_slots))) , 2)
                         obj.TotalAmount = total_amount
                         obj.save()
                         p.total_slots = p.total_slots - int(obj.number_of_slots)
@@ -1459,10 +1462,6 @@ def schedule_call(request):
     return render(request,'Landkit/schedule_call.html',{'schedule_call':True})
 
 
-
-
-
-
 # Testing Email
 def send(request):
     email = request.GET.get('email')
@@ -1486,7 +1485,7 @@ def Email_Collector(request):
 
 
 
-# GET A NEW NUMBER PAGE
+# TODO: GET A NEW NUMBER PAGE
 @login_required
 def Join_A_Plan_Get_A_New_Number(request, category_id, plan_id):
     if request.method != "POST":
@@ -1500,10 +1499,17 @@ def Join_A_Plan_Get_A_New_Number(request, category_id, plan_id):
         total_slots = p.total_slots
         dictA=  p.get_category_plan_slots_values()
         total_amount = 0
+        # print("*"*60)
+        # print(p.get_category_average_switch_value())
+        # print("60"*60)
         # for i in range(1, (p.currentFamilySize + int(number_of_slots))+1):
         #     total_amount += dictA[i]
         # total_amount = round(total_amount/(p.currentFamilySize + int(number_of_slots)), 2)
-        total_amount=round(dictA[int(currentFamilySize)+int(number_of_slots)]*int(number_of_slots), 2)
+        if(p.get_category_average_switch_value()):
+            total_amount=round(dictA[int(currentFamilySize)+int(number_of_slots)]*int(number_of_slots), 2)
+        else:
+            # total_amount=round(dictA[int(currentFamilySize)+int(number_of_slots)]*int(number_of_slots), 2)
+            total_amount = round((p.get_category_average_fixed_price() * int(number_of_slots)) + (5*(int(number_of_slots))) , 2)
         context={
             'category' : c,
             'plan' : p,
@@ -1531,7 +1537,10 @@ def Join_A_Plan_Existing_Customer(request, category_id, plan_id):
         # for i in range(1, (p.currentFamilySize + int(number_of_slots))+1):
         #     total_amount += dictA[i]
         # total_amount = round(total_amount/(p.currentFamilySize + int(number_of_slots)), 2)
-        total_amount=round(dictA[int(currentFamilySize)+int(number_of_slots)]*int(number_of_slots), 2)
+        if(p.get_category_average_switch_value()):
+            total_amount=round(dictA[int(currentFamilySize)+int(number_of_slots)]*int(number_of_slots), 2)
+        else:
+            total_amount = round((p.get_category_average_fixed_price() * int(number_of_slots)) + (5*(int(number_of_slots))) , 2)
         context={
             'category' : c,
             'plan' : p,
@@ -1563,7 +1572,10 @@ def Join_A_Plan_Switch_Carrier(request, category_id, plan_id):
         # for i in range(1, (p.currentFamilySize + int(number_of_slots))+1):
         #     total_amount += dictA[i]
         # total_amount = round(total_amount/(p.currentFamilySize + int(number_of_slots)), 2)
-        total_amount=round(dictA[int(currentFamilySize)+int(number_of_slots)]*int(number_of_slots), 2)
+        if(p.get_category_average_switch_value()):
+            total_amount=round(dictA[int(currentFamilySize)+int(number_of_slots)]*int(number_of_slots), 2)
+        else:
+            total_amount = round((p.get_category_average_fixed_price() * int(number_of_slots)) + (5*(int(number_of_slots))) , 2)
         context={
             'category' : c,
             'plan' : p,

@@ -413,6 +413,9 @@
               {{ plan.currentFamilySize|json_script:"currentFamilySize" }}
               {{ plan.total_slots|json_script:"plan_total_slots" }}
               {{ plan.get_category_plan_slots_values|json_script:"dictValues" }}
+              {{ plan.get_category_average_fixed_price|json_script:"plan_price" }}
+              {{ plan.get_category_average_switch_value|json_script:"average_switch_status" }}
+              
           </div>
         </div>
       </div>

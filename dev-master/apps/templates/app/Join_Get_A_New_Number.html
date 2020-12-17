@@ -241,7 +241,9 @@ function validateForm() {
 $.each($("input[name='IMEI']"), function(){
     if($(this).val().trim() == ""){
         $(this).addClass("invalid");
-        valid = false;        
+        valid = false;         
+        // $("body,html").animate({scrollTop : $(this).first().offset().top},800);
+        
     }
     else{
         $(this).removeClass("invalid");
@@ -249,21 +251,23 @@ $.each($("input[name='IMEI']"), function(){
 });
 
 // ICCID VALUE EMPTY VALUE HANDLER
-$.each($("input[name='ICCID']"), function(){
-    if($(this).val().trim() == ""){
-        $(this).addClass("invalid");
-        valid = false;        
-    }
-    else{
-        $(this).removeClass("invalid");
-    }
-});
+// $.each($("input[name='ICCID']"), function(){
+//     if($(this).val().trim() == ""){
+//         $(this).addClass("invalid");
+//         valid = false;        
+//     }
+//     else{
+//         $(this).removeClass("invalid");
+//     }
+// });
 
 // AREA CODE VALUE EMPTY VALUE HANDLER
 $.each($("input[name='AreaCode']"), function(){
     if($(this).val().trim() == ""){
         $(this).addClass("invalid");
         valid = false;        
+        // $("body,html").animate({scrollTop : $(this).first().offset().top},800);
+        // $(this).focus();
     }
     else{
         $(this).removeClass("invalid");
@@ -275,6 +279,30 @@ $.each($("input[name='AreaCode']"), function(){
   // If the valid status is true, mark the step as finished and valid:
   if (valid) {
     document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  var validIMEI = false;
+  if(!valid){
+    for(var i = 0;  i < $("input[name='IMEI']").length; i++){
+      if($($("input[name='IMEI']")[i]).val().trim() == ""){
+        $("body,html").animate({scrollTop :$($("input[name='IMEI']")[i]).offset().top-80},800);
+        $($("input[name='IMEI']")[i]).focus();
+        validIMEI = false;
+        break;
+      }
+      else{
+        validIMEI = true;
+      }
+    }
+    if(validIMEI){
+      for(var i = 0;  i < $("input[name='AreaCode']").length; i++){
+      if($($("input[name='AreaCode']")[i]).val().trim() == ""){
+        $("body,html").animate({scrollTop : $($("input[name='AreaCode']")[i]).offset().top},800);
+        $($("input[name='AreaCode']")[i]).focus();
+        break;
+      }
+    }
+    }
+    
   }
   return valid; // return the valid status
 }

@@ -314,6 +314,7 @@ y = x[currentTab].getElementsByTagName("input");
 if($("#option11").prop("checked") != true && $("#option12").prop("checked") != true ){
     valid=false;
     $("#port-number-no-select-option").show();
+    
 }
 else{
     $("#port-number-no-select-option").hide();
@@ -324,6 +325,8 @@ $.each($("input[name='IMEI']"), function(){
     if($(this).val().trim() == ""){
         $(this).addClass("invalid");
         valid = false;        
+        // $("body,html").animate({scrollTop : $($("input[name='AreaCode']")[i]).offset().top},800);
+        // $(this).focus();
     }
     else{
         $(this).removeClass("invalid");
@@ -331,15 +334,15 @@ $.each($("input[name='IMEI']"), function(){
 });
 
 // ICCID VALUE EMPTY VALUE HANDLER
-$.each($("input[name='ICCID']"), function(){
-    if($(this).val().trim() == ""){
-        $(this).addClass("invalid");
-        valid = false;        
-    }
-    else{
-        $(this).removeClass("invalid");
-    }
-});
+// $.each($("input[name='ICCID']"), function(){
+//     if($(this).val().trim() == ""){
+//         $(this).addClass("invalid");
+//         valid = false;        
+//     }
+//     else{
+//         $(this).removeClass("invalid");
+//     }
+// });
 
 // AREA CODE VALUE EMPTY VALUE HANDLER
 if($("#option11").prop("checked") == true){
@@ -347,6 +350,8 @@ if($("#option11").prop("checked") == true){
     if($(this).val().trim() == ""){
         $(this).addClass("invalid");
         valid = false;        
+        // $("body,html").animate({scrollTop : $(window).scrollTop($(this).position().top)},800);
+        // $(this).focus();
     }
     else{
         $(this).removeClass("invalid");
@@ -370,6 +375,7 @@ if($("#switch_2").val().trim() == "" || $("#switch_3").val().trim() == "" || $("
         $("#switch_4").addClass("invalid");
     }
     valid = false;
+    
 }
 
 // switch_1 VALUE EMPTY VALUE HANDLER
@@ -377,6 +383,8 @@ $.each($("input[name='switch_1']"), function(){
     if($(this).val().trim() == ""){
         $(this).addClass("invalid");
         valid = false;        
+        // $("body,html").animate({scrollTop : $(window).scrollTop($(this).position().top)},800);
+        // $(this).focus();
     }
     else{
         $(this).removeClass("invalid");
@@ -493,6 +501,74 @@ else{
 if (valid) {
 document.getElementsByClassName("step")[currentTab].className += " finish";
 }
+
+var validIMEI = false;
+var validOptions_Selection = false
+var validphone  =false
+if(!valid){
+    for(var i = 0;  i < $("input[name='IMEI']").length; i++){
+      if($($("input[name='IMEI']")[i]).val().trim() == ""){
+        $("body,html").animate({scrollTop :$($("input[name='IMEI']")[i]).offset().top-80},800);
+        $($("input[name='IMEI']")[i]).focus();
+        validIMEI = false;
+        break;
+      }
+      else{
+        validIMEI = true;
+      }
+    }
+}
+if(validIMEI){
+    if($("#option11").prop("checked") != true && $("#option12").prop("checked") != true){
+        $("body,html").animate({scrollTop : $("#option11").offset().top},800);
+        validOptions_Selection = false;
+    }
+    else{
+        validOptions_Selection = true;
+    }
+}
+if(validOptions_Selection){
+    if($("#option11").prop("checked") == true){
+    for(var i = 0;  i < $("input[name='AreaCode']").length; i++){
+      if($($("input[name='AreaCode']")[i]).val().trim() == ""){
+        $("body,html").animate({scrollTop : $($("input[name='AreaCode']")[i]).offset().top},800);
+        $($("input[name='AreaCode']")[i]).focus();
+        break;
+      }
+    }
+    }
+    else{
+        for(var i = 0;  i < $("input[name='switch_1']").length; i++){
+      if($($("input[name='switch_1']")[i]).val().trim() == ""){
+        $("body,html").animate({scrollTop : $($("input[name='switch_1']")[i]).offset().top -80},800);
+        $($("input[name='switch_1']")[i]).focus();
+        validphone = false
+        break;
+      }
+      else{
+        validphone =true
+      }
+    }  
+    if( validphone && $("#switch_2").val().trim() == ""){
+        $("body,html").animate({scrollTop : $("#switch_2").offset().top -80},800);
+        $("#switch_2").focus();
+    }
+
+    if( validphone && $("#switch_3").val().trim() == ""  && $("#switch_2").val().trim() != ""){
+        $("body,html").animate({scrollTop : $("#switch_3").offset().top -80},800);
+        $("#switch_3").focus();
+    }
+
+    if( validphone && $("#switch_3").val().trim() != ""  && $("#switch_2").val().trim() != "" && $("#switch_4").val().trim() == ""){
+        $("body,html").animate({scrollTop : $("#switch_4").offset().top -80},800);
+        $("#switch_4").focus();
+    }
+
+    }
+    
+}
+
+
 return valid; // return the valid status
 }
 
