@@ -206,3 +206,7 @@ CALENDLY_SITE_DATA_URL = "https://calendly.com/circledin?hide_landing_page_detai
 # CKEDITOR
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_BASEPATH = "/my_static/ckeditor/ckeditor/"
+
+
+# ? CACHE POLICY
+CACHE_MIDDLEWARE_SECONDS = 90*60
