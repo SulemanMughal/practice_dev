@@ -59,6 +59,7 @@ def printlogError():
 def home(request):
     form = planForm()
     error = None
+    section_home = True
     if request.method == "POST" and request.is_ajax:
         form = planForm(request.POST)
         try:
@@ -101,6 +102,7 @@ def home(request):
             categories = category.objects.all()
         context={
             'value': value, 'categories': categories,  'form': form, 'error': error, 'filters': category.objects.all(), 
+            "section_home": section_home
         }
         return render(request, 'music/home.html',context )
 
