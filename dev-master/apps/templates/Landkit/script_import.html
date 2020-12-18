@@ -1,50 +1,16 @@
 {% load static settings_value %}
-
-<script
-  type="text/javascript"
-  src="{% static 'Landkit/js/bootstrap.bundle.min.js' %}"
-  defer
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'Landkit/js/jquery.fancybox.min.js' %}"
-  defer
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'Landkit/js/isotope.pkgd.min.js' %}"
-  defer
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'Landkit/js/theme.min.js' %}"
-  defer
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'music/js/bootstrap-select.js' %}"
-  defer
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'music/js/script.js' %}"
-  defer
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'music/js/General_script.js' %}"
-  defer
-></script>
+<script type="text/javascript" src="{% static 'Landkit/js/bootstrap.bundle.min.js' %}" defer ></script>
+<script type="text/javascript" src="{% static 'Landkit/js/jquery.fancybox.min.js' %}" defer ></script>
+<script type="text/javascript" src="{% static 'Landkit/js/isotope.pkgd.min.js' %}" defer ></script>
+<script type="text/javascript" src="{% static 'Landkit/js/theme.min.js' %}" defer ></script>
+<script type="text/javascript" src="{% static 'music/js/script.js' %}" defer ></script>
+<script type="text/javascript" src="{% static 'music/js/General_script.js' %}" defer ></script>
 <script src="{% static 'Landkit/js/flickity.pkgd.min.js' %}"></script>
 <script src="{% static 'Landkit/js/flickity-fade.js' %}"></script>
 
 {% if request.user.is_authenticated %}
-
-<script
-  type="text/javascript"
-  src="{% static 'music/js/countrySelect.js' %}"
-  defer
-></script>
+<script type="text/javascript" src="{% static 'music/js/bootstrap-select.js' %}" defer ></script>
+<script type="text/javascript" src="{% static 'music/js/countrySelect.js' %}" defer ></script>
 <script
   type="text/javascript"
   src="{% static 'music/js/bootstrap-datepicker.js' %}"
@@ -77,200 +43,65 @@
 </script>
 {% else %}
 <script>
-  $(document).ready(function () {
-    $("#modalSigninHorizontal").on("show.bs.modal", function (e) {
-      $("#modalSignupHorizontal").modal("hide");
-      $("#modalSignupHorizontal").modal("handleUpdate");
-    });
-    $("#modalSigninHorizontal").on("hidden.bs.modal", function (e) {
-      $("#signInModalForm").get(0).reset();
-      $("#signInModalForm_errors").html(
-        "&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; "
-      );
-    });
-    $("#modalSignupHorizontal").on("show.bs.modal", function (e) {
-      $("#modalSigninHorizontal").modal("hide");
-      $("#modalSignupHorizontal").modal("handleUpdate");
-    });
-    $("#modalSignupHorizontal").on("hidden.bs.modal", function (e) {
-      Validate();
-      $("#id_registrationForm").get(0).reset();
-      $("div.password-strength__bar")
-        .attr("aria-valuenow", "0")
-        .css("width", "0%");
-      $("#modalSignupHorizontal").modal("hide");
-      $("#signupModalForm_errors").html(
-        "&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; "
-      );
-      $(".button-loader").button("reset");
-    });
-    $("#modalPasswordResetVertical").on("show.bs.modal", function (e) {
-      $("#modalSignupHorizontal").modal("hide");
-      $("#modalSigninHorizontal").modal("hide");
-    });
-    $("#id_forgotForm").submit(function (e) {
-      e.preventDefault();
-      var post_url = $("#id_forgotForm").attr("action");
-      $(".button-loader").button("loading");
-      $.ajax({
-        type: "POST",
-        url: post_url,
-        data: $("#id_forgotForm").serialize(),
-      }).done(function (html) {
-        $("body").append(html);
-        $("#exampleModalSuccessFullPasswordReset").modal("show");
-        $("#modalPasswordResetVertical").modal("hide");
-        $("#id_forgotForm").get(0).reset();
-        $(".button-loader").button("reset");
-      });
-    });
-  });
+$(document).ready(function () {
+$("#modalSigninHorizontal").on("show.bs.modal", function (e) {
+$("#modalSignupHorizontal").modal("hide");
+$("#modalSignupHorizontal").modal("handleUpdate");
+});
+$("#modalSigninHorizontal").on("hidden.bs.modal", function (e) {
+$("#signInModalForm").get(0).reset();
+$("#signInModalForm_errors").html(
+"&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; "
+);
+});
+$("#modalSignupHorizontal").on("show.bs.modal", function (e) {
+$("#modalSigninHorizontal").modal("hide");
+$("#modalSignupHorizontal").modal("handleUpdate");
+});
+$("#modalSignupHorizontal").on("hidden.bs.modal", function (e) {
+Validate();
+$("#id_registrationForm").get(0).reset();
+$("div.password-strength__bar")
+.attr("aria-valuenow", "0")
+.css("width", "0%");
+$("#modalSignupHorizontal").modal("hide");
+$("#signupModalForm_errors").html(
+"&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; "
+);
+$(".button-loader").button("reset");
+});
+$("#modalPasswordResetVertical").on("show.bs.modal", function (e) {
+$("#modalSignupHorizontal").modal("hide");
+$("#modalSigninHorizontal").modal("hide");
+});
+$("#id_forgotForm").submit(function (e) {
+e.preventDefault();
+var post_url = $("#id_forgotForm").attr("action");
+$(".button-loader").button("loading");
+$.ajax({
+type: "POST",
+url: post_url,
+data: $("#id_forgotForm").serialize(),
+}).done(function (html) {
+$("body").append(html);
+$("#exampleModalSuccessFullPasswordReset").modal("show");
+$("#modalPasswordResetVertical").modal("hide");
+$("#id_forgotForm").get(0).reset();
+$(".button-loader").button("reset");
+});
+});
+});
 </script>
 {% endif %} {% block javascript %} {% if error %}
 <script>
-  $(document).ready(function () {
-    $("#exampleModal").modal("show");
-  });
+$(document).ready(function () {
+$("#exampleModal").modal("show");
+});
 </script>
 {% endif %} {% if send_successfull_contact %}
 <script>
-  $(document).ready(function () {
-    $("#exampleModalContact").modal("show");
-  });
+$(document).ready(function () {
+$("#exampleModalContact").modal("show");
+});
 </script>
-{% endif %}
-
-<script src="https://www.google.com/recaptcha/api.js?render={% settings_value 'RECAPTCHA_SITE_KEY' %}"></script>
-
-<script>
-  setTimeout(function () {
-    var script = document.createElement("script");
-    script.src = "//js.hs-scripts.com/{% settings_value 'HUBSPOT' %}";
-    script.id = "hs-script-loader";
-    script.async = true;
-    script.defer = true;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  }, 5000);
-
-  grecaptcha.ready(function () {
-    $("#id_registrationForm").submit(function (e) {
-      var form = this;
-      e.preventDefault();
-      grecaptcha
-        .execute('{% settings_value "RECAPTCHA_SITE_KEY" %}', {
-          action: "{% url 'register' %}",
-        })
-        .then(function (token) {
-          $("#recaptcha").val(token);
-          e.preventDefault();
-          var serializedData = $("#id_registrationForm").serialize();
-          if ($("#id_contactNumber").val().length == 12) {
-            $(".button-loader").button("loading");
-            $.ajax({
-              type: "POST",
-              url: "{% url 'register' %}",
-              data: serializedData,
-              success: function (response) {
-                $("#modalSignupHorizontal").modal("hide");
-                $("#exampleModalActivation").modal("show");
-                $("#exampleModalActivationTitle").html(response["instance"]);
-                $(".button-loader").button("reset");
-              },
-              error: function (response) {
-                $(".button-loader").button("reset");
-                var h = "";
-                for (var key in response["responseJSON"]["error"]) {
-                  if (response["responseJSON"]["error"].hasOwnProperty(key)) {
-                    h =
-                      h +
-                      "<li>" +
-                      response["responseJSON"]["error"][key] +
-                      "</li>";
-                  }
-                  $("#signupModalForm_errors").html(h);
-                }
-              },
-            });
-          } else {
-            $("#signupModalForm_errors").html(
-              "<li>Please enter a valid contact number.</li>"
-            );
-          }
-        });
-    });
-    $("#signInModalForm").submit(function (e) {
-      e.preventDefault();
-      grecaptcha
-        .execute('{% settings_value "RECAPTCHA_SITE_KEY" %}', {
-          action: "{% url 'login' %}",
-        })
-        .then(function (token) {
-          $("#recaptcha_signin").val(token);
-          var form = this;
-          e.preventDefault();
-          $(".button-loader").button("loading");
-          var serializedData = $("#signInModalForm").serialize();
-          $.ajax({
-            type: "POST",
-            url: "{% url 'login' %}",
-            data: serializedData,
-            success: function (response) {
-              window.location.href = response["instance"];
-            },
-            error: function (response) {
-              $("#signInModalForm_errors").html(
-                response["responseJSON"]["error"]
-              );
-              $("#modalSigninVerticalPassword").val("");
-              $(".button-loader").button("reset");
-            },
-          });
-        });
-    });
-    if ($("#contactForm").length) {
-      $("#contact_submit").on("click", function (e) {
-        e.preventDefault();
-        if ($("#contactForm")[0].checkValidity() === true) {
-          var form = this;
-          $(".button-loader").button("loading");
-          grecaptcha
-            .execute('{% settings_value "RECAPTCHA_SITE_KEY" %}', {
-              action: "{% url 'contact' %}",
-            })
-            .then(function (token) {
-              $("#recaptcha_contact").val(token);
-              $("#contactForm").submit();
-            });
-        } else {
-          $("#contactForm").addClass("was-validated");
-        }
-      });
-    }
-    if ($("#recaptcha_join").length) {
-      grecaptcha
-        .execute('{% settings_value "RECAPTCHA_SITE_KEY" %}', {
-          action: "/join/",
-        })
-        .then(function (token) {
-          $("#recaptcha_join").val(token);
-        });
-    }
-    if ($("#exampleModalpayment_error").length) {
-      $("#exampleModalpayment_error_form").submit(function (e) {
-        e.preventDefault();
-        var serializedData = $("#exampleModalpayment_error_form").serialize();
-        $.ajax({
-          type: "POST",
-          url: $(this).attr("action"),
-          data: serializedData,
-        }).done(function (html) {
-          $("body").append(html);
-          $("#exampleModal_subscription_issue").modal("show");
-          $("#exampleModalpayment_error").modal("hide");
-        });
-      });
-    }
-  });
-</script>
-
-{% endblock javascript %}
+{% endif %}<script src="https://www.google.com/recaptcha/api.js?render={% settings_value 'RECAPTCHA_SITE_KEY' %}"></script><script>setTimeout(function () {var script = document.createElement("script");script.src = "//js.hs-scripts.com/{% settings_value 'HUBSPOT' %}";script.id = "hs-script-loader";script.async = true;script.defer = true;document.getElementsByTagName("head")[0].appendChild(script);}, 5000);grecaptcha.ready(function () {$("#id_registrationForm").submit(function (e) {var form = this;e.preventDefault();grecaptcha.execute('{% settings_value "RECAPTCHA_SITE_KEY" %}', {action: "{% url 'register' %}",}).then(function (token) {$("#recaptcha").val(token);e.preventDefault();var serializedData = $("#id_registrationForm").serialize();if ($("#id_contactNumber").val().length == 12) {$(".button-loader").button("loading");$.ajax({type: "POST",url: "{% url 'register' %}",data: serializedData,success: function (response) {$("#modalSignupHorizontal").modal("hide");$("#exampleModalActivation").modal("show");$("#exampleModalActivationTitle").html(response["instance"]);$(".button-loader").button("reset");},error: function (response) {$(".button-loader").button("reset");var h = "";for (var key in response["responseJSON"]["error"]) {if (response["responseJSON"]["error"].hasOwnProperty(key)) {h =h +"<li>" +response["responseJSON"]["error"][key] +"</li>";}$("#signupModalForm_errors").html(h);}},});} else {$("#signupModalForm_errors").html("<li>Please enter a valid contact number.</li>");}});});$("#signInModalForm").submit(function (e) {e.preventDefault();grecaptcha.execute('{% settings_value "RECAPTCHA_SITE_KEY" %}', {action: "{% url 'login' %}",}).then(function (token) {$("#recaptcha_signin").val(token);var form = this;e.preventDefault();$(".button-loader").button("loading");var serializedData = $("#signInModalForm").serialize();$.ajax({type: "POST",url: "{% url 'login' %}",data: serializedData,success: function (response) {window.location.href = response["instance"];},error: function (response) {$("#signInModalForm_errors").html(response["responseJSON"]["error"]);$("#modalSigninVerticalPassword").val("");$(".button-loader").button("reset");},});});});if ($("#contactForm").length) {$("#contact_submit").on("click", function (e) {e.preventDefault();if ($("#contactForm")[0].checkValidity() === true) {var form = this;$(".button-loader").button("loading");grecaptcha.execute('{% settings_value "RECAPTCHA_SITE_KEY" %}', {action: "{% url 'contact' %}",}).then(function (token) {$("#recaptcha_contact").val(token);$("#contactForm").submit();});} else {$("#contactForm").addClass("was-validated");}});}if ($("#recaptcha_join").length) {grecaptcha.execute('{% settings_value "RECAPTCHA_SITE_KEY" %}', {action: "/join/",}).then(function (token) {$("#recaptcha_join").val(token);});}if ($("#exampleModalpayment_error").length) {$("#exampleModalpayment_error_form").submit(function (e) {e.preventDefault();var serializedData = $("#exampleModalpayment_error_form").serialize();$.ajax({type: "POST",url: $(this).attr("action"),data: serializedData,}).done(function (html) {$("body").append(html);$("#exampleModal_subscription_issue").modal("show");$("#exampleModalpayment_error").modal("hide");});});}});</script>{% endblock javascript %}

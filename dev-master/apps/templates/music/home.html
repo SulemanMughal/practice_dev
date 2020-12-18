@@ -1,60 +1,12 @@
 {% extends 'Base.html' %} 
 {% load static humanize FindSubUser findNextYear findNextMonth FindCategoryPlanInfo %} 
 {% block content %} 
-  {% include 'music/home_stylesheet.html' %} 
-  {% if request.user.is_authenticated %} 
-    {% include 'modals/user_profile_successful_add_planprompt_modal.html' %} 
-    {% autoescape on %}
-      <script src="{% static 'music/js/plan_creation_select_plan_name.js' %}"></script>
-      <script src="{% static 'music/js/monthly_payment_line_update.js' %}"></script>
-    {% endautoescape %} 
-  {% endif %} 
-  {% include "music/home_top_section.html" %} 
-  {% include "music/home_plan_cards_section.html" %} 
-  {% include "music/calculator_section_v3.html" %} 
-  {% include "music/home_middle_v3.html" %}
-  {% include "music/home_faq_section.html" %} 
-  {% include "music/home_bottom_section.html" %} 
-  {% include "Landkit/footer.html" %} 
-  {% block javascript %} 
-  {% autoescape off %}
-  <script>
-    $(document).ready(function () {
-      var $grid = $("#portfolio").isotope({ layoutMode: "fitRows" });
-      $('[data-target="#portfolio"]').on("click", function () {
-        var i = $(this).attr("id");
-        if (i == "all") {
-          for (var j = 0; j < $(".plan_name").length; j++) {
-            $("#" + $($(".plan_name")[j]).attr("id") + "")
-              .addClass("d-none")
-              .hide()
-              .css("visibility", "none");
-          }
-        } else {
-          $("#btn_" + i + "").removeClass("d-none");
-          $("#btn_" + i + "").show();
-        }
-        var filterValue = $(this).attr("data-filter");
-        $grid.isotope({ filter: filterValue });
-      });
-      $("#id_category").on("change", function () {
-        var i = $('[data-target="plan_name"]');
-        for (var j = 0; j < i.length; j++) {
-          $(i[j]).hide();
-          $(i[j]).removeAttr("name", "plan_name");
-        }
-        $("#id_plan_name_" + $("#id_category :selected").attr("data-slug") + "")
-          .show()
-          .attr("name", "plan_name");
-        $("#id_category_invalid-feedback").hide();
-        $("#id_category").removeClass("border border-danger");
-      });
-    });
-  </script>
-
-
-
-
-  {% endautoescape %} 
-  {% endblock javascript %} 
-{% endblock content %}
+{% include 'music/home_stylesheet.html' %} 
+{% include "music/home_top_section.html" %} 
+{% include "music/home_plan_cards_section.html" %} 
+{% include "music/calculator_section_v3.html" %} 
+{% include "music/home_middle_v3.html" %}
+{% include "music/home_faq_section.html" %} 
+{% include "music/home_bottom_section.html" %} 
+{% include "Landkit/footer.html" %} 
+{% block javascript %}{% autoescape off %}<script>$(document).ready(function () {var $grid = $("#portfolio").isotope({ layoutMode: "fitRows" });$('[data-target="#portfolio"]').on("click", function () {var i = $(this).attr("id");if (i == "all") {for (var j = 0; j < $(".plan_name").length; j++) {$("#" + $($(".plan_name")[j]).attr("id") + "").addClass("d-none").hide().css("visibility", "none");}} else {$("#btn_" + i + "").removeClass("d-none");$("#btn_" + i + "").show();}var filterValue = $(this).attr("data-filter");$grid.isotope({ filter: filterValue });});$("#id_category").on("change", function () {var i = $('[data-target="plan_name"]');for (var j = 0; j < i.length; j++) {$(i[j]).hide();$(i[j]).removeAttr("name", "plan_name");}$("#id_plan_name_" + $("#id_category :selected").attr("data-slug") + "").show().attr("name", "plan_name");$("#id_category_invalid-feedback").hide();$("#id_category").removeClass("border border-danger");});});</script>{% endautoescape %}{% endblock javascript %}{% endblock content %}
