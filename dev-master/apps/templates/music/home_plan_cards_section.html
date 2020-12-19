@@ -79,12 +79,13 @@
 
 <!-- ! IPHONE AND IPADS DESIGNS -->
 <section class="d-lg-none bg-faq" style="background: linear-gradient(180deg, white 50%, #D0E6E3 50%);"  data-plan="all"  > 
-  <div class="main-carousel mx-0 px-0  mx-lg-14" id="portfolio-main-carousel-all"  data-flickity='{ "cellAlign": "left", "contain": true, "pageDots": false, "prevNextButtons": true, "cellSelector": ".carousel-cell" }' >
+  <!-- TODO ALL Sections -->
+  <div class="main-carousel mx-0 px-0  mx-lg-14 d-lg-none" id="portfolio-main-carousel-all" >
     {% for i in categories  %}
         {% if i.get_plans_not_on_leave %}
           {% for j in i.get_plans_not_on_leave %}
           {% with x=j.familySize y=j.currentFamilySize %}
-          <div class="carousel-cell" data-plan-card-id = "{{ i.slug }}">
+          <div class="carousel-cell"  data-plan-card-id = "{{ i.slug }}">
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg" >
             <div class="card p-0 shadow-light my-7 bg-white position-relative mx-md-10  rounded-lg border-radius-top-16  ">
             <div class="card-header align-items-center   {% if j.total_slots != 0 %} {% if j.category.Name == 'Verizon' %} bg-verizon-plan-card {% elif j.category.Name == 'T-Mobile' %} bg-T-Mobile-plan-card {% else %} bg-success {% endif %}  {% else %} bg-danger {% endif %} position-relative pt-2 px-2 rounded-lg border-radius-top-16  " style="min-height: 140px !important;" >
@@ -204,6 +205,7 @@
     <div class="carousel-cell d-none d-md-block d-lg-none">
     </div>
   </div>
+
 </section>
 
 {% endif %}
@@ -211,6 +213,113 @@
 <script>
 $(document).ready(function(){
   $("section[data-plan = 'all']").show();
+  var $mainFlickity = $('.main-carousel').flickity({
+  cellAlign: "left", 
+  contain: true, 
+  pageDots: false, 
+  prevNextButtons: true, 
+  cellSelector: ".carousel-cell",
+  wrapAround: true
+  // draggable: false
+});
+
+// All
+var $mainFlickity4 = $('.main-carousel').flickity({});
+// Verizon
+var $mainFlickityverizon = $('.main-carousel').flickity({});
+// T-Mobile
+var $mainFlickitytMobile = $('.main-carousel').flickity({});
+// AT&T
+var $mainFlickityt = $('.main-carousel').flickity({});
+
+
+// CASE-1 : ALL Filter is selected...
+$("#filter-option4").on("click", function(){
+  
+  $("div.carousel-cell").show().addClass("carousel-cell-all");
+  $("div.carousel-cell:last").show().addClass("carousel-cell-all");  
+  $mainFlickity.flickity("destroy");
+  $mainFlickityverizon.flickity("destroy");
+  $mainFlickitytMobile.flickity("destroy");
+$mainFlickityt.flickity("destroy");
+
+
+$mainFlickity4 = $('.main-carousel').flickity({
+  cellAlign: "left", 
+  contain: true, 
+  pageDots: false, 
+  prevNextButtons: true, 
+  cellSelector: ".carousel-cell-all",
+  wrapAround: true
+});
+
+$mainFlickity4.flickity('resize');
+$mainFlickity4.flickity( 'select', 1 );
+// $mainFlickity4.flickity( 'prepend', $(".carousel-cell.carousel-cell-all") );
+});
+
+// Filter Verizon is clicked...
+$("#filter-option1").on("click", function(){
+  $("div.carousel-cell").hide();
+  $("div.carousel-cell[data-plan-card-id='verizon']").show().addClass("active-cell-verizon");
+  $("div.carousel-cell:last").show().addClass("active-cell-verizon");
+  // $mainFlickity4.flickity('destroy');
+  $mainFlickity.flickity('destroy');
+$mainFlickitytMobile.flickity("destroy");
+$mainFlickityt.flickity("destroy");
+$mainFlickityverizon = $('.main-carousel').flickity({
+  cellAlign: "left", 
+  contain: true, 
+  pageDots: false, 
+  prevNextButtons: true, 
+  cellSelector: ".active-cell-verizon",
+  wrapAround: true
+});
+$mainFlickityverizon.flickity("resize");
+});
+
+
+// Filter T-Mobile is clicked...
+$("#filter-option2").on("click", function(){
+  $("div.carousel-cell").hide();
+  $("div.carousel-cell[data-plan-card-id='t-mobile']").show().addClass("active-cell-tMobile");
+  $("div.carousel-cell:last").show().addClass("active-cell-tMobile");
+  // $mainFlickity4.flickity('destroy');
+  $mainFlickity.flickity('destroy');
+$mainFlickityverizon.flickity("destroy");
+$mainFlickityt.flickity("destroy");
+$mainFlickitytMobile = $('.main-carousel').flickity({
+  cellAlign: "left", 
+  contain: true, 
+  pageDots: false, 
+  prevNextButtons: true, 
+  cellSelector: ".active-cell-tMobile",
+  wrapAround: true
+});
+$mainFlickitytMobile.flickity("resize");
+});
+
+
+// Filter AT&T is clicked...
+$("#filter-option3").on("click", function(){
+  $("div.carousel-cell").hide();
+  $("div.carousel-cell:last").show();
+  $("div.carousel-cell[data-plan-card-id='t']").show().addClass("active-cell-t");
+  $("div.carousel-cell:last").show().addClass("active-cell-t");
+  // $mainFlickity4.flickity('destroy');
+  $mainFlickity.flickity('destroy');
+  $mainFlickityverizon.flickity("destroy");
+  $mainFlickityt.flickity("resize");
+  $mainFlickityt = $('.main-carousel').flickity({
+  cellAlign: "left", 
+  contain: true, 
+  pageDots: false, 
+  prevNextButtons: true, 
+  cellSelector: ".active-cell-t",
+  wrapAround: true
+});
+$mainFlickityt.flickity("resize");
+});
 });
 </script>
 {% endautoescape %} 
