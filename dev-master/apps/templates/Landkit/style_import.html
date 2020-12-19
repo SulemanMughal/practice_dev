@@ -2,6 +2,7 @@
 
 {% if request.uesr.is_authenticated %}
   <link rel="stylesheet" href="{% static 'Landkit/css/feather.css' %}">
+  <link rel="stylesheet" href="{% static 'Landkit/css/jquery.fancybox.min.css'  %}">
   <link rel="stylesheet" href="{% static 'Landkit/css/main.css' %}" />
   <link rel="stylesheet" href="{% static 'music/css/bootstrap-select.css' %}" />
   <link rel="stylesheet" href="{% static 'Landkit/css/customize-main.css' %}" />
@@ -13,12 +14,15 @@
   {% if section_home %}
     <link rel="stylesheet" href="{% static 'Landkit/css/theme.min.css' %}" />
     <link rel="stylesheet" href="{% static 'Landkit/css/customize.css' %}" />
+    <link rel="stylesheet" href="{% static 'Landkit/css/jquery.fancybox.min.css'  %}">
+    <link rel="stylesheet" href="{% static 'Landkit/css/feather.css' %}">
     {% autoescape on %}
       <script src="{% static 'music/js/plan_creation_select_plan_name.js' %}" defer async></script>
     {% endautoescape %} 
     <script src="{% static 'music/js/calculator_slider.js' %}" type="text/javascript" defer async></script>
   {% else %}
     <link rel="stylesheet" href="{% static 'Landkit/css/feather.css' %}">
+    <link rel="stylesheet" href="{% static 'Landkit/css/jquery.fancybox.min.css'  %}">
     <link rel="stylesheet" href="{% static 'Landkit/css/main.css' %}" />
     <link rel="stylesheet" href="{% static 'music/css/bootstrap-select.css' %}" />
     <link rel="stylesheet" href="{% static 'Landkit/css/customize-main.css' %}" />
@@ -26,13 +30,14 @@
     <link rel="stylesheet" href="{% static 'music/css/bootstrap-datepicker.css' %}" />
     <script type="text/javascript" src="{% static 'music/js/bootstrap-select.js' %}" defer ></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/1.5.2/css/ionicons.min.css" />
+    
   {% endif %}
 {% endif %}
 <script type="text/javascript"  defer async  src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"  crossorigin="anonymous" ></script>
 <script type="text/javascript" src="{% static 'music/js/jquery-2.2.4.min.js' %}"></script>
 <script  type="text/javascript"  src="{% static 'Landkit/js/jquery.min.js' %} "  defer async ></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.1.0/flickity.pkgd.min.js" defer async></script>
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 <link rel="preconnect" href="https://fonts.gstatic.com" />
 <link  href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap"  rel="stylesheet"/>
 <link  href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"  rel="stylesheet" />
-<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">

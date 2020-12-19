@@ -79,12 +79,12 @@
 
 <!-- ! IPHONE AND IPADS DESIGNS -->
 <section class="d-lg-none bg-faq" style="background: linear-gradient(180deg, white 50%, #D0E6E3 50%);"  data-plan="all"  > 
-  <div class="main-carousel mx-0 px-0  mx-lg-14" id="portfolio-main-carousel-all"  data-flickity='{ "cellAlign": "left", "contain": true, "pageDots": false, "prevNextButtons": true }' >
+  <div class="main-carousel mx-0 px-0  mx-lg-14" id="portfolio-main-carousel-all"  data-flickity='{ "cellAlign": "left", "contain": true, "pageDots": false, "prevNextButtons": true, "cellSelector": ".carousel-cell" }' >
     {% for i in categories  %}
         {% if i.get_plans_not_on_leave %}
           {% for j in i.get_plans_not_on_leave %}
           {% with x=j.familySize y=j.currentFamilySize %}
-          <div class="carousel-cell">
+          <div class="carousel-cell" data-plan-card-id = "{{ i.slug }}">
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg" >
             <div class="card p-0 shadow-light my-7 bg-white position-relative mx-md-10  rounded-lg border-radius-top-16  ">
             <div class="card-header align-items-center   {% if j.total_slots != 0 %} {% if j.category.Name == 'Verizon' %} bg-verizon-plan-card {% elif j.category.Name == 'T-Mobile' %} bg-T-Mobile-plan-card {% else %} bg-success {% endif %}  {% else %} bg-danger {% endif %} position-relative pt-2 px-2 rounded-lg border-radius-top-16  " style="min-height: 140px !important;" >
