@@ -1,6 +1,8 @@
 {% load static  %}  
-<script src="{% static 'music/js/calculator_slider.js' %}" type="text/javascript" defer async></script>
-<section  class="pl-md-7 pb-10 pb-lg-n12 mt-n8 pt-0 pt-md-0  pt-lg-0 pl-lg-0 pr-lg-0  pr-0 mb-3 mb-md-0 mb-lg-n14 bg-shade-lighter-greenish bg-shade-white-pro-ipad bg-shade-lighter-greenish-pro-ipad-11-2018  bg-shade-white-pro-ipad-11-2018 bg-shade-white-lg ">
+<script>
+setTimeout(function (){var script = document.createElement("script");script.src = "{% static 'music/js/calculator_slider.js' %}";;script.async = true;script.defer = true;document.getElementsByTagName("head")[0].appendChild(script);}, 5000);
+</script>
+<section  class="pl-md-7 pb-10 pb-lg-n12 mt-n0 pt-0 pt-md-0  pt-lg-0 pl-lg-0 pr-lg-0  pr-0 mb-3 mb-md-0 mb-lg-n14 bg-shade-lighter-greenish bg-shade-white-pro-ipad bg-shade-lighter-greenish-pro-ipad-11-2018  bg-shade-white-pro-ipad-11-2018 bg-shade-white-lg ">
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-9">
@@ -136,8 +138,3 @@
         </div>
     </div>
 </section>
-{% block javascript %}
-<script>
-$(document).ready(function () {var $input = $('[name="totalcostAmount"]');$input.on("keyup", function (event) {var $this = $(this);var input = $this.val();var input = input.replace(/[\D\s\._\-]+/g, "");var split = 6;var chunk = [];for (var i = 0, len = input.length; i < len; i += split) {chunk.push(input.substr(i, split));}$this.val(function () {return chunk.join("-").toUpperCase();});});});
-</script>
-{% endblock javascript %}
