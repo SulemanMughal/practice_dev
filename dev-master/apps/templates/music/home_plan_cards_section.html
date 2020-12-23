@@ -85,100 +85,100 @@
         {% if i.get_plans_not_on_leave %}
           {% for j in i.get_plans_not_on_leave %}
           {% with x=j.familySize y=j.currentFamilySize %}
-          <div class="carousel-cell"  data-plan-card-id = "{{ i.slug }}">
-            <div class="col-12 col-md-6 col-lg-4 col-xl-3 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg" >
-            <div class="card p-0 shadow-light my-7 bg-white position-relative mx-md-10  rounded-lg border-radius-top-16  ">
-            <div class="card-header align-items-center   {% if j.total_slots != 0 %} {% if j.category.Name == 'Verizon' %} bg-verizon-plan-card {% elif j.category.Name == 'T-Mobile' %} bg-T-Mobile-plan-card {% else %} bg-success {% endif %}  {% else %} bg-danger {% endif %} position-relative pt-2 px-2 rounded-lg border-radius-top-16  " style="min-height: 140px !important;" >
-            {% if j.total_slots != 0 %}
-                <div class="row justify-content-center mx-auto text-center"  >
-                    <span class="h2 mb-1 text-white font-weight-bolder mx-auto">
-                        {{ j.category.Name }} - {{ j.id|FindCategoryPlanInfo }} 
-                    </span>
-                </div>
-            {% endif %}
-            <div class="row justify-content-center text-white "  {%  if j.total_slots == 0   %} style="margin-top:30x !important ;" {% endif %}>
-              {%  if j.total_slots != 0   %}
-              <span class="h2 mb-0 mt-2 font-weight-bolder" >+</span>
-              {% endif %}                
-              
-              {%  if j.total_slots != 0   %}
-              <span class="price h2  mb-0 font-weight-bold mt-2 mr-2" data-annual="0" data-monthly="0">
-                  {{ j.total_slots }}
-              </span>
-              {% else %}
-              <span class="price display-2 mb-0 font-weight-bold my-3 mx-auto" data-annual="0" data-monthly="0">
-                  FULL 
-              </span>
-               {% endif %}
-              {%  if j.total_slots != 0   %}
-              <span class="h2 price  mt-2 font-weight-bold">Spots Left</span>
+            <div class="carousel-cell"  data-plan-card-id = "{{ i.slug }}">
+              <div class="col-12 col-md-6 col-lg-4 col-xl-3 min-width-xs max-width-xs min-width-google  max-width-google  min-width-sm  max-width-sm min-width-lg max-width-lg" >
+              <div class="card p-0 shadow-light my-7 bg-white position-relative mx-md-10  rounded-lg border-radius-top-16  ">
+              <div class="card-header align-items-center   {% if j.total_slots != 0 %} {% if j.category.Name == 'Verizon' %} bg-verizon-plan-card {% elif j.category.Name == 'T-Mobile' %} bg-T-Mobile-plan-card {% else %} bg-success {% endif %}  {% else %} bg-danger {% endif %} position-relative pt-2 px-2 rounded-lg border-radius-top-16  " style="min-height: 140px !important;" >
+              {% if j.total_slots != 0 %}
+                  <div class="row justify-content-center mx-auto text-center"  >
+                      <span class="h2 mb-1 text-white font-weight-bolder mx-auto">
+                          {{ j.category.Name }} - {{ j.id|FindCategoryPlanInfo }} 
+                      </span>
+                  </div>
               {% endif %}
+              <div class="row justify-content-center text-white "  {%  if j.total_slots == 0   %} style="margin-top:30x !important ;" {% endif %}>
+                {%  if j.total_slots != 0   %}
+                <span class="h2 mb-0 mt-2 font-weight-bolder" >+</span>
+                {% endif %}                
+                
+                {%  if j.total_slots != 0   %}
+                <span class="price h2  mb-0 font-weight-bold mt-2 mr-2" data-annual="0" data-monthly="0">
+                    {{ j.total_slots }}
+                </span>
+                {% else %}
+                <span class="price display-2 mb-0 font-weight-bold my-3 mx-auto" data-annual="0" data-monthly="0">
+                    FULL 
+                </span>
+                {% endif %}
+                {%  if j.total_slots != 0   %}
+                <span class="h2 price  mt-2 font-weight-bold">Spots Left</span>
+                {% endif %}
+                </div>
+              </div>
+              <div class="card-body text-left mb-7">
+                <div class="position-relative text-right mt-n8 mr-n6 mb-3">
+                  <span class="badge   {% if  j.total_slots != 0 %} {% if j.category.Name == 'Verizon' %} badge-Verizon-bg {% elif j.category.Name == 'T-Mobile' %} badge-T-Mobile-bg {% else %} badge-danger {% endif %} {% else %} bg-Puerto-Rico {% endif %}">
+                  <span class="h5 text-uppercase font-weight-bolder">    
+                    {% if  j.get_category_average_switch_value %}
+                      ${{ j.get_category_plan_value_for_subscription|floatformat:2|intcomma  }}/MO
+                    {% else %}
+                      ${{ j.id|FindPlanFixedPrice|floatformat:2|intcomma }}/MO
+                    {% endif %}
+                </span>
+                  </span>
+                  </div>
+              <div class=" justify-content-left text-left mt-7 media position-relative align-items-center">
+              <img src="{% static 'Landkit/images/Plan/1.png' %}" style="width:30px;" class="mr-3" loading="lazy"  alt="plan image">
+              <div class="media-body"><span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"1" }}</span></div>
+              </div>
+              <div class="justify-content-left text-left mt-1 media position-relative align-items-center">
+              <img src="{% static 'Landkit/images/Plan/2.png' %}" style="width:30px;" class="mr-3  plan-2-png" loading="lazy"  alt="plan image">
+              <div class="media-body">
+              <span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"2" }}</span>
+              </div>
+              </div>
+              <div class="justify-content-left text-left mt-1 media position-relative align-items-center">
+              <img src="{% static 'Landkit/images/Plan/3.png' %}" style="width:30px;" class="mr-3" loading="lazy"  alt="plan image">
+              <div class="media-body">
+              <span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"3" }}</span>
+              </div> 
+              </div>
+              <div class="justify-content-left text-left mt-1 media position-relative align-items-center">
+              <img src="{% static 'Landkit/images/Plan/4.png' %}" style="width:30px;" class="mr-3" loading="lazy"  alt="plan image">
+              <div class="media-body">
+              <span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"4" }}</span>
+              </div>
+              </div>
+              <div class=" justify-content-left text-left mt-1     media position-relative align-items-center">
+              <img src="{% static 'Landkit/images/Plan/5.png' %}" style="width:30px;"  class="mr-3" loading="lazy"  alt="plan image">
+              <div class="media-body">
+              <span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"5" }}</span>
+              </div>  
+              </div>
+              </div>
+              <div class="card-footer m-0 text-left pt-lg-10 " style="position: absolute; bottom: -10px;">
+                  <div class="row">
+                      <div class="col">
+                          {%  if j.total_slots != 0   %}
+                              <a class="h6 font-size-sm btn-link btn btn-lighter-greenish text-uppercase text-decoration-none p-1 pl-3 pr-3" href="{% url 'Join' i.id j.id %}" target="_blank" style="font-size: 0.8rem !important;">More Details </a>
+                          {% else %} 
+                              <a  href="#!" class="btn-link btn btn-lighter-greenish text-uppercase text-decoration-none p-2 pl-3 pr-3">FULL</a>
+                          {% endif %}
+                      </div>
+                      
+                      {% if j.linkWeb.stripe != "" and  "youtube" not in  j.linkWeb.stripe %}
+                      <div class="col-2" >
+                          <a class="btn btn-round btn-lighter-greenish p-2 pl-3 pr-3 text-decoration-none" data-src='"{{ j.linkWeb }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen'
+                          href='javascript:;' target="_blank" data-fancybox>
+                              <i class="fab fa-youtube"></i>
+                          </a>
+                      </div>
+                      {% endif %}
+                  </div>
+              </div>
+              </div>
               </div>
             </div>
-            <div class="card-body text-left mb-7">
-              <div class="position-relative text-right mt-n8 mr-n6 mb-3">
-                <span class="badge   {% if  j.total_slots != 0 %} {% if j.category.Name == 'Verizon' %} badge-Verizon-bg {% elif j.category.Name == 'T-Mobile' %} badge-T-Mobile-bg {% else %} badge-danger {% endif %} {% else %} bg-Puerto-Rico {% endif %}">
-                <span class="h5 text-uppercase font-weight-bolder">    
-                  {% if  j.get_category_average_switch_value %}
-                    ${{ j.get_category_plan_value_for_subscription|floatformat:2|intcomma  }}/MO
-                  {% else %}
-                    ${{ j.id|FindPlanFixedPrice|floatformat:2|intcomma }}/MO
-                  {% endif %}
-              </span>
-                </span>
-                </div>
-            <div class=" justify-content-left text-left mt-7 media position-relative align-items-center">
-            <img src="{% static 'Landkit/images/Plan/1.png' %}" style="width:30px;" class="mr-3" loading="lazy"  alt="plan image">
-            <div class="media-body"><span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"1" }}</span></div>
-            </div>
-            <div class="justify-content-left text-left mt-1 media position-relative align-items-center">
-            <img src="{% static 'Landkit/images/Plan/2.png' %}" style="width:30px;" class="mr-3  plan-2-png" loading="lazy"  alt="plan image">
-            <div class="media-body">
-            <span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"2" }}</span>
-            </div>
-            </div>
-            <div class="justify-content-left text-left mt-1 media position-relative align-items-center">
-            <img src="{% static 'Landkit/images/Plan/3.png' %}" style="width:30px;" class="mr-3" loading="lazy"  alt="plan image">
-            <div class="media-body">
-            <span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"3" }}</span>
-            </div> 
-            </div>
-            <div class="justify-content-left text-left mt-1 media position-relative align-items-center">
-            <img src="{% static 'Landkit/images/Plan/4.png' %}" style="width:30px;" class="mr-3" loading="lazy"  alt="plan image">
-            <div class="media-body">
-            <span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"4" }}</span>
-            </div>
-            </div>
-            <div class=" justify-content-left text-left mt-1     media position-relative align-items-center">
-            <img src="{% static 'Landkit/images/Plan/5.png' %}" style="width:30px;"  class="mr-3" loading="lazy"  alt="plan image">
-            <div class="media-body">
-            <span class="h6 align-self-start mt-1">{{ j.id|FindCategoryPlanInfo:"5" }}</span>
-            </div>  
-            </div>
-            </div>
-            <div class="card-footer m-0 text-left pt-lg-10 " style="position: absolute; bottom: -10px;">
-                <div class="row">
-                    <div class="col">
-                        {%  if j.total_slots != 0   %}
-                            <a class="h6 font-size-sm btn-link btn btn-lighter-greenish text-uppercase text-decoration-none p-1 pl-3 pr-3" href="{% url 'Join' i.id j.id %}" target="_blank" style="font-size: 0.8rem !important;">More Details </a>
-                        {% else %} 
-                            <a  href="#!" class="btn-link btn btn-lighter-greenish text-uppercase text-decoration-none p-2 pl-3 pr-3">FULL</a>
-                        {% endif %}
-                    </div>
-                    
-                    {% if j.linkWeb.stripe != "" and  "youtube" not in  j.linkWeb.stripe %}
-                    <div class="col-2" >
-                        <a class="btn btn-round btn-lighter-greenish p-2 pl-3 pr-3 text-decoration-none" data-src='"{{ j.linkWeb }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen'
-                        href='javascript:;' target="_blank" data-fancybox>
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
-                    {% endif %}
-                </div>
-            </div>
-            </div>
-            </div>
-          </div>
           {% endwith %}
           {% endfor %}
         {% endif %}
@@ -199,11 +199,11 @@
                     </div>
                   </div>
             </div>
-          </div>   
+          </div>
         {% endif %}
     {% endfor %}
-    <div class="carousel-cell d-none d-md-block d-lg-none">
-    </div>
+      <div class="carousel-cell d-none d-md-block d-lg-none">
+      </div>
   </div>
 
 </section>
@@ -219,7 +219,7 @@ $(document).ready(function(){
   pageDots: false, 
   prevNextButtons: true, 
   cellSelector: ".carousel-cell",
-  wrapAround: true
+  // wrapAround: trues
   // draggable: false
 });
 
@@ -232,7 +232,6 @@ var $mainFlickitytMobile = $('.main-carousel').flickity({});
 // AT&T
 var $mainFlickityt = $('.main-carousel').flickity({});
 
-
 // CASE-1 : ALL Filter is selected...
 $("#filter-option4").on("click", function(){
   
@@ -241,21 +240,21 @@ $("#filter-option4").on("click", function(){
   $mainFlickity.flickity("destroy");
   $mainFlickityverizon.flickity("destroy");
   $mainFlickitytMobile.flickity("destroy");
-$mainFlickityt.flickity("destroy");
-$mainFlickity4 = $('.main-carousel').flickity({ cellAlign: "left",  contain: true,  pageDots: false,  prevNextButtons: true,  cellSelector: ".carousel-cell-all", wrapAround: true });
-$mainFlickity4.flickity('resize'); $mainFlickity4.flickity( 'select', 1 ); });
+  $mainFlickityt.flickity("destroy");
+  $mainFlickity4 = $('.main-carousel').flickity({ cellAlign: "left",  contain: true,  pageDots: false,  prevNextButtons: true,  cellSelector: ".carousel-cell-all", wrapAround: true });
+  $mainFlickity4.flickity('resize'); $mainFlickity4.flickity( 'select', 1 ); 
+});
 
 // Filter Verizon is clicked...
 $("#filter-option1").on("click", function(){
   $("div.carousel-cell").hide();
   $("div.carousel-cell[data-plan-card-id='verizon']").show().addClass("active-cell-verizon");
   $("div.carousel-cell:last").show().addClass("active-cell-verizon");
-  // $mainFlickity4.flickity('destroy');
   $mainFlickity.flickity('destroy');
-$mainFlickitytMobile.flickity("destroy");
-$mainFlickityt.flickity("destroy");
-$mainFlickityverizon = $('.main-carousel').flickity({ cellAlign: "left",  contain: true,  pageDots: false,  prevNextButtons: true,  cellSelector: ".active-cell-verizon", wrapAround: true });
-$mainFlickityverizon.flickity("resize");
+  $mainFlickitytMobile.flickity("destroy");
+  $mainFlickityt.flickity("destroy");
+  $mainFlickityverizon = $('.main-carousel').flickity({ cellAlign: "left",  contain: true,  pageDots: false,  prevNextButtons: true,  cellSelector: ".active-cell-verizon", wrapAround: true });
+  $mainFlickityverizon.flickity("resize");
 });
 
 // Filter T-Mobile is clicked...
@@ -263,13 +262,12 @@ $("#filter-option2").on("click", function(){
   $("div.carousel-cell").hide();
   $("div.carousel-cell[data-plan-card-id='t-mobile']").show().addClass("active-cell-tMobile");
   $("div.carousel-cell:last").show().addClass("active-cell-tMobile");
-  // $mainFlickity4.flickity('destroy');
   $mainFlickity.flickity('destroy');
-$mainFlickityverizon.flickity("destroy");
-$mainFlickityt.flickity("destroy");
-$mainFlickitytMobile = $('.main-carousel').flickity({ cellAlign: "left",  contain: true,  pageDots: false,  prevNextButtons: true,  cellSelector: ".active-cell-tMobile", wrapAround: true
-});
-$mainFlickitytMobile.flickity("resize");
+  $mainFlickityverizon.flickity("destroy");
+  $mainFlickityt.flickity("destroy");
+  $mainFlickitytMobile = $('.main-carousel').flickity({ cellAlign: "left",  contain: true,  pageDots: false,  prevNextButtons: true,  cellSelector: ".active-cell-tMobile", wrapAround: true
+  });
+  $mainFlickitytMobile.flickity("resize");
 });
 
 
@@ -279,7 +277,6 @@ $("#filter-option3").on("click", function(){
   $("div.carousel-cell:last").show();
   $("div.carousel-cell[data-plan-card-id='t']").show().addClass("active-cell-t");
   $("div.carousel-cell:last").show().addClass("active-cell-t");
-  // $mainFlickity4.flickity('destroy');
   $mainFlickity.flickity('destroy');
   $mainFlickityverizon.flickity("destroy");
   $mainFlickityt.flickity("resize");
