@@ -242,21 +242,8 @@ $("#filter-option4").on("click", function(){
   $mainFlickityverizon.flickity("destroy");
   $mainFlickitytMobile.flickity("destroy");
 $mainFlickityt.flickity("destroy");
-
-
-$mainFlickity4 = $('.main-carousel').flickity({
-  cellAlign: "left", 
-  contain: true, 
-  pageDots: false, 
-  prevNextButtons: true, 
-  cellSelector: ".carousel-cell-all",
-  wrapAround: true
-});
-
-$mainFlickity4.flickity('resize');
-$mainFlickity4.flickity( 'select', 1 );
-// $mainFlickity4.flickity( 'prepend', $(".carousel-cell.carousel-cell-all") );
-});
+$mainFlickity4 = $('.main-carousel').flickity({ cellAlign: "left",  contain: true,  pageDots: false,  prevNextButtons: true,  cellSelector: ".carousel-cell-all", wrapAround: true });
+$mainFlickity4.flickity('resize'); $mainFlickity4.flickity( 'select', 1 ); });
 
 // Filter Verizon is clicked...
 $("#filter-option1").on("click", function(){
@@ -267,17 +254,9 @@ $("#filter-option1").on("click", function(){
   $mainFlickity.flickity('destroy');
 $mainFlickitytMobile.flickity("destroy");
 $mainFlickityt.flickity("destroy");
-$mainFlickityverizon = $('.main-carousel').flickity({
-  cellAlign: "left", 
-  contain: true, 
-  pageDots: false, 
-  prevNextButtons: true, 
-  cellSelector: ".active-cell-verizon",
-  wrapAround: true
-});
+$mainFlickityverizon = $('.main-carousel').flickity({ cellAlign: "left",  contain: true,  pageDots: false,  prevNextButtons: true,  cellSelector: ".active-cell-verizon", wrapAround: true });
 $mainFlickityverizon.flickity("resize");
 });
-
 
 // Filter T-Mobile is clicked...
 $("#filter-option2").on("click", function(){
@@ -288,13 +267,7 @@ $("#filter-option2").on("click", function(){
   $mainFlickity.flickity('destroy');
 $mainFlickityverizon.flickity("destroy");
 $mainFlickityt.flickity("destroy");
-$mainFlickitytMobile = $('.main-carousel').flickity({
-  cellAlign: "left", 
-  contain: true, 
-  pageDots: false, 
-  prevNextButtons: true, 
-  cellSelector: ".active-cell-tMobile",
-  wrapAround: true
+$mainFlickitytMobile = $('.main-carousel').flickity({ cellAlign: "left",  contain: true,  pageDots: false,  prevNextButtons: true,  cellSelector: ".active-cell-tMobile", wrapAround: true
 });
 $mainFlickitytMobile.flickity("resize");
 });
@@ -310,13 +283,7 @@ $("#filter-option3").on("click", function(){
   $mainFlickity.flickity('destroy');
   $mainFlickityverizon.flickity("destroy");
   $mainFlickityt.flickity("resize");
-  $mainFlickityt = $('.main-carousel').flickity({
-  cellAlign: "left", 
-  contain: true, 
-  pageDots: false, 
-  prevNextButtons: true, 
-  cellSelector: ".active-cell-t",
-  wrapAround: true
+  $mainFlickityt = $('.main-carousel').flickity({ cellAlign: "left",  contain: true,  pageDots: false,  prevNextButtons: true,  cellSelector: ".active-cell-t", wrapAround: true
 });
 $mainFlickityt.flickity("resize");
 });
