@@ -1,5 +1,7 @@
 {% load static %}
 
+<script type="text/javascript" src="{% static 'music/js/jquery-2.2.4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'Landkit/js/jquery.min.js' %} "  defer async ></script>
 {% if request.uesr.is_authenticated %}
   <link rel="stylesheet" href="{% static 'Landkit/css/feather.css' %}">
   <link rel="stylesheet" href="{% static 'Landkit/css/jquery.fancybox.min.css'  %}">
@@ -29,7 +31,7 @@
     <link rel="stylesheet" href="{% static 'Landkit/css/feather.css' %}">
     <link rel="stylesheet" href="{% static 'Landkit/css/jquery.fancybox.min.css'  %}">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.1.0/flickity.pkgd.min.js" defer async></script>
-  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="{% static 'Landkit/css/main.css' %}" />
     <link rel="stylesheet" href="{% static 'music/css/bootstrap-select.css' %}" />
     <link rel="stylesheet" href="{% static 'Landkit/css/customize-main.css' %}" />
@@ -39,6 +41,4 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/1.5.2/css/ionicons.min.css" />
   {% endif %}
 {% endif %}
-<script type="text/javascript" src="{% static 'music/js/jquery-2.2.4.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'Landkit/js/jquery.min.js' %} "  defer async ></script>
 <script type="text/javascript" src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" defer async></script>
