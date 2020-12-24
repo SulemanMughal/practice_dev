@@ -1,7 +1,6 @@
 {% load static %}
 
 <script type="text/javascript" src="{% static 'music/js/jquery-2.2.4.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'Landkit/js/jquery.min.js' %} "  defer async ></script>
 {% if request.uesr.is_authenticated %}
   <link rel="stylesheet" href="{% static 'Landkit/css/feather.css' %}">
   <link rel="stylesheet" href="{% static 'Landkit/css/jquery.fancybox.min.css'  %}">
@@ -16,6 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/1.5.2/css/ionicons.min.css" />
 {% else %}
   {% if section_home %}
+  
     <link rel="stylesheet" href="{% static 'Landkit/css/jquery.fancybox.min.css'  %}">
     <link rel="stylesheet" href="{% static 'Landkit/css/flickity-fade.css' %}">
     <link rel="stylesheet" href="{% static 'Landkit/css/flickity.min.css' %}">
