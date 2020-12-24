@@ -14,12 +14,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/1.5.2/css/ionicons.min.css" />
 {% else %}
   {% if section_home %}
-  <link rel="stylesheet" href="{% static 'Landkit/css/feather.css' %}">  
-  <link rel="stylesheet" href="{% static 'Landkit/css/jquery.fancybox.min.css'  %}">
-  <link rel="stylesheet" href="{% static 'Landkit/css/flickity-fade.css' %}">
-  <link rel="stylesheet" href="{% static 'Landkit/css/flickity.min.css' %}">
-  <link rel="stylesheet" href="{% static 'Landkit/css/main.css' %}" />
-  <link rel="stylesheet" href="{% static 'Landkit/css/customize.css' %}" />
+    <link rel="stylesheet" href="{% static 'Landkit/css/feather.css' %}">  
+    <link rel="stylesheet" href="{% static 'Landkit/css/jquery.fancybox.min.css'  %}">
+    <link rel="stylesheet" href="{% static 'Landkit/css/flickity-fade.css' %}">
+    <link rel="stylesheet" href="{% static 'Landkit/css/flickity.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Landkit/css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'Landkit/css/customize.css' %}" />
+    <link rel="stylesheet" href="{% static 'Landkit/css/home_stylesheet.css' %}" />
     {% autoescape on %}
       <script src="{% static 'music/js/plan_creation_select_plan_name.js' %}" defer async></script>
     {% endautoescape %} 
@@ -39,5 +40,5 @@
   {% endif %}
 {% endif %}
 <script type="text/javascript" src="{% static 'music/js/jquery-2.2.4.min.js' %}"></script>
-<script  type="text/javascript"  src="{% static 'Landkit/js/jquery.min.js' %} "  defer async ></script>
-<script src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script>
+<script type="text/javascript" src="{% static 'Landkit/js/jquery.min.js' %} "  defer async ></script>
+<script type="text/javascript" src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" defer async></script>
